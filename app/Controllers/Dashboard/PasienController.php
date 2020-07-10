@@ -4,11 +4,11 @@ namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
 
-class DashboardController extends BaseController
+class PasienController extends BaseController
 {
     public function index()
     {
-        return view('Dashboard/pasien');
+        return view('Tables/pasien');
     }
 
     //--------------------------------------------------------------------

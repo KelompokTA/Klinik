@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Simple Tables</title>
+    <title>Klinik | Laporan</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -14,7 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -241,31 +241,31 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link active">
+                                    <a href="<?= base_url('pasien'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pasien</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link">
+                                    <a href="<?= base_url('dokter'); ?>" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dokter</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../tables/data.html" class="nav-link">
+                                    <a href="<?= base_url('farmasi'); ?>" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Farmasi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../tables/jsgrid.html" class="nav-link">
+                                    <a href="<?= base_url('user'); ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>User</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../tables/simple.html" class="nav-link">
+                                    <a href="<?= base_url('laporan'); ?>" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan</p>
                                     </a>
@@ -303,9 +303,9 @@
     <!-- Bootstrap 4 -->
     <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
     <!-- AdminLTE App -->
-    <script src="<?= base_url('assets/dist/js/adminlte.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/adminlte.min.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="<?= base_url('assets/dist/js/demo.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
 </body>
 
 </html>

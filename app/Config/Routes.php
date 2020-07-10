@@ -33,7 +33,11 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'HomeController::index');
 $routes->get('/login', 'LoginController::index');
 
-$routes->get('/dashboard', 'Dashboard\DashboardController::index');
+$routes->get('/pasien', 'Dashboard\PasienController::index');
+$routes->get('/dokter', 'Dashboard\DokterController::index');
+$routes->get('/farmasi', 'Dashboard\FarmasiController::index');
+$routes->get('/user', 'Dashboard\UserController::index');
+$routes->get('/laporan', 'Dashboard\LaporanController::index');
 
 /**
  * --------------------------------------------------------------------

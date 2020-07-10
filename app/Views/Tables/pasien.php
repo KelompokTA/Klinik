@@ -1,4 +1,4 @@
-<?= $this->extend('Layout/Dashboard'); ?>
+<?= $this->extend('Layout/Dashboard/Pasien'); ?>
 
 <?= $this->section('content'); ?>
 <!-- Content Wrapper. Contains page content -->

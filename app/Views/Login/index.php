@@ -24,7 +24,7 @@
                     <button class="login100-form-btn">
                         Login
                     </button>
-                    <a class="login100-form-btn" href="<?= base_url('dashboard') ?>">Dashboard</a>
+                    <a class="login100-form-btn" href="<?= base_url('pasien') ?>">Dashboard</a>
                 </div>
                 <div class="container-login100-form-btn m-t-30">
                     <a class="login100-form-btn" href="<?= base_url('/') ?>">Kembali</a>
