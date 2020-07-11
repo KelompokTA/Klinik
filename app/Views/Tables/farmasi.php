@@ -1,4 +1,4 @@
-<?= $this->extend('Layout/Dashboard/Farmasi'); ?>
+<?= $this->extend('Layout/Tables/Farmasi'); ?>
 
 <?= $this->section('content'); ?>
 <!-- Content Wrapper. Contains page content -->

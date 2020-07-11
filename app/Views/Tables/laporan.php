@@ -1,4 +1,4 @@
-<?= $this->extend('Layout/Dashboard/Laporan'); ?>
+<?= $this->extend('Layout/Tables/Laporan'); ?>
 
 <?= $this->section('content'); ?>
 <!-- Content Wrapper. Contains page content -->

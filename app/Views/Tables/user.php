@@ -1,4 +1,4 @@
-<?= $this->extend('Layout/Dashboard/User'); ?>
+<?= $this->extend('Layout/Tables/User'); ?>
 
 <?= $this->section('content'); ?>
 <!-- Content Wrapper. Contains page content -->
