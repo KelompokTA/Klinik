@@ -9,7 +9,7 @@ class AdminController extends BaseController
 {
     public function index()
     {
-        return view('Dashboard/admin');
+        return view('Admin/adminDashboard');
     }
 
     public function pasien()
