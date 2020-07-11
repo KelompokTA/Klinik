@@ -40,7 +40,7 @@ $routes->get('/login', 'LoginController::index');
 $routes->get('/admin', 'Dashboard\AdminController::index');
 //table
 $routes->get('/pasien', 'Dashboard\AdminController::pasien');
-$routes->get('/dokter', 'Dashboard\DokterController::index');
+$routes->get('/dokter', 'Dashboard\AdminController::dokter');
 $routes->get('/farmasi', 'Dashboard\FarmasiController::index');
 $routes->get('/user', 'Dashboard\UserController::index');
 $routes->get('/laporan', 'Dashboard\LaporanController::index');
