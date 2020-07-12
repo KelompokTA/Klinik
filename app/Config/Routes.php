@@ -36,16 +36,22 @@ $routes->get('/', 'HomeController::index');
 //Login
 $routes->get('/login', 'LoginController::index');
 
+//ADMIN
 //Dashboard
 $routes->get('/admin', 'Dashboard\AdminController::index');
 //table
 $routes->get('/pasien', 'Dashboard\AdminController::pasien');
-$routes->get('/dokter', 'Dashboard\AdminController::dokter');
+$routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/farmasi', 'Dashboard\FarmasiController::index');
 $routes->get('/user', 'Dashboard\UserController::index');
 $routes->get('/laporan', 'Dashboard\LaporanController::index');
 //forms
 $routes->get('/tambah_pasien', 'Dashboard\PasienController::tambah_pasien');
+
+
+//DOKTER
+//Dashboard
+$routes->get('/dokter', 'Dashboard\DokterController::index');
 
 /**
  * --------------------------------------------------------------------

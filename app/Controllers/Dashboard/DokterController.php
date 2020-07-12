@@ -8,7 +8,7 @@ class DokterController extends BaseController
 {
     public function index()
     {
-        return view('Tables/dokter');
+        return view('Dokter/dokterDashboard');
     }
 
     //--------------------------------------------------------------------
