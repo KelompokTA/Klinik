@@ -22,4 +22,13 @@ class AdminController extends BaseController
         return view('Admin/TablesAdmin/dokter');
     }
 
+    public function obat()
+    {
+        return view('Admin/TablesAdmin/obat');
+    }
+
+    public function admin()
+    {
+        return view('Admin/TablesAdmin/admin');
+    }
 }

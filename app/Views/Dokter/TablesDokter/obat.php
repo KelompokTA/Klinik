@@ -45,97 +45,29 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i></i>
-                                <p>
-                                    Pasien
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="../forms/general.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>General Elements</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Pasien</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Surat Rujukan</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i></i>
-                                <p>
-                                    Dokter
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="../forms/advanced.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Advanced Elements</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Dokter</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>...</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i></i>
-                                <p>
-                                    Admin
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="../forms/editors.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Editors</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Admin</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>...</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i></i>
-                                <p>
-                                    Transaksi
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="../forms/validation.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Validation</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Pembayaran</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>...</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -149,21 +81,27 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('pasien'); ?>" class="nav-link  active">
+                            <a href="<?= base_url('pasien'); ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pasien</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('dokter'); ?>" class="nav-link ">
+                            <a href="<?= base_url('dokter'); ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dokter</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin'); ?>" class="nav-link">
+                            <a href="<?= base_url('farmasi'); ?>" class="nav-link active ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Admin</p>
+                                <p>Obat</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('user'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>User</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -188,7 +126,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Laporan</h1>
+                    <h1>Obat</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -208,7 +146,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan</h3>
+                            <h3 class="card-title">Data Obat</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
