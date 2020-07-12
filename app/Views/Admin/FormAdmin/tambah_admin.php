@@ -46,16 +46,17 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class=" fas fa-bed"></i>
                                 <p>
                                     Pasien
-                                    <i class=" fas fa-bed"></i>
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="tambahPasien" class="nav-link active">
+                                    <a href="tambahPasien" class="nav-link">
                                         <i class="fa fa-plus"></i>
                                         <p>Tambah Pasien</p>
                                     </a>
@@ -69,13 +70,13 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="pendaftaran" class="nav-link">
+                            <a href="pendaftaran" class="nav-link ">
                                 <i class="fa fa-plus"></i>
                                 <p>Pendaftaran</p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="tambahDokter" class="nav-link">
+                            <a href="tambahDokter" class="nav-link ">
                                 <i class="fa fa-plus"></i>
                                 <p>
                                     Tambah Dokter
@@ -83,7 +84,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="tambahAdmin" class="nav-link">
+                            <a href="tambahAdmin" class="nav-link active">
                                 <i class="fa fa-plus"></i>
                                 <p>
                                     Tambah Admin
@@ -91,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="pembayaran" class="nav-link">
+                            <a href="pembayaran" class="nav-link ">
                                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                                 <p>
                                     Pembayaran
@@ -150,7 +151,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Pasien</h1>
+                    <h1>Tambah Admin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

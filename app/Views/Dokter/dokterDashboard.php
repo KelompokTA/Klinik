@@ -151,8 +151,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview">
-
-                    <a href="<?= base_url('admin') ?>" class="nav-link active">
+                    <a href="<?= base_url('dokter') ?>" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
