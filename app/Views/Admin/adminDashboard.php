@@ -241,29 +241,6 @@
               <a href="#" class="nav-link">
                 <i></i>
                 <p>
-                  Obat
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Tambah Obat</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>...</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i></i>
-                <p>
                   Transaksi
                   <i class="fas fa-angle-left right"></i>
                 </p>
@@ -295,37 +272,25 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= base_url('pasien');?>" class="nav-link">
+              <a href="<?= base_url('pasien'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Pasien</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/tables/data.html" class="nav-link">
+              <a href="<?= base_url('dokter'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Dokter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/tables/jsgrid.html" class="nav-link">
+              <a href="<?= base_url('admin'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Admin</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/tables/jsgrid.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Obat</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/tables/jsgrid.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Riwayat</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/tables/jsgrid.html" class="nav-link">
+              <a href="<?= base_url('laporan'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Laporan</p>
               </a>
