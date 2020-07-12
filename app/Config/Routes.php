@@ -40,13 +40,18 @@ $routes->get('/login', 'LoginController::index');
 //ADMIN
 //Dashboard
 $routes->get('/admin', 'Dashboard\AdminController::index');
-//tables
+//table
 $routes->get('/pasienAdmin', 'Dashboard\AdminController::pasien');
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 //forms
-$routes->get('/tambah_pasien', 'Dashboard\PasienController::tambah_pasien');
+$routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
+$routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
+$routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
+$routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
+$routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
+$routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
 //DOKTER
 //Dashboard

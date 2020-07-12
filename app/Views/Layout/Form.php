@@ -140,7 +140,6 @@
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
 
         <?= $this->renderSection('content') ?>
 

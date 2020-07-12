@@ -170,7 +170,7 @@
           <ul class="nav nav-treeview">
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i></i>
+                <i class="fas fa-bed"></i>
                 <p>
                   Pasien
                   <i class="fas fa-angle-left right"></i>
@@ -178,87 +178,48 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <a href="tambahPasien" class="nav-link">
+                    <i class="fa fa-plus"></i>
                     <p>Tambah Pasien</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                  <a href="suratRujukan" class="nav-link">
+                    <i class="fa fa-paper-plane"></i>
                     <p>Surat Rujukan</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i></i>
-                <p>
-                  Dokter
-                  <i class="fas fa-angle-left right"></i>
-                </p>
+            <li class="nav-item">
+              <a href="pendaftaran" class="nav-link">
+                <i class="fa fa-plus"></i>
+                <p>Pendaftaran</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Tambah Dokter</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>...</p>
-                  </a>
-                </li>
-              </ul>
             </li>
             <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i></i>
+              <a href="tambahDokter" class="nav-link">
+                <i class="fa fa-plus"></i>
                 <p>
-                  Admin
-                  <i class="fas fa-angle-left right"></i>
+                  Tambah Dokter
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Tambah Admin</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>...</p>
-                  </a>
-                </li>
-              </ul>
             </li>
             <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i></i>
+              <a href="tambahAdmin" class="nav-link">
+                <i class="fa fa-plus"></i>
                 <p>
-                  Transaksi
-                  <i class="fas fa-angle-left right"></i>
+                  Tambah Admin
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pembayaran</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="pages/forms/general.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>...</p>
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="pembayaran" class="nav-link">
+                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                <p>
+                  Pembayaran
+                </p>
+              </a>
             </li>
           </ul>
         </li>
@@ -272,26 +233,26 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <a href="pasienAdmin" class="nav-link">
+                <i class="fas fa-bed"></i>
                 <p>Pasien</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('dokterAdmin'); ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <a href="dokterAdmin" class="nav-link">
+                <i class="fa fa-user-md"></i>
                 <p>Dokter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <a href="adminAdmin" class="nav-link">
+                <i class="fa fa-user"></i>
                 <p>Admin</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('laporanAdmin'); ?>" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
+              <a href="laporanAdmin" class="nav-link">
+                <i class="fas fa-chart-line"></i>
                 <p>Laporan</p>
               </a>
             </li>
