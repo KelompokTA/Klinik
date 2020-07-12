@@ -141,7 +141,11 @@
                 <img src="assets/img/arif.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
+<<<<<<< HEAD
                 <a href="#" class="d-block">Berlian</a>
+=======
+                <a href="#" class="d-block">Arif</a>
+>>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
             </div>
         </div>
 
@@ -151,7 +155,11 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview">
+<<<<<<< HEAD
                     <a href="<?= base_url('admin') ?>" class="nav-link active">
+=======
+                    <a href="<?= base_url('dokter') ?>" class="nav-link active">
+>>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -301,12 +309,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a href="pages/tables/data.html" class="nav-link">
+=======
+                            <a href="<?= base_url('dokter'); ?>" class="nav-link">
+>>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dokter</p>
                             </a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a href="pages/tables/jsgrid.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Admin</p>
@@ -314,6 +327,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="pages/tables/jsgrid.html" class="nav-link">
+=======
+                            <a href="<?= base_url('obat'); ?>" class="nav-link">
+>>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Obat</p>
                             </a>
@@ -324,12 +340,15 @@
                                 <p>Riwayat</p>
                             </a>
                         </li>
+<<<<<<< HEAD
                         <li class="nav-item">
                             <a href="pages/tables/jsgrid.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan</p>
                             </a>
                         </li>
+=======
+>>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
                     </ul>
                 </li>
             </ul>

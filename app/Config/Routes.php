@@ -1,12 +1,13 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
 	require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -41,10 +42,17 @@ $routes->get('/login', 'LoginController::index');
 $routes->get('/admin', 'Dashboard\AdminController::index');
 //table
 $routes->get('/pasien', 'Dashboard\AdminController::pasien');
+<<<<<<< HEAD
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/farmasi', 'Dashboard\FarmasiController::index');
 $routes->get('/user', 'Dashboard\UserController::index');
 $routes->get('/laporan', 'Dashboard\LaporanController::index');
+=======
+$routes->get('/dokter', 'Dashboard\AdminController::dokter');
+$routes->get('/obat', 'Dashboard\AdminController::obat');
+$routes->get('/admin', 'Dashboard\AdminController::admin');
+$routes->get('/laporan', 'Dashboard\AdminController::laporan');
+>>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
 //forms
 $routes->get('/tambah_pasien', 'Dashboard\PasienController::tambah_pasien');
 
@@ -66,7 +74,6 @@ $routes->get('/dokter', 'Dashboard\DokterController::index');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
