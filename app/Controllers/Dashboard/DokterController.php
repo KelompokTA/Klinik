@@ -11,6 +11,25 @@ class DokterController extends BaseController
         return view('Dokter/dokterDashboard');
     }
 
-    //--------------------------------------------------------------------
+    public function obat()
+    {
+        return view('Dokter/TablesDokter/obat');
+    }
+
+    public function riwayat()
+    {
+        return view('Dokter/TablesDokter/riwayat');
+    }
+
+    public function tambah_obat()
+    {
+        return view('Dokter/FormDokter/tambah_obat');
+    }
+
+    public function tambah_pemeriksaan()
+    {
+        return view('Dokter/FormDokter/tambah_pemeriksaan');
+    }
+    
 
 }

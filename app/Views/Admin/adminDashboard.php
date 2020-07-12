@@ -272,25 +272,25 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= base_url('pasien'); ?>" class="nav-link">
+              <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Pasien</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('dokter'); ?>" class="nav-link">
+              <a href="<?= base_url('dokterAdmin'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Dokter</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('admin'); ?>" class="nav-link">
+              <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Admin</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url('laporan'); ?>" class="nav-link">
+              <a href="<?= base_url('laporanAdmin'); ?>" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Laporan</p>
               </a>
