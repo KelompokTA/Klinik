@@ -141,11 +141,7 @@
                 <img src="assets/img/arif.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-<<<<<<< HEAD
                 <a href="#" class="d-block">Berlian</a>
-=======
-                <a href="#" class="d-block">Arif</a>
->>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
             </div>
         </div>
 
@@ -155,11 +151,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview">
-<<<<<<< HEAD
                     <a href="<?= base_url('admin') ?>" class="nav-link active">
-=======
-                    <a href="<?= base_url('dokter') ?>" class="nav-link active">
->>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard

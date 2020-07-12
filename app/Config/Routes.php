@@ -42,17 +42,10 @@ $routes->get('/login', 'LoginController::index');
 $routes->get('/admin', 'Dashboard\AdminController::index');
 //table
 $routes->get('/pasien', 'Dashboard\AdminController::pasien');
-<<<<<<< HEAD
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
-$routes->get('/farmasi', 'Dashboard\FarmasiController::index');
-$routes->get('/user', 'Dashboard\UserController::index');
-$routes->get('/laporan', 'Dashboard\LaporanController::index');
-=======
-$routes->get('/dokter', 'Dashboard\AdminController::dokter');
 $routes->get('/obat', 'Dashboard\AdminController::obat');
 $routes->get('/admin', 'Dashboard\AdminController::admin');
 $routes->get('/laporan', 'Dashboard\AdminController::laporan');
->>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
 //forms
 $routes->get('/tambah_pasien', 'Dashboard\PasienController::tambah_pasien');
 
