@@ -48,20 +48,21 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
+                                <i class=" fas fa-bed"></i>
                                 <p>
                                     Pasien
-                                    <i class=" fas fa-bed"></i>
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="tambahPasien" class="nav-link active">
+                                    <a href="tambahPasien" class="nav-link">
                                         <i class="fa fa-plus"></i>
                                         <p>Tambah Pasien</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="suratRujukan" class="nav-link">
+                                    <a href="suratRujukan" class="nav-link active">
                                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                         <p>Surat Rujukan</p>
                                     </a>
@@ -150,12 +151,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Pasien</h1>
+                    <h1>Surat Rujukan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Tambah Pasien</li>
+                        <li class="breadcrumb-item active">Surat Rujukan</li>
                     </ol>
                 </div>
             </div>

@@ -41,21 +41,17 @@ $routes->get('/login', 'LoginController::index');
 //Dashboard
 $routes->get('/admin', 'Dashboard\AdminController::index');
 //table
-$routes->get('/pasien', 'Dashboard\AdminController::pasien');
-<<<<<<< HEAD
+$routes->get('/pasienAdmin', 'Dashboard\AdminController::pasien');
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
-$routes->get('/farmasi', 'Dashboard\FarmasiController::index');
-$routes->get('/user', 'Dashboard\UserController::index');
-$routes->get('/laporan', 'Dashboard\LaporanController::index');
-=======
-$routes->get('/dokter', 'Dashboard\AdminController::dokter');
-$routes->get('/obat', 'Dashboard\AdminController::obat');
-$routes->get('/admin', 'Dashboard\AdminController::admin');
-$routes->get('/laporan', 'Dashboard\AdminController::laporan');
->>>>>>> f3dc5af0dfe0bbfaa113a19558a28f1a6d6c7803
+$routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
+$routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 //forms
-$routes->get('/tambah_pasien', 'Dashboard\PasienController::tambah_pasien');
-
+$routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
+$routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
+$routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
+$routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
+$routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
+$routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
 //DOKTER
 //Dashboard
