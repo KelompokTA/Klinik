@@ -66,4 +66,9 @@ class AdminController extends BaseController
     {
         return view('Admin/FormAdmin/pendaftaran');
     }
+
+    public function logout()
+    {
+        return view('Home/index');
+    }
 }
