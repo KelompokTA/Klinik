@@ -44,7 +44,7 @@ $routes->get('/admin', 'Dashboard\AdminController::index');
 $routes->get('/pasien', 'Dashboard\AdminController::pasien');
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/obat', 'Dashboard\AdminController::obat');
-$routes->get('/admin', 'Dashboard\AdminController::admin');
+$routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporan', 'Dashboard\AdminController::laporan');
 //forms
 $routes->get('/tambah_pasien', 'Dashboard\PasienController::tambah_pasien');
