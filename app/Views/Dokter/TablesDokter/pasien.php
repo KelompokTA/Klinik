@@ -147,24 +147,36 @@
                                     <tr>
                                         <th>No</th>
                                         <th>No RM</th>
-                                        <th>Nama</th>
+                                        <th>No KTP</th>
+                                        <th>Nama Pasien</th>
                                         <th>Jenis Kelamin</th>
+                                        <th>Umur</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
                                         <th>Alamat</th>
-                                        <th>Aksi</th>
+                                        <th>Kelurahan</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kota</th>
+                                        <th>Provinsi</th>
+                                        <th>no Telfon Pasien</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
                                         <td>000001</td>
+                                        <td>1234567891234567</td>
                                         <td>Puspa sing ayu dewe</td>
                                         <td>Perempuan</td>
+                                        <td>23</td>
                                         <td>Tulungagung</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
+                                        <td>15/06/2020</td>
+                                        <td>Genteng Bandar I/8 Surabaya</td>
+                                        <td>Genteng</td>
+                                        <td>Genteng</td>
+                                        <td>Surabaya</td>
+                                        <td>Jawa Timur</td>
+                                        <td>085733771515</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -146,10 +146,13 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>No RM</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
+                                        <th>id Riwayat</th>
+                                        <th>id Pelayanan</th>
+                                        <th>id Dokter</th>
+                                        <th>id_Pendaftaran</th>
+                                        <th>Diagnosa Primer</th>
+                                        <th>Diagnosa Sekunder</th>
+                                        <th>Diagnosa Tersier</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -157,9 +160,12 @@
                                     <tr>
                                         <td>1</td>
                                         <td>000001</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>Perempuan</td>
-                                        <td>Tulungagung</td>
+                                        <td>000001</td>
+                                        <td>000001</td>
+                                        <td>000001</td>
+                                        <td>Flu</td>
+                                        <td>Batuk</td>
+                                        <td>Demam</td>
                                         <td>
                                             <button type="button" class="btn btn-info">Detail</button>
                                             <button type="button" class="btn btn-warning">Edit</button>

@@ -146,20 +146,28 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>No RM</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
+                                        <th>Nama Obat</th>
+                                        <th>Satuan Obat</th>
+                                        <th>Rute Pemberian</th>
+                                        <th>Dosis</th>
+                                        <th>No Batch</th>
+                                        <th>Expired</th>
+                                        <th>Harga Beli</th>
+                                        <th>Harga Jual</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>000001</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>Perempuan</td>
-                                        <td>Tulungagung</td>
+                                        <td>Klorfeniramin maleat (CTM) 4mg</td>
+                                        <td>Tablet</td>
+                                        <td>Oral</td>
+                                        <td>Dua Kali Sehari</td>
+                                        <td>A 0 15 042 1</td>
+                                        <td>15/08/2020</td>
+                                        <td>5000</td>
+                                        <td>7000</td>
                                         <td>
                                             <button type="button" class="btn btn-info">Detail</button>
                                             <button type="button" class="btn btn-warning">Edit</button>

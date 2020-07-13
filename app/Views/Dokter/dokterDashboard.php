@@ -113,7 +113,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item active">Dashboard</li>
-                        <li class="breadcrumb-item"><a href="<?= base_url('login');?>">logout</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -210,20 +210,22 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-info">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>No</th>
+                                                <th>No.RM</th>
+                                                <th>Nama Pasien</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Umur</th>
+                                                <th>Alamat Pasien</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>000001</td>
+                                                <td>Puspa Sing Ayu Dewe</td>
+                                                <td>Perempuan</td>
+                                                <td>23</td>
+                                                <td>Genteng Bandar I/8 Surabaya</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -249,20 +251,22 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-warning">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>No</th>
+                                                <th>Nama Obat</th>
+                                                <th>Satuan</th>
+                                                <th>Rute Pemberian</th>
+                                                <th>Dosis</th>
+                                                <th>Expired</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>Klorfeniramin maleat (CTM) 4mg</td>
+                                                <td>tablet</td>
+                                                <td>Oral</td>
+                                                <td>dua kali sehari</td>
+                                                <td>15/08/2020</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -291,20 +295,16 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-success">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>no</th>
+                                                <th>Nama Dokter</th>
+                                                <th>Status Dokter</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>Berlian Duta Krisna S.Tr.Kes</td>
+                                                <td>Spesialis Kandungan</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -330,20 +330,20 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-danger">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>no</th>
+                                                <th>Nama Pasien</th>
+                                                <th>Nama Dokter</th>
+                                                <th>Diagnosa Primer</th>
+                                                <th>Diagnosa Sekunder</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>Puspa Sing Ayu Dewe</td>
+                                                <td>Berlian Duta Krisna S.Tr.Kes</td>
+                                                <td>Flu</td>
+                                                <td>Batuk</td>
                                             </tr>
                                         </tbody>
                                     </table>
