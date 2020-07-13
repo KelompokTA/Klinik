@@ -187,20 +187,20 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>No RM</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
+                                        <th>ID Admin</th>
+                                        <th>Nama Admin</th>
+                                        <th>Status</th>
+                                        <th>Foto</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>000001</td>
+                                        <td>00001</td>
                                         <td>Puspa sing ayu dewe</td>
-                                        <td>Perempuan</td>
-                                        <td>Tulungagung</td>
+                                        <td>Farmasi</td>
+                                        <td>puspa.jpg</td>
                                         <td>
                                             <button type="button" class="btn btn-info">Detail</button>
                                             <button type="button" class="btn btn-warning">Edit</button>

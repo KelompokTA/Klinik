@@ -190,19 +190,37 @@
                   <tr>
                     <th>No</th>
                     <th>No RM</th>
-                    <th>Nama</th>
+                    <th>No KTP</th>
+                    <th>Nama Pasien</th>
+                    <th>Tempat Lahir</th>
+                    <th>Tanggal Lahir</th>
                     <th>Jenis Kelamin</th>
+                    <th>Umur</th>
                     <th>Alamat</th>
+                    <th>Kelurahan</th>
+                    <th>Kecamatan</th>
+                    <th>Kota</th>
+                    <th>Provinsi</th>
+                    <th>Telepon</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>000001</td>
+                    <td>00001</td>
+                    <td>1234567891011121</td>
                     <td>Puspa sing ayu dewe</td>
-                    <td>Perempuan</td>
                     <td>Tulungagung</td>
+                    <td>00-00-0000</td>
+                    <td>Perempuan</td>
+                    <td>19</td>
+                    <td>Jl. jalan ke surabaya</td>
+                    <td>Tulung</td>
+                    <td>Agung</td>
+                    <td>Tulungagung</td>
+                    <td>Jawa Timur</th>
+                    <td>080910111213</td>
                     <td>
                       <button type="button" class="btn btn-info">Detail</button>
                       <button type="button" class="btn btn-warning">Edit</button>

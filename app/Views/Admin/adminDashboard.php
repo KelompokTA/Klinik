@@ -279,20 +279,22 @@
                   <table class="table table-hover text-nowrap">
                     <thead class="table-info">
                       <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Reason</th>
+                        <th>No</th>
+                        <th>No RM</th>
+                        <th>Nama Pasien</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Umur</th>
+                        <th>Alamat</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        <td>01</td>
+                        <td>00001</td>
+                        <td>Puspa sing ayu dewe</td>
+                        <td>Perempuan</td>
+                        <td>19</td>
+                        <td>Jl. jalan ke surabaya</td>
                       </tr>
                     </tbody>
                   </table>
@@ -318,20 +320,16 @@
                   <table class="table table-hover text-nowrap">
                     <thead class="table-warning">
                       <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
+                        <th>No</th>
+                        <th>Nama Admin</th>
                         <th>Status</th>
-                        <th>Reason</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        <td>01</td>
+                        <td>Puspa sing ayu dewe</td>
+                        <td>Farmasi</td>
                       </tr>
                     </tbody>
                   </table>
@@ -360,20 +358,16 @@
                   <table class="table table-hover text-nowrap">
                     <thead class="table-success">
                       <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
+                        <th>No</th>
+                        <th>Nama Dokter</th>
                         <th>Status</th>
-                        <th>Reason</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        <td>01</td>
+                        <td>Puspa sing ayu dewe</td>
+                        <td>Spesialis Jantung</td>
                       </tr>
                     </tbody>
                   </table>
@@ -399,20 +393,22 @@
                   <table class="table table-hover text-nowrap">
                     <thead class="table-danger">
                       <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Reason</th>
+                        <th>No</th>
+                        <th>ID Transaksi</th>
+                        <th>Nama Pasien</th>
+                        <th>Nama User</th>
+                        <th>Tanggal Transaksi</th>
+                        <th>Total Biaya</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                        <td>01</td>
+                        <td>00001</td>
+                        <td>Puspa sing ayu dewe</td>
+                        <td>Puspa sing ayu dewe</td>
+                        <td>00-00-0000</td>
+                        <td>Rp.20.000.000</td>
                       </tr>
                     </tbody>
                   </table>
