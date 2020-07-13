@@ -69,7 +69,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('pasienDokter'); ?>" class="nav-link">
+                            <a href="<?= base_url('pasienDokter'); ?>" class="nav-link active">
                                 <i class="fas fa-bed"></i>
                                 <p>Pasien</p>
                             </a>
@@ -81,7 +81,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('obatDokter'); ?>" class="nav-link active">
+                            <a href="<?= base_url('obatDokter'); ?>" class="nav-link">
                                 <i class="fas fa-pills"></i>
                                 <p>Obat</p>
                             </a>
@@ -108,7 +108,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Obat</h1>
+                    <h1>Pasien</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -128,7 +128,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Obat</h3>
+                            <h3 class="card-title">Data Pasien</h3>
 
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -146,33 +146,37 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Obat</th>
-                                        <th>Satuan Obat</th>
-                                        <th>Rute Pemberian</th>
-                                        <th>Dosis</th>
-                                        <th>No Batch</th>
-                                        <th>Expired</th>
-                                        <th>Harga Beli</th>
-                                        <th>Harga Jual</th>
-                                        <th>Aksi</th>
+                                        <th>No RM</th>
+                                        <th>No KTP</th>
+                                        <th>Nama Pasien</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Umur</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Alamat</th>
+                                        <th>Kelurahan</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kota</th>
+                                        <th>Provinsi</th>
+                                        <th>no Telfon Pasien</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Klorfeniramin maleat (CTM) 4mg</td>
-                                        <td>Tablet</td>
-                                        <td>Oral</td>
-                                        <td>Dua Kali Sehari</td>
-                                        <td>A 0 15 042 1</td>
-                                        <td>15/08/2020</td>
-                                        <td>5000</td>
-                                        <td>7000</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
+                                        <td>000001</td>
+                                        <td>1234567891234567</td>
+                                        <td>Puspa sing ayu dewe</td>
+                                        <td>Perempuan</td>
+                                        <td>23</td>
+                                        <td>Tulungagung</td>
+                                        <td>15/06/2020</td>
+                                        <td>Genteng Bandar I/8 Surabaya</td>
+                                        <td>Genteng</td>
+                                        <td>Genteng</td>
+                                        <td>Surabaya</td>
+                                        <td>Jawa Timur</td>
+                                        <td>085733771515</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -2,133 +2,10 @@
 
 <?= $this->section('content'); ?>
 
-<!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
-    </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Brad Diesel
-                                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">Call me whenever you can...</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                John Pierce
-                                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">I got your message bro</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Nora Silvester
-                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">The subject goes here</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-            </div>
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">15 Notifications</span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> 4 new messages
-                    <span class="float-right text-muted text-sm">3 mins</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                <i class="fas fa-th-large"></i>
-            </a>
-        </li>
-    </ul>
-</nav>
-<!-- /.navbar -->
-
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="#" class="brand-link">
         <img src="assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Klinik</span>
     </a>
@@ -170,13 +47,13 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('tambahPemeriksaan') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-hand-holding-medical"></i>
                                 <p>pemeriksaan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('tambahObat') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-plus"></i>
                                 <p>tambah obat</p>
                             </a>
                         </li>
@@ -192,14 +69,26 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="<?= base_url('pasienDokter'); ?>" class="nav-link">
+                                <i class="fas fa-bed"></i>
+                                <p>Pasien</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('dokterDokter'); ?>" class="nav-link">
+                                <i class="fa fa-user-md"></i>
+                                <p>Dokter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('obatDokter'); ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-pills"></i>
                                 <p>Obat</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('riwayatDokter'); ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-clipboard"></i>
                                 <p>Riwayat</p>
                             </a>
                         </li>
@@ -223,8 +112,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -242,13 +131,13 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>Pasien</h3>
-
-                            <p>New Orders</p>
+                            <br>
+                            <br>
                         </div>
                         <div class="icon">
                             <i class="fas fa-bed"></i>
                         </div>
-                        <a href=" #" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href=" #" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -257,13 +146,13 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>Dokter</h3>
-
-                            <p>Bounce Rate</p>
+                            <br>
+                            <br>
                         </div>
                         <div class="icon">
                             <i class="fa fa-user-md"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -272,13 +161,13 @@
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>Obat</h3>
-
-                            <p>User Registrations</p>
+                            <br>
+                            <br>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-medkit"></i>
+                            <i class="fas fa-pills"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -287,13 +176,13 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>Riwayat</h3>
-
-                            <p>Unique Visitors</p>
+                            <br>
+                            <br>
                         </div>
                         <div class="icon">
                             <i class="fa fa-clipboard"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -321,20 +210,22 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-info">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>No</th>
+                                                <th>No.RM</th>
+                                                <th>Nama Pasien</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Umur</th>
+                                                <th>Alamat Pasien</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>000001</td>
+                                                <td>Puspa Sing Ayu Dewe</td>
+                                                <td>Perempuan</td>
+                                                <td>23</td>
+                                                <td>Genteng Bandar I/8 Surabaya</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -360,20 +251,22 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-warning">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>No</th>
+                                                <th>Nama Obat</th>
+                                                <th>Satuan</th>
+                                                <th>Rute Pemberian</th>
+                                                <th>Dosis</th>
+                                                <th>Expired</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>Klorfeniramin maleat (CTM) 4mg</td>
+                                                <td>tablet</td>
+                                                <td>Oral</td>
+                                                <td>dua kali sehari</td>
+                                                <td>15/08/2020</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -402,20 +295,16 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-success">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>no</th>
+                                                <th>Nama Dokter</th>
+                                                <th>Status Dokter</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>Berlian Duta Krisna S.Tr.Kes</td>
+                                                <td>Spesialis Kandungan</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -441,20 +330,20 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead class="table-danger">
                                             <tr>
-                                                <th>ID</th>
-                                                <th>User</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Reason</th>
+                                                <th>no</th>
+                                                <th>Nama Pasien</th>
+                                                <th>Nama Dokter</th>
+                                                <th>Diagnosa Primer</th>
+                                                <th>Diagnosa Sekunder</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>183</td>
-                                                <td>John Doe</td>
-                                                <td>11-7-2014</td>
-                                                <td><span class="tag tag-success">Approved</span></td>
-                                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                                <td>1</td>
+                                                <td>Puspa Sing Ayu Dewe</td>
+                                                <td>Berlian Duta Krisna S.Tr.Kes</td>
+                                                <td>Flu</td>
+                                                <td>Batuk</td>
                                             </tr>
                                         </tbody>
                                     </table>

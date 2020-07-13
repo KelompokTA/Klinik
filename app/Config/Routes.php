@@ -58,6 +58,8 @@ $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 //Dashboard
 $routes->get('/dokter', 'Dashboard\DokterController::index');
 //tables
+$routes->get('/pasienDokter', 'Dashboard\DokterController::pasien');
+$routes->get('/dokterDokter', 'Dashboard\DokterController::dokter');
 $routes->get('/obatDokter', 'Dashboard\DokterController::obat');
 $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
 //forms
