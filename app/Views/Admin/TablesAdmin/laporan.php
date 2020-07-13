@@ -153,8 +153,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Simple Tables</li>
+                        <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
+                        <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div>
             </div>
@@ -186,21 +186,21 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>No RM</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
+                                        <th>ID Transaksi</th>
+                                        <th>ID User</th>
+                                        <th>ID Pelayanan</th>
+                                        <th>Tanggal Transaksi</th>
+                                        <th>Total Biaya</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>000001</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>Perempuan</td>
-                                        <td>Tulungagung</td>
+                                        <td>01</td>
+                                        <td>001</td>
+                                        <td>00-00-0000</td>
+                                        <td>Rp.20.000.000</td>
                                         <td>
                                             <button type="button" class="btn btn-info">Detail</button>
                                             <button type="button" class="btn btn-warning">Edit</button>

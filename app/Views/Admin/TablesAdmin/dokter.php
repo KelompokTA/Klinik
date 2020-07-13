@@ -153,8 +153,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Simple Tables</li>
+                        <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
+                        <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div>
             </div>
@@ -187,20 +187,22 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>No RM</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Alamat</th>
+                                        <th>ID Jadwal</th>
+                                        <th>ID Dokter</th>
+                                        <th>Nama Dokter</th>
+                                        <th>Foto</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>000001</td>
+                                        <td>12</td>
+                                        <td>00001</td>
                                         <td>Puspa sing ayu dewe</td>
-                                        <td>Perempuan</td>
-                                        <td>Tulungagung</td>
+                                        <td>puspa.jpg</td>
+                                        <td>Spesialis Jantung</td>
                                         <td>
                                             <button type="button" class="btn btn-info">Detail</button>
                                             <button type="button" class="btn btn-warning">Edit</button>

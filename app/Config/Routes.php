@@ -53,6 +53,7 @@ $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
+
 //DOKTER
 //Dashboard
 $routes->get('/dokter', 'Dashboard\DokterController::index');
