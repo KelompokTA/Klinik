@@ -117,6 +117,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -158,22 +163,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Klorfeniramin maleat (CTM) 4mg</td>
-                                        <td>Tablet</td>
-                                        <td>Oral</td>
-                                        <td>Dua Kali Sehari</td>
-                                        <td>A 0 15 042 1</td>
-                                        <td>15/08/2020</td>
-                                        <td>5000</td>
-                                        <td>7000</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($obat as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $row['NAMA_OBAT']; ?></td>
+                                            <td><?= $row['SATUAN_OBAT']; ?></td>
+                                            <td><?= $row['RUTE_PEMBERIAN']; ?></td>
+                                            <td><?= $row['DOSIS']; ?></td>
+                                            <td><?= $row['NO_BATCH']; ?></td>
+                                            <td><?= $row['EXPIRED']; ?></td>
+                                            <td><?= $row['HARGA_BELI']; ?></td>
+                                            <td><?= $row['HARGA_JUAL']; ?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-info">Detail</button>
+                                                <button type="button" class="btn btn-warning">Edit</button>
+                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

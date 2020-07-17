@@ -108,7 +108,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Dokter</h1>
+                    <h1><?= $title; ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -152,12 +152,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($dokter as $row) : ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>berlian.jpg</td>
-                                        <td>Berlian Duta Krisna</td>
-                                        <td>Spesialis Kandungan</td>
+                                        <td><?= $no++ ?></td>
+                                        <td><img src="assets/img/foto/<?= $row['FOTO_DOKTER']; ?>" alt="dokter.jpg" width="50px" height="70px"></td>
+                                        <td><?= $row['NAMA_DOKTER']; ?></td>
+                                        <td><?= $row['STATUS_DOKTER']; ?></td>
                                     </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
