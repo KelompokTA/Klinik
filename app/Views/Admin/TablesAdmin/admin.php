@@ -187,26 +187,27 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Admin</th>
+                                        <th>Foto</th>
                                         <th>Nama Admin</th>
                                         <th>Status</th>
-                                        <th>Foto</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>00001</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>Farmasi</td>
-                                        <td>puspa.jpg</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($admin as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt=""></td>
+                                            <td><?= $row['NAMA_USER']; ?></td>
+                                            <td><?= $row['STATUS_USER']; ?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-info">Detail</button>
+                                                <button type="button" class="btn btn-warning">Edit</button>
+                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

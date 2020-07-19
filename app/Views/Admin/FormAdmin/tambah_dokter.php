@@ -178,35 +178,33 @@
                             <form role="form">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Nama Dokter</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nama dokter ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status Dokter</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan status dokter ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>ID Jadwal</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan ID Jadwal ...">
-                                        </div>
-                                        <!-- <label for="customFile">Custom File</label> -->
                                         <div>
                                             <label>Foto</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
+                                            <label>Nama Dokter</label>
+                                            <input type="text" name="nama_dokter" value="<?= old('nama_dokter'); ?>" class="form-control <?= ($validation->hasError('nama_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama dokter ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Status Dokter</label>
+                                            <input type="text" name="status_dokter" value="<?= old('status_dokter'); ?>" class="form-control <?= ($validation->hasError('status_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status dokter ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>ID Jadwal</label>
+                                            <input type="text" name="id_jadwal" value="<?= old('id_jadwal'); ?>" class="form-control <?= ($validation->hasError('id_jadwal')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan ID Jadwal ...">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Username</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan username ...">
+                                            <input type="text" name="username_dokter" value="<?= old('username_dokter'); ?>" class="form-control <?= ($validation->hasError('username_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan username ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" class="form-control" placeholder="Masukkan password ...">
+                                            <input type="password" name="password_dokter" value="<?= old('password_dokter'); ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
                                         <div>
                                             <button type="button" class="btn btn-success">Submit</button>

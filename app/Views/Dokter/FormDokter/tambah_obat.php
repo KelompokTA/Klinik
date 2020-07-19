@@ -140,15 +140,15 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nama Obat <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="nama_obat" class="form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autofocus>
+                                            <input type="text" name="nama_obat" value="<?= old('nama_obat'); ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label>Satuan Obat</label>
-                                            <input type="text" name="satuan_obat" value="<?= old('satuan_obat'); ?>" class="form-control" placeholder="Masukkan satuan obat ...">
+                                            <input type="text" name="satuan_obat" value="<?= old('satuan_obat'); ?>" class="form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan satuan obat ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
-                                            <select name="rute_pemberian" class="form-control">
+                                            <select name="rute_pemberian" value="<?= old('rute_pemberian'); ?>" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
                                                 <option selected disabled>-Pilih rute pemberian-</option>
                                                 <option value="Oral">Oral</option>
                                                 <option value="Intravena">Intravena</option>
@@ -159,23 +159,23 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Dosis</label>
-                                            <input type="text" name="dosis" class="form-control" placeholder="Masukkan Dosis pakai ...">
+                                            <input type="text" name="dosis" value="<?= old('dosis'); ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
                                         </div>
                                         <div class="form-group">
                                             <label>No Batch</label>
-                                            <input type="text" name="no_batch" class="form-control" placeholder="Masukkan nomor batch ...">
+                                            <input type="text" name="no_batch" value="<?= old('no_batch'); ?>" class=" form-control <?= ($validation->hasError('no_batch')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomor batch ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Expired</label>
-                                            <input type="date" name="expired" class="form-control">
+                                            <input type="date" name="expired" value="<?= old('expired'); ?>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Beli</label>
-                                            <input type="number" name="harga_beli" class="form-control" placeholder="Masukkan harga beli obat ...">
+                                            <input type="number" name="harga_beli" value="<?= old('harga_beli'); ?>" class=" form-control <?= ($validation->hasError('harga_beli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga beli obat ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Jual</label>
-                                            <input type="number" name="harga_jual" class="form-control" placeholder="Masukkan harga jual obat ...">
+                                            <input type="number" name="harga_jual" value="<?= old('harga_jual'); ?>" class=" form-control <?= ($validation->hasError('harga_jual')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga jual obat ...">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>

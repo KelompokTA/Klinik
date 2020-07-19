@@ -9,6 +9,7 @@ use App\Models\ObatModel;
 class DokterController extends BaseController
 {
     protected $DokterModel;
+    protected $ObatModel;
     public function __construct()
     {
         $this->DokterModel = new DokterModel();
