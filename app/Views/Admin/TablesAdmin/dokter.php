@@ -187,28 +187,27 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Jadwal</th>
-                                        <th>ID Dokter</th>
-                                        <th>Nama Dokter</th>
                                         <th>Foto</th>
+                                        <th>Nama Dokter</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>12</td>
-                                        <td>00001</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>puspa.jpg</td>
-                                        <td>Spesialis Jantung</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($dokter as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_DOKTER']; ?>" alt="dokter.jpg" width="50px" height="70px"></td>
+                                            <td><?= $row['NAMA_DOKTER']; ?></td>
+                                            <td><?= $row['STATUS_DOKTER'] ?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-info">Detail</button>
+                                                <button type="button" class="btn btn-warning">Edit</button>
+                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

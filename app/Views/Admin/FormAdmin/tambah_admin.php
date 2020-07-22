@@ -159,6 +159,7 @@
                         <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div>
+                <?= $validation->listErrors(); ?>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -175,37 +176,36 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form">
+                            <form role="form" action="save_admin" method="POST">
+                                <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Nama Admin</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nama admin ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status Admin</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan status admin ...">
-                                        </div>
-                                        <!-- <label for="customFile">Custom File</label> -->
                                         <div>
                                             <label>Foto</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile">
+                                                <input type="file" name="foto_admin" value="<?= old('foto_admin'); ?>" class="custom-file-input <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
+                                            <label>Nama Admin</label>
+                                            <input type="text" name="nama_admin" value="<?= old('nama_admin'); ?>" class="form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Status Admin</label>
+                                            <input type="text" name="status_admin" value="<?= old('status_admin'); ?>" class="form-control <?= ($validation->hasError('status_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status admin ...">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Username</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan username ...">
+                                            <input type="text" name="username_admin" value="<?= old('username_admin'); ?>" class="form-control <?= ($validation->hasError('username_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan username ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" class="form-control" placeholder="Masukkan password ...">
+                                            <input type="password" name="password_admin" value="<?= old('password_admin'); ?>" class="form-control <?= ($validation->hasError('password_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
                                         <div>
-                                            <button type="button" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
                                 </div>

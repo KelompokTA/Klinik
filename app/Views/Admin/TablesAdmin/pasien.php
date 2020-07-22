@@ -206,27 +206,30 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>00001</td>
-                    <td>1234567891011121</td>
-                    <td>Puspa sing ayu dewe</td>
-                    <td>Tulungagung</td>
-                    <td>00-00-0000</td>
-                    <td>Perempuan</td>
-                    <td>19</td>
-                    <td>Jl. jalan ke surabaya</td>
-                    <td>Tulung</td>
-                    <td>Agung</td>
-                    <td>Tulungagung</td>
-                    <td>Jawa Timur</th>
-                    <td>080910111213</td>
-                    <td>
-                      <button type="button" class="btn btn-info">Detail</button>
-                      <button type="button" class="btn btn-warning">Edit</button>
-                      <button type="button" class="btn btn-danger">Hapus</button>
-                    </td>
-                  </tr>
+                  <?php $no = 1; ?>
+                  <?php foreach ($pasien as $row) : ?>
+                    <tr>
+                      <td><?= $no++ ?></td>
+                      <td><?= $row['NO_RM']; ?></td>
+                      <td><?= $row['NO_KTP']; ?></td>
+                      <td><?= $row['NAMA_PASIEN']; ?></td>
+                      <td><?= $row['TEMPAT_LAHIR']; ?></td>
+                      <td><?= $row['TANGGAL_LAHIR']; ?></td>
+                      <td><?= $row['JENIS_KELAMIN']; ?></td>
+                      <td><?= $row['UMUR']; ?></td>
+                      <td><?= $row['ALAMAT_PASIEN']; ?></td>
+                      <td><?= $row['KELURAHAN']; ?></td>
+                      <td><?= $row['KECAMATAN']; ?></td>
+                      <td><?= $row['KOTA']; ?></td>
+                      <td><?= $row['PROVINSI']; ?></th>
+                      <td><?= $row['TELFON_PASIEN']; ?></td>
+                      <td>
+                        <button type="button" class="btn btn-info">Detail</button>
+                        <button type="button" class="btn btn-warning">Edit</button>
+                        <button type="button" class="btn btn-danger">Hapus</button>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>

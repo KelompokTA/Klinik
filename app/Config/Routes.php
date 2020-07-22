@@ -48,9 +48,12 @@ $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 //forms
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
+$routes->post('/save_pasien', 'Dashboard\AdminController::save_pasien');
 $routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
+$routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
 $routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
+$routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
 
@@ -64,6 +67,7 @@ $routes->get('/obatDokter', 'Dashboard\DokterController::obat');
 $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
 //forms
 $routes->get('/tambahObat', 'Dashboard\DokterController::tambah_obat');
+$routes->post('/save_obat', 'Dashboard\DokterController::save_obat');
 $routes->get('/tambahPemeriksaan', 'Dashboard\DokterController::tambah_pemeriksaan');
 
 

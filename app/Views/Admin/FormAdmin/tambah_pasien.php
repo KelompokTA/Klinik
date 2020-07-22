@@ -158,6 +158,7 @@
                         <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div>
+                <?= $validation->listErrors(); ?>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -174,76 +175,77 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form">
+                            <form role="form" action="save_pasien" method="POST">
+                                <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No RM</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nomer Rekam Medik ...">
+                                            <input type="text" name="no_rm" value="<?= old('no_rm'); ?>" class=" form-control <?= ($validation->hasError('no_rm')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Rekam Medik ...">
                                         </div>
                                         <div class="form-group">
                                             <label>No KTP</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nomer Kartu Tanda Penduduk ...">
+                                            <input type="text" name="no_ktp" value="<?= old('no_ktp'); ?>" class=" form-control <?= ($validation->hasError('no_ktp')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Kartu Tanda Penduduk ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Pasien</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nama pasien ...">
+                                            <input type="text" name="nama_pasien" value="<?= old('nama_pasien'); ?>" class=" form-control <?= ($validation->hasError('nama_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama pasien ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Tempat Lahir</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan tempat lahir ...">
+                                            <input type="text" name="tempat_lahir" value="<?= old('tempat_lahir'); ?>" class=" form-control <?= ($validation->hasError('tempat_lahir')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan tempat lahir ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Lahir</label>
-                                            <input type="date" class="form-control">
+                                            <input type="date" name="tanggal_lahir" value="<?= old('tanggal_lahir'); ?>" class=" form-control <?= ($validation->hasError('tanggal_lahir')) ? 'is-invalid' : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <select class="form-control">
-                                                <option>-Pilih jenis kelamin-</option>
-                                                <option>Laki-laki</option>
-                                                <option>Perempuan</option>
+                                            <select name="jenis_kelamin" class=" form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled value="<?= old('jenis_kelamin'); ?>"><?= old('jenis_kelamin'); ?></option>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Umur</label>
-                                            <input type="number" class="form-control" placeholder="Masukkan umur ...">
+                                            <input type="number" name="umur" value="<?= old('umur'); ?>" class=" form-control <?= ($validation->hasError('umur')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan umur ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Alamat</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan alamat ..."></textarea>
+                                            <textarea name="alamat" value="<?= old('alamat'); ?>" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Kelurahan/Desa</label>
-                                            <select class="form-control">
+                                            <select name="kelurahan" value="<?= old('kelurahan'); ?>" class=" form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>">
                                                 <option>-Pilih kelurahan/desa-</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Kecamatan</label>
-                                            <select class="form-control">
+                                            <select name="kecamatan" value="<?= old('kecamatan'); ?>" class=" form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>">
                                                 <option>-Pilih kecamatan-</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Kota</label>
-                                            <select class="form-control">
+                                            <select name="kota" value="<?= old('kota'); ?>" class=" form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>">
                                                 <option>-Pilih kota-</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Provinsi</label>
-                                            <select class="form-control">
+                                            <select name="provinsi" value="<?= old('provinsi'); ?>" class=" form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>">
                                                 <option>-Pilih provinsi-</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Telepon</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nomer telepon ...">
+                                            <input type="text" name="telfon_pasien" value="<?= old('telfon_pasien'); ?>" class=" form-control <?= ($validation->hasError('telfon_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer telepon ...">
                                         </div>
                                         <div>
-                                            <button type="button" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
                                 </div>
