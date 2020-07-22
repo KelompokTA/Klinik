@@ -162,22 +162,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $no=1; ?>
+                                <?php foreach($pasien as $row) : ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>000001</td>
-                                        <td>1234567891234567</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>Perempuan</td>
-                                        <td>23</td>
-                                        <td>Tulungagung</td>
-                                        <td>15/06/2020</td>
-                                        <td>Genteng Bandar I/8 Surabaya</td>
-                                        <td>Genteng</td>
-                                        <td>Genteng</td>
-                                        <td>Surabaya</td>
-                                        <td>Jawa Timur</td>
-                                        <td>085733771515</td>
+                                        <td><?= $no++; ?></td>
+                                        <td><?= $row['NO_RM']; ?></td>
+                                        <td><?= $row['NO_KTP']; ?></td>
+                                        <td><?= $row['NAMA_PASIEN']; ?></td>
+                                        <td><?= $row['JENIS_KELAMIN']; ?></td>
+                                        <td><?= $row['UMUR']; ?></td>
+                                        <td><?= $row['TEMPAT_LAHIR']; ?></td>
+                                        <td><?= $row['TANGGAL_LAHIR']; ?></td>
+                                        <td><?= $row['ALAMAT_PASIEN']; ?></td>
+                                        <td><?= $row['KELURAHAN']; ?></td>
+                                        <td><?= $row['KECAMATAN']; ?></td>
+                                        <td><?= $row['KOTA']; ?></td>
+                                        <td><?= $row['PROVINSI']; ?></td>
+                                        <td><?= $row['TELFON_PASIEN']; ?></td>
                                     </tr>
+                                <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
