@@ -1,6 +1,7 @@
 <?= $this->extend('Layout/Tables'); ?>
-
+<?= $i = 1; ?>
 <?= $this->section('content'); ?>
+
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
@@ -19,7 +20,7 @@
                 <img src="assets/img/arif.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">Arif</a>
             </div>
         </div>
 
@@ -194,19 +195,23 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>00001</td>
-                                        <td>Puspa sing ayu dewe</td>
-                                        <td>Farmasi</td>
-                                        <td>puspa.jpg</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
-                                    </tr>
+
+                                    <?php foreach ($admin as $a) : ?>
+                                        <tr>
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $a['ID_USER']; ?></td>
+                                            <td><?= $a['NAMA_USER']; ?></td>
+                                            <td><?= $a['STATUS_USER']; ?></td>
+                                            <td><img src="assets/img/<?= $a['FOTO_USER']; ?>" class="img-circle elevation-2" alt="User Image"></td>
+                                            <td>
+                                                <button type="button" class="btn btn-info">Detail</button>
+                                                <button type="button" class="btn btn-warning">Edit</button>
+                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
