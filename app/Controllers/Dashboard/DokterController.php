@@ -10,13 +10,14 @@ use App\Models\PasienModel;
 class DokterController extends BaseController
 {
     protected $DokterModel;
-    protected $ObatModel;
     protected $PasienModel;
+    protected $ObatModel;
     public function __construct()
     {
         $this->DokterModel = new DokterModel();
-        $this->ObatModel = new ObatModel();
         $this->PasienModel = new PasienModel();
+        $this->ObatModel = new ObatModel();
+        
     }
 
     public function index()
@@ -46,9 +47,9 @@ class DokterController extends BaseController
 
     public function obat()
     {
-        $obat = $this->ObatModel->findAll();
+        $ObatModel = new ObatModel();   
         $data = [
-            'obat' => $obat
+            'obat' => $ObatModel->getAllData()
         ];
         return view('Dokter/TablesDokter/obat', $data);
     }
@@ -99,24 +100,21 @@ class DokterController extends BaseController
         return view('Dokter/FormDokter/tambah_obat', $data);
     }
 
-    // public function hapus_obat($id)
-    // {
-    //     $this->ObatModel->where('ID_OBAT',$id)->delete();
-    //     return redirect()->to('obat');
-    // }
-
-    public function delete($id)
+    public function hapus_obat($id)
     {
-        // Memanggil function delete_product() dengan parameter $id di dalam ProductModel dan menampungnya di variabel hapus
-        $hapus = $this->product->delete_product($id);
+        $this->ObatModel->delete($id);
+        session()->setFlashdata('Info','Data berhasil dihapus.');
+        return redirect()->to(base_url('obatDokter'));
+    }
 
-        // Jika berhasil melakukan hapus
-        if ($hapus) {
-            // Deklarasikan session flashdata dengan tipe warning
-            session()->setFlashdata('warning', 'Deleted product successfully');
-            // Redirect ke halaman product
-            return redirect()->to(base_url('obat'));
-        }
+    public function edit_obat($id)
+    {
+        $obat = $this->ObatModel->getObat($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'obat' => $obat
+        ];
+        return view('Dokter/FormDokter/edit_obat', $data);
     }
 
     public function tambah_pemeriksaan()

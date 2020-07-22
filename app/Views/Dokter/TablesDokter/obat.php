@@ -176,9 +176,8 @@
                                             <td><?= $row['HARGA_BELI']; ?></td>
                                             <td><?= $row['HARGA_JUAL']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info">Detail</button>
-                                                <button type="button" class="btn btn-warning">Edit</button>
-                                                <a href="<?= base_url('hapus_obat/delete/' . $row['ID_OBAT']); ?>" class=" btn btn-danger">Hapus</a>
+                                                <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
