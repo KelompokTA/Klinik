@@ -68,6 +68,7 @@ $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
 //forms
 $routes->get('/tambahObat', 'Dashboard\DokterController::tambah_obat');
 $routes->post('/save_obat', 'Dashboard\DokterController::save_obat');
+$routes->get('/hapus_obat/(:any)', 'Dashboard\DokterController::delete');
 $routes->get('/tambahPemeriksaan', 'Dashboard\DokterController::tambah_pemeriksaan');
 
 

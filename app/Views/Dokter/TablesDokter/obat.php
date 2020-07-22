@@ -178,7 +178,7 @@
                                             <td>
                                                 <button type="button" class="btn btn-info">Detail</button>
                                                 <button type="button" class="btn btn-warning">Edit</button>
-                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                                <a href="<?= base_url('hapus_obat/delete/' . $row['ID_OBAT']); ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
