@@ -160,6 +160,11 @@
           </ol>
         </div>
       </div>
+      <?php if (session()->getFlashdata('Info')) : ?>
+        <div class="alert alert-success" role="alert">
+          <?= session()->getFlashdata('Info'); ?>
+        </div>
+      <?php endif; ?>
     </div><!-- /.container-fluid -->
   </section>
 
@@ -222,11 +227,10 @@
                       <td><?= $row['KECAMATAN']; ?></td>
                       <td><?= $row['KOTA']; ?></td>
                       <td><?= $row['PROVINSI']; ?></th>
-                      <td><?= $row['TELFON_PASIEN']; ?></td>
+                      <td><?= $row['NO_TELFONE_PASIEN']; ?></td>
                       <td>
-                        <button type="button" class="btn btn-info">Detail</button>
-                        <button type="button" class="btn btn-warning">Edit</button>
-                        <button type="button" class="btn btn-danger">Hapus</button>
+                        <a href="edit_pasien/<?= $row['ID_PASIEN']; ?>" class="btn btn-warning">Edit</a>
+                        <a href="hapus_pasien/<?= $row['ID_PASIEN']; ?>" class=" btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

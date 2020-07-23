@@ -159,6 +159,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -191,6 +196,8 @@
                                         <th>Foto</th>
                                         <th>Nama Admin</th>
                                         <th>Status</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -203,6 +210,8 @@
                                             <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
                                             <td><?= $row['NAMA_USER']; ?></td>
                                             <td><?= $row['STATUS_USER']; ?></td>
+                                            <td><?= $row['USERNAME_USER']; ?></td>
+                                            <td>********</td>
                                             <td>
                                                 <a href="edit_admin/<?= $row['ID_USER']; ?>" class="btn btn-warning">Edit</a>
                                                 <a href="hapus_admin/<?= $row['ID_USER']; ?>" class=" btn btn-danger">Hapus</a>

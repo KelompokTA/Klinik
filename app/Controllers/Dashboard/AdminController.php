@@ -83,7 +83,7 @@ class AdminController extends BaseController
             'KECAMATAN' => $this->request->getVar('kecamatan'),
             'KOTA' => $this->request->getVar('kota'),
             'PROVINSI' => $this->request->getVar('provinsi'),
-            'TELFON_PASIEN' => $this->request->getVar('telfon_pasien'),
+            'NO_TELFONE_PASIEN' => $this->request->getVar('telfon_pasien'),
             'ALAMAT_PASIEN' => $this->request->getVar('alamat'),
             'TEMPAT_LAHIR' => $this->request->getVar('tempat_lahir'),
             'TANGGAL_LAHIR' => $this->request->getVar('tanggal_lahir')
@@ -100,6 +100,46 @@ class AdminController extends BaseController
             'validation' => \Config\Services::validation()
         ];
         return view('Admin/FormAdmin/tambah_pasien', $data);
+    }
+
+    public function hapus_pasien($id)
+    {
+        $this->PasienModel->delete($id);
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('pasienAdmin'));
+    }
+
+    public function edit_pasien($id)
+    {
+        // $user = $this->UserModel->getUser($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'pasien' => $this->PasienModel->getPasien($id)
+        ];
+        return view('Admin/FormAdmin/edit_pasien', $data);
+    }
+
+    public function update_pasien($id)
+    {
+        $this->PasienModel->save([
+            'ID_PASIEN' => $id,
+            'NO_RM' => $this->request->getVar('no_rm'),
+            'NO_KTP' => $this->request->getVar('no_ktp'),
+            'NAMA_PASIEN' => $this->request->getVar('nama_pasien'),
+            'JENIS_KELAMIN' => $this->request->getVar('jenis_kelamin'),
+            'UMUR' => $this->request->getVar('umur'),
+            'KELURAHAN' => $this->request->getVar('kelurahan'),
+            'KECAMATAN' => $this->request->getVar('kecamatan'),
+            'KOTA' => $this->request->getVar('kota'),
+            'PROVINSI' => $this->request->getVar('provinsi'),
+            'NO_TELFONE_PASIEN' => $this->request->getVar('telfon_pasien'),
+            'ALAMAT_PASIEN' => $this->request->getVar('alamat'),
+            'TEMPAT_LAHIR' => $this->request->getVar('tempat_lahir'),
+            'TANGGAL_LAHIR' => $this->request->getVar('tanggal_lahir')
+
+        ]);
+        session()->setFlashdata('Info', 'Data Berhasil Diubah');
+        return redirect()->to(base_url('pasienAdmin'));
     }
 
     public function surat_rujukan()
@@ -158,7 +198,7 @@ class AdminController extends BaseController
             $validation = \Config\Services::validation();
             return redirect()->to('tambahAdmin')->withInput()->with('validation', $validation);
         }
-        $this->AdminModel->save([
+        $this->UserModel->save([
             'FOTO_USER' => $this->request->getVar('foto_admin'),
             'NAMA_USER' => $this->request->getVar('nama_admin'),
             'STATUS_USER' => $this->request->getVar('status_admin'),
@@ -191,9 +231,24 @@ class AdminController extends BaseController
         // $user = $this->UserModel->getUser($id);
         $data = [
             'validation' => \Config\Services::validation(),
-            'obat' => $this->UserModel->getAdmin($id)
+            'admin' => $this->UserModel->getAdmin($id)
         ];
         return view('Admin/FormAdmin/edit_admin', $data);
+    }
+
+    public function update_admin($id)
+    {
+        $this->UserModel->save([
+            'ID_USER' => $id,
+            'NAMA_USER' => $this->request->getVar('nama_admin'),
+            'STATUS_USER' => $this->request->getVar('status_admin'),
+            'USERNAME_USER' => $this->request->getVar('username_admin'),
+            'PASSWORD_USER' => $this->request->getVar('password_admin'),
+            'FOTO_USER' => $this->request->getVar('foto_admin'),
+
+        ]);
+        session()->setFlashdata('Info', 'Data Berhasil Diubah');
+        return redirect()->to(base_url('adminAdmin'));
     }
 
     public function pembayaran()

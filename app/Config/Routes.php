@@ -54,7 +54,11 @@ $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
 $routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
 $routes->get('/hapus_admin/(:num)', 'Dashboard\AdminController::hapus_admin/$1');
-$routes->get('/edit_admin/(:num)', 'Dashboard\AdminController::edit_admin/$1');
+$routes->get('/edit_admin/(:segment)', 'Dashboard\AdminController::edit_admin/$1');
+$routes->post('/edit_admin/(:segment)/(:num)', 'Dashboard\AdminController::update_admin/$2');
+$routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
+$routes->get('/edit_pasien/(:segment)', 'Dashboard\AdminController::edit_pasien/$1');
+$routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::update_pasien/$2');
 $routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
@@ -71,7 +75,8 @@ $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
 $routes->get('/tambahObat', 'Dashboard\DokterController::tambah_obat');
 $routes->post('/save_obat', 'Dashboard\DokterController::save_obat');
 $routes->get('/hapus_obat/(:num)', 'Dashboard\DokterController::hapus_obat/$1');
-$routes->get('/edit_obat/(:num)', 'Dashboard\DokterController::edit_obat/$1');
+$routes->get('/edit_obat/(:segment)', 'Dashboard\DokterController::edit_obat/$1');
+$routes->post('/edit_obat/(:segment)/(:num)', 'Dashboard\DokterController::update_obat/$2');
 $routes->get('/tambahPemeriksaan', 'Dashboard\DokterController::tambah_pemeriksaan');
 
 
