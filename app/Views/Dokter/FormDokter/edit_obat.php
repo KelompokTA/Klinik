@@ -52,15 +52,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('tambahObat') ?>" class="nav-link">
+                            <a href="<?= base_url('tambahObat') ?>" class="nav-link active">
                                 <i class="fa fa-plus"></i>
                                 <p>tambah obat</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('editObat') ?>" class="nav-link active">
-                                <i class="fa fa-plus"></i>
-                                <p>edit obat</p>
                             </a>
                         </li>
                     </ul>
@@ -114,7 +108,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Form Edit Obat</h1>
+                    <h1>Form Tambah Obat</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -139,23 +133,24 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="update_obat/<?= $obat['ID_OBAT']; ?>" method="post">
+                            <form role="form" action="update_obat/<?= $obat['ID_OBAT'] ?>" method="POST">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
+                                        <input type="hidden" name="id_obat" value="<?= $obat['ID_OBAT'] ?>" class="form-control">
                                         <div class="form-group">
                                             <label>Nama Obat <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="nama_obat" value="<?= $obat['NAMA_OBAT']; ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autofocus>
+                                            <input type="text" name="nama_obat" value="<?= $obat['NAMA_OBAT'] ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label>Satuan Obat</label>
-                                            <input type="text" name="satuan_obat" value="<?= $obat['SATUAN_OBAT']; ?>" class="form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan satuan obat ...">
+                                            <input type="text" name="satuan_obat" value="<?= $obat['SATUAN_OBAT'] ?>" class="form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan satuan obat ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
-                                            <select name="rute_pemberian" value="<?= $obat['RUTE_PEMBERIAN']; ?>" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled>-Pilih rute pemberian-</option>
+                                            <select name="rute_pemberian" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled value="<?= $obat['RUTE_PEMBERIAN'] ?>"><?= $obat['RUTE_PEMBERIAN'] ?></option>
                                                 <option value="Oral">Oral</option>
                                                 <option value="Intravena">Intravena</option>
                                                 <option value="Inhalasi">Inhalasi</option>
@@ -165,23 +160,23 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Dosis</label>
-                                            <input type="text" name="dosis" value="<?= $obat['DOSIS']; ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
+                                            <input type="text" name="dosis" value="<?= $obat['DOSIS'] ?>>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
                                         </div>
                                         <div class="form-group">
                                             <label>No Batch</label>
-                                            <input type="text" name="no_batch" value="<?= $obat['NO_BATCH']; ?>" class=" form-control <?= ($validation->hasError('no_batch')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomor batch ...">
+                                            <input type="text" name="no_batch" value="<?= $obat['NO_BATCH'] ?>" class=" form-control <?= ($validation->hasError('no_batch')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomor batch ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Expired</label>
-                                            <input type="date" name="expired" value="<?= $obat['EXPIRED']; ?>>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
+                                            <input type="date" name="expired" value="<?= $obat['EXPIRED'] ?>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Beli</label>
-                                            <input type="number" name="harga_beli" value="<?= $obat['HARGA_BELI']; ?>" class=" form-control <?= ($validation->hasError('harga_beli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga beli obat ...">
+                                            <input type="number" name="harga_beli" value="<?= $obat['HARGA_BELI'] ?>" class=" form-control <?= ($validation->hasError('harga_beli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga beli obat ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Jual</label>
-                                            <input type="number" name="harga_jual" value="<?= $obat['HARGA_JUAL']; ?>" class=" form-control <?= ($validation->hasError('harga_jual')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga jual obat ...">
+                                            <input type="number" name="harga_jual" value="<?= $obat['HARGA_JUAL'] ?>" class=" form-control <?= ($validation->hasError('harga_jual')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga jual obat ...">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>

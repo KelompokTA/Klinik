@@ -69,7 +69,8 @@ $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
 $routes->get('/tambahObat', 'Dashboard\DokterController::tambah_obat');
 $routes->post('/save_obat', 'Dashboard\DokterController::save_obat');
 $routes->get('/hapus_obat/(:num)', 'Dashboard\DokterController::hapus_obat/$1');
-$routes->get('/edit_obat/(:num)', 'Dashboard\DokterController::edit_obat/$1');
+$routes->get('/edit_obat/(:segment)', 'Dashboard\DokterController::edit_obat/$1');
+$routes->post('/edit_obat/(:segment)/(:num)', 'Dashboard\DokterController::update_obat/$2');
 $routes->get('/tambahPemeriksaan', 'Dashboard\DokterController::tambah_pemeriksaan');
 
 

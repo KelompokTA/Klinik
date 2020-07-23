@@ -149,7 +149,7 @@
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
                                             <select name="rute_pemberian" value="<?= old('rute_pemberian'); ?>" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled>-Pilih rute pemberian-</option>
+                                                <option selected disabled value="<?= old('rute_pemberian'); ?>"><?= old('rute_pemberian'); ?></option>
                                                 <option value="Oral">Oral</option>
                                                 <option value="Intravena">Intravena</option>
                                                 <option value="Inhalasi">Inhalasi</option>

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\DokterModel;
 use App\Models\ObatModel;
 use App\Models\PasienModel;
+use CodeIgniter\HTTP\Request;
 
 class DokterController extends BaseController
 {
@@ -47,9 +48,9 @@ class DokterController extends BaseController
 
     public function obat()
     {
-        $ObatModel = new ObatModel();   
+        // $obat = $this->ObatModel->findAll();   
         $data = [
-            'obat' => $ObatModel->getAllData()
+            'obat' => $this->ObatModel->getObat()
         ];
         return view('Dokter/TablesDokter/obat', $data);
     }
@@ -77,6 +78,7 @@ class DokterController extends BaseController
             $validation =\Config\Services::validation();
             return redirect()->to('tambahObat')->withInput()->with('validation', $validation);
         }
+        dd($this->request->getVar());
         $this->ObatModel->save([
             'NAMA_OBAT' => $this->request->getVar('nama_obat'),
             'SATUAN_OBAT' => $this->request->getVar('satuan_obat'),
@@ -109,12 +111,28 @@ class DokterController extends BaseController
 
     public function edit_obat($id)
     {
-        $obat = $this->ObatModel->getObat($id);
         $data = [
             'validation' => \Config\Services::validation(),
-            'obat' => $obat
+            'obat' => $this->ObatModel->getObat($id)
         ];
         return view('Dokter/FormDokter/edit_obat', $data);
+    }
+
+    public function update_obat($id)
+    {
+        $this->ObatModel->save([
+            'ID_OBAT' => $id,
+            'NAMA_OBAT' => $this->request->getVar('nama_obat'),
+            'SATUAN_OBAT' => $this->request->getVar('satuan_obat'),
+            'RUTE_PEMBERIAN' => $this->request->getVar('rute_pemberian'),
+            'NO_BATCH' => $this->request->getVar('no_batch'),
+            'EXPIRED' => $this->request->getVar('expired'),
+            'HARGA_BELI' => $this->request->getVar('harga_beli'),
+            'HARGA_JUAL' => $this->request->getVar('harga_jual'),
+            'DOSIS' => $this->request->getVar('dosis')
+        ]);
+        session()->setFlashdata('Info', 'Data Berhasil Diubah');
+        return redirect()->to(base_url('obatDokter'));
     }
 
     public function tambah_pemeriksaan()
