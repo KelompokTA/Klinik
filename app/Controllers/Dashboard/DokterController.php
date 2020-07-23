@@ -65,15 +65,15 @@ class DokterController extends BaseController
     public function save_obat()
     {
         //VALIDASI
-        if(!$this->validate([
+        if (!$this->validate([
             'nama_obat' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'
                 ]
             ]
-        ])){
-            $validation =\Config\Services::validation();
+        ])) {
+            $validation = \Config\Services::validation();
             return redirect()->to('tambahObat')->withInput()->with('validation', $validation);
         }
         $this->ObatModel->save([
@@ -123,6 +123,4 @@ class DokterController extends BaseController
     {
         return view('Dokter/FormDokter/tambah_pemeriksaan');
     }
-    
-
 }

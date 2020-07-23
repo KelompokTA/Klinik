@@ -196,24 +196,13 @@
                                 </thead>
 
                                 <tbody>
-<<<<<<< HEAD
-
-                                    <?php foreach ($admin as $a) : ?>
-                                        <tr>
-                                            <td><?= $i++; ?></td>
-                                            <td><?= $a['ID_USER']; ?></td>
-                                            <td><?= $a['NAMA_USER']; ?></td>
-                                            <td><?= $a['STATUS_USER']; ?></td>
-                                            <td><img src="assets/img/<?= $a['FOTO_USER']; ?>" class="img-circle elevation-2" alt="User Image"></td>
-=======
                                     <?php $no = 1; ?>
                                     <?php foreach ($admin as $row) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt=""></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
                                             <td><?= $row['NAMA_USER']; ?></td>
                                             <td><?= $row['STATUS_USER']; ?></td>
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
                                             <td>
                                                 <button type="button" class="btn btn-info">Detail</button>
                                                 <button type="button" class="btn btn-warning">Edit</button>

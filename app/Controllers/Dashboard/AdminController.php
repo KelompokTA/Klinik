@@ -3,19 +3,6 @@
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
-<<<<<<< HEAD
-use App\Models\UserModel;
-
-class AdminController extends BaseController
-{
-    protected $adminModel;
-    public function __construct()
-    {
-        $this->adminModel = new UserModel();
-    }
-
-
-=======
 use App\Models\PasienModel;
 use App\Models\DokterModel;
 use App\Models\AdminModel;
@@ -33,7 +20,6 @@ class AdminController extends BaseController
         $this->AdminModel = new AdminModel();
     }
 
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
     public function index()
     {
         $data = [];
@@ -42,47 +28,28 @@ class AdminController extends BaseController
 
     public function pasien()
     {
-<<<<<<< HEAD
-        $data = [];
-        return view('Admin/TablesAdmin/pasien');
-=======
         $pasien = $this->PasienModel->findAll();
         $data = [
             'pasien' => $pasien
         ];
         return view('Admin/TablesAdmin/pasien', $data);
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
     }
 
     public function dokter()
     {
-<<<<<<< HEAD
-        $data = [];
-        return view('Admin/TablesAdmin/dokter');
-=======
         $dokter = $this->DokterModel->findAll();
         $data = [
             'dokter' => $dokter
         ];
         return view('Admin/TablesAdmin/dokter', $data);
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
     }
 
     public function admin()
     {
-<<<<<<< HEAD
-        $admin = $this->adminModel->findAll();
-        $data = [
-            'admin' => $admin
-        ];
-
-
-=======
         $admin = $this->AdminModel->findAll();
         $data = [
             'admin' => $admin
         ];
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
         return view('Admin/TablesAdmin/admin', $data);
     }
 
@@ -128,16 +95,11 @@ class AdminController extends BaseController
 
     public function tambah_pasien()
     {
-<<<<<<< HEAD
-        $data = [];
-        return view('Admin/FormAdmin/tambah_pasien');
-=======
         // session();
         $data = [
             'validation' => \Config\Services::validation()
         ];
         return view('Admin/FormAdmin/tambah_pasien', $data);
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
     }
 
     public function surat_rujukan()
@@ -175,10 +137,6 @@ class AdminController extends BaseController
 
     public function tambah_dokter()
     {
-<<<<<<< HEAD
-        $data = [];
-        return view('Admin/FormAdmin/tambah_dokter');
-=======
         // session();
         $data = [
             'validation' => \Config\Services::validation()
@@ -210,21 +168,15 @@ class AdminController extends BaseController
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
         return redirect()->to('adminAdmin');
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
     }
 
     public function tambah_admin()
     {
-<<<<<<< HEAD
-        $data = [];
-        return view('Admin/FormAdmin/tambah_admin');
-=======
         // session();
         $data = [
             'validation' => \Config\Services::validation()
         ];
         return view('Admin/FormAdmin/tambah_admin', $data);
->>>>>>> f608282ddd51fdf03041fdfbc723a578b6dfde2d
     }
 
     public function pembayaran()
