@@ -1,6 +1,7 @@
 <?= $this->extend('Layout/Tables'); ?>
-
+<?= $i = 1; ?>
 <?= $this->section('content'); ?>
+
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
@@ -16,10 +17,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/arif.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/arif.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">Arif</a>
             </div>
         </div>
 
@@ -158,6 +159,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -190,21 +196,25 @@
                                         <th>Foto</th>
                                         <th>Nama Admin</th>
                                         <th>Status</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <?php $no = 1; ?>
                                     <?php foreach ($admin as $row) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt=""></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
                                             <td><?= $row['NAMA_USER']; ?></td>
                                             <td><?= $row['STATUS_USER']; ?></td>
+                                            <td><?= $row['USERNAME_USER']; ?></td>
+                                            <td>********</td>
                                             <td>
-                                                <button type="button" class="btn btn-info">Detail</button>
-                                                <button type="button" class="btn btn-warning">Edit</button>
-                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                                <a href="edit_admin/<?= $row['ID_USER']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="hapus_admin/<?= $row['ID_USER']; ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -150,7 +150,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Pasien</h1>
+                    <h1>Edit Data Pasien</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -175,86 +175,88 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="save_pasien" method="POST">
+                            <form role="form" action="update_pasien/<?= $pasien['ID_PASIEN'] ?>" method="POST">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
+                                        <input type="hidden" name="id_pasien" value="<?= $pasien['ID_PASIEN'] ?>" class="form-control">
                                         <div class="form-group">
                                             <label>No RM</label>
-                                            <input type="text" name="no_rm" value="<?= old('no_rm'); ?>" class=" form-control <?= ($validation->hasError('no_rm')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Rekam Medik ...">
+                                            <input type="text" name="no_rm" value="<?= $pasien['NO_RM']; ?>" class=" form-control <?= ($validation->hasError('no_rm')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Rekam Medik ..." autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label>No KTP</label>
-                                            <input type="text" name="no_ktp" value="<?= old('no_ktp'); ?>" class=" form-control <?= ($validation->hasError('no_ktp')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Kartu Tanda Penduduk ...">
+                                            <input type="text" name="no_ktp" value="<?= $pasien['NO_KTP']; ?>" class=" form-control <?= ($validation->hasError('no_ktp')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Kartu Tanda Penduduk ...">
                                         </div>
                                         <div class="form-group">
-                                            <label>Nama Pasien</label>
-                                            <input type="text" name="nama_pasien" value="<?= old('nama_pasien'); ?>" class=" form-control <?= ($validation->hasError('nama_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama pasien ...">
+                                            <label>Nama Pasien <?= $validation->listErrors(); ?></label>
+                                            <input type="text" name="nama_pasien" value="<?= $pasien['NAMA_PASIEN']; ?>" class=" form-control <?= ($validation->hasError('nama_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama pasien ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Tempat Lahir</label>
-                                            <input type="text" name="tempat_lahir" value="<?= old('tempat_lahir'); ?>" class=" form-control <?= ($validation->hasError('tempat_lahir')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan tempat lahir ...">
+                                            <input type="text" name="tempat_lahir" value="<?= $pasien['TEMPAT_LAHIR']; ?>" class=" form-control <?= ($validation->hasError('tempat_lahir')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan tempat lahir ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Lahir</label>
-                                            <input type="date" name="tanggal_lahir" value="<?= old('tanggal_lahir'); ?>" class=" form-control <?= ($validation->hasError('tanggal_lahir')) ? 'is-invalid' : ''; ?>">
+                                            <input type="date" name="tanggal_lahir" value="<?= $pasien['TANGGAL_LAHIR']; ?>" class=" form-control <?= ($validation->hasError('tanggal_lahir')) ? 'is-invalid' : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
                                             <select name="jenis_kelamin" class=" form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled value="<?= old('jenis_kelamin'); ?>"><?= old('jenis_kelamin'); ?></option>
-                                                <option value="Laki-laki">Laki-laki</option>
-                                                <option value="Perempuan">Perempuan</option>
+                                                <option selected disabled><?= $pasien['JENIS_KELAMIN'] ?></option>
+                                                <option <?= ($pasien['JENIS_KELAMIN'] == "Laki-laki") ? 'selected="selected"' : 'Laki-laki'; ?>>Laki-laki</option>
+                                                <option <?= ($pasien['JENIS_KELAMIN'] == "Perempuan") ? 'selected="selected"' : 'Perempuan'; ?>>Perempuan</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Umur</label>
-                                            <input type="number" name="umur" value="<?= old('umur'); ?>" class=" form-control <?= ($validation->hasError('umur')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan umur ...">
+                                            <input type="number" name="umur" value="<?= $pasien['UMUR']; ?>" class=" form-control <?= ($validation->hasError('umur')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan umur ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Alamat</label>
-                                            <textarea name="alamat" value="<?= old('alamat'); ?>" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."></textarea>
+                                            <textarea name="alamat" value="<?= $pasien['ALAMAT_PASIEN']; ?>" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Kelurahan/Desa</label>
-                                            <select name="kelurahan" value="<?= old('kelurahan'); ?>" class=" form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih kelurahan/desa-</option>
-                                                <option>Kramat</option>
-                                                <option>Ganung</option>
-                                                <option>Lor</option>
+                                            <select name="kelurahan" value="<?= $pasien['KELURAHAN']; ?>" class=" form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>">
+
+                                                <option selected disabled><?= $pasien['KELURAHAN'] ?></option>
+                                                <option <?= ($pasien['KELURAHAN'] == "Kramat") ? 'selected="selected"' : 'Kramat'; ?>>Kramat</option>
+                                                <option <?= ($pasien['KELURAHAN'] == "Ganung") ? 'selected="selected"' : 'Ganung'; ?>>Ganung</option>
+                                                <option <?= ($pasien['KELURAHAN'] == "Lor") ? 'selected="selected"' : 'Lor'; ?>>Lor</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Kecamatan</label>
-                                            <select name="kecamatan" value="<?= old('kecamatan'); ?>" class=" form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih kecamatan-</option>
-                                                <option>Nganjuk</option>
-                                                <option>Wilangan</option>
-                                                <option>Caruban</option>
+                                            <select name="kecamatan" value="<?= $pasien['KECAMATAN']; ?>" class=" form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled><?= $pasien['KECAMATAN'] ?></option>
+                                                <option <?= ($pasien['KECAMATAN'] == "Nganjuk") ? 'selected="selected"' : 'Nganjuk'; ?>>Nganjuk</option>
+                                                <option <?= ($pasien['KECAMATAN'] == "Wilangan") ? 'selected="selected"' : 'Wilangan'; ?>>Wilangan</option>
+                                                <option <?= ($pasien['KECAMATAN'] == "Caruban") ? 'selected="selected"' : 'Caruban'; ?>>Caruban</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Kota</label>
-                                            <select name="kota" value="<?= old('kota'); ?>" class=" form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih kota-</option>
-                                                <option>Nganjuk</option>
-                                                <option>Sukabumi</option>
-                                                <option>Surabaya</option>
+                                            <select name="kota" value="<?= $pasien['KOTA']; ?>" class=" form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled><?= $pasien['KOTA'] ?></option>
+                                                <option <?= ($pasien['KOTA'] == "Nganjuk") ? 'selected="selected"' : 'Nganjuk'; ?>>Nganjuk</option>
+                                                <option <?= ($pasien['KOTA'] == "Sukabumi") ? 'selected="selected"' : 'Sukabumi'; ?>>Sukabumi</option>
+                                                <option <?= ($pasien['KOTA'] == "Surabaya") ? 'selected="selected"' : 'Surabaya'; ?>>Surabaya</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Provinsi</label>
-                                            <select name="provinsi" value="<?= old('provinsi'); ?>" class=" form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih provinsi-</option>
-                                                <option>Jawa Barat</option>
-                                                <option>Jawa Tengah</option>
-                                                <option>Jawa Timur</option>
+                                            <select name="provinsi" value="<?= $pasien['PROVINSI']; ?>" class=" form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled><?= $pasien['PROVINSI'] ?></option>
+                                                <option <?= ($pasien['PROVINSI'] == "Jawa Barat") ? 'selected="selected"' : 'Jawa Barat'; ?>>Jawa Barat</option>
+                                                <option <?= ($pasien['PROVINSI'] == "Jawa Tengah") ? 'selected="selected"' : 'Jawa Tengah'; ?>>Jawa Tengah</option>
+                                                <option <?= ($pasien['PROVINSI'] == "Jawa Timur") ? 'selected="selected"' : 'Jawa Timur'; ?>>Jawa Timur</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Telepon</label>
-                                            <input type="text" name="telfon_pasien" value="<?= old('telfon_pasien'); ?>" class=" form-control <?= ($validation->hasError('telfon_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer telepon ...">
+                                            <input type="text" name="telfon_pasien" value="<?= $pasien['NO_TELFONE_PASIEN']; ?>" class=" form-control <?= ($validation->hasError('telfon_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer telepon ...">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>

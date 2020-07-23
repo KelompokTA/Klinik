@@ -18,7 +18,6 @@ class DokterController extends BaseController
         $this->DokterModel = new DokterModel();
         $this->PasienModel = new PasienModel();
         $this->ObatModel = new ObatModel();
-        
     }
 
     public function index()
@@ -67,15 +66,15 @@ class DokterController extends BaseController
     public function save_obat()
     {
         //VALIDASI
-        if(!$this->validate([
+        if (!$this->validate([
             'nama_obat' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} Harus diisi'
                 ]
             ]
-        ])){
-            $validation =\Config\Services::validation();
+        ])) {
+            $validation = \Config\Services::validation();
             return redirect()->to('tambahObat')->withInput()->with('validation', $validation);
         }
         dd($this->request->getVar());
@@ -105,7 +104,7 @@ class DokterController extends BaseController
     public function hapus_obat($id)
     {
         $this->ObatModel->delete($id);
-        session()->setFlashdata('Info','Data berhasil dihapus.');
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
         return redirect()->to(base_url('obatDokter'));
     }
 
@@ -139,6 +138,4 @@ class DokterController extends BaseController
     {
         return view('Dokter/FormDokter/tambah_pemeriksaan');
     }
-    
-
 }
