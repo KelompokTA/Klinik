@@ -6,7 +6,16 @@ use CodeIgniter\Model;
 
 class AdminModel extends Model
 {
-    protected $table = 'user';
-    protected $primaryKey = 'ID_USER';
-    protected $allowedFields = ['NAMA_USER', 'STATUS_USER', 'USERNAME_USER', 'PASSWORD_USER', 'FOTO_USER'];
+    protected $table = 'admin';
+    protected $primaryKey = 'ID_ADMIN';
+    protected $allowedFields = ['NAMA_ADMIN', 'STATUS_ADMIN', 'EMAIL_ADMIN', 'PASSWORD_ADMIN', 'FOTO_ADMIN'];
+
+    public function getAdmin($id = false)
+    {
+        if ($id === false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['ID_ADMIN' => $id])->first();
+    }
 }

@@ -8,7 +8,7 @@ class PasienModel extends Model
 {
     protected $table = 'pasien';
     protected $primaryKey = 'ID_PASIEN';
-    protected $allowedFields = ['NO_RM', 'NO_KTP', 'NAMA_PASIEN', 'JENIS_KELAMIN', 'UMUR', 'KELURAHAN', 'KECAMATAN', 'KOTA', 'PROVINSI', 'NO_TELFONE_PASIEN', 'ALAMAT_PASIEN', 'TEMPAT_LAHIR', 'TANGGAL_LAHIR'];
+    protected $allowedFields = ['NO_RM', 'NO_KTP', 'NAMA_PASIEN', 'JENIS_KELAMIN', 'UMUR', 'KELURAHAN', 'KECAMATAN', 'KOTA', 'PROVINSI', 'TELFON_PASIEN', 'ALAMAT_PASIEN', 'TEMPAT_LAHIR', 'TANGGAL_LAHIR'];
 
     public function getPasien($id = false)
     {

@@ -133,32 +133,32 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="update_admin/<?= $admin['ID_USER'] ?>" method="POST">
+                            <form role="form" action="update_admin/<?= $admin['ID_ADMIN'] ?>" method="POST">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
-                                        <input type="hidden" name="id_user" value="<?= $admin['ID_USER'] ?>" class="form-control">
+                                        <input type="hidden" name="id_admin" value="<?= $admin['ID_ADMIN'] ?>" class="form-control">
                                         <div class=" form-group">
                                             <label>Foto <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_USER'] ?>" class=" form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ..." autofocus>
+                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ..." autofocus>
                                         </div>
                                         <br>
                                         <div class=" form-group">
                                             <label>Nama Admin <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="nama_admin" value="<?= $admin['NAMA_USER'] ?>" class=" form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ..." autofocus>
+                                            <input type="text" name="nama_admin" value="<?= $admin['NAMA_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ..." autofocus>
                                         </div>
                                         <div class="form-group">
                                             <label>Status Admin</label>
-                                            <input type="text" name="status_admin" value="<?= $admin['STATUS_USER'] ?>" class="form-control <?= ($validation->hasError('status_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status admin ...">
+                                            <input type="text" name="status_admin" value="<?= $admin['STATUS_ADMIN'] ?>" class="form-control <?= ($validation->hasError('status_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status admin ...">
                                         </div>
                                         <div class="form-group">
-                                            <label>Username</label>
-                                            <input type="text" name="username_admin" value="<?= $admin['USERNAME_USER'] ?>" class=" form-control <?= ($validation->hasError('username_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan username ...">
+                                            <label>Email</label>
+                                            <input type="text" name="email_admin" value="<?= $admin['EMAIL_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('email_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" name="password_admin" value="<?= $admin['PASSWORD_USER'] ?>" class="form-control <?= ($validation->hasError('password_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
+                                            <input type="password" name="password_admin" value="<?= $admin['PASSWORD_ADMIN'] ?>" class="form-control <?= ($validation->hasError('password_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>

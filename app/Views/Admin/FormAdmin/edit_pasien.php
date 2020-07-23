@@ -215,7 +215,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Alamat</label>
-                                            <textarea name="alamat" value="<?= $pasien['ALAMAT_PASIEN']; ?>" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."></textarea>
+                                            <textarea name="alamat" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."><?= $pasien['ALAMAT_PASIEN']; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Kelurahan/Desa</label>
@@ -256,7 +256,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Telepon</label>
-                                            <input type="text" name="telfon_pasien" value="<?= $pasien['NO_TELFONE_PASIEN']; ?>" class=" form-control <?= ($validation->hasError('telfon_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer telepon ...">
+                                            <input type="text" name="telfon_pasien" value="<?= $pasien['TELFON_PASIEN']; ?>" class=" form-control <?= ($validation->hasError('telfon_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer telepon ...">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>

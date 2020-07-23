@@ -227,7 +227,7 @@
                       <td><?= $row['KECAMATAN']; ?></td>
                       <td><?= $row['KOTA']; ?></td>
                       <td><?= $row['PROVINSI']; ?></th>
-                      <td><?= $row['NO_TELFONE_PASIEN']; ?></td>
+                      <td><?= $row['TELFON_PASIEN']; ?></td>
                       <td>
                         <a href="edit_pasien/<?= $row['ID_PASIEN']; ?>" class="btn btn-warning">Edit</a>
                         <a href="hapus_pasien/<?= $row['ID_PASIEN']; ?>" class=" btn btn-danger">Hapus</a>

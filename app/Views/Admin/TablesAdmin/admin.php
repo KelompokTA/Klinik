@@ -196,7 +196,7 @@
                                         <th>Foto</th>
                                         <th>Nama Admin</th>
                                         <th>Status</th>
-                                        <th>Username</th>
+                                        <th>Email</th>
                                         <th>Password</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -207,14 +207,14 @@
                                     <?php foreach ($admin as $row) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_USER'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
-                                            <td><?= $row['NAMA_USER']; ?></td>
-                                            <td><?= $row['STATUS_USER']; ?></td>
-                                            <td><?= $row['USERNAME_USER']; ?></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="<?= $row['FOTO_ADMIN'] ?>" width="50px" height="70px"></td>
+                                            <td><?= $row['NAMA_ADMIN']; ?></td>
+                                            <td><?= $row['STATUS_ADMIN']; ?></td>
+                                            <td><?= $row['EMAIL_ADMIN']; ?></td>
                                             <td>********</td>
                                             <td>
-                                                <a href="edit_admin/<?= $row['ID_USER']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_USER']; ?>" class=" btn btn-danger">Hapus</a>
+                                                <a href="edit_admin/<?= $row['ID_ADMIN']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="hapus_admin/<?= $row['ID_ADMIN']; ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

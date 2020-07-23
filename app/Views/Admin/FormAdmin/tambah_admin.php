@@ -197,8 +197,8 @@
                                             <input type="text" name="status_admin" value="<?= old('status_admin'); ?>" class="form-control <?= ($validation->hasError('status_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status admin ...">
                                         </div>
                                         <div class="form-group">
-                                            <label>Username</label>
-                                            <input type="text" name="username_admin" value="<?= old('username_admin'); ?>" class="form-control <?= ($validation->hasError('username_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan username ...">
+                                            <label>Email</label>
+                                            <input type="text" name="email_admin" value="<?= old('email_admin'); ?>" class="form-control <?= ($validation->hasError('email_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>

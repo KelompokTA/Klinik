@@ -5,19 +5,19 @@ namespace App\Controllers\Dashboard;
 use App\Controllers\BaseController;
 use App\Models\PasienModel;
 use App\Models\DokterModel;
-use App\Models\UserModel;
+use App\Models\AdminModel;
 
 
 class AdminController extends BaseController
 {
     protected $PasienModel;
     protected $DokternModel;
-    protected $UserModel;
+    protected $AdminModel;
     public function __construct()
     {
         $this->PasienModel = new PasienModel();
         $this->DokterModel = new DokterModel();
-        $this->UserModel = new UserModel();
+        $this->AdminModel = new AdminModel();
     }
 
     public function index()
@@ -48,7 +48,7 @@ class AdminController extends BaseController
     {
         // $admin = $this->AdminModel->findAll();
         $data = [
-            'admin' => $this->UserModel->getAdmin()
+            'admin' => $this->AdminModel->getAdmin()
         ];
         return view('Admin/TablesAdmin/admin', $data);
     }
@@ -83,7 +83,7 @@ class AdminController extends BaseController
             'KECAMATAN' => $this->request->getVar('kecamatan'),
             'KOTA' => $this->request->getVar('kota'),
             'PROVINSI' => $this->request->getVar('provinsi'),
-            'NO_TELFONE_PASIEN' => $this->request->getVar('telfon_pasien'),
+            'TELFON_PASIEN' => $this->request->getVar('telfon_pasien'),
             'ALAMAT_PASIEN' => $this->request->getVar('alamat'),
             'TEMPAT_LAHIR' => $this->request->getVar('tempat_lahir'),
             'TANGGAL_LAHIR' => $this->request->getVar('tanggal_lahir')
@@ -111,7 +111,7 @@ class AdminController extends BaseController
 
     public function edit_pasien($id)
     {
-        // $user = $this->UserModel->getUser($id);
+        // $user = $this->AdminModel->getUser($id);
         $data = [
             'validation' => \Config\Services::validation(),
             'pasien' => $this->PasienModel->getPasien($id)
@@ -132,7 +132,7 @@ class AdminController extends BaseController
             'KECAMATAN' => $this->request->getVar('kecamatan'),
             'KOTA' => $this->request->getVar('kota'),
             'PROVINSI' => $this->request->getVar('provinsi'),
-            'NO_TELFONE_PASIEN' => $this->request->getVar('telfon_pasien'),
+            'TELFON_PASIEN' => $this->request->getVar('telfon_pasien'),
             'ALAMAT_PASIEN' => $this->request->getVar('alamat'),
             'TEMPAT_LAHIR' => $this->request->getVar('tempat_lahir'),
             'TANGGAL_LAHIR' => $this->request->getVar('tanggal_lahir')
@@ -198,12 +198,12 @@ class AdminController extends BaseController
             $validation = \Config\Services::validation();
             return redirect()->to('tambahAdmin')->withInput()->with('validation', $validation);
         }
-        $this->UserModel->save([
-            'FOTO_USER' => $this->request->getVar('foto_admin'),
-            'NAMA_USER' => $this->request->getVar('nama_admin'),
-            'STATUS_USER' => $this->request->getVar('status_admin'),
-            'USERNAME_USER' => $this->request->getVar('username_admin'),
-            'PASSWORD_USER' => $this->request->getVar('password_admin')
+        $this->AdminModel->save([
+            'FOTO_ADMIN' => $this->request->getVar('foto_admin'),
+            'NAMA_ADMIN' => $this->request->getVar('nama_admin'),
+            'STATUS_ADMIN' => $this->request->getVar('status_admin'),
+            'EMAIL_ADMIN' => $this->request->getVar('email_admin'),
+            'PASSWORD_ADMIN' => $this->request->getVar('password_admin')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -221,30 +221,30 @@ class AdminController extends BaseController
 
     public function hapus_admin($id)
     {
-        $this->UserModel->delete($id);
+        $this->AdminModel->delete($id);
         session()->setFlashdata('Info', 'Data berhasil dihapus.');
         return redirect()->to(base_url('adminAdmin'));
     }
 
     public function edit_admin($id)
     {
-        // $user = $this->UserModel->getUser($id);
+        // $user = $this->AdminModel->getUser($id);
         $data = [
             'validation' => \Config\Services::validation(),
-            'admin' => $this->UserModel->getAdmin($id)
+            'admin' => $this->AdminModel->getAdmin($id)
         ];
         return view('Admin/FormAdmin/edit_admin', $data);
     }
 
     public function update_admin($id)
     {
-        $this->UserModel->save([
-            'ID_USER' => $id,
-            'NAMA_USER' => $this->request->getVar('nama_admin'),
-            'STATUS_USER' => $this->request->getVar('status_admin'),
-            'USERNAME_USER' => $this->request->getVar('username_admin'),
-            'PASSWORD_USER' => $this->request->getVar('password_admin'),
-            'FOTO_USER' => $this->request->getVar('foto_admin'),
+        $this->AdminModel->save([
+            'ID_ADMIN' => $id,
+            'NAMA_ADMIN' => $this->request->getVar('nama_admin'),
+            'STATUS_ADMIN' => $this->request->getVar('status_admin'),
+            'EMAIL_ADMIN' => $this->request->getVar('email_admin'),
+            'PASSWORD_ADMIN' => $this->request->getVar('password_admin'),
+            'FOTO_ADMIN' => $this->request->getVar('foto_admin'),
 
         ]);
         session()->setFlashdata('Info', 'Data Berhasil Diubah');
