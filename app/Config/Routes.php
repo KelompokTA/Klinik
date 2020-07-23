@@ -53,6 +53,12 @@ $routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
 $routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
+$routes->get('/hapus_admin/(:num)', 'Dashboard\AdminController::hapus_admin/$1');
+$routes->get('/edit_admin/(:segment)', 'Dashboard\AdminController::edit_admin/$1');
+$routes->post('/edit_admin/(:segment)/(:num)', 'Dashboard\AdminController::update_admin/$2');
+$routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
+$routes->get('/edit_pasien/(:segment)', 'Dashboard\AdminController::edit_pasien/$1');
+$routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::update_pasien/$2');
 $routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
