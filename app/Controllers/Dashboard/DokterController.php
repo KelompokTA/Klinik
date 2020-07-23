@@ -78,7 +78,6 @@ class DokterController extends BaseController
             $validation =\Config\Services::validation();
             return redirect()->to('tambahObat')->withInput()->with('validation', $validation);
         }
-        dd($this->request->getVar());
         $this->ObatModel->save([
             'NAMA_OBAT' => $this->request->getVar('nama_obat'),
             'SATUAN_OBAT' => $this->request->getVar('satuan_obat'),

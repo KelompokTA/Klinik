@@ -150,17 +150,17 @@
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
                                             <select name="rute_pemberian" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled value="<?= $obat['RUTE_PEMBERIAN'] ?>"><?= $obat['RUTE_PEMBERIAN'] ?></option>
-                                                <option value="Oral">Oral</option>
-                                                <option value="Intravena">Intravena</option>
-                                                <option value="Inhalasi">Inhalasi</option>
-                                                <option value="transdermal">transdermal</option>
-                                                <option value="okular">Okular</option>
+                                                <option selected disabled><?= $obat['RUTE_PEMBERIAN'] ?></option>
+                                                <option <?= ($obat['RUTE_PEMBERIAN'] == "Oral") ? 'selected="selected"' : 'Oral'; ?>>Oral</option>
+                                                <option <?= ($obat['RUTE_PEMBERIAN'] == "Intravena") ? 'selected="selected"' : 'Intravena'; ?>>Intravena</option>
+                                                <option <?= ($obat['RUTE_PEMBERIAN'] == "Inhalasi") ? 'selected="selected"' : 'Inhalasi'; ?>>Inhalasi</option>
+                                                <option <?= ($obat['RUTE_PEMBERIAN'] == "Transdermal") ? 'selected="selected"' : 'Transdermal'; ?>>transdermal</option>
+                                                <option <?= ($obat['RUTE_PEMBERIAN'] == "Okular") ? 'selected="selected"' : 'Okular'; ?>>Okular</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Dosis</label>
-                                            <input type="text" name="dosis" value="<?= $obat['DOSIS'] ?>>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
+                                            <input type="text" name="dosis" value="<?= $obat['DOSIS'] ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
                                         </div>
                                         <div class="form-group">
                                             <label>No Batch</label>
@@ -168,7 +168,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Expired</label>
-                                            <input type="date" name="expired" value="<?= $obat['EXPIRED'] ?>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
+                                            <input type="date" name="expired" value="<?= date('Y-m-d', strtotime($obat["EXPIRED"])) ?>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Beli</label>
