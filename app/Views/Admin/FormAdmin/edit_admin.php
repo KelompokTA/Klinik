@@ -70,13 +70,13 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="pendaftaran" class="nav-link">
+                            <a href="pendaftaran" class="nav-link ">
                                 <i class="fa fa-plus"></i>
                                 <p>Pendaftaran</p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="tambahDokter" class="nav-link active">
+                            <a href="tambahDokter" class="nav-link ">
                                 <i class="fa fa-plus"></i>
                                 <p>
                                     Tambah Dokter
@@ -84,7 +84,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="tambahAdmin" class="nav-link">
+                            <a href="tambahAdmin" class="nav-link active">
                                 <i class="fa fa-plus"></i>
                                 <p>
                                     Tambah Admin
@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="pembayaran" class="nav-link">
+                            <a href="pembayaran" class="nav-link ">
                                 <i class="fa fa-credit-card" aria-hidden="true"></i>
                                 <p>
                                     Pembayaran
@@ -151,7 +151,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Tambah Dokter</h1>
+                    <h1>Edit Admin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -159,6 +159,7 @@
                         <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div>
+                <?= $validation->listErrors(); ?>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -171,43 +172,32 @@
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data dokter</h3>
+                            <h3 class="card-title">Masukkan data admin</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form">
+                            <form role="form" action="update_admin/<?= $obat['ID_USER']; ?>" method="POST">
+                                <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div>
                                             <label>Foto</label>
                                             <div class="custom-file">
-                                                <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="customFile">
+                                                <input type="file" name="foto_admin" value="<?= old('foto_admin'); ?>" class="custom-file-input <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" id="customFile">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="form-group">
-                                            <label>Nama Dokter</label>
-                                            <input type="text" name="nama_dokter" value="<?= old('nama_dokter'); ?>" class="form-control <?= ($validation->hasError('nama_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama dokter ...">
+                                            <label>Nama Admin</label>
+                                            <input type="text" name="nama_admin" value="<?= old('nama_admin'); ?>" class="form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ...">
                                         </div>
                                         <div class="form-group">
-                                            <label>Status Dokter</label>
-                                            <input type="text" name="status_dokter" value="<?= old('status_dokter'); ?>" class="form-control <?= ($validation->hasError('status_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status dokter ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>ID Jadwal</label>
-                                            <input type="text" name="id_jadwal" value="<?= old('id_jadwal'); ?>" class="form-control <?= ($validation->hasError('id_jadwal')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan ID Jadwal ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Username</label>
-                                            <input type="text" name="username_dokter" value="<?= old('username_dokter'); ?>" class="form-control <?= ($validation->hasError('username_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan username ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" name="password_dokter" value="<?= old('password_dokter'); ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
+                                            <label>Status Admin</label>
+                                            <input type="text" name="status_admin" value="<?= old('status_admin'); ?>" class="form-control <?= ($validation->hasError('status_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status admin ...">
                                         </div>
                                         <div>
-                                            <button type="button" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
                                     </div>
                                 </div>

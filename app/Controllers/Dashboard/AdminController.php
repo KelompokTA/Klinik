@@ -5,19 +5,19 @@ namespace App\Controllers\Dashboard;
 use App\Controllers\BaseController;
 use App\Models\PasienModel;
 use App\Models\DokterModel;
-use App\Models\AdminModel;
+use App\Models\UserModel;
 
 
 class AdminController extends BaseController
 {
     protected $PasienModel;
     protected $DokternModel;
-    protected $AdminModel;
+    protected $UserModel;
     public function __construct()
     {
         $this->PasienModel = new PasienModel();
         $this->DokterModel = new DokterModel();
-        $this->AdminModel = new AdminModel();
+        $this->UserModel = new UserModel();
     }
 
     public function index()
@@ -46,9 +46,9 @@ class AdminController extends BaseController
 
     public function admin()
     {
-        $admin = $this->AdminModel->findAll();
+        // $admin = $this->AdminModel->findAll();
         $data = [
-            'admin' => $admin
+            'admin' => $this->UserModel->getAdmin()
         ];
         return view('Admin/TablesAdmin/admin', $data);
     }
@@ -177,6 +177,23 @@ class AdminController extends BaseController
             'validation' => \Config\Services::validation()
         ];
         return view('Admin/FormAdmin/tambah_admin', $data);
+    }
+
+    public function hapus_admin($id)
+    {
+        $this->UserModel->delete($id);
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('adminAdmin'));
+    }
+
+    public function edit_admin($id)
+    {
+        // $user = $this->UserModel->getUser($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'obat' => $this->UserModel->getAdmin($id)
+        ];
+        return view('Admin/FormAdmin/edit_admin', $data);
     }
 
     public function pembayaran()
