@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\PasienModel;
 use App\Models\DokterModel;
 use App\Models\AdminModel;
+use App\Models\JadwalModel;
 
 
 class AdminController extends BaseController
@@ -13,11 +14,13 @@ class AdminController extends BaseController
     protected $PasienModel;
     protected $DokternModel;
     protected $AdminModel;
+    protected $JadwalModel;
     public function __construct()
     {
         $this->PasienModel = new PasienModel();
         $this->DokterModel = new DokterModel();
         $this->AdminModel = new AdminModel();
+        $this->JadwalModel = new JadwalModel();
     }
 
     public function index()
@@ -37,9 +40,8 @@ class AdminController extends BaseController
 
     public function dokter()
     {
-        $dokter = $this->DokterModel->findAll();
         $data = [
-            'dokter' => $dokter
+            'dokter' => $this->DokterModel->getDokter()     
         ];
         return view('Admin/TablesAdmin/dokter', $data);
     }

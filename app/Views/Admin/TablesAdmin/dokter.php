@@ -181,7 +181,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
@@ -190,6 +189,9 @@
                                         <th>Foto</th>
                                         <th>Nama Dokter</th>
                                         <th>Status</th>
+                                        <th>Hari Praktek</th>
+                                        <th>Jam Praktek</th>
+                                        <th>POLI</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -201,6 +203,9 @@
                                             <td><img src="assets/img/foto/<?= $row['FOTO_DOKTER']; ?>" alt="dokter.jpg" width="50px" height="70px"></td>
                                             <td><?= $row['NAMA_DOKTER']; ?></td>
                                             <td><?= $row['STATUS_DOKTER'] ?></td>
+                                            <td><?= $row['HARI'] ?></td>
+                                            <td><?= $row['JAM'] ?></td>
+                                            <td><?= $row['POLI'] ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-info">Detail</button>
                                                 <button type="button" class="btn btn-warning">Edit</button>
