@@ -182,7 +182,7 @@
                                         <input type="hidden" name="id_admin" value="<?= $admin['ID_ADMIN'] ?>" class="form-control">
                                         <div class=" form-group">
                                             <label>Foto <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ..." autofocus>
+                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan foto admin ..." autofocus>
                                         </div>
                                         <br>
                                         <div class=" form-group">

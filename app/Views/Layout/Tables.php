@@ -15,10 +15,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
-    <!-- Theme style -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -75,6 +71,17 @@
     <script src="<?= base_url('assets/js/adminlte.min.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
+    <script>
+        function previewFoto() {
+            const fotoAdmin = document.querySelector('#fotoAdmin');
+            const fotoLabel = document.querySelector('.costum-file-label');
+
+            fotoLabel.textContent = fotoLabel.files[0].name;
+
+            const fileAdmin = new FileReader();
+            fileAdmin.readAsDataURL(fotoAdmin.files[0]);
+        }
+    </script>
 </body>
 
 </html>
