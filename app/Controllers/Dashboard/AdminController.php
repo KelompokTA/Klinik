@@ -35,6 +35,15 @@ class AdminController extends BaseController
         return view('Admin/TablesAdmin/pasien', $data);
     }
 
+    public function get_provinsi()
+    {
+        $provinsi = $this->PasienModel->findAll();
+        $data = [
+            'provinsi' => $provinsi
+        ];
+        return view('Admin/TablesAdmin/pasien', $data);
+    }
+
     public function dokter()
     {
         $dokter = $this->DokterModel->findAll();
