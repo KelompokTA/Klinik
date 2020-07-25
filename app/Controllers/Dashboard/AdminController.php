@@ -38,10 +38,19 @@ class AdminController extends BaseController
         return view('Admin/TablesAdmin/pasien', $data);
     }
 
+    public function get_provinsi()
+    {
+        $provinsi = $this->PasienModel->findAll();
+        $data = [
+            'provinsi' => $provinsi
+        ];
+        return view('Admin/TablesAdmin/pasien', $data);
+    }
+
     public function dokter()
     {
         $data = [
-            'dokter' => $this->DokterModel->getDokter()     
+            'dokter' => $this->DokterModel->getDokter()
         ];
         return view('Admin/TablesAdmin/dokter', $data);
     }
@@ -225,15 +234,31 @@ class AdminController extends BaseController
             'nama_admin' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => '{field} Harus diisi'
+                    'required' => 'Nama Admin Harus diisi'
+                ]
+            ],
+            'foto_admin' => [
+                'rules' => 'uploaded[foto_admin]|max_size[foto_admin,2048]|is_image[foto_admin]|mime_in[foto_admin,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
                 ]
             ]
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('tambahAdmin')->withInput()->with('validation', $validation);
         }
+        // ambil gambar
+        $fotoAdmin = $this->request->getFile('foto_admin');
+        // pindahkan file ke folder
+        $fotoAdmin->move('assets/img/foto');
+        //ambil nama file gambar
+        $namaAdmin = $fotoAdmin->getName();
+
         $this->AdminModel->save([
-            'FOTO_ADMIN' => $this->request->getVar('foto_admin'),
+            'FOTO_ADMIN' => $namaAdmin,
             'NAMA_ADMIN' => $this->request->getVar('nama_admin'),
             'STATUS_ADMIN' => $this->request->getVar('status_admin'),
             'EMAIL_ADMIN' => $this->request->getVar('email_admin'),
@@ -243,6 +268,7 @@ class AdminController extends BaseController
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
         return redirect()->to('adminAdmin');
     }
+
 
     public function tambah_admin()
     {
@@ -255,6 +281,12 @@ class AdminController extends BaseController
 
     public function hapus_admin($id)
     {
+        //cari gambar berdasarkan id
+        $admin = $this->AdminModel->find($id);
+
+        //hapus gambar
+        unlink('assets/img/foto/' . $admin['FOTO_ADMIN']);
+
         $this->AdminModel->delete($id);
         session()->setFlashdata('Info', 'Data berhasil dihapus.');
         return redirect()->to(base_url('adminAdmin'));
@@ -272,6 +304,44 @@ class AdminController extends BaseController
 
     public function update_admin($id)
     {
+        // if (!$this->validate([
+        //     'nama_admin' => [
+        //         'rules' => 'required',
+        //         'errors' => [
+        //             'required' => 'Nama Admin Harus diisi'
+        //         ]
+        //     ],
+        //     'foto_admin' => [
+        //         'rules' => 'uploaded[foto_admin]|max_size[foto_admin,2048]|is_image[foto_admin]|mime_in[foto_admin,image/jpg,image/jpeg,image/png]',
+        //         'errors' => [
+        //             'uploaded' => 'Pilih gambar terlebih dahulu',
+        //             'max_size' => 'Ukuran gambar terlalu besar',
+        //             'is_image' => 'Yang anda pilih bukan gambar',
+        //             'mime_in' => 'Yang anda pilih bukan gambar'
+        //         ]
+        //     ]
+        // ])) {
+        //     $validation = \Config\Services::validation();
+        //     return redirect()->to('edit_admin')->withInput()->with('validation', $validation);
+        // }
+
+        // $fotoAdmin = $this->request->getFile('foto_admin');
+
+        // //cek gambar, lama atau tidak
+        // if ($fotoAdmin->getError() == 4) {
+        //     $namaAdmin = $this->request->getVar('foto_lama');
+        // } else {
+        //     // ambil gambar
+        //     $fotoAdmin = $this->request->getFile('foto_admin');
+        //     // pindahkan file ke folder
+        //     $fotoAdmin->move('assets/img/foto');
+        //     //ambil nama file gambar
+        //     $namaAdmin = $fotoAdmin->getName();
+
+        //     unlink('assets/img/foto/' . $this->request->getVar('foto_lama'));
+        // }
+
+
         $this->AdminModel->save([
             'ID_ADMIN' => $id,
             'NAMA_ADMIN' => $this->request->getVar('nama_admin'),

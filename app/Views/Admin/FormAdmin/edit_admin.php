@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-light-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
         <img src="assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -36,7 +36,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item has-treeview menu-open">
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
@@ -45,21 +45,62 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= base_url('tambahPemeriksaan') ?>" class="nav-link">
-                                <i class="fas fa-hand-holding-medical"></i>
-                                <p>pemeriksaan</p>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-bed"></i>
+                                <p>
+                                    Pasien
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="tambahPasien" class="nav-link ">
+                                        <i class="fa fa-plus"></i>
+                                        <p>Tambah Pasien</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="suratRujukan" class="nav-link">
+                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                        <p>Surat Rujukan</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('tambahObat') ?>" class="nav-link ">
+                            <a href="pendaftaran" class="nav-link">
                                 <i class="fa fa-plus"></i>
-                                <p>tambah obat</p>
+                                <p>Pendaftaran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="tambahDokter" class="nav-link">
+                                <i class="fa fa-plus"></i>
+                                <p>
+                                    Tambah Dokter
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="tambahAdmin" class="nav-link">
+                                <i class="fa fa-plus"></i>
+                                <p>
+                                    Tambah Admin
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="pembayaran" class="nav-link">
+                                <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                <p>
+                                    Pembayaran
+                                </p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -69,7 +110,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pasienAdmin" class="nav-link">
+                            <a href="pasienAdmin" class="nav-link active">
                                 <i class=" fas fa-bed"></i>
                                 <p>Pasien</p>
                             </a>
@@ -81,7 +122,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="adminAdmin" class="nav-link active">
+                            <a href="adminAdmin" class="nav-link ">
                                 <i class="fa fa-user"></i>
                                 <p>Admin</p>
                             </a>
@@ -108,7 +149,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Form Tambah Obat</h1>
+                    <h1>Form Edit Admin</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -129,7 +170,7 @@
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data Obat</h3>
+                            <h3 class="card-title">Masukkan data Admin</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -141,7 +182,7 @@
                                         <input type="hidden" name="id_admin" value="<?= $admin['ID_ADMIN'] ?>" class="form-control">
                                         <div class=" form-group">
                                             <label>Foto <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama admin ..." autofocus>
+                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan foto admin ..." autofocus>
                                         </div>
                                         <br>
                                         <div class=" form-group">

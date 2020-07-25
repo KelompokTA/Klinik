@@ -37,8 +37,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -46,8 +46,8 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
                                 <i class=" fas fa-bed"></i>
                                 <p>
                                     Pasien
@@ -56,7 +56,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="tambahPasien" class="nav-link active">
+                                    <a href="tambahPasien" class="nav-link ">
                                         <i class="fa fa-plus"></i>
                                         <p>Tambah Pasien</p>
                                     </a>
@@ -101,7 +101,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -111,7 +111,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pasienAdmin" class="nav-link">
+                            <a href="pasienAdmin" class="nav-link active">
                                 <i class=" fas fa-bed"></i>
                                 <p>Pasien</p>
                             </a>

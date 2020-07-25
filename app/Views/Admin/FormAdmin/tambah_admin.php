@@ -159,7 +159,7 @@
                         <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
                 </div>
-                <?= $validation->listErrors(); ?>
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -176,14 +176,14 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="save_admin" method="POST">
+                            <form role="form" action="save_admin" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div>
                                             <label>Foto</label>
                                             <div class="custom-file">
-                                                <input type="file" name="foto_admin" value="<?= old('foto_admin'); ?>" class="custom-file-input <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" id="customFile">
+                                                <input type="file" name="foto_admin" value="<?= old('foto_admin'); ?>" class="custom-file-input <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" id="foto_admin">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>

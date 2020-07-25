@@ -217,39 +217,30 @@
                                             <textarea name="alamat" value="<?= old('alamat'); ?>" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label>Kelurahan/Desa</label>
-                                            <select name="kelurahan" value="<?= old('kelurahan'); ?>" class=" form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih kelurahan/desa-</option>
-                                                <option>Kramat</option>
-                                                <option>Ganung</option>
-                                                <option>Lor</option>
+                                            <label>Provinsi</label>
+                                            <select class="form-control" name="provinsi" id="provinsi">
+
                                             </select>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Kabupaten</label>
+                                            <select class="form-control" name="kabupaten" id="kabupaten">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+
                                         <div class="form-group">
                                             <label>Kecamatan</label>
-                                            <select name="kecamatan" value="<?= old('kecamatan'); ?>" class=" form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih kecamatan-</option>
-                                                <option>Nganjuk</option>
-                                                <option>Wilangan</option>
-                                                <option>Caruban</option>
+                                            <select class="form-control" name="kecamatan" id="kecamatan">
+                                                <option value=""></option>
                                             </select>
                                         </div>
+
                                         <div class="form-group">
-                                            <label>Kota</label>
-                                            <select name="kota" value="<?= old('kota'); ?>" class=" form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih kota-</option>
-                                                <option>Nganjuk</option>
-                                                <option>Sukabumi</option>
-                                                <option>Surabaya</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Provinsi</label>
-                                            <select name="provinsi" value="<?= old('provinsi'); ?>" class=" form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>">
-                                                <option>-Pilih provinsi-</option>
-                                                <option>Jawa Barat</option>
-                                                <option>Jawa Tengah</option>
-                                                <option>Jawa Timur</option>
+                                            <label>Kelurahan</label>
+                                            <select class="form-control" name="kelurahan" id="kelurahan">
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                         <div class="form-group">

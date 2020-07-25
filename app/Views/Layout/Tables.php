@@ -71,6 +71,17 @@
     <script src="<?= base_url('assets/js/adminlte.min.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
+    <script>
+        function previewFoto() {
+            const fotoAdmin = document.querySelector('#fotoAdmin');
+            const fotoLabel = document.querySelector('.costum-file-label');
+
+            fotoLabel.textContent = fotoLabel.files[0].name;
+
+            const fileAdmin = new FileReader();
+            fileAdmin.readAsDataURL(fotoAdmin.files[0]);
+        }
+    </script>
 </body>
 
 </html>
