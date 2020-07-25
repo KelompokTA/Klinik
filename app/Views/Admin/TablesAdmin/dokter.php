@@ -158,6 +158,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -207,9 +212,8 @@
                                             <td><?= $row['JAM'] ?></td>
                                             <td><?= $row['POLI'] ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-info">Detail</button>
-                                                <button type="button" class="btn btn-warning">Edit</button>
-                                                <button type="button" class="btn btn-danger">Hapus</button>
+                                                <a href="edit_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="/hapus_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -168,9 +168,9 @@ class AdminController extends BaseController
             'FOTO_DOKTER' => $this->request->getVar('foto_dokter'),
             'NAMA_DOKTER' => $this->request->getVar('nama_dokter'),
             'STATUS_DOKTER' => $this->request->getVar('status_dokter'),
-            'USERNAME_DOKTER' => $this->request->getVar('username_dokter'),
+            'EMAIL_DOKTER' => $this->request->getVar('email_dokter'),
             'PASSWORD_DOKTER' => $this->request->getVar('password_dokter'),
-            'ID_JADWAL' => $this->request->getVar('id_jadwal')
+            'ID_JADWAL' => $this->request->getVar('jadwal')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -179,11 +179,43 @@ class AdminController extends BaseController
 
     public function tambah_dokter()
     {
-        // session();
         $data = [
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'jadwal' => $this->JadwalModel->getJadwal()
         ];
         return view('Admin/FormAdmin/tambah_dokter', $data);
+    }
+
+    public function hapus_dokter($id)
+    {
+        $this->DokterModel->delete($id);
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('dokterAdmin'));
+    }
+
+    public function edit_Dokter($id)
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'dokter' => $this->DokterModel->getDokter($id),
+            'jadwal' => $this->JadwalModel->getJadwal()
+        ];
+        return view('Admin/FormAdmin/edit_dokter', $data);
+    }
+
+    public function update_dokter($id)
+    {
+        $this->DokterModel->save([
+            'ID_DOKTER' => $id,
+            'FOTO_DOKTER' => $this->request->getVar('foto_dokter'),
+            'NAMA_DOKTER' => $this->request->getVar('nama_dokter'),
+            'STATUS_DOKTER' => $this->request->getVar('status_dokter'),
+            'EMAIL_DOKTER' => $this->request->getVar('email_dokter'),
+            'PASSWORD_DOKTER' => $this->request->getVar('password_dokter'),
+            'ID_JADWAL' => $this->request->getVar('jadwal')
+        ]);
+        session()->setFlashdata('Info', 'Data Berhasil Diubah');
+        return redirect()->to(base_url('dokterAdmin'));
     }
 
     public function save_admin()

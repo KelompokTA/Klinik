@@ -8,10 +8,11 @@ class DokterModel extends Model
 {   
     protected $table = 'dokter';
     protected $primaryKey = 'ID_DOKTER';
-    protected $allowedFields = ['NAMA_DOKTER', 'STATUS_DOKTER', 'USERNAME_DOKTER', 'PASSWORD_DOKTER', 'FOTO_DOKTER', 'ID_JADWAL'];
+    protected $allowedFields = ['NAMA_DOKTER', 'STATUS_DOKTER', 'EMAIL_DOKTER', 'PASSWORD_DOKTER', 'FOTO_DOKTER', 'ID_JADWAL'];
 
-    public function getDokter()
+    public function getDokter($id = false)
     {
+        if ($id === false) {
         $db      = \Config\Database::connect();
         $builder = $db->table('dokter');
         $builder->select('*');
@@ -20,5 +21,6 @@ class DokterModel extends Model
         $results = $query->getResultArray();
         return $results;
     }
-        
+        return $this->where(['ID_DOKTER' => $id])->first();
+    }    
 }

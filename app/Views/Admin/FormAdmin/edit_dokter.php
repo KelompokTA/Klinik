@@ -171,13 +171,14 @@
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data dokter</h3>
+                            <h3 class="card-title">Edit data dokter</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="save_dokter" method="POST" role="form">
+                            <form role="form" action="update_dokter/<?= $dokter['ID_DOKTER'] ?>" method="POST">
                                 <div class="row">
                                     <div class="col-sm-6">
+                                        <input type="hidden" name="id_dokter" value="<?= $dokter['ID_DOKTER'] ?>" class="form-control">
                                         <div>
                                             <label>Foto</label>
                                             <div class="custom-file">
@@ -188,28 +189,27 @@
                                         <br>
                                         <div class="form-group">
                                             <label>Nama Dokter</label>
-                                            <input type="text" name="nama_dokter" value="<?= old('nama_dokter'); ?>" class="form-control <?= ($validation->hasError('nama_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama dokter ...">
+                                            <input type="text" name="nama_dokter" value="<?= $dokter['NAMA_DOKTER']; ?>" class="form-control <?= ($validation->hasError('nama_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama dokter ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Status Dokter</label>
-                                            <input type="text" name="status_dokter" value="<?= old('status_dokter'); ?>" class="form-control <?= ($validation->hasError('status_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status dokter ...">
+                                            <input type="text" name="status_dokter" value="<?= $dokter['STATUS_DOKTER']; ?>" class="form-control <?= ($validation->hasError('status_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status dokter ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Jadwal</label>
                                             <select name="jadwal" class=" form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled value="<?= old('jadwal'); ?>"><?= old('jadwal'); ?></option>
+                                                <option selected disabled><?= $dokter['ID_JADWAL']; ?></option>
                                                 <?php foreach ($jadwal as $row) : ?>
-                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('jadwal'); ?><?= $row['HARI'] . " " . $row['JAM']; ?></option>
-                                                <?php endforeach; ?>
+                                                    <option <?= ($dokter['ID_JADWAL'] == $row['HARI'] . " " . $row['JAM']) ? 'selected="selected"' : $row['HARI'] . " " . $row['JAM']; ?>><?= old('jadwal'); ?><?= $row['HARI'] . " " . $row['JAM']; ?></> <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" name="email_dokter" value="<?= old('email_dokter'); ?>" class="form-control <?= ($validation->hasError('email_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email ...">
+                                            <input type="text" name="email_dokter" value="<?= $dokter['EMAIL_DOKTER']; ?>" class="form-control <?= ($validation->hasError('email_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" name="password_dokter" value="<?= old('password_dokter'); ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
+                                            <input type="password" name="password_dokter" value="<?= $dokter['PASSWORD_DOKTER']; ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>

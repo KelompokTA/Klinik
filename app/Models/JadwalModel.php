@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class JadwalModel extends Model
 {
-    protected $table = 'jadwal_dokter';    
+    protected $table = 'jadwal';    
     protected $primaryKey = 'ID_JADWAL';
     protected $allowedFields = ['HARI', 'JAM_PRAKTEK', 'POLI'];
 

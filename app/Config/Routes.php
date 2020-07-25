@@ -45,20 +45,26 @@ $routes->get('/pasienAdmin', 'Dashboard\AdminController::pasien');
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
-//forms
+//FORM
+//Form Pasien
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
 $routes->post('/save_pasien', 'Dashboard\AdminController::save_pasien');
+$routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
+$routes->get('/edit_pasien/(:segment)', 'Dashboard\AdminController::edit_pasien/$1');
+$routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::update_pasien/$2');
 $routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
+//Form Dokter
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
+$routes->get('/hapus_dokter/(:num)', 'Dashboard\AdminController::hapus_dokter/$1');
+$routes->get('/edit_dokter/(:segment)', 'Dashboard\AdminController::edit_dokter/$1');
+$routes->get('/edit_dokter/(:segment)/(:num)', 'Dashboard\AdminController::update_dokter/$1');
+//Form Admin
 $routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
 $routes->get('/hapus_admin/(:num)', 'Dashboard\AdminController::hapus_admin/$1');
 $routes->get('/edit_admin/(:segment)', 'Dashboard\AdminController::edit_admin/$1');
 $routes->post('/edit_admin/(:segment)/(:num)', 'Dashboard\AdminController::update_admin/$2');
-$routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
-$routes->get('/edit_pasien/(:segment)', 'Dashboard\AdminController::edit_pasien/$1');
-$routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::update_pasien/$2');
 $routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 
