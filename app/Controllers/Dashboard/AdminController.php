@@ -286,9 +286,12 @@ class AdminController extends BaseController
     {
         //cari gambar berdasarkan id
         $admin = $this->AdminModel->find($id);
-
-        //hapus gambar
+        // cek jika foto default 
+        if ($admin['FOTO_ADMIN'] != 'admin.jpg') {
+             //hapus gambar
         unlink('assets/img/foto/' . $admin['FOTO_ADMIN']);
+        }
+    
 
         $this->AdminModel->delete($id);
         session()->setFlashdata('Info', 'Data berhasil dihapus.');
