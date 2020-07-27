@@ -174,15 +174,27 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="update_admin/<?= $admin['ID_ADMIN'] ?>" method="POST">
+                            <form role="form" action="update_admin/<?= $admin['ID_ADMIN'] ?>" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
+                                <?= $validation->listErrors(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <input type="hidden" name="id_admin" value="<?= $admin['ID_ADMIN'] ?>" class="form-control">
-                                        <div class=" form-group">
-                                            <label>Foto <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="foto_admin" value="<?= $admin['FOTO_ADMIN'] ?>" class=" form-control <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan foto admin ..." autofocus>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img src="../../assets/img/foto/<?= $admin['FOTO_ADMIN'] ?>" value="<?= $admin['FOTO_ADMIN'] ?>" alt="admin.jpg" width="200px" height="220px">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <br>
+                                                <br>
+                                                <br>
+                                                <label>Foto</label>
+                                                <div class="custom-file">
+                                                    <input type="file" name="foto_admin" class="custom-file-input <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" id="foto_admin">
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <br>
                                         <div class=" form-group">
@@ -206,7 +218,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                         <!-- /.card-body -->

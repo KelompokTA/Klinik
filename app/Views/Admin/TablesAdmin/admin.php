@@ -207,7 +207,7 @@
                                     <?php foreach ($admin as $row) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="<?= $row['FOTO_ADMIN'] ?>" width="50px" height="70px"></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
                                             <td><?= $row['NAMA_ADMIN']; ?></td>
                                             <td><?= $row['STATUS_ADMIN']; ?></td>
                                             <td><?= $row['EMAIL_ADMIN']; ?></td>

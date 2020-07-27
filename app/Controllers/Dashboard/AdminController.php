@@ -238,24 +238,27 @@ class AdminController extends BaseController
                 ]
             ],
             'foto_admin' => [
-                'rules' => 'uploaded[foto_admin]|max_size[foto_admin,2048]|is_image[foto_admin]|mime_in[foto_admin,image/jpg,image/jpeg,image/png]',
+                'rules' => 'max_size[foto_admin,2048]|is_image[foto_admin]|mime_in[foto_admin,image/jpg,image/jpeg,image/png]',
                 'errors' => [
-                    'uploaded' => 'Pilih gambar terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar',
                     'is_image' => 'Yang anda pilih bukan gambar',
                     'mime_in' => 'Yang anda pilih bukan gambar'
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('tambahAdmin')->withInput()->with('validation', $validation);
+            return redirect()->to('tambahAdmin')->withInput();
         }
         // ambil gambar
         $fotoAdmin = $this->request->getFile('foto_admin');
-        // pindahkan file ke folder
-        $fotoAdmin->move('assets/img/foto');
-        //ambil nama file gambar
-        $namaAdmin = $fotoAdmin->getName();
+        //apakah tidak ada gambar yang di upload
+        if ($fotoAdmin->getError() == 4) {
+            $namaAdmin = 'admin.jpg';
+        } else {
+            // generate nama random
+            $namaAdmin = $fotoAdmin->getRandomName();
+            // pindahkan file ke folder
+            $fotoAdmin->move('assets/img/foto', $namaAdmin);
+        }        
 
         $this->AdminModel->save([
             'FOTO_ADMIN' => $namaAdmin,
@@ -304,54 +307,41 @@ class AdminController extends BaseController
 
     public function update_admin($id)
     {
-        // if (!$this->validate([
-        //     'nama_admin' => [
-        //         'rules' => 'required',
-        //         'errors' => [
-        //             'required' => 'Nama Admin Harus diisi'
-        //         ]
-        //     ],
-        //     'foto_admin' => [
-        //         'rules' => 'uploaded[foto_admin]|max_size[foto_admin,2048]|is_image[foto_admin]|mime_in[foto_admin,image/jpg,image/jpeg,image/png]',
-        //         'errors' => [
-        //             'uploaded' => 'Pilih gambar terlebih dahulu',
-        //             'max_size' => 'Ukuran gambar terlalu besar',
-        //             'is_image' => 'Yang anda pilih bukan gambar',
-        //             'mime_in' => 'Yang anda pilih bukan gambar'
-        //         ]
-        //     ]
-        // ])) {
-        //     $validation = \Config\Services::validation();
-        //     return redirect()->to('edit_admin')->withInput()->with('validation', $validation);
-        // }
-
-        // $fotoAdmin = $this->request->getFile('foto_admin');
-
-        // //cek gambar, lama atau tidak
-        // if ($fotoAdmin->getError() == 4) {
-        //     $namaAdmin = $this->request->getVar('foto_lama');
-        // } else {
-        //     // ambil gambar
-        //     $fotoAdmin = $this->request->getFile('foto_admin');
-        //     // pindahkan file ke folder
-        //     $fotoAdmin->move('assets/img/foto');
-        //     //ambil nama file gambar
-        //     $namaAdmin = $fotoAdmin->getName();
-
-        //     unlink('assets/img/foto/' . $this->request->getVar('foto_lama'));
-        // }
-
+        //VALIDASI
+        if (!$this->validate([
+            'foto_admin' => [
+                'rules' => 'max_size[foto_admin,2048]|is_image[foto_admin]|mime_in[foto_admin,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('edit_admin/'.$id))->withInput();
+        }
+        
+        $fotoAdmin = $this->request->getFile('foto_admin');
+        //apakah tidak ada gambar yang di upload
+        if ($fotoAdmin->getError() == 4) {
+            $namaAdmin = 'admin.jpg';
+        } else {
+            // generate nama random
+            $namaAdmin = $fotoAdmin->getRandomName();
+            // pindahkan file ke folder
+            $fotoAdmin->move('assets/img/foto', $namaAdmin);
+        }
 
         $this->AdminModel->save([
             'ID_ADMIN' => $id,
+            'FOTO_ADMIN' => $namaAdmin,
             'NAMA_ADMIN' => $this->request->getVar('nama_admin'),
             'STATUS_ADMIN' => $this->request->getVar('status_admin'),
             'EMAIL_ADMIN' => $this->request->getVar('email_admin'),
-            'PASSWORD_ADMIN' => $this->request->getVar('password_admin'),
-            'FOTO_ADMIN' => $this->request->getVar('foto_admin'),
-
+            'PASSWORD_ADMIN' => $this->request->getVar('password_admin')
         ]);
-        session()->setFlashdata('Info', 'Data Berhasil Diubah');
+
+        session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
         return redirect()->to(base_url('adminAdmin'));
     }
 
