@@ -224,9 +224,7 @@
                                                 <img src="../../assets/img/foto/<?= $admin['FOTO_ADMIN'] ?>" value="<?= $admin['FOTO_ADMIN'] ?>" alt="admin.jpg" width="200px" height="220px">
                                             </div>
                                             <div class="col-sm-9">
-                                                <br>
-                                                <br>
-                                                <br>
+                                                <br><br><br>
                                                 <label>Foto</label>
                                                 <div class="custom-file">
                                                     <input type="file" name="foto_admin" class="custom-file-input <?= ($validation->hasError('foto_admin')) ? 'is-invalid' : ''; ?>" id="foto_admin">

@@ -211,15 +211,23 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="update_dokter/<?= $dokter['ID_DOKTER'] ?>" method="POST">
+                            <form role="form" action="update_dokter/<?= $dokter['ID_DOKTER'] ?>" method="POST" enctype="multipart/form-data">
+                                <?= csrf_field(); ?>
+                                <?= $validation->listErrors(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <input type="hidden" name="id_dokter" value="<?= $dokter['ID_DOKTER'] ?>" class="form-control">
-                                        <div>
-                                            <label>Foto</label>
-                                            <div class="custom-file">
-                                                <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <img src="../../assets/img/foto/<?= $dokter['FOTO_DOKTER'] ?>" value="<?= $dokter['FOTO_DOKTER'] ?>" alt="dokter.jpg" width="200px" height="220px">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <br><br><br>
+                                                <label>Foto</label>
+                                                <div class="custom-file">
+                                                    <input type="file" name="foto_dokter" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="foto_dokter">
+                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <br>
@@ -234,9 +242,10 @@
                                         <div class="form-group">
                                             <label>Jadwal</label>
                                             <select name="jadwal" class=" form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled><?= $dokter['ID_JADWAL']; ?></option>
+                                                <option selected value="<?= $dokter['ID_JADWAL']; ?>"><?= $dokter['ID_JADWAL']; ?></option>
                                                 <?php foreach ($jadwal as $row) : ?>
-                                                    <option <?= ($dokter['ID_JADWAL'] == $row['HARI'] . " " . $row['JAM']) ? 'selected="selected"' : $row['HARI'] . " " . $row['JAM']; ?>><?= old('jadwal'); ?><?= $row['HARI'] . " " . $row['JAM']; ?></> <?php endforeach; ?>
+                                                    <option value=" <?= $row['ID_JADWAL']; ?>"><?= old('jadwal'); ?><?= $row['HARI'] . " &nbsp &nbsp" . $row['JAM'] . " &nbsp &nbsp" . $row['POLI']; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">

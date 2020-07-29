@@ -56,10 +56,11 @@ $routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::upda
 $routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
 //Form Dokter
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
+$routes->post('/save_jadwal', 'Dashboard\AdminController::save_jadwal');
 $routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
 $routes->get('/hapus_dokter/(:num)', 'Dashboard\AdminController::hapus_dokter/$1');
 $routes->get('/edit_dokter/(:segment)', 'Dashboard\AdminController::edit_dokter/$1');
-$routes->get('/edit_dokter/(:segment)/(:num)', 'Dashboard\AdminController::update_dokter/$1');
+$routes->post('/edit_dokter/(:segment)/(:num)', 'Dashboard\AdminController::update_dokter/$2');
 //Form Admin
 $routes->get('/tambahAdmin', 'Dashboard\AdminController::tambah_admin');
 $routes->get('/hapus_admin/(:num)', 'Dashboard\AdminController::hapus_admin/$1');

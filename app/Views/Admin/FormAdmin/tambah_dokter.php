@@ -202,6 +202,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -217,13 +222,15 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="save_dokter" method="POST" role="form">
-                                <div class="row">
-                                    <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="save_dokter" method="POST" role="form" enctype="multipart/form-data">
+                                        <?= csrf_field(); ?>
+                                        <?= $validation->listErrors(); ?>
                                         <div>
                                             <label>Foto</label>
                                             <div class="custom-file">
-                                                <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="customFile">
+                                                <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="foto_dokter">
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
                                         </div>
@@ -241,7 +248,7 @@
                                             <select name="jadwal" class=" form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>">
                                                 <option selected disabled value="<?= old('jadwal'); ?>"><?= old('jadwal'); ?></option>
                                                 <?php foreach ($jadwal as $row) : ?>
-                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('jadwal'); ?><?= $row['HARI'] . " " . $row['JAM']; ?></option>
+                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('jadwal'); ?><?= $row['HARI'] . " &nbsp &nbsp" . $row['JAM'] . " &nbsp &nbsp" . $row['POLI']; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -256,19 +263,39 @@
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-
-                            </form>
+                                <div class="col-md-3">
+                                    <br><br><br><br><br><br><br><br><br><br><br>
+                                    <form action="save_jadwal" method="POST" role="form">
+                                        <?= csrf_field(); ?>
+                                        <?= $validation->listErrors(); ?>
+                                        <div class="form-group">
+                                            <label>Hari</label>
+                                            <input type="text" name="hari" value="<?= old('hari'); ?>" class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan hari ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jam</label>
+                                            <input type="text" name="jam" value="<?= old('jam'); ?>" class="form-control <?= ($validation->hasError('jam')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan jam ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Poli</label>
+                                            <input type="text" name="poli" value="<?= old('poli'); ?>" class="form-control <?= ($validation->hasError('poli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan poli ...">
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-info">Tambah Jadwal</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-body -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
+                    <!--/.col (right) -->
                 </div>
-                <!--/.col (right) -->
-            </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>

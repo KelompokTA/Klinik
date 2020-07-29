@@ -159,6 +159,18 @@ class AdminController extends BaseController
         return view('Admin/FormAdmin/surat_rujukan');
     }
 
+    public function save_jadwal()
+    {
+        $this->JadwalModel->save([
+            'HARI' => $this->request->getVar('hari'),
+            'JAM' => $this->request->getVar('jam'),
+            'POLI' => $this->request->getVar('poli'),
+        ]);
+
+        session()->setFlashdata('Info', 'Jadwal Berhasil Ditambahkan');
+        return redirect()->to('tambahDokter')->withInput();
+    }
+
     public function save_dokter()
     {
         //VALIDASI
@@ -168,13 +180,32 @@ class AdminController extends BaseController
                 'errors' => [
                     'required' => '{field} Harus diisi'
                 ]
+            ],
+            'foto_dokter' => [
+                'rules' => 'max_size[foto_dokter,2048]|is_image[foto_dokter]|mime_in[foto_dokter,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('tambahDokter')->withInput()->with('validation', $validation);
+            return redirect()->to('tambahDokter')->withInput();
         }
+        // ambil gambar
+        $fotoDokter = $this->request->getFile('foto_dokter');
+        //apakah tidak ada gambar yang di upload
+        if ($fotoDokter->getError() == 4) {
+            $namaDokter = 'dokter.jpg';
+        } else {
+            // generate nama random
+            $namaDokter = $fotoDokter->getRandomName();
+            // pindahkan file ke folder
+            $fotoDokter->move('assets/img/foto', $namaDokter);
+        }        
         $this->DokterModel->save([
-            'FOTO_DOKTER' => $this->request->getVar('foto_dokter'),
+            'FOTO_DOKTER' => $namaDokter,
             'NAMA_DOKTER' => $this->request->getVar('nama_dokter'),
             'STATUS_DOKTER' => $this->request->getVar('status_dokter'),
             'EMAIL_DOKTER' => $this->request->getVar('email_dokter'),
@@ -197,6 +228,14 @@ class AdminController extends BaseController
 
     public function hapus_dokter($id)
     {
+        //cari gambar berdasarkan id
+        $dokter = $this->DokterModel->find($id);
+        // cek jika foto default 
+        if ($dokter['FOTO_DOKTER'] != 'dokter.jpg') {
+            //hapus gambar
+            unlink('assets/img/foto/' . $dokter['FOTO_DOKTER']);
+        }
+
         $this->DokterModel->delete($id);
         session()->setFlashdata('Info', 'Data berhasil dihapus.');
         return redirect()->to(base_url('dokterAdmin'));
@@ -214,9 +253,33 @@ class AdminController extends BaseController
 
     public function update_dokter($id)
     {
+        //VALIDASI
+        if (!$this->validate([
+            'foto_dokter' => [
+                'rules' => 'max_size[foto_dokter,2048]|is_image[foto_dokter]|mime_in[foto_dokter,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'max_size' => 'Ukuran gambar terlalu besar',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url('edit_dokter/' . $id))->withInput();
+        }
+        // ambil gambar
+        $fotoDokter = $this->request->getFile('foto_dokter');
+        //apakah tidak ada gambar yang di upload
+        if ($fotoDokter->getError() == 4) {
+            $namaDokter = 'dokter.jpg';
+        } else {
+            // generate nama random
+            $namaDokter = $fotoDokter->getRandomName();
+            // pindahkan file ke folder
+            $fotoDokter->move('assets/img/foto', $namaDokter);
+        }
         $this->DokterModel->save([
             'ID_DOKTER' => $id,
-            'FOTO_DOKTER' => $this->request->getVar('foto_dokter'),
+            'FOTO_DOKTER' => $namaDokter,
             'NAMA_DOKTER' => $this->request->getVar('nama_dokter'),
             'STATUS_DOKTER' => $this->request->getVar('status_dokter'),
             'EMAIL_DOKTER' => $this->request->getVar('email_dokter'),

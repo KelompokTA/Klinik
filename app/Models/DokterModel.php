@@ -20,6 +20,7 @@ class DokterModel extends Model
         $query = $builder->get();
         $results = $query->getResultArray();
         return $results;
+        
     }
         return $this->where(['ID_DOKTER' => $id])->first();
     }    
