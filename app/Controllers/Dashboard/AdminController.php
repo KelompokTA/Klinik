@@ -7,6 +7,8 @@ use App\Models\PasienModel;
 use App\Models\DokterModel;
 use App\Models\AdminModel;
 use App\Models\JadwalModel;
+use App\Models\WilayahModel;
+use App\Models\LaporanModel;
 
 
 class AdminController extends BaseController
@@ -15,12 +17,16 @@ class AdminController extends BaseController
     protected $DokternModel;
     protected $AdminModel;
     protected $JadwalModel;
+    protected $WilayahModel;
+    protected $LaporanModel;
     public function __construct()
     {
         $this->PasienModel = new PasienModel();
         $this->DokterModel = new DokterModel();
         $this->AdminModel = new AdminModel();
         $this->JadwalModel = new JadwalModel();
+        $this->WilayahModel = new WilayahModel();
+        $this->LaporanModel = new LaporanModel();
     }
 
     public function index()
@@ -33,16 +39,9 @@ class AdminController extends BaseController
     {
         $pasien = $this->PasienModel->findAll();
         $data = [
-            'pasien' => $pasien
-        ];
-        return view('Admin/TablesAdmin/pasien', $data);
-    }
+            'pasien' => $pasien,
+            'wilayah' => $this->WilayahModel->get_wilayah()
 
-    public function get_provinsi()
-    {
-        $provinsi = $this->PasienModel->findAll();
-        $data = [
-            'provinsi' => $provinsi
         ];
         return view('Admin/TablesAdmin/pasien', $data);
     }
@@ -66,8 +65,10 @@ class AdminController extends BaseController
 
     public function laporan()
     {
-        $data = [];
-        return view('Admin/TablesAdmin/laporan');
+        $data = [
+            'laporan' => $this->LaporanModel->getLaporan()
+        ];
+        return view('Admin/TablesAdmin/laporan', $data);
     }
 
     public function save_pasien()
@@ -125,7 +126,8 @@ class AdminController extends BaseController
         // $user = $this->AdminModel->getUser($id);
         $data = [
             'validation' => \Config\Services::validation(),
-            'pasien' => $this->PasienModel->getPasien($id)
+            'pasien' => $this->PasienModel->getPasien($id),
+            'wilayah' => $this->WilayahModel->get_wilayah()
         ];
         return view('Admin/FormAdmin/edit_pasien', $data);
     }
@@ -258,7 +260,7 @@ class AdminController extends BaseController
             $namaAdmin = $fotoAdmin->getRandomName();
             // pindahkan file ke folder
             $fotoAdmin->move('assets/img/foto', $namaAdmin);
-        }        
+        }
 
         $this->AdminModel->save([
             'FOTO_ADMIN' => $namaAdmin,
@@ -288,10 +290,10 @@ class AdminController extends BaseController
         $admin = $this->AdminModel->find($id);
         // cek jika foto default 
         if ($admin['FOTO_ADMIN'] != 'admin.jpg') {
-             //hapus gambar
-        unlink('assets/img/foto/' . $admin['FOTO_ADMIN']);
+            //hapus gambar
+            unlink('assets/img/foto/' . $admin['FOTO_ADMIN']);
         }
-    
+
 
         $this->AdminModel->delete($id);
         session()->setFlashdata('Info', 'Data berhasil dihapus.');
@@ -321,9 +323,9 @@ class AdminController extends BaseController
                 ]
             ]
         ])) {
-            return redirect()->to(base_url('edit_admin/'.$id))->withInput();
+            return redirect()->to(base_url('edit_admin/' . $id))->withInput();
         }
-        
+
         $fotoAdmin = $this->request->getFile('foto_admin');
         //apakah tidak ada gambar yang di upload
         if ($fotoAdmin->getError() == 4) {

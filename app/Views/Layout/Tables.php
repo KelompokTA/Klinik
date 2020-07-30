@@ -15,6 +15,19 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
+    <!-- untuk menampilkan apa saja yg ada akan di print -->
+    <style>
+        @media print {
+
+            .btn,
+            .card-tools,
+            th:nth-child(7),
+            footer,
+            a#debug-icon-link {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">

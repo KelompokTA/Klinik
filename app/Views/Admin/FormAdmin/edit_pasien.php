@@ -35,8 +35,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -44,8 +44,8 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link ">
                                 <i class="fas fa-bed"></i>
                                 <p>
                                     Pasien
@@ -60,11 +60,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('tambahPasien'); ?>" class="nav-link active">
-                                        <i class="fas fa-edit"></i> <i class=" fas fa-bed"></i>
-                                        <p>Edit Pasien</p>
+                                    <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
+                                        <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
+                                        <p>tambah Pemeriksaan</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
                                     <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
                                         <i class="fas fa-paper-plane"></i>
@@ -73,12 +74,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
-                                <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
-                                <p>tambah Pemeriksaan</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-user-md"></i>
@@ -144,8 +140,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
@@ -154,7 +150,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-bed"></i>
                                 <p>Pasien</p>
                             </a>

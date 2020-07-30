@@ -60,6 +60,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
+                                        <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
+                                        <p>Tambah Pemeriksaan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
                                         <i class="fas fa-paper-plane"></i>
                                         <p>Surat Rujukan</p>
@@ -67,12 +73,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
-                                <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
-                                <p>tambah Pemeriksaan</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-user-md"></i>
