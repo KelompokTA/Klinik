@@ -3,20 +3,31 @@
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
-use App\Models\DokterModel;
-use App\Models\ObatModel;
 use App\Models\PasienModel;
-use CodeIgniter\HTTP\Request;
+use App\Models\DokterModel;
+use App\Models\AdminModel;
+use App\Models\JadwalModel;
+use App\Models\WilayahModel;
+use App\Models\LaporanModel;
+use App\Models\ObatModel;
 
 class DokterController extends BaseController
 {
-    protected $DokterModel;
     protected $PasienModel;
+    protected $DokternModel;
+    protected $AdminModel;
+    protected $JadwalModel;
+    protected $WilayahModel;
+    protected $LaporanModel;
     protected $ObatModel;
     public function __construct()
     {
-        $this->DokterModel = new DokterModel();
         $this->PasienModel = new PasienModel();
+        $this->DokterModel = new DokterModel();
+        $this->AdminModel = new AdminModel();
+        $this->JadwalModel = new JadwalModel();
+        $this->WilayahModel = new WilayahModel();
+        $this->LaporanModel = new LaporanModel();
         $this->ObatModel = new ObatModel();
     }
 
@@ -37,12 +48,10 @@ class DokterController extends BaseController
 
     public function dokter()
     {
-        $dokter = $this->DokterModel->findAll();
         $data = [
-            'title' => 'Dokter',
-            'dokter' => $dokter
+            'dokter' => $this->DokterModel->getDokter()
         ];
-        return view('Dokter/TablesDokter/dokter', $data);
+        return view('Admin/TablesDokter/dokter', $data);
     }
 
     public function obat()

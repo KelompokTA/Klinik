@@ -15,10 +15,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/arif.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Berlian</a>
+                <a href="#" class="d-block">Dokter</a>
             </div>
         </div>
 
@@ -35,7 +35,6 @@
                         </p>
                     </a>
                 </li>
-
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
@@ -47,16 +46,50 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('tambahPemeriksaan') ?>" class="nav-link">
-                                <i class="fas fa-hand-holding-medical"></i>
+                                <i class="fas fa-plus"></i> <i class="fas fa-hand-holding-medical"></i>
                                 <p>pemeriksaan</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('tambahObat') ?>" class="nav-link">
-                                <i class="fa fa-plus"></i>
-                                <p>tambah obat</p>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-pills"></i>
+                                <p>
+                                    Obat
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('tambahObat') ?>" class="nav-link">
+                                        <i class="fas fa-plus"></i> <i class="fas fa-pills"></i>
+                                        <p>tambah obat</p>
+                                    </a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-edit"></i> <i class="fas fa-pills"></i>
+                                        <p>Edit obat</p>
+                                    </a>
+                                </li> -->
+                            </ul>
                         </li>
+                        <!-- <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-clipboard"></i>
+                                <p>
+                                    Riwayat
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-edit"></i> <i class="fa fa-clipboard"></i>
+                                        <p>Edit riwayat</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> -->
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
@@ -137,7 +170,7 @@
                         <div class="icon">
                             <i class="fas fa-bed"></i>
                         </div>
-                        <a href=" #" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('pasienDokter'); ?>" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -152,7 +185,7 @@
                         <div class="icon">
                             <i class="fa fa-user-md"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('dokterDokter'); ?>" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -167,7 +200,7 @@
                         <div class="icon">
                             <i class="fas fa-pills"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('obatDokter'); ?>" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -182,7 +215,7 @@
                         <div class="icon">
                             <i class="fa fa-clipboard"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?= base_url('riwayatDokter'); ?>" class="small-box-footer">Detail <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
