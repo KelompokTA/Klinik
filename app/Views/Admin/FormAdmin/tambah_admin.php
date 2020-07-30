@@ -221,6 +221,7 @@
                         <div class="card-body">
                             <form role="form" action="save_admin" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
+                                <?= $validation->listErrors(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div>
