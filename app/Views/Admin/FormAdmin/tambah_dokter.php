@@ -59,6 +59,12 @@
                                         <p>Tambah Pasien Baru</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
+                                        <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
+                                        <p>Tambah Pemeriksaan</p>
+                                    </a>
+                                </li>
                                 <!-- <li class="nav-item">
                                     <a href="<?= base_url('tambahPasien'); ?>" class="nav-link active">
                                         <i class="fas fa-edit"></i> <i class=" fas fa-bed"></i>
@@ -73,12 +79,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
-                                <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
-                                <p>tambah Pemeriksaan</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="fas fa-user-md"></i>

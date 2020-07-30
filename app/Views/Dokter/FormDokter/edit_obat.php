@@ -36,8 +36,8 @@
                     </a>
                 </li>
 
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link ">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -52,15 +52,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('tambahObat') ?>" class="nav-link active">
+                            <a href="<?= base_url('tambahObat') ?>" class="nav-link ">
                                 <i class="fa fa-plus"></i>
                                 <p>tambah obat</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
@@ -81,7 +81,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('obatDokter'); ?>" class="nav-link">
+                            <a href="<?= base_url('obatDokter'); ?>" class="nav-link active">
                                 <i class="fas fa-pills"></i>
                                 <p>Obat</p>
                             </a>
@@ -108,7 +108,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Form Tambah Obat</h1>
+                    <h1>Form Edit Obat</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

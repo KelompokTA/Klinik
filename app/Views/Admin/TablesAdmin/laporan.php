@@ -60,6 +60,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
+                                        <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
+                                        <p>Tambah Pemeriksaan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
                                         <i class="fas fa-paper-plane"></i>
                                         <p>Surat Rujukan</p>
@@ -67,12 +73,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
-                                <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
-                                <p>tambah Pemeriksaan</p>
-                            </a>
-                        </li>
+
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-user-md"></i>
@@ -187,10 +188,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Laporan</h1>
+                    <h1>Laporan </h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
+
                         <li class="breadcrumb-item"><a href="admin">Dashboard</a></li>
                         <li class="breadcrumb-item "><a href="<?= base_url('login'); ?>">logout</a></li>
                     </ol>
@@ -207,16 +209,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Laporan</h3>
+                            <h1 class="card-title">Data Laporan</h1>
+                            <div class="row">
+                                <div class="col-md">
+                                    <button onclick="window.print()" class="btn shadow btn-outline-secondary float-right">Cetak Laporan<i class="fa fa-print"></i></button>
+                                </div>
+                                <div class="col-md">
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm float-right" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            </div>
 
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -224,8 +234,9 @@
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>ID Transaksi</th>
-                                        <th>ID User</th>
+                                        <th>ID Admin</th>
                                         <th>ID Pelayanan</th>
                                         <th>Tanggal Transaksi</th>
                                         <th>Total Biaya</th>
@@ -233,18 +244,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>01</td>
-                                        <td>001</td>
-                                        <td>00-00-0000</td>
-                                        <td>Rp.20.000.000</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($laporan as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td><?= $row['ID_TRANSAKSI']; ?></td>
+                                            <td><?= $row['ID_ADMIN']; ?></td>
+                                            <td><?= $row['ID_PELAYANAN']; ?></td>
+                                            <td><?= $row['TANGGAL_TRANSAKSI']; ?></td>
+                                            <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
+                                            <td>
+                                                <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning">Edit</a>
+                                                <a href="hapus_admin/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger">Hapus</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
