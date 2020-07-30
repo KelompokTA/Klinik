@@ -214,34 +214,27 @@
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data pembayaran</h3>
+                            <h3 class="card-title">Transaksi Pembayaran Pasien</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form">
+                            <form role="form" method="get">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>ID Transaksi</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan ID Transaksi ...">
+                                            <label>ID Pasien</label>
+                                            <input type="text" name="id_pasien" class="form-control" placeholder="Masukkan ID Pasien ...">
+                                            <input type="submit" class="form-control" name="cari" value="Cari Pasien" />
                                         </div>
-                                        <div class="form-group">
-                                            <label>ID Pelayanan</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan ID Pelayanan ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tanggal Transaksi</label>
-                                            <input type="date" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Total Biaya</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan total biaya ...">
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-success">Submit</button>
-                                            <button type="button" class="btn btn-info">Cetak Kwitansi</button>
-                                        </div>
+                                        <?php
+                                        // if(isset($_GET['id_pasien']) && $_GET['id_pasien']!=''){
+                                        // 	$sqlSiswa = mysqli_query($konek, "SELECT * FROM pasien WHERE ID_PASIEN='$_GET[nis]'");
+                                        // 	$ds=mysqli_fetch_array($sqlSiswa);
+                                        // 	$nis = $ds['nis'];
+                                        // 
+                                        ?>
+
                                     </div>
                                 </div>
 

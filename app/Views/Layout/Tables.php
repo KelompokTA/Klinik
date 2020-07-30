@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
-    <!-- untuk menampilkan apa saja yg ada akan di print -->
+    <!-- untuk menampilkan apa saja yg ada akan diprint -->
     <style>
         @media print {
 
