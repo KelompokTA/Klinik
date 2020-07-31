@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
+    <!-- coba -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery-ui.min.css'); ?>">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -72,10 +75,21 @@
     <script src="<?= base_url('assets/js/adminlte.min.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
+    <!-- coba -->
+    <script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/js/jquery-ui.min.js'); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             bsCustomFileInput.init();
         });
+    </script>
+    <script>
+        var myVar = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            document.getElementById("jam_sekarang").innerHTML = d.toLocaleTimeString();
+        }
     </script>
 </body>
 

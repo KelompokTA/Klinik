@@ -68,6 +68,7 @@ $routes->get('/edit_admin/(:segment)', 'Dashboard\AdminController::edit_admin/$1
 $routes->post('/edit_admin/(:segment)/(:num)', 'Dashboard\AdminController::update_admin/$2');
 $routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
+$routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
 
 
 //DOKTER
