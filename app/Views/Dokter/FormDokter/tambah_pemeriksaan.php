@@ -171,34 +171,40 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No RM</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nama obat ...">
+                                            <input type="text" class="form-control" placeholder="Masukkan no rm ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Pasien</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan satuan obat ...">
+                                            <input type="text" class="form-control" placeholder="Masukkan nama pasien ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Primer</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan alamat ..."></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa primer ..."></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Sekunder</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan alamat ..."></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa sekunder ..."></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Tersier</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan alamat ..."></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nama Dokter</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan Dosis pakai ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tanggal Pemeriksaan</label>
-                                            <input type="date" class="form-control">
+                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa tersier ..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group">
+                                                    <label>Nama Dokter</label>
+                                                    <input type="text" class="form-control" placeholder="Masukkan nama dokter ...">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Biaya Pelayanan</label>
+                                                    <input type="text" class="form-control" placeholder="Masukkan biaya pelayanan ...">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <div class="form-group">

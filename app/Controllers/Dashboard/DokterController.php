@@ -33,15 +33,18 @@ class DokterController extends BaseController
 
     public function index()
     {
-        return view('Dokter/dokterDashboard');
+        $data = [
+            'pasien' => $this->PasienModel->findAll(),
+            'dokter' => $this->DokterModel->getDokter(),
+            'obat' => $this->ObatModel->getObat()
+        ];
+        return view('Dokter/dokterDashboard', $data);
     }
 
     public function pasien()
     {
-        $pasien = $this->PasienModel->findAll();
         $data = [
-            'title' => 'pasien',
-            'pasien' => $pasien
+            'pasien' => $this->PasienModel->findAll()
         ];
         return view('Dokter/TablesDokter/pasien', $data);
     }
@@ -56,7 +59,6 @@ class DokterController extends BaseController
 
     public function obat()
     {
-        // $obat = $this->ObatModel->findAll();   
         $data = [
             'obat' => $this->ObatModel->getObat()
         ];
@@ -144,6 +146,7 @@ class DokterController extends BaseController
 
     public function tambah_pemeriksaan()
     {
+        
         return view('Dokter/FormDokter/tambah_pemeriksaan');
     }
 }

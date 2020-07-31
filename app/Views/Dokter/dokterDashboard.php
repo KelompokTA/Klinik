@@ -252,14 +252,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>000001</td>
-                                                <td>Puspa Sing Ayu Dewe</td>
-                                                <td>Perempuan</td>
-                                                <td>23</td>
-                                                <td>Genteng Bandar I/8 Surabaya</td>
-                                            </tr>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($pasien as $row) : ?>
+                                                <tr>
+                                                    <td><?= $no++; ?></td>
+                                                    <td><?= $row['NO_RM']; ?></td>
+                                                    <td><?= $row['NAMA_PASIEN']; ?></td>
+                                                    <td><?= $row['JENIS_KELAMIN']; ?></td>
+                                                    <td><?= $row['UMUR']; ?></td>
+                                                    <td><?= $row['ALAMAT_PASIEN']; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -293,14 +296,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Klorfeniramin maleat (CTM) 4mg</td>
-                                                <td>tablet</td>
-                                                <td>Oral</td>
-                                                <td>dua kali sehari</td>
-                                                <td>15/08/2020</td>
-                                            </tr>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($obat as $row) : ?>
+                                                <tr>
+                                                    <td><?= $no++; ?></td>
+                                                    <td><?= $row['NAMA_OBAT']; ?></td>
+                                                    <td><?= $row['SATUAN_OBAT']; ?></td>
+                                                    <td><?= $row['RUTE_PEMBERIAN']; ?></td>
+                                                    <td><?= $row['DOSIS']; ?></td>
+                                                    <td><?= $row['EXPIRED']; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -331,14 +337,23 @@
                                                 <th>no</th>
                                                 <th>Nama Dokter</th>
                                                 <th>Status Dokter</th>
+                                                <th>Hari</th>
+                                                <th>Jam</th>
+                                                <th>Poli</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Berlian Duta Krisna S.Tr.Kes</td>
-                                                <td>Spesialis Kandungan</td>
-                                            </tr>
+                                            <?php $no = 1; ?>
+                                            <?php foreach ($dokter as $row) : ?>
+                                                <tr>
+                                                    <td><?= $no++; ?></td>
+                                                    <td><?= $row['NAMA_DOKTER']; ?></td>
+                                                    <td><?= $row['STATUS_DOKTER']; ?></td>
+                                                    <td><?= $row['HARI']; ?></td>
+                                                    <td><?= $row['JAM']; ?></td>
+                                                    <td><?= $row['POLI']; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

@@ -183,7 +183,7 @@
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
                                             <select name="rute_pemberian" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled><?= $obat['RUTE_PEMBERIAN'] ?></option>
+                                                <option selected value="<?= $obat['RUTE_PEMBERIAN'] ?>"><?= $obat['RUTE_PEMBERIAN'] ?></option>
                                                 <option <?= ($obat['RUTE_PEMBERIAN'] == "Oral") ? 'selected="selected"' : 'Oral'; ?>>Oral</option>
                                                 <option <?= ($obat['RUTE_PEMBERIAN'] == "Intravena") ? 'selected="selected"' : 'Intravena'; ?>>Intravena</option>
                                                 <option <?= ($obat['RUTE_PEMBERIAN'] == "Inhalasi") ? 'selected="selected"' : 'Inhalasi'; ?>>Inhalasi</option>

@@ -242,8 +242,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Kelamin</label>
-                                            <select name="jenis_kelamin" class=" form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled><?= $pasien['JENIS_KELAMIN'] ?></option>
+                                            <select name="jenis_kelamin" class="form-control <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>">
+                                                <option selected value="<?= $pasien['JENIS_KELAMIN'] ?>"><?= $pasien['JENIS_KELAMIN'] ?></option>
                                                 <option <?= ($pasien['JENIS_KELAMIN'] == "Laki-laki") ? 'selected="selected"' : 'Laki-laki'; ?>>Laki-laki</option>
                                                 <option <?= ($pasien['JENIS_KELAMIN'] == "Perempuan") ? 'selected="selected"' : 'Perempuan'; ?>>Perempuan</option>
                                             </select>
@@ -254,13 +254,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Alamat</label>
-                                            <textarea name="alamat" class=" form-control<?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."><?= $pasien['ALAMAT_PASIEN']; ?></textarea>
+                                            <textarea name="alamat" class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" rows="3" placeholder="Masukkan alamat ..."><?= $pasien['ALAMAT_PASIEN']; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Kelurahan/Desa</label>
-                                            <select name="kelurahan" value="<?= $pasien['KELURAHAN']; ?>" class=" form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>">
-
-                                                <option selected disabled><?= $pasien['KELURAHAN'] ?></option>
+                                            <select name="kelurahan" class="form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>">
+                                                <option selected value="<?= $pasien['KELURAHAN'] ?>"><?= $pasien['KELURAHAN'] ?></option>
                                                 <option <?= ($pasien['KELURAHAN'] == "Kramat") ? 'selected="selected"' : 'Kramat'; ?>>Kramat</option>
                                                 <option <?= ($pasien['KELURAHAN'] == "Ganung") ? 'selected="selected"' : 'Ganung'; ?>>Ganung</option>
                                                 <option <?= ($pasien['KELURAHAN'] == "Lor") ? 'selected="selected"' : 'Lor'; ?>>Lor</option>
@@ -268,8 +267,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Kecamatan</label>
-                                            <select name="kecamatan" value="<?= $pasien['KECAMATAN']; ?>" class=" form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled><?= $pasien['KECAMATAN'] ?></option>
+                                            <select name="kecamatan" class="form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>">
+                                                <option selected value="<?= $pasien['KECAMATAN']; ?>"><?= $pasien['KECAMATAN'] ?></option>
                                                 <option <?= ($pasien['KECAMATAN'] == "Nganjuk") ? 'selected="selected"' : 'Nganjuk'; ?>>Nganjuk</option>
                                                 <option <?= ($pasien['KECAMATAN'] == "Wilangan") ? 'selected="selected"' : 'Wilangan'; ?>>Wilangan</option>
                                                 <option <?= ($pasien['KECAMATAN'] == "Caruban") ? 'selected="selected"' : 'Caruban'; ?>>Caruban</option>
@@ -277,8 +276,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Kota</label>
-                                            <select name="kota" value="<?= $pasien['KOTA']; ?>" class=" form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled><?= $pasien['KOTA'] ?></option>
+                                            <select name="kota" class="form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>">
+                                                <option selected value="<?= $pasien['KOTA']; ?>"><?= $pasien['KOTA'] ?></option>
                                                 <option <?= ($pasien['KOTA'] == "Nganjuk") ? 'selected="selected"' : 'Nganjuk'; ?>>Nganjuk</option>
                                                 <option <?= ($pasien['KOTA'] == "Sukabumi") ? 'selected="selected"' : 'Sukabumi'; ?>>Sukabumi</option>
                                                 <option <?= ($pasien['KOTA'] == "Surabaya") ? 'selected="selected"' : 'Surabaya'; ?>>Surabaya</option>
@@ -286,8 +285,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Provinsi</label>
-                                            <select name="provinsi" value="<?= $pasien['PROVINSI']; ?>" class=" form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled><?= $pasien['PROVINSI'] ?></option>
+                                            <select name="provinsi" class="form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>">
+                                                <option selected value="<?= $pasien['PROVINSI']; ?>"><?= $pasien['PROVINSI'] ?></option>
                                                 <option <?= ($pasien['PROVINSI'] == "Jawa Barat") ? 'selected="selected"' : 'Jawa Barat'; ?>>Jawa Barat</option>
                                                 <option <?= ($pasien['PROVINSI'] == "Jawa Tengah") ? 'selected="selected"' : 'Jawa Tengah'; ?>>Jawa Tengah</option>
                                                 <option <?= ($pasien['PROVINSI'] == "Jawa Timur") ? 'selected="selected"' : 'Jawa Timur'; ?>>Jawa Timur</option>
