@@ -3,35 +3,10 @@
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
-use App\Models\PasienModel;
-use App\Models\DokterModel;
-use App\Models\AdminModel;
-use App\Models\JadwalModel;
-use App\Models\WilayahModel;
-use App\Models\LaporanModel;
-use App\Models\ObatModel;
 
 class DokterController extends BaseController
 {
-    protected $PasienModel;
-    protected $DokternModel;
-    protected $AdminModel;
-    protected $JadwalModel;
-    protected $WilayahModel;
-    protected $LaporanModel;
-    protected $ObatModel;
-    public function __construct()
-    {
-        $this->PasienModel = new PasienModel();
-        $this->DokterModel = new DokterModel();
-        $this->AdminModel = new AdminModel();
-        $this->JadwalModel = new JadwalModel();
-        $this->WilayahModel = new WilayahModel();
-        $this->LaporanModel = new LaporanModel();
-        $this->ObatModel = new ObatModel();
-    }
-
-    public function index()
+        public function index()
     {
         $data = [
             'pasien' => $this->PasienModel->findAll(),
@@ -146,7 +121,7 @@ class DokterController extends BaseController
 
     public function tambah_pemeriksaan()
     {
-        
+
         return view('Dokter/FormDokter/tambah_pemeriksaan');
     }
 }

@@ -3,34 +3,9 @@
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
-use App\Models\PasienModel;
-use App\Models\DokterModel;
-use App\Models\AdminModel;
-use App\Models\JadwalModel;
-use App\Models\WilayahModel;
-use App\Models\LaporanModel;
-use App\Models\PendaftaranModel;
 
 class AdminController extends BaseController
 {
-    protected $PasienModel;
-    protected $DokternModel;
-    protected $AdminModel;
-    protected $JadwalModel;
-    protected $WilayahModel;
-    protected $LaporanModel;
-    protected $PendaftaranModel;
-    public function __construct()
-    {
-        $this->PasienModel = new PasienModel();
-        $this->DokterModel = new DokterModel();
-        $this->AdminModel = new AdminModel();
-        $this->JadwalModel = new JadwalModel();
-        $this->WilayahModel = new WilayahModel();
-        $this->LaporanModel = new LaporanModel();
-        $this->PendaftaranModel = new PendaftaranModel();
-    }
-
     public function index()
     {
         $data = [];
