@@ -223,16 +223,38 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>ID Pasien</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan ID Pasien ...">
+                                            <label>No RM</label>
+                                            <select class="form-control" name="id_pasien">
+                                                <?php foreach ($pasien as $l) { ?>
+                                                    <option value="<?php echo $l['ID_PASIEN']; ?>"><?php echo $l['NO_RM']; ?> - <?php echo $l['NAMA_PASIEN']; ?> </option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Tanggal Pendaftaran</label>
-                                            <input type="date" class="form-control">
+                                            <label>ID Admin</label>
+                                            <select class="form-control" name="id_admin">
+                                                <?php foreach ($admin as $l) { ?>
+                                                    <option value="<?php echo $l['ID_ADMIN']; ?>"><?php echo $l['ID_ADMIN']; ?> - <?php echo $l['NAMA_ADMIN']; ?> </option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Nomer Antrian</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nomer antrian ...">
+                                            <label> <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
+                                                    //Next Antrian
+                                                    $query = mysqli_query($koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
+                                                    $data = mysqli_fetch_array($query);
+                                                    $nomerAntrian = $data['nextAntrian'];
+
+                                                    $urutan = (int) substr($nomerAntrian, 3, 3);
+
+                                                    $urutan++;
+
+                                                    $huruf = "A";
+                                                    $nomerAntrian = $huruf . sprintf("%03s", $urutan);
+                                                    echo $nomerAntrian;
+                                                    ?>
+                                            </label>
                                             <button type="button" class="btn btn-info">Cetak nomer antrian</button>
                                         </div>
                                         <div>
