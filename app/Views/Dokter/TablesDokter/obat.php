@@ -190,6 +190,7 @@
                                         <th>Dosis</th>
                                         <th>No Batch</th>
                                         <th>Expired</th>
+                                        <th>Stok</th>
                                         <th>Harga Beli</th>
                                         <th>Harga Jual</th>
                                         <th>Aksi</th>
@@ -206,6 +207,7 @@
                                             <td><?= $row['DOSIS']; ?></td>
                                             <td><?= $row['NO_BATCH']; ?></td>
                                             <td><?= $row['EXPIRED']; ?></td>
+                                            <td><?= $row['STOK']; ?></td>
                                             <td><?= $row['HARGA_BELI']; ?></td>
                                             <td><?= $row['HARGA_JUAL']; ?></td>
                                             <td>

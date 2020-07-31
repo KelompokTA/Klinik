@@ -170,12 +170,13 @@
                                     <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>No RM</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan no rm ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nama Pasien</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nama pasien ...">
+                                            <label>No.RM</label>
+                                            <select name="pasien" class=" form-control <?= ($validation->hasError('pasien')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled value="<?= old('pasien'); ?>"><?= old('pasien'); ?></option>
+                                                <?php foreach ($pendaftaran as $row) : ?>
+                                                    <option value="<?= $row['ID_PENDAFTARAN']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN'] . " &nbsp | &nbsp " . $row['created_at']; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Primer</label>
@@ -192,11 +193,14 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="row">
-                                            <div class="col-sm-8">
-                                                <div class="form-group">
-                                                    <label>Nama Dokter</label>
-                                                    <input type="text" class="form-control" placeholder="Masukkan nama dokter ...">
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Dokter</label>
+                                                <select name="dokter" class=" form-control <?= ($validation->hasError('dokter')) ? 'is-invalid' : ''; ?>">
+                                                    <option selected disabled value="<?= old('dokter'); ?>"><?= old('dokter'); ?></option>
+                                                    <?php foreach ($pelayanan as $row) : ?>
+                                                        <option value="<?= $row['ID_PELAYANAN']; ?>"><?= old('dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER']; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
@@ -208,15 +212,12 @@
                                         <div class="row">
                                             <div class="col-sm-8">
                                                 <div class="form-group">
-                                                    <label>Nama Obat</label>
-                                                    <select class="form-control select2bs4" style="width: 100%;">
-                                                        <option selected disabled>-Pilih Obat-</option>
-                                                        <option>Coxavit tablet</option>
-                                                        <option>Guanistrep syr</option>
-                                                        <option>Ketorolac injeksi</option>
-                                                        <option>Domperidone sirup</option>
-                                                        <option>Metoclopramid 10 mg tablet</option>
-                                                        <option>Metoclopramide 10 mg/2 ml injeksi</option>
+                                                    <label>Obat</label>
+                                                    <select name="obat" class=" form-control <?= ($validation->hasError('obat')) ? 'is-invalid' : ''; ?>">
+                                                        <option selected disabled value="<?= old('obat'); ?>"><?= old('obat'); ?></option>
+                                                        <?php foreach ($obat as $row) : ?>
+                                                            <option value="<?= $row['ID_OBAT']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['SATUAN_OBAT']; ?></option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>

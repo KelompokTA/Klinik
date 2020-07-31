@@ -49,7 +49,9 @@ class BaseController extends Controller
 		$this->WilayahModel = new \App\Models\WilayahModel();
 		$this->LaporanModel = new \App\Models\LaporanModel();
 		$this->ObatModel = new \App\Models\ObatModel();
-		$this->PendaftaranModel = new \App\Models\PendaftaranModel;
+		$this->PendaftaranModel = new \App\Models\PendaftaranModel();
+		$this->PelayananModel = new \App\Models\PelayananModel();
+		$this->RiwayatModel = new \App\Models\RiwayatModel();
 	}
 
 }

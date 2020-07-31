@@ -173,15 +173,23 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nama Obat <?= $validation->listErrors(); ?></label>
-                                            <input type="text" name="nama_obat" value="<?= old('nama_obat'); ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autofocus>
+                                            <input type="text" name="nama_obat" value="<?= old('nama_obat'); ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>Satuan Obat</label>
-                                            <input type="text" name="satuan_obat" value="<?= old('satuan_obat'); ?>" class="form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan satuan obat ...">
+                                            <select name="satuan_obat" class=" form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>">
+                                                <option selected disabled value="<?= old('satuan_obat'); ?>"><?= old('satuan_obat'); ?></option>
+                                                <option value="Kapsul">Kapsul</option>
+                                                <option value="tablet">tablet</option>
+                                                <option value="ampul">ampul</option>
+                                                <option value="botol">botol</option>
+                                                <option value="tube">tube</option>
+                                                <option value="capsul">capsul</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
-                                            <select name="rute_pemberian" value="<?= old('rute_pemberian'); ?>" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
+                                            <select name="rute_pemberian" class=" form-control <?= ($validation->hasError('rute_pemberian')) ? 'is-invalid' : ''; ?>">
                                                 <option selected disabled value="<?= old('rute_pemberian'); ?>"><?= old('rute_pemberian'); ?></option>
                                                 <option value="Oral">Oral</option>
                                                 <option value="Intravena">Intravena</option>
@@ -192,15 +200,19 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Dosis</label>
-                                            <input type="text" name="dosis" value="<?= old('dosis'); ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
+                                            <input type="text" name="dosis" value="<?= old('dosis'); ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>No Batch</label>
-                                            <input type="text" name="no_batch" value="<?= old('no_batch'); ?>" class=" form-control <?= ($validation->hasError('no_batch')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomor batch ...">
+                                            <input type="text" name="no_batch" value="<?= old('no_batch'); ?>" class=" form-control <?= ($validation->hasError('no_batch')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomor batch ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>Expired</label>
                                             <input type="date" name="expired" value="<?= old('expired'); ?>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Stok</label>
+                                            <input type="number" name="stok" value="<?= old('stok'); ?>" class=" form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan jumlah stok ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Beli</label>

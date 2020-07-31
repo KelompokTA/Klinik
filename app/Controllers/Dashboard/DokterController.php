@@ -60,20 +60,9 @@ class DokterController extends BaseController
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('tambahObat')->withInput()->with('validation', $validation);
+            return redirect()->to('tambahObat')->withInput();
         }
-        $this->ObatModel->save([
-            'NAMA_OBAT' => $this->request->getVar('nama_obat'),
-            'SATUAN_OBAT' => $this->request->getVar('satuan_obat'),
-            'RUTE_PEMBERIAN' => $this->request->getVar('rute_pemberian'),
-            'NO_BATCH' => $this->request->getVar('no_batch'),
-            'EXPIRED' => $this->request->getVar('expired'),
-            'HARGA_BELI' => $this->request->getVar('harga_beli'),
-            'HARGA_JUAL' => $this->request->getVar('harga_jual'),
-            'DOSIS' => $this->request->getVar('dosis')
-        ]);
-
+        $this->ObatModel->saveObat();
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
         return redirect()->to('obatDokter');
     }
@@ -121,7 +110,12 @@ class DokterController extends BaseController
 
     public function tambah_pemeriksaan()
     {
-
-        return view('Dokter/FormDokter/tambah_pemeriksaan');
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
+            'pelayanan' => $this->PelayananModel->getPelayanan(),
+            'obat' => $this->ObatModel->getObat()
+        ];
+        return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
     }
 }
