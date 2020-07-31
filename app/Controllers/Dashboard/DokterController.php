@@ -51,7 +51,7 @@ class DokterController extends BaseController
         $data = [
             'dokter' => $this->DokterModel->getDokter()
         ];
-        return view('Admin/TablesDokter/dokter', $data);
+        return view('Dokter/TablesDokter/dokter', $data);
     }
 
     public function obat()

@@ -214,34 +214,85 @@
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data pembayaran</h3>
+                            <h3 class="card-title">Transaksi Pembayaran Pasien</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form">
+                            <form role="form" method="get">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>ID Transaksi</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan ID Transaksi ...">
+                                            <label>ID Pasien</label>
+                                            <input type="text" name="ID_PASIEN" class="form-control" placeholder="Masukkan ID Pasien ...">
+                                            <input type="submit" class="form-control" name="cari" value="Cari Pasien" />
                                         </div>
-                                        <div class="form-group">
-                                            <label>ID Pelayanan</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan ID Pelayanan ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tanggal Transaksi</label>
-                                            <input type="date" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Total Biaya</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan total biaya ...">
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-success">Submit</button>
-                                            <button type="button" class="btn btn-info">Cetak Kwitansi</button>
-                                        </div>
+                                        <?php
+                                        $konek = mysqli_connect("localhost", "root", "", "db_klinik");
+                                        if (isset($_GET['ID_PASIEN']) && $_GET['ID_PASIEN'] != '') {
+                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien WHERE ID_PASIEN='$_GET[ID_PASIEN]'");
+                                            $ds = mysqli_fetch_array($sqlPasien);
+                                            $ID_PASIEN = $ds['ID_PASIEN'];
+                                        ?>
+
+                                            <h3>Biodata Pasien</h3>
+                                            <table>
+                                                <tr>
+                                                    <td>No RM</td>
+                                                    <td>:</td>
+                                                    <td><?php echo $ds['NO_RM']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>No KTP</td>
+                                                    <td>:</td>
+                                                    <td><?php echo $ds['NO_KTP']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nama Pasien</td>
+                                                    <td>:</td>
+                                                    <td><?php echo $ds['NAMA_PASIEN']; ?></td>
+                                                </tr>
+
+                                            </table>
+
+                                            <h3>Tagihan Pembayaran Pasien</h3>
+                                            <table border="1">
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>ID Transaksi</th>
+                                                    <th>Tanggal Transaksi</th>
+                                                    <th>Jumlah Bayar</th>
+                                                    <th>Keterangan</th>
+                                                    <th>Bayar</th>
+                                                </tr>
+
+                                                <?php
+                                                $konek = mysqli_connect("localhost", "root", "", "db_klinik");
+                                                $sql = mysqli_query($konek, "SELECT *,SUM(TOTAL_BIAYA_OBAT+BIAYA_DOKTER) AS TOTAL FROM transaksi, pelayanan  WHERE ID_PASIEN ='$ds[ID_PASIEN]' ORDER BY ID_TRANSAKSI ASC");
+                                                $no = 1;
+                                                while ($d = mysqli_fetch_array($sql)) {
+                                                    echo "<tr>
+            <td>$no</td>
+            <td>$d[ID_TRANSAKSI]</td>
+			<td>$d[TANGGAL_TRANSAKSI]</td>
+			<td>$d[TOTAL]</td>
+			<td>$d[KET]</td>
+			<td align='center'>";
+                                                    if ($d['ID_PELAYANAN'] == '') {
+                                                        echo "<a href='proses_transaksi.php?ID_PASIEN=$ID_PASIEN&act=bayar&id=$d[ID_TRANSAKSI]'>Bayar</a>";
+                                                    } else {
+                                                        echo "-";
+                                                    }
+                                                    echo "</td>
+		</tr>";
+                                                    $no++;
+                                                }
+                                                ?>
+                                            </table>
+                                        <?php
+                                        }
+                                        ?>
+
                                     </div>
                                 </div>
 
