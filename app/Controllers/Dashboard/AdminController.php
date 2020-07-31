@@ -9,7 +9,7 @@ use App\Models\AdminModel;
 use App\Models\JadwalModel;
 use App\Models\WilayahModel;
 use App\Models\LaporanModel;
-
+use App\Models\PendaftaranModel;
 
 class AdminController extends BaseController
 {
@@ -19,6 +19,7 @@ class AdminController extends BaseController
     protected $JadwalModel;
     protected $WilayahModel;
     protected $LaporanModel;
+    protected $PendaftaranModel;
     public function __construct()
     {
         $this->PasienModel = new PasienModel();
@@ -27,6 +28,7 @@ class AdminController extends BaseController
         $this->JadwalModel = new JadwalModel();
         $this->WilayahModel = new WilayahModel();
         $this->LaporanModel = new LaporanModel();
+        $this->PendaftaranModel = new PendaftaranModel();
     }
 
     public function index()
@@ -69,6 +71,12 @@ class AdminController extends BaseController
             'laporan' => $this->LaporanModel->getLaporan()
         ];
         return view('Admin/TablesAdmin/laporan', $data);
+    }
+
+
+
+    public function save_pendaftaran()
+    {
     }
 
     public function save_pasien()
@@ -205,7 +213,7 @@ class AdminController extends BaseController
             $namaDokter = $fotoDokter->getRandomName();
             // pindahkan file ke folder
             $fotoDokter->move('assets/img/foto', $namaDokter);
-        }        
+        }
         $this->DokterModel->save([
             'FOTO_DOKTER' => $namaDokter,
             'NAMA_DOKTER' => $this->request->getVar('nama_dokter'),
@@ -421,8 +429,10 @@ class AdminController extends BaseController
 
     public function pendaftaran()
     {
-        $data = [];
-        return view('Admin/FormAdmin/pendaftaran');
+        $data = [
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran()
+        ];
+        return view('Admin/FormAdmin/pendaftanan', $data);
     }
 
     public function logout()
