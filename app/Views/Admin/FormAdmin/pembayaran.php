@@ -268,7 +268,7 @@
 
                                                 <?php
                                                 $konek = mysqli_connect("localhost", "root", "", "db_klinik");
-                                                $sql = mysqli_query($konek, "SELECT *,SUM(TOTAL_BIAYA_OBAT+BIAYA_DOKTER) AS TOTAL FROM transaksi, pelayanan  WHERE ID_PASIEN ='$ds[ID_PASIEN]' ORDER BY ID_TRANSAKSI ASC");
+                                                $sql = mysqli_query($konek, "SELECT *,SUM(TOTAL_BIAYA_OBAT+BIAYA_DOKTER) AS TOTAL FROM transaksi, pelayanan  WHERE ID_PASIEN ='$ds[ID_PASIEN]'   ORDER BY ID_TRANSAKSI ASC");
                                                 $no = 1;
                                                 while ($d = mysqli_fetch_array($sql)) {
                                                     echo "<tr>
