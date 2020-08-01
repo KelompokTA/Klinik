@@ -37,13 +37,14 @@ class AdminController extends BaseController
         return view('Admin/adminDashboard');
     }
 
+
+
     public function pasien()
     {
         $pasien = $this->PasienModel->findAll();
+
         $data = [
             'pasien' => $pasien,
-            'wilayah' => $this->WilayahModel->get_wilayah()
-
         ];
         return view('Admin/TablesAdmin/pasien', $data);
     }
@@ -83,20 +84,15 @@ class AdminController extends BaseController
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
 
-
-
-    public function save_pendaftaran()
+    public function tambah_pendaftaran()
     {
-        $this->PendaftaranModel->save([
-            'ID_ADMIN' => $this->request->getVar('id_admin'),
-            'ID_PASIEN' => $this->request->getVar('id_pasien'),
-            'NO_ANTRIAN' => $this->request->getVar('no_antrian'),
-            'TANGGAL_PENDAFTARAN' => $this->request->getVar('tanggal_pendaftaran'),
-        ]);
-
-        session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
-        return redirect()->to('pendaftaran')->withInput();
+        $data = [
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran()
+        ];
+        return view('Admin/FormAdmin/pendaftaran', $data);
     }
+
+
 
     public function save_pasien()
     {
@@ -118,10 +114,10 @@ class AdminController extends BaseController
             'NAMA_PASIEN' => $this->request->getVar('nama_pasien'),
             'JENIS_KELAMIN' => $this->request->getVar('jenis_kelamin'),
             'UMUR' => $this->request->getVar('umur'),
-            'KELURAHAN' => $this->request->getVar('kelurahan'),
-            'KECAMATAN' => $this->request->getVar('kecamatan'),
-            'KOTA' => $this->request->getVar('kota'),
-            'PROVINSI' => $this->request->getVar('provinsi'),
+            'KELURAHAN' => $this->request->getVar('villages'),
+            'KECAMATAN' => $this->request->getVar('districts'),
+            'KOTA' => $this->request->getVar('regencies'),
+            'PROVINSI' => $this->request->getVar('provinces'),
             'TELFON_PASIEN' => $this->request->getVar('telfon_pasien'),
             'ALAMAT_PASIEN' => $this->request->getVar('alamat'),
             'TEMPAT_LAHIR' => $this->request->getVar('tempat_lahir'),
@@ -136,7 +132,15 @@ class AdminController extends BaseController
     {
         // session();
         $data = [
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'provinces' => $this->WilayahModel->get_provinsi(),
+            'regencies' => $this->WilayahModel->get_kota(),
+            'districts' => $this->WilayahModel->get_kecamatan(),
+            'villages' => $this->WilayahModel->get_kelurahan(),
+            'provinces_selected' => '',
+            'regencies_selected' => '',
+            'districts_selected' => '',
+            'villages_selected' => '',
         ];
         return view('Admin/FormAdmin/tambah_pasien', $data);
     }
@@ -187,7 +191,18 @@ class AdminController extends BaseController
         $data = [];
         return view('Admin/FormAdmin/surat_rujukan');
     }
+    public function save_pendaftaran()
+    {
+        $this->PendaftaranModel->save([
+            'ID_ADMIN' => $this->request->getVar('id_admin'),
+            'ID_PASIEN' => $this->request->getVar('id_pasien'),
+            'NO_ANTRIAN' => $this->request->getVar('no_antrian')
 
+        ]);
+
+        session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
+        return redirect()->to('tambahPendaftaran')->withInput();
+    }
     public function save_jadwal()
     {
         $this->JadwalModel->save([
@@ -445,6 +460,8 @@ class AdminController extends BaseController
         $data = [];
         return view('Admin/FormAdmin/pembayaran');
     }
+
+
 
 
 

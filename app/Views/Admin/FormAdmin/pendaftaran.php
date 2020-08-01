@@ -225,22 +225,25 @@
                         <div class="card-body">
                             <form action="save_pendaftaran" method="POST" role="form">
                                 <?= csrf_field(); ?>
+
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No RM</label>
                                             <select class="form-control" name="id_pasien">
-                                                <?php foreach ($pasien as $l) { ?>
-                                                    <option value="<?php echo $l['ID_PASIEN']; ?>"><?php echo $l['NO_RM']; ?> - <?php echo $l['NAMA_PASIEN']; ?> </option>
+                                                <option selected disabled value="<?= old('pasien'); ?>"><?= old('pasien'); ?></option>
+                                                <?php foreach ($pasien as $row) { ?>
+                                                    <option value="<?= $row['ID_PASIEN']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN']; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>ID Admin</label>
                                             <select class="form-control" name="id_admin">
-                                                <?php foreach ($admin as $l) { ?>
-                                                    <option value="<?php echo $l['ID_ADMIN']; ?>"><?php echo $l['ID_ADMIN']; ?> - <?php echo $l['NAMA_ADMIN']; ?> </option>
+                                                <option selected disabled value="<?= old('admin'); ?>"><?= old('admin'); ?></option>
+                                                <?php foreach ($admin as $row) { ?>
+                                                    <option value="<?= $row['ID_ADMIN']; ?>"><?= old('admin'); ?><?= $row['ID_ADMIN'] . " &nbsp &nbsp" . $row['NAMA_ADMIN']; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -252,7 +255,7 @@
                                             $data = mysqli_fetch_array($query);
                                             $nomerAntrian = $data['nextAntrian'];
 
-                                            $urutan = (int) substr($nomerAntrian, 3, 3);
+                                            $urutan = (int) substr($nomerAntrian, 3);
 
                                             $urutan++;
 
@@ -260,7 +263,7 @@
                                             $nomerAntrian = $huruf . sprintf("%03s", $urutan);
 
                                             ?>
-                                            <input type="text" class="form-control" value="<?php echo $nomerAntrian; ?>" Disabled>
+                                            <input name="no_antrian" required="required" type="text" class="form-control" value="<?php echo $nomerAntrian; ?>" Disabled>
                                             </input>
                                             <br>
                                             <button onclick="window.print()" type="button" class="btn btn-info">Cetak nomer antrian</button>

@@ -219,7 +219,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="save_pasien" method="POST">
+                            <form role="form" action="save" method="POST">
                                 <?= csrf_field(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
