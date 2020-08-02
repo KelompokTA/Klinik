@@ -231,7 +231,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No RM</label>
-                                            <select class="form-control" name="id_pasien">
+                                            <select class="form-control select2" style="width: 100%;" name="id_pasien">
                                                 <option selected disabled value="<?= old('pasien'); ?>"><?= old('pasien'); ?></option>
                                                 <?php foreach ($pasien as $row) { ?>
                                                     <option value="<?= $row['ID_PASIEN']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN']; ?></option>
@@ -240,7 +240,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>ID Admin</label>
-                                            <select class="form-control" name="id_admin">
+                                            <select class="form-control select2" style="width: 100%;" name="id_admin">
                                                 <option selected disabled value="<?= old('admin'); ?>"><?= old('admin'); ?></option>
                                                 <?php foreach ($admin as $row) { ?>
                                                     <option value="<?= $row['ID_ADMIN']; ?>"><?= old('admin'); ?><?= $row['ID_ADMIN'] . " &nbsp &nbsp" . $row['NAMA_ADMIN']; ?></option>

@@ -180,15 +180,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Primer</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa primer ..."></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa primer ..." autocomplete="off"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Sekunder</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa sekunder ..."></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa sekunder ..." autocomplete="off"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Diagnosa Tersier</label>
-                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa tersier ..."></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa tersier ..." autocomplete="off"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
@@ -205,7 +205,12 @@
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label>Biaya Pelayanan</label>
-                                                    <input type="text" class="form-control" placeholder="Masukkan biaya pelayanan ...">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">Rp.</span>
+                                                        </div>
+                                                        <input type="number" name="biaya" value="<?= old('biaya'); ?>" class=" form-control <?= ($validation->hasError('biaya')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -224,13 +229,7 @@
                                             <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <label>Jumlah</label>
-                                                    <select class="custom-select">
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                        <option>5</option>
-                                                    </select>
+                                                    <input type="number" name="jumlah" value="<?= old('jumlah'); ?>" class=" form-control <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="col-sm-2">

@@ -219,26 +219,27 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form" action="save" method="POST">
+                            <form role="form" action="save_pasien" method="POST">
                                 <?= csrf_field(); ?>
+                                <?= $validation->listErrors(); ?>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No RM</label>
-                                            <input type="text" name="no_rm" value="<?= old('no_rm'); ?>" class=" form-control <?= ($validation->hasError('no_rm')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Rekam Medik ...">
+                                            <input type="text" name="no_rm" value="<?= old('no_rm'); ?>" class=" form-control <?= ($validation->hasError('no_rm')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Rekam Medik ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>No KTP</label>
-                                            <input type="text" name="no_ktp" value="<?= old('no_ktp'); ?>" class=" form-control <?= ($validation->hasError('no_ktp')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Kartu Tanda Penduduk ...">
+                                            <input type="text" name="no_ktp" value="<?= old('no_ktp'); ?>" class=" form-control <?= ($validation->hasError('no_ktp')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer Kartu Tanda Penduduk ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>Nama Pasien</label>
-                                            <input type="text" name="nama_pasien" value="<?= old('nama_pasien'); ?>" class=" form-control <?= ($validation->hasError('nama_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama pasien ...">
+                                            <input type="text" name="nama_pasien" value="<?= old('nama_pasien'); ?>" class=" form-control <?= ($validation->hasError('nama_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama pasien ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>Tempat Lahir</label>
-                                            <input type="text" name="tempat_lahir" value="<?= old('tempat_lahir'); ?>" class=" form-control <?= ($validation->hasError('tempat_lahir')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan tempat lahir ...">
+                                            <input type="text" name="tempat_lahir" value="<?= old('tempat_lahir'); ?>" class=" form-control <?= ($validation->hasError('tempat_lahir')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan tempat lahir ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Lahir</label>
@@ -262,30 +263,19 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Provinsi</label>
-                                            <select class="form-control" name="provinsi" id="provinsi">
-
-                                            </select>
+                                            <input type="text" name="provinsi" value="<?= old('provinsi'); ?>" class=" form-control <?= ($validation->hasError('provinsi')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan provinsi ..." autocomplete="off">
                                         </div>
-
                                         <div class="form-group">
-                                            <label>Kabupaten</label>
-                                            <select class="form-control" name="kabupaten" id="kabupaten">
-                                                <option value=""></option>
-                                            </select>
+                                            <label>Kota</label>
+                                            <input type="text" name="kota" value="<?= old('kota'); ?>" class=" form-control <?= ($validation->hasError('kota')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan kota ..." autocomplete="off">
                                         </div>
-
                                         <div class="form-group">
                                             <label>Kecamatan</label>
-                                            <select class="form-control" name="kecamatan" id="kecamatan">
-                                                <option value=""></option>
-                                            </select>
+                                            <input type="text" name="kecamatan" value="<?= old('kecamatan'); ?>" class=" form-control <?= ($validation->hasError('kecamatan')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan kecamatan ..." autocomplete="off">
                                         </div>
-
                                         <div class="form-group">
-                                            <label>Kelurahan</label>
-                                            <select class="form-control" name="kelurahan" id="kelurahan">
-                                                <option value=""></option>
-                                            </select>
+                                            <label>kelurahan</label>
+                                            <input type="text" name="kelurahan" value="<?= old('kelurahan'); ?>" class=" form-control <?= ($validation->hasError('kelurahan')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan kelurahan ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>Telepon</label>

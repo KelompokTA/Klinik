@@ -89,10 +89,10 @@ class AdminController extends BaseController
             'NAMA_PASIEN' => $this->request->getVar('nama_pasien'),
             'JENIS_KELAMIN' => $this->request->getVar('jenis_kelamin'),
             'UMUR' => $this->request->getVar('umur'),
-            'KELURAHAN' => $this->request->getVar('villages'),
-            'KECAMATAN' => $this->request->getVar('districts'),
-            'KOTA' => $this->request->getVar('regencies'),
-            'PROVINSI' => $this->request->getVar('provinces'),
+            'KELURAHAN' => $this->request->getVar('kelurahan'),
+            'KECAMATAN' => $this->request->getVar('kecamatan'),
+            'KOTA' => $this->request->getVar('kota'),
+            'PROVINSI' => $this->request->getVar('provinsi'),
             'TELFON_PASIEN' => $this->request->getVar('telfon_pasien'),
             'ALAMAT_PASIEN' => $this->request->getVar('alamat'),
             'TEMPAT_LAHIR' => $this->request->getVar('tempat_lahir'),
@@ -105,17 +105,8 @@ class AdminController extends BaseController
 
     public function tambah_pasien()
     {
-        // session();
         $data = [
-            'validation' => \Config\Services::validation(),
-            'provinces' => $this->WilayahModel->get_provinsi(),
-            'regencies' => $this->WilayahModel->get_kota(),
-            'districts' => $this->WilayahModel->get_kecamatan(),
-            'villages' => $this->WilayahModel->get_kelurahan(),
-            'provinces_selected' => '',
-            'regencies_selected' => '',
-            'districts_selected' => '',
-            'villages_selected' => '',
+            'validation' => \Config\Services::validation()
         ];
         return view('Admin/FormAdmin/tambah_pasien', $data);
     }
@@ -132,8 +123,7 @@ class AdminController extends BaseController
         // $user = $this->AdminModel->getUser($id);
         $data = [
             'validation' => \Config\Services::validation(),
-            'pasien' => $this->PasienModel->getPasien($id),
-            'wilayah' => $this->WilayahModel->get_wilayah()
+            'pasien' => $this->PasienModel->getPasien($id)
         ];
         return view('Admin/FormAdmin/edit_pasien', $data);
     }
