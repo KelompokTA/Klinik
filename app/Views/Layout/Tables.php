@@ -28,6 +28,8 @@
             }
         }
     </style>
+    <!--coba-->
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css') ?>" />
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -94,6 +96,13 @@
             const fileAdmin = new FileReader();
             fileAdmin.readAsDataURL(fotoAdmin.files[0]);
         }
+    </script>
+    <script src="<?php echo base_url('assets/js/jquery-1.10.2.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.chained.min.js') ?>"></script>
+    <script>
+        $("#regencies").chained("#provinces"); // disini kita hubungkan kota dengan provinsi
+        $("#districts").chained("#regencies"); // disini kita hubungkan kecamatan dengan kota
+        $("#villages").chained("#districts"); // disini kita hubungkan kelurahan dengan kecamatan
     </script>
 </body>
 

@@ -47,7 +47,9 @@ $routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 //FORM
 //Form Pasien
+$routes->get('/tambahPendaftaran', 'Dashboard\AdminController::tambah_pendaftaran');
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
+$routes->post('/save_pendaftaran', 'Dashboard\AdminController::save_pendaftaran');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
 $routes->post('/save_pasien', 'Dashboard\AdminController::save_pasien');
 $routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
@@ -57,6 +59,7 @@ $routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
 //Form Dokter
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_jadwal', 'Dashboard\AdminController::save_jadwal');
+
 $routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
 $routes->get('/hapus_dokter/(:num)', 'Dashboard\AdminController::hapus_dokter/$1');
 $routes->get('/edit_dokter/(:segment)', 'Dashboard\AdminController::edit_dokter/$1');
@@ -68,7 +71,7 @@ $routes->get('/edit_admin/(:segment)', 'Dashboard\AdminController::edit_admin/$1
 $routes->post('/edit_admin/(:segment)/(:num)', 'Dashboard\AdminController::update_admin/$2');
 $routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
-$routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
+
 
 
 //DOKTER
