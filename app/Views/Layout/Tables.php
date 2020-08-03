@@ -16,16 +16,24 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
     <!-- untuk menampilkan apa saja yg ada akan diprint -->
-    <style>
+    <style type="text/css">
         @media print {
-
-            .btn,
-            .card-tools,
-            th:nth-child(7),
-            footer,
-            a#debug-icon-link {
+            input.noPrint {
                 display: none;
             }
+        }
+
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0mm;
+            /* this affects the margin in the printer settings */
+        }
+
+        html {
+            background-color: #FFFFFF;
+            margin: 0mm;
+            /* this affects the margin on the html before sending to printer */
         }
     </style>
     <!--coba-->
