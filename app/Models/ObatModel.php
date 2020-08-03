@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 
 class ObatModel extends Model
 {
-    protected $BaseController;
     protected $table = 'obat';
     protected $primaryKey = 'ID_OBAT';
     protected $allowedFields = ['NAMA_OBAT', 'SATUAN_OBAT', 'RUTE_PEMBERIAN', 'NO_BATCH','STOK', 'EXPIRED', 'HARGA_BELI', 'HARGA_JUAL', 'DOSIS'];

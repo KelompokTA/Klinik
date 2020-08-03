@@ -194,11 +194,11 @@
                                     <div class="col-sm-8">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label>Dokter</label>
-                                                <select name="dokter" class=" form-control <?= ($validation->hasError('dokter')) ? 'is-invalid' : ''; ?>">
-                                                    <option selected disabled value="<?= old('dokter'); ?>"><?= old('dokter'); ?></option>
+                                                <label>PELAYANAN</label>
+                                                <select name="pelayanan" class=" form-control <?= ($validation->hasError('pelayanan')) ? 'is-invalid' : ''; ?>">
+                                                    <option selected disabled value="<?= old('pelayanan'); ?>"><?= old('pelayanan'); ?></option>
                                                     <?php foreach ($pelayanan as $row) : ?>
-                                                        <option value="<?= $row['ID_PELAYANAN']; ?>"><?= old('dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER']; ?></option>
+                                                        <option value="<?= $row['ID_PELAYANAN']; ?>"><?= old('pelayanan'); ?><?= $row['created_at'] . " - " . $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER']; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -235,7 +235,7 @@
                                             <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <label>&nbsp</label>
-                                                    <button type="button" class="form-control btn btn-primary">Tambah</button>
+                                                    <button type="submit" class="form-control btn btn-primary">Tambah</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,19 +259,24 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>1</td>
-                                                            <td>Klorfeniramin maleat (CTM) 4mg</td>
-                                                            <td>Tablet</td>
-                                                            <td>5000</td>
-                                                            <td>3</td>
-                                                            <td>15000</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-warning">Edit</button>
-                                                                <button type="button" class="btn btn-danger">Hapus</button>
-                                                            </td>
-                                                        </tr>
+                                                        <?php $no = 1; ?>                                                        
+                                                        <?php foreach ($resep as $row) : ?>
+                                                            <?php if ($row['ID_PELAYANAN'] == 1 ) : ?>
+                                                            <tr>
+                                                                <td><?= $no++; ?></td>
+                                                                <td><?= $row['ID_OBAT'] ?></td>
+                                                                <td><?= $row['NAMA_OBAT'] ?></td>
+                                                                <td><?= $row['SATUAN_OBAT'] ?></td>
+                                                                <td><?= $row['HARGA_JUAL'] ?>0</td>
+                                                                <td><?= $row['JUMLAH'] ?></td>
+                                                                <td><?= $row['HARGA_JUAL'] * $row['JUMLAH'] ?></td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-warning">Edit</button>
+                                                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                                                </td>
+                                                            </tr>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
                                             </div>

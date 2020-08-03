@@ -15,7 +15,13 @@ class PendaftaranModel extends Model
     public function getPendaftaran($id = false)
     {
         if ($id === false) {
-            return $this->findAll();
+            $db      = \Config\Database::connect();
+            $builder = $db->table('pendaftaran');
+            $builder->select('*');
+            $builder->join('pasien', 'pasien.ID_PASIEN = pendaftaran.ID_PASIEN');
+            $query = $builder->get();
+            $results = $query->getResultArray();
+            return $results;
         }
 
         return $this->where(['ID_PENDAFTARAN' => $id])->first();
