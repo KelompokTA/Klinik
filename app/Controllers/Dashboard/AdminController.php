@@ -59,16 +59,6 @@ class AdminController extends BaseController
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
 
-    public function tambah_pendaftaran()
-    {
-        $data = [
-            'pendaftaran' => $this->PendaftaranModel->getPendaftaran()
-        ];
-        return view('Admin/FormAdmin/pendaftaran', $data);
-    }
-
-
-
     public function save_pasien()
     {
         //VALIDASI
@@ -158,15 +148,15 @@ class AdminController extends BaseController
     }
     public function save_pendaftaran()
     {
+        // dd($this->request->getVar());
         $this->PendaftaranModel->save([
             'ID_ADMIN' => $this->request->getVar('id_admin'),
             'ID_PASIEN' => $this->request->getVar('id_pasien'),
-            'NO_ANTRIAN' => $this->request->getVar('no_antrian')
-
+            'NOMER_ANTRIAN' => $this->request->getVar('no_antrian')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
-        return redirect()->to('tambahPendaftaran')->withInput();
+        return redirect()->to('pendaftaran')->withInput();
     }
     public function save_jadwal()
     {

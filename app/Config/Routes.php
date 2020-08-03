@@ -47,7 +47,6 @@ $routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 //FORM
 //Form Pasien
-$routes->get('/tambahPendaftaran', 'Dashboard\AdminController::tambah_pendaftaran');
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
 $routes->post('/save_pendaftaran', 'Dashboard\AdminController::save_pendaftaran');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
