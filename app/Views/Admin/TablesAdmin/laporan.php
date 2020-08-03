@@ -212,7 +212,7 @@
                             <h1 class="card-title">Data Laporan</h1>
                             <div class="row">
                                 <div class="col-md">
-                                    <button onclick="window.print()" class="btn shadow btn-outline-secondary float-right">Cetak Laporan<i class="fa fa-print"></i></button>
+                                    <button onclick="window.print()" value="Print" class="btn shadow btn-outline-secondary float-right">Cetak Laporan<i class="fa fa-print"></i></button>
                                 </div>
                                 <div class="col-md">
                                     <div class="card-tools">

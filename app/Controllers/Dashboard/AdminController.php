@@ -422,8 +422,24 @@ class AdminController extends BaseController
 
     public function pembayaran()
     {
-        $data = [];
-        return view('Admin/FormAdmin/pembayaran');
+        $data = [
+            'laporan' => $this->LaporanModel->getLaporan(),
+            'pasien' => $this->PasienModel->getPasien(),
+            'admin' => $this->AdminModel->getAdmin()
+        ];
+        return view('Admin/FormAdmin/pembayaran', $data);
+    }
+
+    public function save_pembayaran()
+    {
+        $this->LaporanModel->save([
+            'ID_ADMIN' => $this->request->getVar('hari'),
+            'ID_PASIEN' => $this->request->getVar('jam'),
+            'ID_PELAYANAN' => $this->request->getVar('poli'),
+        ]);
+
+        session()->setFlashdata('Info', 'Jadwal Berhasil Ditambahkan');
+        return redirect()->to('pembayaran')->withInput();
     }
 
 
