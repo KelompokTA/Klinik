@@ -254,14 +254,7 @@
                                             $query = mysqli_query($koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
                                             $data = mysqli_fetch_array($query);
                                             $nomerAntrian = $data['nextAntrian'];
-
-                                            $urutan = (int) substr($nomerAntrian, 3);
-
-                                            $urutan++;
-
-                                            $huruf = "A";
-                                            $nomerAntrian = $huruf . sprintf("%03s", $urutan);
-
+                                            $nomerAntrian++
                                             ?>
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?php echo $nomerAntrian; ?>" Disabled>
                                             </input>

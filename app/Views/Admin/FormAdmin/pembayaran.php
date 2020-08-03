@@ -223,16 +223,20 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>ID Pasien</label>
-                                            <input type="text" name="ID_PASIEN" class="form-control" placeholder="Masukkan ID Pasien ...">
-                                            <input type="submit" class="form-control" name="cari" value="Cari Pasien" />
+                                            <label>Nomer Rekam Medik</label>
+                                            <select class="form-control select2" style="width: 100%;" name="NO_RM">
+                                                <option selected disabled value=""></option>
+                                                <?php foreach ($pasien as $row) { ?>
+                                                    <option value="<?= $row['NO_RM']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN'] ?></option>
+                                                <?php } ?>
+                                                <input type="submit" class="form-control" name="cari" value="Cari Pasien" />
                                         </div>
                                         <?php
                                         $konek = mysqli_connect("localhost", "root", "", "db_klinik");
-                                        if (isset($_GET['ID_PASIEN']) && $_GET['ID_PASIEN'] != '') {
-                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien WHERE ID_PASIEN='$_GET[ID_PASIEN]'");
+                                        if (isset($_GET['NO_RM']) && $_GET['NO_RM'] != '') {
+                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien WHERE NO_RM='$_GET[NO_RM]'");
                                             $ds = mysqli_fetch_array($sqlPasien);
-                                            $ID_PASIEN = $ds['ID_PASIEN'];
+                                            $NO_RM = $ds['NO_RM'];
                                         ?>
 
                                             <h3>Biodata Pasien</h3>
@@ -254,41 +258,36 @@
                                                 </tr>
 
                                             </table>
+                                            <form role="form" action="save_pembayaran" method="post">
+                                                <h3>Tagihan Pembayaran Pasien</h3>
+                                                <table border="1" class="table table-hover text-nowrap">
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>ID Transaksi</th>
+                                                        <th>Tanggal Transaksi</th>
+                                                        <th>Jumlah Bayar</th>
+                                                        <th>Bayar</th>
+                                                    </tr>
 
-                                            <h3>Tagihan Pembayaran Pasien</h3>
-                                            <table border="1">
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>ID Transaksi</th>
-                                                    <th>Tanggal Transaksi</th>
-                                                    <th>Jumlah Bayar</th>
-                                                    <th>Keterangan</th>
-                                                    <th>Bayar</th>
-                                                </tr>
-
-                                                <?php
-                                                $konek = mysqli_connect("localhost", "root", "", "db_klinik");
-                                                $sql = mysqli_query($konek, "SELECT *,SUM(TOTAL_BIAYA_OBAT+BIAYA_DOKTER) AS TOTAL FROM transaksi, pelayanan  WHERE ID_PASIEN ='$ds[ID_PASIEN]'   ORDER BY ID_TRANSAKSI ASC");
-                                                $no = 1;
-                                                while ($d = mysqli_fetch_array($sql)) {
-                                                    echo "<tr>
-            <td>$no</td>
-            <td>$d[ID_TRANSAKSI]</td>
-			<td>$d[TANGGAL_TRANSAKSI]</td>
-			<td>$d[TOTAL]</td>
-			<td>$d[KET]</td>
-			<td align='center'>";
-                                                    if ($d['ID_PELAYANAN'] == '') {
-                                                        echo "<a href='proses_transaksi.php?ID_PASIEN=$ID_PASIEN&act=bayar&id=$d[ID_TRANSAKSI]'>Bayar</a>";
-                                                    } else {
-                                                        echo "-";
-                                                    }
-                                                    echo "</td>
-		</tr>";
-                                                    $no++;
-                                                }
-                                                ?>
-                                            </table>
+                                                    <?php
+                                                    $tgl = date('d-m-Y');
+                                                    $konek = mysqli_connect("localhost", "root", "", "db_klinik");
+                                                    $sql = mysqli_query($konek, "SELECT * FROM transaksi, pelayanan, pasien  WHERE transaksi.ID_TRANSAKSI= ID_TRANSAKSI and pasien.ID_PASIEN = transaksi.ID_PASIEN and pelayanan.ID_PELAYANAN = transaksi.ID_PELAYANAN and ID_TRANSAKSI=ID_TRANSAKSI");
+                                                    $no = 1;
+                                                    ?>
+                                                    <?php foreach ($sql as $row) : ?>
+                                                        <tr>
+                                                            <td><?= $no++; ?></td>
+                                                            <td><?= $row['ID_TRANSAKSI']; ?></td>
+                                                            <td><?= $tgl ?></td>
+                                                            <td><?= $row['TOTAL_BIAYA_OBAT'] + $row['BIAYA_DOKTER']; ?></td>
+                                                            <td>
+                                                                <a href="save_pembayaran/" class="btn btn-success">Bayar</a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </table>
+                                            </form>
                                         <?php
                                         }
                                         ?>
