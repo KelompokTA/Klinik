@@ -10,7 +10,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/ionicons.min.css'); ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
@@ -90,27 +90,32 @@
     <script src="<?= base_url('assets/plugins/jquery/jquery.min.js'); ?>"></script>
     <!-- Bootstrap 4 -->
     <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <!-- DataTables -->
+    <script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'); ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url('assets/js/adminlte.min.js'); ?>"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
+    <!-- page script -->
     <script>
-        function previewFoto() {
-            const fotoAdmin = document.querySelector('#fotoAdmin');
-            const fotoLabel = document.querySelector('.costum-file-label');
-
-            fotoLabel.textContent = fotoLabel.files[0].name;
-
-            const fileAdmin = new FileReader();
-            fileAdmin.readAsDataURL(fotoAdmin.files[0]);
-        }
-    </script>
-    <script src="<?php echo base_url('assets/js/jquery-1.10.2.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/jquery.chained.min.js') ?>"></script>
-    <script>
-        $("#regencies").chained("#provinces"); // disini kita hubungkan kota dengan provinsi
-        $("#districts").chained("#regencies"); // disini kita hubungkan kecamatan dengan kota
-        $("#villages").chained("#districts"); // disini kita hubungkan kelurahan dengan kecamatan
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "autoWidth": false,
+            });
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
     </script>
 </body>
 
