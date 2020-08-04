@@ -204,34 +204,16 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- /.row -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h1 class="card-title">Data Laporan</h1>
-                            <div class="row">
-                                <div class="col-md">
-                                    <button onclick="window.print()" value="Print" class="btn shadow btn-outline-secondary float-right">Cetak Laporan<i class="fa fa-print"></i></button>
-                                </div>
-                                <div class="col-md">
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm float-right" style="width: 150px;">
-                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                            <h3 class="card-title">Data Laporan</h3>
 
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -261,6 +243,7 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div> <button onclick="window.print()" class="btn shadow btn-outline-secondary center">Cetak Laporan<i class="fa fa-print"></i></button> </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
