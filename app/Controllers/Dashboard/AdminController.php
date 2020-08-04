@@ -58,17 +58,14 @@ class AdminController extends BaseController
         ];
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
-    public function save_pendaftaran()
+    public function cetak_antrian($id)
     {
-        $this->PendaftaranModel->save([
-            'ID_ADMIN' => $this->request->getVar('id_admin'),
-            'ID_PASIEN' => $this->request->getVar('id_pasien'),
-            'NO_ANTRIAN' => $this->request->getVar('no_antrian')
-
-        ]);
-
-        session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
-        return redirect()->to('pendaftaran')->withInput();
+        $data = [
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id),
+            'pasien' => $this->PasienModel->getPasien(),
+            'admin' => $this->AdminModel->getAdmin()
+        ];
+        return view('Admin/FormAdmin/cetak_antrian', $data);
     }
 
     public function save_pasien()
@@ -158,7 +155,18 @@ class AdminController extends BaseController
         $data = [];
         return view('Admin/FormAdmin/surat_rujukan');
     }
+    public function save_pendaftaran()
+    {
+        // dd($this->request->getVar());
+        $this->PendaftaranModel->save([
+            'ID_ADMIN' => $this->request->getVar('id_admin'),
+            'ID_PASIEN' => $this->request->getVar('id_pasien'),
+            'NOMER_ANTRIAN' => $this->request->getVar('no_antrian')
+        ]);
 
+        session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
+        return redirect()->to('pendaftaran')->withInput();
+    }
     public function save_jadwal()
     {
         $this->JadwalModel->save([

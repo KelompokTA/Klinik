@@ -114,7 +114,8 @@ class DokterController extends BaseController
             'validation' => \Config\Services::validation(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pelayanan' => $this->PelayananModel->getPelayanan(),
-            'obat' => $this->ObatModel->getObat()
+            'obat' => $this->ObatModel->getObat(),
+            'resep' => $this->ResepModel->getResep()
         ];
         return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
     }

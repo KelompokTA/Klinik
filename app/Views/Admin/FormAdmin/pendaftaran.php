@@ -254,12 +254,12 @@
                                             $query = mysqli_query($koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
                                             $data = mysqli_fetch_array($query);
                                             $nomerAntrian = $data['nextAntrian'];
-                                            $nomerAntrian++
+                                            $nomerAntrian++;
                                             ?>
-                                            <input name="no_antrian" required="required" type="text" class="form-control" value="<?php echo $nomerAntrian; ?>" Disabled>
+                                            <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>
                                             <br>
-                                            <button onclick="window.print()" type="button" class="btn btn-info">Cetak nomer antrian</button>
+                                            <a href="cetak_antrian" class="btn btn-success"></a>
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>
