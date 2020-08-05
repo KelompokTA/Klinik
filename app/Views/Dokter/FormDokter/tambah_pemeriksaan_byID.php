@@ -165,9 +165,9 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <form role="form">
+                            <form role="form">
+                                <div class="row">
+                                    <div class="col-sm-4">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No.RM</label>
@@ -190,10 +190,8 @@
                                             <label>Diagnosa Tersier</label>
                                             <textarea class="form-control" rows="3" placeholder="Masukkan diagnosa tersier ..." autocomplete="off"></textarea>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="col-sm-8">
-                                    <form action="save_resep" method="POST">
+                                    </div>
+                                    <div class="col-sm-8">
                                         <div class="row">
                                             <div class="form-group">
                                                 <label>PELAYANAN</label>
@@ -237,45 +235,57 @@
                                             <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <label>&nbsp</label>
-                                                    <button type="submit" href="save_resep" class="form-control btn btn-primary">Tambah</button>
+                                                    <button type="submit" class="form-control btn btn-primary">Tambah</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h3 class="card-title">Data Obat</h3>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Data Obat</h3>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body table-responsive p-0">
+                                                <table class="table table-hover text-nowrap">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>ID Obat</th>
+                                                            <th>Nama Obat</th>
+                                                            <th>Satuan Obat</th>
+                                                            <th>Harga Obat</th>
+                                                            <th>Jumlah</th>
+                                                            <th>Total</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php $no = 1; ?>
+                                                        <?php foreach ($resep as $row) : ?>
+                                                                <tr>
+                                                                    <td><?= $no++; ?></td>
+                                                                    <td><?= $row['ID_OBAT'] ?></td>
+                                                                    <td><?= $row['NAMA_OBAT'] ?></td>
+                                                                    <td><?= $row['SATUAN_OBAT'] ?></td>
+                                                                    <td><?= $row['HARGA_JUAL'] ?>0</td>
+                                                                    <td><?= $row['JUMLAH'] ?></td>
+                                                                    <td><?= $row['HARGA_JUAL'] * $row['JUMLAH'] ?></td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-warning">Edit</button>
+                                                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                                                    </td>
+                                                                </tr>
+                                                        <?php endforeach; ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <!-- /.card-header -->
-                                        <div class="card-body table-responsive p-0">
-                                            <table class="table table-hover text-nowrap">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>ID Obat</th>
-                                                        <th>Nama Obat</th>
-                                                        <th>Satuan Obat</th>
-                                                        <th>Harga Obat</th>
-                                                        <th>Jumlah</th>
-                                                        <th>Total</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <div>
+                                            <h3>SUB Total : </h3>
+                                            <h3><?= $row['HARGA_JUAL'] * $row['JUMLAH'] ?></h3>
+                                            <button type="button" class="btn btn-success btn-lg float-md-right">Submit</button>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <h3>SUB Total : </h3>
-                                        <h3></h3>
-                                        <button type="button" class="btn btn-success btn-lg float-md-right">Submit</button>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                         <!-- /.card-body -->

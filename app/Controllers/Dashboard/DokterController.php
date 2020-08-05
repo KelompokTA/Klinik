@@ -108,6 +108,7 @@ class DokterController extends BaseController
         return redirect()->to(base_url('obatDokter'));
     }
 
+
     public function tambah_pemeriksaan()
     {
         $data = [
@@ -115,7 +116,48 @@ class DokterController extends BaseController
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pelayanan' => $this->PelayananModel->getPelayanan(),
             'obat' => $this->ObatModel->getObat(),
-            'resep' => $this->ResepModel->getResep()
+        ];
+        return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
+    }
+
+    public function tambah_pemeriksaan_byID($id)
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
+            'pelayanan' => $this->PelayananModel->getPelayanan(),
+            'obat' => $this->ObatModel->getObat(),
+            'resep' => $this->ResepModel->getResep($id)
+        ];
+        return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
+    }
+
+    public function save_pemeriksaan()
+    {
+        dd($this->request->getVar());
+        $this->ResepModel->save([
+            'ID_OBAT' => $this->request->getVar('ID_OBAT'),
+            'ID_PELAYANAN' => $this->request->getVar('ID_PELAYANAN'),
+            'JUMLAH' => $this->request->getVar('JUMLAH')
+
+        ]);
+        return view('Dokter/FormDokter/tambah_pemeriksaan');
+    }
+
+    public function save_resep($id)
+    {
+        // dd($this->request->getVar());
+        // $this->ResepModel->save([
+        //     'ID_OBAT' => $this->request->getVar('ID_OBAT'),
+        //     'ID_PELAYANAN' => $this->request->getVar('ID_PELAYANAN'),
+        //     'JUMLAH' => $this->request->getVar('JUMLAH')
+
+        // ]);
+        $db = \Config\Database::connect();
+        $query = $db->query("SELECT * FROM transaksi WHERE created_at = $id");
+        $results = $query->getResult();
+        $data =[
+            'arip' => $results
         ];
         return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
     }

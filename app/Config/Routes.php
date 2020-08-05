@@ -61,7 +61,6 @@ $routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
 //Form Dokter
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_jadwal', 'Dashboard\AdminController::save_jadwal');
-
 $routes->post('/save_dokter', 'Dashboard\AdminController::save_dokter');
 $routes->get('/hapus_dokter/(:num)', 'Dashboard\AdminController::hapus_dokter/$1');
 $routes->get('/edit_dokter/(:segment)', 'Dashboard\AdminController::edit_dokter/$1');
@@ -74,8 +73,6 @@ $routes->post('/edit_admin/(:segment)/(:num)', 'Dashboard\AdminController::updat
 $routes->post('/save_admin', 'Dashboard\AdminController::save_admin');
 $routes->get('/pembayaran', 'Dashboard\AdminController::pembayaran');
 $routes->post('/save_pembayaran', 'Dashboard\AdminController::save_pembayaran');
-
-
 
 
 //DOKTER
@@ -93,6 +90,7 @@ $routes->get('/hapus_obat/(:num)', 'Dashboard\DokterController::hapus_obat/$1');
 $routes->get('/edit_obat/(:segment)', 'Dashboard\DokterController::edit_obat/$1');
 $routes->post('/edit_obat/(:segment)/(:num)', 'Dashboard\DokterController::update_obat/$2');
 $routes->get('/tambahPemeriksaan', 'Dashboard\DokterController::tambah_pemeriksaan');
+$routes->post('/save_resep', 'Dashboard\DokterController::save_resep');
 
 
 /**

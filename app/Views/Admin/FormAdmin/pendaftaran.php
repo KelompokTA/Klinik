@@ -252,6 +252,7 @@
                                             <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
                                             //Next Antrian
                                             $query = mysqli_query($koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
+                                            //$koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran WHERE Tanggal
                                             $data = mysqli_fetch_array($query);
                                             $nomerAntrian = $data['nextAntrian'];
                                             $nomerAntrian++;
@@ -340,3 +341,6 @@
 </div>
 
 <?= $this->endSection(); ?>
+
+//reset and increment number on daiyly base
+// reset number daily
