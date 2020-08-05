@@ -16,44 +16,37 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="image" align="center">
-                            <img src="..\..\assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png">
+                            <img src="../assets\img\klinik.png" width="50px" height="50px" alt="klinik.png">
                         </div>
-                        <h4 align=" center">RUMAH SAKIT INDONESIA SEHAT</h4>
+                        <h3 align=" center">KLINIK INDONESIA SEHAT</h3>
 
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" align="center">
-                        <form role="form" action="<?= $pendaftaran['ID_PENDAFTARAN'] ?>" method="POST">
+                        <form>
                             <?= csrf_field(); ?>
-
                             <div class="row">
                                 <div class="col">
                                     <!-- text input -->
                                     <div>
                                         <input type="hidden" name="id_pendaftaran" value="<?= $pendaftaran['ID_PENDAFTARAN'] ?>" class="form-control">
-
-
                                         <h3 align=" center">NOMOR ANTRIAN</h3>
                                         <td>
-                                            <h1><input name="nomer_antrian" value="<?= $pendaftaran['NOMER_ANTRIAN'] ?>" class="form-control"></h1>
+                                            <h1><?= $pendaftaran['NOMER_ANTRIAN']; ?>
                                         </td>
-
-
-
+                                        </h1>
                                     </div>
 
                                 </div>
                             </div>
-
                         </form>
-                        <form></form>
                     </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-                <button onclick="window.print()" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
+                <button onclick="window.print()" id="btn" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
                 <br><br>
-                <a href="<?= base_url('pendaftaran'); ?>" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pendaftaran'); ?>" id="btn" class="btn btn-dark">Kembali</a>
             </div>
             <!--/.col (right) -->
         </div>

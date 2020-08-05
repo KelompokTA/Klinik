@@ -70,9 +70,9 @@
                     </div>
                     <!-- /.card-body -->
                 </div>
-                <button onclick="window.print()" class="btn shadow btn-outline-secondary center">Cetak Kartu<i class="fa fa-print"></i></button>
+                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Kartu<i class="fa fa-print"></i></button>
                 <br><br>
-                <a href="<?= base_url('pasienAdmin'); ?>" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pasienAdmin'); ?>" id="btn" class="btn btn-dark">Kembali</a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->

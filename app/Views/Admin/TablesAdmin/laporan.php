@@ -236,14 +236,14 @@
                                             <td><?= $row['TANGGAL_TRANSAKSI']; ?></td>
                                             <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                                             <td>
-                                                <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger">Hapus</a>
+                                                <a id="print" href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning">Edit</a>
+                                                <a id="print" href="hapus_admin/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <div> <button onclick="window.print()" class="btn shadow btn-outline-secondary center">Cetak Laporan<i class="fa fa-print"></i></button> </div>
+                            <div> <button id="print" onclick="window.print()" class="btn shadow btn-outline-secondary center">Cetak Laporan<i class="fa fa-print"></i></button> </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

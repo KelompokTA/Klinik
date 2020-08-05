@@ -128,6 +128,7 @@ class AdminController extends BaseController
     }
     public function cetak_antrian($id)
     {
+        // dd($id);
         $data = [
             'validation' => \Config\Services::validation(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id)
