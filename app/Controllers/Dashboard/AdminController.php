@@ -59,6 +59,7 @@ class AdminController extends BaseController
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
 
+
     public function save_pasien()
     {
         //VALIDASI
@@ -117,6 +118,22 @@ class AdminController extends BaseController
         ];
         return view('Admin/FormAdmin/edit_pasien', $data);
     }
+    public function cetak_kartu($id)
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'pasien' => $this->PasienModel->getPasien($id)
+        ];
+        return view('Admin/FormAdmin/cetak_kartu', $data);
+    }
+    public function cetak_antrian($id)
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id)
+        ];
+        return view('Admin/FormAdmin/cetak_antrian', $data);
+    }
 
     public function update_pasien($id)
     {
@@ -140,6 +157,8 @@ class AdminController extends BaseController
         session()->setFlashdata('Info', 'Data Berhasil Diubah');
         return redirect()->to(base_url('pasienAdmin'));
     }
+
+
 
     public function surat_rujukan()
     {

@@ -12,8 +12,8 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?= base_url('assets/css/ionicons.min.css'); ?>">
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css');?>">
-  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css');?>">
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/css/adminlte.min.css'); ?>">
   <!-- Google Font: Source Sans Pro -->
@@ -21,22 +21,9 @@
   <!-- untuk menampilkan apa saja yg ada akan diprint -->
   <style type="text/css">
     @media print {
-      input.noPrint {
+      .btn {
         display: none;
       }
-    }
-
-    @page {
-      size: auto;
-      /* auto is the initial value */
-      margin: 0mm;
-      /* this affects the margin in the printer settings */
-    }
-
-    html {
-      background-color: #FFFFFF;
-      margin: 0mm;
-      /* this affects the margin on the html before sending to printer */
     }
   </style>
   <!--coba-->
@@ -108,6 +95,7 @@
       $("#example1").DataTable({
         "responsive": true,
         "autoWidth": true,
+
       });
       $('#example2').DataTable({
         "paging": true,

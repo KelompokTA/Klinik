@@ -259,7 +259,7 @@
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>
                                             <br>
-                                            <button onclick="window.print()" type="button" class="btn btn-info">Cetak nomer antrian</button>
+
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>
@@ -269,12 +269,69 @@
                                 </div>
 
                             </form>
+                            <form></form>
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
                 </div>
                 <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Data Admin</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>ID Pendaftaran</th>
+                                        <th>NO RM</th>
+                                        <th>ID Admin</th>
+                                        <th>ID Pasien</th>
+                                        <th>No Antrian</th>
+                                        <th>Tanggal Pendaftaran</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($pendaftaran as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++; ?></td>
+                                            <td><?= $row['ID_PENDAFTARAN']; ?></td>
+                                            <td><?= $row['NO_RM']; ?></td>
+                                            <td><?= $row['ID_ADMIN']; ?></td>
+                                            <td><?= $row['ID_PASIEN']; ?></td>
+                                            <td><?= $row['NOMER_ANTRIAN']; ?></td>
+                                            <td><?= $row['created_at']; ?></td>
+
+                                            <td>
+
+                                                <a href="cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
+
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->

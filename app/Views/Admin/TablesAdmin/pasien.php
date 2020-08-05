@@ -266,6 +266,7 @@
                       <td><?= $row['PROVINSI']; ?></th>
                       <td><?= $row['TELFON_PASIEN']; ?></td>
                       <td>
+                        <a href="cetak_kartu/<?= $row['ID_PASIEN']; ?>" class="btn btn-primary" value="<?= $row['ID_PASIEN']; ?>">Cetak Kartu</a>
                         <a href="edit_pasien/<?= $row['ID_PASIEN']; ?>" class="btn btn-warning">Edit</a>
                         <a href="hapus_pasien/<?= $row['ID_PASIEN']; ?>" class=" btn btn-danger">Hapus</a>
                       </td>
