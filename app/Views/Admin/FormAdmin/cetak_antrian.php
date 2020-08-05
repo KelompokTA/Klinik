@@ -16,9 +16,9 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="image" align="center">
-                            <img src="assets\img\klinik.png" alt="klinik.png">
+                            <img src="..\..\assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png">
                         </div>
-                        <h3 align=" center">RUMAH SAKIT INDONESIA SEHAT</h3>
+                        <h4 align=" center">RUMAH SAKIT INDONESIA SEHAT</h4>
 
                     </div>
                     <!-- /.card-header -->
@@ -32,27 +32,16 @@
                                     <div>
                                         <input type="hidden" name="id_pendaftaran" value="<?= $pendaftaran['ID_PENDAFTARAN'] ?>" class="form-control">
 
-                                        <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
-                                        //Next Antrian
 
-                                        $query = mysqli_query($koneksi, "SELECT NOMER_ANTRIAN FROM pendaftaran WHERE ID_PENDAFTARAN = id_pendaftaran");
-                                        $data = mysqli_fetch_array($query);
-                                        $nomerAntrian = $data['NOMER_ANTRIAN'];
-                                        $nomerAntrian++;
-                                        ?>
                                         <h3 align=" center">NOMOR ANTRIAN</h3>
                                         <td>
-                                            <h1><?= $nomerAntrian; ?>
+                                            <h1><input name="nomer_antrian" value="<?= $pendaftaran['NOMER_ANTRIAN'] ?>" class="form-control"></h1>
                                         </td>
-                                        </h1>
+
+
 
                                     </div>
-                                    <div>
-                                        <button onclick="window.print()" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
-                                        <br><br>
-                                        <a href="pendaftaran" class="btn btn-dark">Kembali</a>
 
-                                    </div>
                                 </div>
                             </div>
 
@@ -62,6 +51,9 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
+                <button onclick="window.print()" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
+                <br><br>
+                <a href="<?= base_url('pendaftaran'); ?>" class="btn btn-dark">Kembali</a>
             </div>
             <!--/.col (right) -->
         </div>
