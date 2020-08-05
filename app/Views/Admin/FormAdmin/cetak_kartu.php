@@ -72,7 +72,7 @@
                 </div>
                 <button onclick="window.print()" class="btn shadow btn-outline-secondary center">Cetak Kartu<i class="fa fa-print"></i></button>
                 <br><br>
-                <a href="pasien" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pasienAdmin');?>" class="btn btn-dark">Kembali</a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->

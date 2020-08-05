@@ -21,7 +21,7 @@
     <!-- untuk menampilkan apa saja yg ada akan diprint -->
     <style>
         @media print {
-            .d-print-none {
+            button .btn{
                 display: none;
             }
         }
