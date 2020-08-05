@@ -136,6 +136,18 @@ class AdminController extends BaseController
         return view('Admin/FormAdmin/cetak_antrian', $data);
     }
 
+    public function cetak_kwitansi($id)
+    {
+        // dd($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'laporan' => $this->LaporanModel->getLaporan($id),
+            'pasien' => $this->PasienModel->getPasien($id),
+            'pelayanan' => $this->PelayananModel->getPelayanan($id)
+        ];
+        return view('Admin/FormAdmin/cetak_kwitansi', $data);
+    }
+
     public function update_pasien($id)
     {
         $this->PasienModel->save([
