@@ -272,7 +272,7 @@
                                                     <?php
                                                     $tgl = date('d-m-Y');
                                                     $konek = mysqli_connect("localhost", "root", "", "db_klinik");
-                                                    $sql = mysqli_query($konek, "SELECT * FROM transaksi, pelayanan, pasien  WHERE transaksi.ID_TRANSAKSI= ID_TRANSAKSI and pasien.ID_PASIEN = transaksi.ID_PASIEN and pelayanan.ID_PELAYANAN = transaksi.ID_PELAYANAN and ID_TRANSAKSI=ID_TRANSAKSI");
+                                                    $sql = mysqli_query($konek, "SELECT * FROM transaksi, pelayanan, pasien  WHERE transaksi.ID_TRANSAKSI= ID_TRANSAKSI and pasien.ID_PASIEN = transaksi.ID_PASIEN and pelayanan.ID_PELAYANAN = transaksi.ID_PELAYANAN and NO_RM='$_GET[NO_RM]'");
                                                     $no = 1;
                                                     ?>
                                                     <?php foreach ($sql as $row) : ?>
@@ -283,6 +283,7 @@
                                                             <td><?= $row['TOTAL_BIAYA_OBAT'] + $row['BIAYA_DOKTER']; ?></td>
                                                             <td>
                                                                 <a href="save_pembayaran/" class="btn btn-success">Bayar</a>
+                                                                <a href="cetak_kwitansi/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-primary">Cetak Kwitansi</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>
