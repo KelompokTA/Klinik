@@ -71,7 +71,7 @@
                                             <tr>
                                                 <td>Total Biaya</td>
                                                 <td>:</td>
-                                                <td><?= $laporan['TOTAL_BIAYA_TRANSAKSI'] ?></td>
+                                                <td><?= $pelayanan['TOTAL_BIAYA_OBAT'] + $pelayanan['BIAYA_DOKTER'] ?></td>
                                             </tr>
                                         </table>
 
@@ -87,7 +87,7 @@
                 </div>
                 <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Kwitansi<i class="fa fa-print"></i></button>
                 <br><br>
-                <a href="<?= base_url('pasienAdmin'); ?>" id="btn" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pembayaran'); ?>" id="btn" class="btn btn-dark">Kembali</a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->
