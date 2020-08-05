@@ -36,16 +36,17 @@
                                         </td>
                                         </h1>
                                     </div>
+
                                 </div>
                             </div>
                         </form>
-                        <button onclick="window.print()" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
-                        <br><br>
-                        <a href="<?= base_url('pendaftaran'); ?>" class="btn btn-dark">Kembali</a>
                     </div>
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
+                <button onclick="window.print()" id="btn" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
+                <br><br>
+                <a href="<?= base_url('pendaftaran'); ?>" id="btn" class="btn btn-dark">Kembali</a>
             </div>
             <!--/.col (right) -->
         </div>

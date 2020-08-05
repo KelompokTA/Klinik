@@ -50,7 +50,6 @@ $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
 $routes->post('/save_pendaftaran', 'Dashboard\AdminController::save_pendaftaran');
 $routes->get('/cetak_kartu/(:num)', 'Dashboard\AdminController::cetak_kartu/$1');
-$routes->get('/cetak_kartu/(:segment)', 'Dashboard\AdminController::pasien');
 $routes->get('/cetak_antrian/(:num)', 'Dashboard\AdminController::cetak_antrian/$1');
 $routes->get('/cetak_antrian/(:segment)', 'Dashboard\AdminController::pendaftaran');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');

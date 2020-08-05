@@ -21,7 +21,8 @@
   <!-- untuk menampilkan apa saja yg ada akan diprint -->
   <style type="text/css">
     @media print {
-      .btn {
+
+      #print {
         display: none;
       }
     }
@@ -60,7 +61,7 @@
     <?= $this->renderSection('content') ?>
 
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main-footer" id="print">
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 3.0.5
       </div>

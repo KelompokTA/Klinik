@@ -19,9 +19,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
     <!-- untuk menampilkan apa saja yg ada akan diprint -->
-    <style>
+    <style type="text/css">
         @media print {
-            button .btn{
+            #btn {
                 display: none;
             }
         }
