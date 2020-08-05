@@ -10,7 +10,7 @@ class PendaftaranModel extends Model
     protected $table = 'pendaftaran';
     protected $primaryKey = 'ID_PENDAFTARAN';
     protected $useTimestamps = true;
-    protected $allowedFields = ['ID_ADMIN', 'ID_PASIEN', 'NOMER_ANTRIAN'];
+    protected $allowedFields = ['ID_ADMIN', 'ID_PASIEN', 'NOMER_ANTRIAN', 'created_at'];
 
     public function getPendaftaran($id = false)
     {

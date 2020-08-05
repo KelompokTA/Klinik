@@ -289,7 +289,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Antrian</h3>
+                            <h3 class="card-title">Data Pendaftar</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -299,8 +299,7 @@
                                         <th>No</th>
                                         <th>ID Pendaftaran</th>
                                         <th>NO RM</th>
-                                        <th>ID Admin</th>
-                                        <th>ID Pasien</th>
+                                        <th>Nama Pasien</th>
                                         <th>No Antrian</th>
                                         <th>Tanggal Pendaftaran</th>
                                         <th>Aksi</th>
@@ -314,8 +313,7 @@
                                             <td><?= $no++; ?></td>
                                             <td><?= $row['ID_PENDAFTARAN']; ?></td>
                                             <td><?= $row['NO_RM']; ?></td>
-                                            <td><?= $row['ID_ADMIN']; ?></td>
-                                            <td><?= $row['ID_PASIEN']; ?></td>
+                                            <td><?= $row['NAMA_PASIEN']; ?></td>
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
                                             <td><?= $row['created_at']; ?></td>
 
