@@ -120,7 +120,7 @@ class DokterController extends BaseController
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pelayanan' => $results
         ];
-        return view('Dokter/FormDokter/tambah_pelayanan', $data);
+        return view('Dokter/FormDokter/tambah_pelayanan', $data);        
     }
 
     public function save_pelayanan()
@@ -161,7 +161,7 @@ class DokterController extends BaseController
         return redirect()->to(base_url('tambah_resep/' . $id))->withInput();
     }
 
-    public function hapus_resep($id, $id2)
+    public function hapus_resep($id,$id2)
     {
         $this->ResepModel->where('ID_OBAT', $id)->delete();
         session()->setFlashdata('Info', 'Resep Berhasil hapus');
