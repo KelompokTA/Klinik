@@ -109,7 +109,7 @@ class DokterController extends BaseController
     }
 
 
-    public function tambah_pemeriksaan()
+    public function tambah_pelayanan()
     {
         $data = [
             'validation' => \Config\Services::validation(),
@@ -118,7 +118,7 @@ class DokterController extends BaseController
             'pelayanan' => $this->PelayananModel->getPelayanan(),
             'obat' => $this->ObatModel->getObat(),
         ];
-        return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
+        return view('Dokter/FormDokter/tambah_pelayanan', $data);
     }
 
     // public function tambah_pemeriksaan_byID($id)

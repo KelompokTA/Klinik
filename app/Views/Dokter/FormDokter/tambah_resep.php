@@ -230,10 +230,10 @@
                                                             </tr>
                                                         <?php endforeach; ?>
                                                     </tbody>
-                                                    <button type="button" class="btn btn-danger">Hapus</button>
                                                 </table>
                                             </div>
                                         </div>
+                                        <a href="<?= base_url('tambahPelayanan');?>" class="btn btn-secondar">kembali</a>
                                     </div>
                                 </div>
 

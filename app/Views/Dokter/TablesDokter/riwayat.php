@@ -45,7 +45,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('tambahPemeriksaan') ?>" class="nav-link">
+                            <a href="<?= base_url('tambahPelayanan') ?>" class="nav-link">
                                 <i class="fas fa-plus"></i> <i class="fas fa-hand-holding-medical"></i>
                                 <p>pemeriksaan</p>
                             </a>
