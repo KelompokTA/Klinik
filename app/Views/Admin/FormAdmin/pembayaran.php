@@ -234,8 +234,9 @@
                                         <?php
                                         $konek = mysqli_connect("localhost", "root", "", "db_klinik");
                                         if (isset($_GET['NO_RM']) && $_GET['NO_RM'] != '') {
-                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien WHERE NO_RM='$_GET[NO_RM]'");
+                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien a INNER JOIN pendaftaran b ON a.ID_PASIEN = b.ID_PASIEN INNER JOIN pelayanan c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN WHERE NO_RM='$_GET[NO_RM]'");
                                             $ds = mysqli_fetch_array($sqlPasien);
+                                            dd($ds);
                                             $NO_RM = $ds['NO_RM'];
                                         ?>
 
@@ -264,6 +265,7 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>ID Transaksi</th>
+                                                        <th>ID Pelayanan</th>
                                                         <th>Tanggal Transaksi</th>
                                                         <th>Jumlah Bayar</th>
                                                         <th>Bayar</th>
@@ -271,14 +273,14 @@
 
                                                     <?php
                                                     $tgl = date('d-m-Y');
-                                                    $konek = mysqli_connect("localhost", "root", "", "db_klinik");
-                                                    $sql = mysqli_query($konek, "SELECT * FROM transaksi, pelayanan, pasien  WHERE transaksi.ID_TRANSAKSI= ID_TRANSAKSI and pasien.ID_PASIEN = transaksi.ID_PASIEN and pelayanan.ID_PELAYANAN = transaksi.ID_PELAYANAN and NO_RM='$_GET[NO_RM]'");
                                                     $no = 1;
+
                                                     ?>
                                                     <?php foreach ($sql as $row) : ?>
                                                         <tr>
                                                             <td><?= $no++; ?></td>
-                                                            <td><?= $row['ID_TRANSAKSI']; ?></td>
+
+                                                            <td><?= $row['ID_PELAYANAN']; ?></td>
                                                             <td><?= $tgl ?></td>
                                                             <td><?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_DOKTER']; ?></td>
                                                             <td>

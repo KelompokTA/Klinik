@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class DokterController extends BaseController
 {
-        public function index()
+    public function index()
     {
         $data = [
             'pasien' => $this->PasienModel->findAll(),
