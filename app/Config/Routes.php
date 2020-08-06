@@ -52,6 +52,7 @@ $routes->post('/save_pendaftaran', 'Dashboard\AdminController::save_pendaftaran'
 $routes->get('/cetak_kartu/(:num)', 'Dashboard\AdminController::cetak_kartu/$1');
 $routes->get('/cetak_antrian/(:num)', 'Dashboard\AdminController::cetak_antrian/$1');
 $routes->get('/cetak_kwitansi/(:num)', 'Dashboard\AdminController::cetak_kwitansi/$1');
+$routes->get('/cetak_laporan', 'Dashboard\AdminController::cetak_laporan');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
 $routes->post('/save_pasien', 'Dashboard\AdminController::save_pasien');
 $routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
