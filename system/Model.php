@@ -149,7 +149,7 @@ class Model
 	 * The type of column that created_at and updated_at
 	 * are expected to.
 	 *
-	 Allowed: 'datetime', 'date', 'int'
+     * Allowed: 'datetime', 'date', 'int'
 	 *
 	 * @var string
 	 */
