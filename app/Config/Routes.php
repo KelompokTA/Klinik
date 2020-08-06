@@ -92,7 +92,8 @@ $routes->post('/edit_obat/(:segment)/(:num)', 'Dashboard\DokterController::updat
 $routes->get('/tambahPelayanan', 'Dashboard\DokterController::tambah_pelayanan');
 $routes->post('/save_pelayanan', 'Dashboard\DokterController::save_pelayanan');
 $routes->get('/tambah_resep/(:num)', 'Dashboard\DokterController::tambah_resep/$1');
-$routes->post('/save_resep', 'Dashboard\DokterController::save_resep');
+$routes->post('/tambah_resep/(:segment)/(:num)', 'Dashboard\DokterController::save_resep/$2');
+$routes->get('/tambah_resep/(:segment)/(:num)/(:num)', 'Dashboard\DokterController::hapus_resep/$2/$3');
 
 
 /**

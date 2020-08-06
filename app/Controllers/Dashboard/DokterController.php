@@ -111,36 +111,27 @@ class DokterController extends BaseController
 
     public function tambah_pelayanan()
     {
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN pendaftaran c ON a.ID_PENDAFTARAN = c.ID_PENDAFTARAN INNER JOIN pasien d ON d.ID_PASIEN = c.ID_PASIEN');
+        $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
             'dokter' => $this->DokterModel->getDokter(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
-            'pelayanan' => $this->PelayananModel->getPelayanan(),
-            'obat' => $this->ObatModel->getObat(),
+            'pelayanan' => $results
         ];
-        return view('Dokter/FormDokter/tambah_pelayanan', $data);
+        return view('Dokter/FormDokter/tambah_pelayanan', $data);        
     }
-
-    // public function tambah_pemeriksaan_byID($id)
-    // {
-    //     $data = [
-    //         'validation' => \Config\Services::validation(),
-    //         'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
-    //         'pelayanan' => $this->PelayananModel->getPelayanan(),
-    //         'obat' => $this->ObatModel->getObat(),
-    //         'resep' => $this->ResepModel->getResep($id)
-    //     ];
-    //     return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
-    // }
 
     public function save_pelayanan()
     {
         $this->PelayananModel->save([
-            'ID_DOKTER' => $this->request->getVar('dokter'),
-            'BIAYA_DOKTER' => $this->request->getVar('biaya'),
+            'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
+            'ID_DOKTER' => $this->request->getVar('id_dokter'),
+            'BIAYA_DOKTER' => $this->request->getVar('biaya_dokter'),
         ]);
-        session()->setFlashdata('sukses', '');
-        return redirect()->to(base_url('tambahPemeriksaan'));
+        session()->setFlashdata('Info', 'Pelayanan Berhasil Ditambah');
+        return redirect()->to(base_url('tambahPelayanan'));
     }
 
     public function tambah_resep($id)
@@ -161,19 +152,19 @@ class DokterController extends BaseController
 
     public function save_resep($id)
     {
-        // dd($this->request->getVar());
-        // $this->ResepModel->save([
-        //     'ID_OBAT' => $this->request->getVar('ID_OBAT'),
-        //     'ID_PELAYANAN' => $this->request->getVar('ID_PELAYANAN'),
-        //     'JUMLAH' => $this->request->getVar('JUMLAH')
+        $this->ResepModel->save([
+            'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
+            'ID_OBAT' => $this->request->getVar('id_obat'),
+            'JUMLAH' => $this->request->getVar('jumlah')
+        ]);
+        session()->setFlashdata('Info', 'Resep Berhasil Ditambah');
+        return redirect()->to(base_url('tambah_resep/' . $id))->withInput();
+    }
 
-        // ]);
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT * FROM transaksi WHERE created_at = $id");
-        $results = $query->getResult();
-        $data =[
-            'arip' => $results
-        ];
-        return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
+    public function hapus_resep($id,$id2)
+    {
+        $this->ResepModel->where('ID_OBAT', $id)->delete();
+        session()->setFlashdata('Info', 'Resep Berhasil hapus');
+        return redirect()->to(base_url('tambah_resep/' . $id2))->withInput();
     }
 }

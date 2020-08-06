@@ -45,7 +45,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('tambahPemeriksaan') ?>" class="nav-link active">
+                            <a href="<?= base_url('tambahPelayanan') ?>" class="nav-link active">
                                 <i class="fas fa-plus"></i> <i class="fas fa-hand-holding-medical"></i>
                                 <p>pemeriksaan</p>
                             </a>
@@ -150,6 +150,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -168,72 +173,77 @@
                         <div class="card-body">
                             <div class="tab-content">
                                 <div class="active tab-pane" id="Pelayanan">
-                                    <!-- RESEP -->
                                     <div class="post">
-                                        <div class="row">
-                                            <div class="col-sm-8">
-                                                <div class="form-group">
-                                                    <label>Obat</label>
-                                                    <select name="obat" class=" form-control <?= ($validation->hasError('obat')) ? 'is-invalid' : ''; ?>">
-                                                        <option selected disabled value="<?= old('obat'); ?>"><?= old('obat'); ?></option>
-                                                        <?php foreach ($obat as $row) : ?>
-                                                            <option value="<?= $row['ID_OBAT']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['SATUAN_OBAT']; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
+                                        <form action="'save_resep/<?= $id ?>" method="POST">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="id_pelayanan" value="<?= $id; ?>">
+                                                        <label>Obat</label>
+                                                        <select name="id_obat" class=" form-control <?= ($validation->hasError('id_obat')) ? 'is-invalid' : ''; ?>">
+                                                            <option selected disabled value="<?= old('id_obat'); ?>"></option>
+                                                            <?php foreach ($obat as $row) : ?>
+                                                                <option value="<?= $row['ID_OBAT']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['SATUAN_OBAT']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>Jumlah</label>
+                                                        <input type="number" name="jumlah" value="<?= old('jumlah'); ?>" class=" form-control <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>&nbsp</label>
+                                                        <button type="submit" class="form-control btn btn-primary">Tambah</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label>Jumlah</label>
-                                                    <input type="number" name="jumlah" value="<?= old('jumlah'); ?>" class=" form-control <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                        </form>
+                                        <form action="save_pelayanan" method="POST">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Data Obat</h3>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <div class="form-group">
-                                                    <label>&nbsp</label>
-                                                    <button type="submit" href="save_resep" class="form-control btn btn-primary">Tambah</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h3 class="card-title">Data Obat</h3>
-                                            </div>
-                                            <!-- /.card-header -->
-                                            <div class="card-body table-responsive p-0">
-                                                <table class="table table-hover text-nowrap">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>No</th>
-                                                            <th>Nama Obat</th>
-                                                            <th>Satuan Obat</th>
-                                                            <th>Harga Obat</th>
-                                                            <th>Jumlah</th>
-                                                            <th>Total</th>
-                                                            <th>Aksi</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php $no = 1; ?>
-                                                        <?php foreach ($resep as $row) : ?>
+                                                <!-- /.card-header -->
+                                                <div class="card-body table-responsive p-0">
+                                                    <table class="table table-hover text-nowrap">
+                                                        <thead>
                                                             <tr>
-                                                                <td><?= $no++; ?></td>
-                                                                <td><?= $row['NAMA_OBAT']; ?></td>
-                                                                <td><?= $row['SATUAN_OBAT'] ?></td>
-                                                                <td><?= $row['HARGA_JUAL'] ?></td>
-                                                                <td><?= $row['JUMLAH'] ?></td>
-                                                                <td><input name="total_biaya_resep" type="number" value="<?= $row['JUMLAH'] * $row['HARGA_JUAL'] ?>"></td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-warning">Edit</button>
-
-                                                                </td>
+                                                                <th>No</th>
+                                                                <th>Nama Obat</th>
+                                                                <th>Satuan Obat</th>
+                                                                <th>Dosis</th>
+                                                                <th>Harga Obat</th>
+                                                                <th>Jumlah</th>
+                                                                <th>Total</th>
+                                                                <th>Aksi</th>
                                                             </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php $no = 1; ?>
+                                                            <?php foreach ($resep as $row) : ?>
+                                                                <tr>
+                                                                    <td><?= $no++; ?></td>
+                                                                    <td><?= $row['NAMA_OBAT']; ?></td>
+                                                                    <td><?= $row['SATUAN_OBAT'] ?></td>
+                                                                    <td><?= $row['DOSIS'] ?></td>
+                                                                    <td><?= $row['HARGA_JUAL'] ?></td>
+                                                                    <td><?= $row['JUMLAH'] ?></td>
+                                                                    <td><input name="total_biaya_resep" type="number" value="<?= $row['JUMLAH'] * $row['HARGA_JUAL'] ?>" readonly></td>
+                                                                    <td>
+                                                                        <a href="hapus_resep/<?= $row['ID_OBAT']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endforeach; ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <a href="<?= base_url('tambahPelayanan');?>" class="btn btn-secondar">kembali</a>
+                                            <button type="submit" class="btn btn-secondary">kembali</button>
+                                        </form>
                                     </div>
                                 </div>
 
