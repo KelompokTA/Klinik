@@ -149,7 +149,7 @@ class Model
 	 * The type of column that created_at and updated_at
 	 * are expected to.
 	 *
-	 * Allowed: 'datetime', 'date', 'int'
+	 Allowed: 'datetime', 'date', 'int'
 	 *
 	 * @var string
 	 */
@@ -617,7 +617,7 @@ class Model
 					switch ($dateFormat)
 					{
 						case 'datetime':
-							$converted = $value->format('Y-m-d H:i:s');
+							$converted = $value->format('Y-m-d G:i:s');
 							break;
 						case 'date':
 							$converted = $value->format('Y-m-d');
@@ -1275,7 +1275,7 @@ class Model
 			case 'int':
 				return $currentDate;
 			case 'datetime':
-				return date('Y-m-d H:i:s', $currentDate);
+				return date('Y-m-d G:i:s', $currentDate);
 			case 'date':
 				return date('Y-m-d', $currentDate);
 			default:

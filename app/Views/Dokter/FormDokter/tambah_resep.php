@@ -202,7 +202,7 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <form action="save_pelayanan" method="POST">
+                                        <form action="save_pelayanan2/<?= $id ?>" method="POST">
                                             <div class="card">
                                                 <div class="card-header">
                                                     <h3 class="card-title">Data Obat</h3>
@@ -232,7 +232,7 @@
                                                                     <td><?= $row['DOSIS'] ?></td>
                                                                     <td><?= $row['HARGA_JUAL'] ?></td>
                                                                     <td><?= $row['JUMLAH'] ?></td>
-                                                                    <td><input name="total_biaya_resep" type="number" value="<?= $row['JUMLAH'] * $row['HARGA_JUAL'] ?>" readonly></td>
+                                                                    <td><?= $row['JUMLAH'] * $row['HARGA_JUAL'] ?></td>
                                                                     <td>
                                                                         <a href="hapus_resep/<?= $row['ID_OBAT']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
                                                                     </td>
