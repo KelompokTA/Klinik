@@ -54,7 +54,7 @@ class AdminController extends BaseController
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pasien' => $this->PasienModel->getPasien(),
             'admin' => $this->AdminModel->getAdmin(),
-            'dokter' => $this->DokterModel->getDokter(),
+            'dokter' => $this->DokterModel->getDokter()
         ];
         return view('Admin/FormAdmin/pendaftaran', $data);
     }

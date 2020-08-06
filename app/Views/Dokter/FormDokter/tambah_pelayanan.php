@@ -187,15 +187,6 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Nama Dokter</label>
-                                                <select name="id_dokter" class="form-control select2" style="width: 100%;" <?= ($validation->hasError('id_dokter')) ? 'is-invalid' : ''; ?>">
-                                                    <option selected disabled value="<?= old('id_dokter'); ?>"><?= old('id_dokter'); ?></option>
-                                                    <?php foreach ($dokter as $row) : ?>
-                                                        <option value="<?= $row['ID_DOKTER']; ?>"><?= old('id_dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER'] . " &nbsp | &nbsp " . $row['POLI']; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
                                                 <label>Biaya Pelayanan</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">

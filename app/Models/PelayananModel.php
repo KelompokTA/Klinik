@@ -9,7 +9,7 @@ class PelayananModel extends Model
     protected $table = 'pelayanan';
     protected $primaryKey = 'ID_PELAYANAN';
     protected $useTimestamps = true;
-    protected $allowedFields = ['ID_PENDAFTARAN', 'ID_DOKTER','TOTAL_BIAYA_RESEP','BIAYA_DOKTER'];
+    protected $allowedFields = ['ID_PENDAFTARAN', 'BIAYA_DOKTER','TOTAL_BIAYA_RESEP'];
 
     public function getPelayanan($id = false)
     {
@@ -17,7 +17,7 @@ class PelayananModel extends Model
             $db      = \Config\Database::connect();
             $builder = $db->table('pelayanan');
             $builder->select('*');
-            $builder->join('dokter', 'dokter.ID_DOKTER = pelayanan.ID_DOKTER');
+            $builder->join('pendaftaran', 'pendaftaran.ID_PENDAFTARAN = pelayanan.ID_PENDAFTARAN');
             $query = $builder->get();
             $results = $query->getResultArray();
             return $results;

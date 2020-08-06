@@ -112,11 +112,10 @@ class DokterController extends BaseController
     public function tambah_pelayanan()
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN pendaftaran c ON a.ID_PENDAFTARAN = c.ID_PENDAFTARAN INNER JOIN pasien d ON d.ID_PASIEN = c.ID_PASIEN');
+        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN pendaftaran b ON a.ID_PENDAFTARAN = b.ID_PENDAFTARAN INNER JOIN pasien c ON b.ID_PASIEN = c.ID_PASIEN INNER JOIN dokter d ON b.ID_DOKTER = d.ID_DOKTER');
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
-            'dokter' => $this->DokterModel->getDokter(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pelayanan' => $results
         ];
@@ -127,23 +126,31 @@ class DokterController extends BaseController
     {
         $this->PelayananModel->save([
             'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
-            'ID_DOKTER' => $this->request->getVar('id_dokter'),
             'BIAYA_DOKTER' => $this->request->getVar('biaya_dokter'),
         ]);
         session()->setFlashdata('Info', 'Pelayanan Berhasil Ditambah');
         return redirect()->to(base_url('tambahPelayanan'));
     }
 
+    public function update_pelayanan($id)
+    {
+        $data = [
+            'TOTAL_BIAYA_RESEP' => $this->request->getVar('total_biaya_resep'),
+        ];
+        $this->PelayananModel->update($id, $data);
+        session()->setFlashdata('Info', 'update Pelayanan Berhasil');
+        return redirect()->to(base_url('tambahPelayanan'));
+    }
+
     public function tambah_resep($id)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM resep r INNER JOIN pelayanan p ON r.ID_PELAYANAN = p.ID_PELAYANAN INNER JOIN obat o ON r.ID_OBAT = o.ID_OBAT WHERE r.ID_PELAYANAN = ' . $id);
+        $query = $db->query('SELECT * FROM resep a INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN INNER JOIN obat c ON a.ID_OBAT = c.ID_OBAT WHERE a.ID_PELAYANAN = '. $id);
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
-            'resep' => $results,
             'obat' => $this->ObatModel->getObat(),
-            'Pelayanan' => $this->PelayananModel->getPelayanan(),
+            'resep' => $results,
             'id' => $id
         ];
         // dd($data);
@@ -152,16 +159,20 @@ class DokterController extends BaseController
 
     public function save_resep($id)
     {
+        $jumlah = $this->request->getVar('jumlah');
+        $haga_obat = $this->request->getVar('jumlah'); 
+        $total_biaya_obat = $jumlah * $haga_obat;
         $this->ResepModel->save([
             'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
             'ID_OBAT' => $this->request->getVar('id_obat'),
-            'JUMLAH' => $this->request->getVar('jumlah')
+            'JUMLAH' => $this->request->getVar('jumlah'),
+            'TOTAL_BIAYA_OBAT' => $total_biaya_obat
         ]);
         session()->setFlashdata('Info', 'Resep Berhasil Ditambah');
         return redirect()->to(base_url('tambah_resep/' . $id))->withInput();
     }
 
-    public function hapus_resep($id, $id2)
+    public function hapus_resep($id,$id2)
     {
         $this->ResepModel->where('ID_OBAT', $id)->delete();
         session()->setFlashdata('Info', 'Resep Berhasil hapus');
