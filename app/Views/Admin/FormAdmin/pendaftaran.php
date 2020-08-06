@@ -232,18 +232,27 @@
                                         <div class="form-group">
                                             <label>No RM</label>
                                             <select class="form-control select2" style="width: 100%;" name="id_pasien">
-                                                <option selected disabled value="<?= old('pasien'); ?>"><?= old('pasien'); ?></option>
+                                                <option selected disabled value="<?= old('id_pasien'); ?>"><?= old('id_pasien'); ?></option>
                                                 <?php foreach ($pasien as $row) { ?>
-                                                    <option value="<?= $row['ID_PASIEN']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN']; ?></option>
+                                                    <option value="<?= $row['ID_PASIEN']; ?>"><?= old('id_pasien'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN']; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>ID Admin</label>
+                                            <label>Dokter</label>
+                                            <select class="form-control select2" style="width: 100%;" name="id_dokter">
+                                                <option selected disabled value="<?= old('id_dokter'); ?>"><?= old('id_dokter'); ?></option>
+                                                <?php foreach ($dokter as $row) { ?>
+                                                    <option value="<?= $row['ID_DOKTER']; ?>"><?= old('id_dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER'] . " | " . $row['POLI']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Admin</label>
                                             <select class="form-control select2" style="width: 100%;" name="id_admin">
-                                                <option selected disabled value="<?= old('admin'); ?>"><?= old('admin'); ?></option>
+                                                <option selected disabled value="<?= old('id_admin'); ?>"><?= old('id_admin'); ?></option>
                                                 <?php foreach ($admin as $row) { ?>
-                                                    <option value="<?= $row['ID_ADMIN']; ?>"><?= old('admin'); ?><?= $row['ID_ADMIN'] . " &nbsp &nbsp" . $row['NAMA_ADMIN']; ?></option>
+                                                    <option value="<?= $row['ID_ADMIN']; ?>"><?= old('id_admin'); ?><?= $row['NAMA_ADMIN'] . " - " . $row['STATUS_ADMIN']; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -293,34 +302,32 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Pendaftaran</th>
                                         <th>NO RM</th>
                                         <th>Nama Pasien</th>
+                                        <th>Nama Dokter</th>
+                                        <th>Poli</th>
                                         <th>No Antrian</th>
                                         <th>Tanggal Pendaftaran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                     <?php $no = 1; ?>
                                     <?php foreach ($pendaftaran as $row) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><?= $row['ID_PENDAFTARAN']; ?></td>
                                             <td><?= $row['NO_RM']; ?></td>
                                             <td><?= $row['NAMA_PASIEN']; ?></td>
+                                            <td><?= $row['NAMA_DOKTER']; ?></td>
+                                            <td><?= $row['POLI']; ?></td>
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
-                                            <td><?= $row['created_at']; ?></td>
-
+                                            <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                             <td>
-
-                                                <a href="cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
-
+                                                <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

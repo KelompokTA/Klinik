@@ -150,6 +150,11 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -173,11 +178,20 @@
                                         <form role="form" action="save_pelayanan" method="POST">
                                             <!-- text input -->
                                             <div class="form-group">
+                                                <label>Pendaftar</label>
+                                                <select name="id_pendaftaran" class="form-control select2" style="width: 100%;" <?= ($validation->hasError('id_pendaftaran')) ? 'is-invalid' : ''; ?>">
+                                                    <option selected disabled value="<?= old('id_pendaftaran'); ?>"><?= old('id_pendaftaran'); ?></option>
+                                                    <?php foreach ($pendaftaran as $row) : ?>
+                                                        <option value="<?= $row['ID_PENDAFTARAN']; ?>"><?= old('id_pendaftaran'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN'] . " &nbsp | &nbsp " . $row['created_at']; ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Nama Dokter</label>
-                                                <select name="dokter" class=" form-control <?= ($validation->hasError('dokter')) ? 'is-invalid' : ''; ?>">
-                                                    <option selected disabled value="<?= old('dokter'); ?>"><?= old('dokter'); ?></option>
+                                                <select name="id_dokter" class="form-control select2" style="width: 100%;" <?= ($validation->hasError('id_dokter')) ? 'is-invalid' : ''; ?>">
+                                                    <option selected disabled value="<?= old('id_dokter'); ?>"><?= old('id_dokter'); ?></option>
                                                     <?php foreach ($dokter as $row) : ?>
-                                                        <option value="<?= $row['ID_DOKTER']; ?>"><?= old('dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER'] . " &nbsp | &nbsp " . $row['POLI']; ?></option>
+                                                        <option value="<?= $row['ID_DOKTER']; ?>"><?= old('id_dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER'] . " &nbsp | &nbsp " . $row['POLI']; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -187,7 +201,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Rp.</span>
                                                     </div>
-                                                    <input type="number" name="biaya" value="<?= old('biaya'); ?>" class=" form-control <?= ($validation->hasError('biaya')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    <input type="number" name="biaya_dokter" value="<?= old('biaya_dokter'); ?>" class=" form-control <?= ($validation->hasError('biaya_dokter')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -204,8 +218,10 @@
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
-                                                            <th>ID Pelayanan</th>
-                                                            <th>ID Dokter</th>
+                                                            <th>No RM</th>
+                                                            <th>Nama Pasien</th>
+                                                            <th>Nama Dokter</th>
+                                                            <th>Status Dokter</th>
                                                             <th>Biaya Dokter</th>
                                                             <th>Total Biaya Resep</th>
                                                             <th>Tanggal Pelayanan</th>
@@ -217,10 +233,12 @@
                                                         <?php foreach ($pelayanan as $row) : ?>
                                                             <tr>
                                                                 <td><?= $no++; ?></td>
-                                                                <td><?= $row['ID_PELAYANAN'] ?></td>
-                                                                <td><?= $row['ID_DOKTER'] ?></td>
-                                                                <td><?= $row['BIAYA_DOKTER'] ?></td>
-                                                                <td><?= $row['TOTAL_BIAYA_RESEP'] ?>0</td>
+                                                                <td><?= $row['NO_RM'] ?></td>
+                                                                <td><?= $row['NAMA_PASIEN'] ?></td>
+                                                                <td><?= $row['NAMA_DOKTER'] ?></td>
+                                                                <td><?= $row['STATUS_DOKTER'] ?></td>
+                                                                <td>Rp. <?= $row['BIAYA_DOKTER'] ?></td>
+                                                                <td>Rp. <?= $row['TOTAL_BIAYA_RESEP'] ?>0</td>
                                                                 <td><?= $row['created_at'] ?></td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-warning">Tambah Resep</a>

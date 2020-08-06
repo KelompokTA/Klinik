@@ -12,8 +12,6 @@ class AdminController extends BaseController
         return view('Admin/adminDashboard');
     }
 
-
-
     public function pasien()
     {
         $pasien = $this->PasienModel->findAll();
@@ -54,7 +52,8 @@ class AdminController extends BaseController
         $data = [
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pasien' => $this->PasienModel->getPasien(),
-            'admin' => $this->AdminModel->getAdmin()
+            'admin' => $this->AdminModel->getAdmin(),
+            'dokter' => $this->DokterModel->getDokter()
         ];
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
@@ -191,10 +190,10 @@ class AdminController extends BaseController
     }
     public function save_pendaftaran()
     {
-        // dd($this->request->getVar());
         $this->PendaftaranModel->save([
             'ID_ADMIN' => $this->request->getVar('id_admin'),
             'ID_PASIEN' => $this->request->getVar('id_pasien'),
+            'ID_DOKTER' => $this->request->getVar('id_dokter'),
             'NOMER_ANTRIAN' => $this->request->getVar('no_antrian')
         ]);
 
@@ -232,7 +231,6 @@ class AdminController extends BaseController
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
             return redirect()->to('tambahDokter')->withInput();
         }
         // ambil gambar
