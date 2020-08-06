@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 
 class DokterController extends BaseController
 {
-        public function index()
+    public function index()
     {
         $data = [
             'pasien' => $this->PasienModel->findAll(),
@@ -120,7 +120,7 @@ class DokterController extends BaseController
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pelayanan' => $results
         ];
-        return view('Dokter/FormDokter/tambah_pelayanan', $data);        
+        return view('Dokter/FormDokter/tambah_pelayanan', $data);
     }
 
     public function save_pelayanan()
@@ -137,7 +137,7 @@ class DokterController extends BaseController
     public function tambah_resep($id)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM resep r INNER JOIN pelayanan p ON r.ID_PELAYANAN = p.ID_PELAYANAN INNER JOIN obat o ON r.ID_OBAT = o.ID_OBAT WHERE r.ID_PELAYANAN = '. $id);
+        $query = $db->query('SELECT * FROM resep r INNER JOIN pelayanan p ON r.ID_PELAYANAN = p.ID_PELAYANAN INNER JOIN obat o ON r.ID_OBAT = o.ID_OBAT WHERE r.ID_PELAYANAN = ' . $id);
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
@@ -161,7 +161,7 @@ class DokterController extends BaseController
         return redirect()->to(base_url('tambah_resep/' . $id))->withInput();
     }
 
-    public function hapus_resep($id,$id2)
+    public function hapus_resep($id, $id2)
     {
         $this->ResepModel->where('ID_OBAT', $id)->delete();
         session()->setFlashdata('Info', 'Resep Berhasil hapus');

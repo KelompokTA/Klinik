@@ -32,9 +32,12 @@
                                         <input type="hidden" name="id_pendaftaran" value="<?= $pendaftaran['ID_PENDAFTARAN'] ?>" class="form-control">
                                         <h3 align=" center">NOMOR ANTRIAN</h3>
                                         <td>
-                                            <h1><?= $pendaftaran['NOMER_ANTRIAN']; ?>
+                                            <h1><?= $pendaftaran['NOMER_ANTRIAN']; ?></h1>
                                         </td>
-                                        </h1>
+                                        <td>
+                                            <h1><?= $poli['POLI']; ?></h1>
+                                        </td>
+
                                     </div>
 
                                 </div>

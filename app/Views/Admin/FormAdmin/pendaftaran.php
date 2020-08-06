@@ -194,7 +194,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Pendaftaran</h1>
+                    <h1>Pemeriksaan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -219,7 +219,7 @@
                     <!-- general form elements disabled -->
                     <div class="card card-warning">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data pendaftar</h3>
+                            <h3 class="card-title">Masukkan data pemeriksaan</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -253,6 +253,15 @@
                                                 <option selected disabled value="<?= old('id_admin'); ?>"><?= old('id_admin'); ?></option>
                                                 <?php foreach ($admin as $row) { ?>
                                                     <option value="<?= $row['ID_ADMIN']; ?>"><?= old('id_admin'); ?><?= $row['NAMA_ADMIN'] . " - " . $row['STATUS_ADMIN']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Poli</label>
+                                            <select class="form-control select2" style="width: 100%;" name="poli">
+                                                <option selected disabled value="<?= old('poli'); ?>"><?= old('poli'); ?></option>
+                                                <?php foreach ($dokter as $row) { ?>
+                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('id_jadwal'); ?><?= $row['POLI'] ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -325,7 +334,7 @@
                                             <td><?= $row['NAMA_DOKTER']; ?></td>
                                             <td><?= $row['POLI']; ?></td>
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
-                                            <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
+                                            <td><?= date('d-F-Y | G:i:s', strtotime($row['created_at'])); ?></td>
                                             <td>
                                                 <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
                                             </td>

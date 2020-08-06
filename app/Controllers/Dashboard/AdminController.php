@@ -3,6 +3,7 @@
 namespace App\Controllers\Dashboard;
 
 use App\Controllers\BaseController;
+use App\Models\JadwalModel;
 
 class AdminController extends BaseController
 {
@@ -53,7 +54,7 @@ class AdminController extends BaseController
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pasien' => $this->PasienModel->getPasien(),
             'admin' => $this->AdminModel->getAdmin(),
-            'dokter' => $this->DokterModel->getDokter()
+            'dokter' => $this->DokterModel->getDokter(),
         ];
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
@@ -127,11 +128,16 @@ class AdminController extends BaseController
     }
     public function cetak_antrian($id)
     {
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT POLI FROM pendaftaran a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN jadwal c ON b.ID_JADWAL = c.ID_JADWAL WHERE a.ID_PENDAFTARAN = ' . $id);
+        $results = $query->getResultArray();
         // dd($id);
         $data = [
             'validation' => \Config\Services::validation(),
-            'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id)
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id),
+            'poli' => $results
         ];
+        // dd($data);
         return view('Admin/FormAdmin/cetak_antrian', $data);
     }
 
@@ -456,7 +462,9 @@ class AdminController extends BaseController
         $data = [
             'laporan' => $this->LaporanModel->getLaporan(),
             'pasien' => $this->PasienModel->getPasien(),
-            'admin' => $this->AdminModel->getAdmin()
+            'admin' => $this->AdminModel->getAdmin(),
+            'pelayanan' => $this->PelayananModel->getPelayanan(),
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran()
         ];
         return view('Admin/FormAdmin/pembayaran', $data);
     }
