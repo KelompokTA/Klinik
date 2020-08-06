@@ -217,86 +217,99 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- general form elements disabled -->
-                    <div class="card card-warning">
-                        <div class="card-header">
-                            <h3 class="card-title">Masukkan data dokter</h3>
-                        </div>
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#Dokter" data-toggle="tab">Dokter</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#Jadwal" data-toggle="tab">Jadwal</a></li>
+                            </ul>
+                        </div><!-- /.card-header -->
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <form action="save_dokter" method="POST" role="form" enctype="multipart/form-data">
-                                        <?= csrf_field(); ?>
-                                        <?= $validation->listErrors(); ?>
-                                        <div>
-                                            <label>Foto</label>
-                                            <div class="custom-file">
-                                                <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="foto_dokter">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="Dokter">
+                                    <!-- DOKTER -->
+                                    <div class="post">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form action="save_dokter" method="POST" role="form" enctype="multipart/form-data">
+                                                    <?= csrf_field(); ?>
+                                                    <?= $validation->listErrors(); ?>
+                                                    <div>
+                                                        <label>Foto</label>
+                                                        <div class="custom-file">
+                                                            <input type="file" name="foto_dokter" value="<?= old('foto_dokter'); ?>" class="custom-file-input <?= ($validation->hasError('foto_dokter')) ? 'is-invalid' : ''; ?>" id="foto_dokter">
+                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>Nama Dokter</label>
+                                                        <input type="text" name="nama_dokter" value="<?= old('nama_dokter'); ?>" class="form-control <?= ($validation->hasError('nama_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama dokter ..." autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Status Dokter</label>
+                                                        <input type="text" name="status_dokter" value="<?= old('status_dokter'); ?>" class="form-control <?= ($validation->hasError('status_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status dokter ..." autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Jadwal</label>
+                                                        <select name="jadwal" class=" form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>">
+                                                            <option selected disabled value="<?= old('jadwal'); ?>"><?= old('jadwal'); ?></option>
+                                                            <?php foreach ($jadwal as $row) : ?>
+                                                                <option value="<?= $row['ID_JADWAL']; ?>"><?= old('jadwal'); ?><?= $row['HARI'] . " &nbsp &nbsp" . $row['JAM'] . " &nbsp &nbsp" . $row['POLI']; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="text" name="email_dokter" value="<?= old('email_dokter'); ?>" class="form-control <?= ($validation->hasError('email_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email ..." autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label>
+                                                        <input type="password" name="password_dokter" value="<?= old('password_dokter'); ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ..." autocomplete="off">
+                                                    </div>
+                                                    <div>
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <br>
-                                        <div class="form-group">
-                                            <label>Nama Dokter</label>
-                                            <input type="text" name="nama_dokter" value="<?= old('nama_dokter'); ?>" class="form-control <?= ($validation->hasError('nama_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama dokter ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Status Dokter</label>
-                                            <input type="text" name="status_dokter" value="<?= old('status_dokter'); ?>" class="form-control <?= ($validation->hasError('status_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan status dokter ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jadwal</label>
-                                            <select name="jadwal" class=" form-control <?= ($validation->hasError('jadwal')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled value="<?= old('jadwal'); ?>"><?= old('jadwal'); ?></option>
-                                                <?php foreach ($jadwal as $row) : ?>
-                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('jadwal'); ?><?= $row['HARI'] . " &nbsp &nbsp" . $row['JAM'] . " &nbsp &nbsp" . $row['POLI']; ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" name="email_dokter" value="<?= old('email_dokter'); ?>" class="form-control <?= ($validation->hasError('email_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan email ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" name="password_dokter" value="<?= old('password_dokter'); ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
-                                        </div>
-                                        <div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <br><br><br><br><br><br><br><br><br><br><br>
-                                    <form action="save_jadwal" method="POST" role="form">
-                                        <?= csrf_field(); ?>
-                                        <?= $validation->listErrors(); ?>
-                                        <div class="form-group">
-                                            <label>Hari</label>
-                                            <input type="text" name="hari" value="<?= old('hari'); ?>" class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan hari ...">
+                                <div class=" tab-pane" id="Jadwal">
+                                    <!-- JADWAL -->
+                                    <div class="post">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form action="save_jadwal" method="POST" role="form">
+                                                    <?= csrf_field(); ?>
+                                                    <?= $validation->listErrors(); ?>
+                                                    <div class="form-group">
+                                                        <label>Hari</label>
+                                                        <input type="text" name="hari" value="<?= old('hari'); ?>" class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan hari ..." autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Jam</label>
+                                                        <input type="text" name="jam" value="<?= old('jam'); ?>" class="form-control <?= ($validation->hasError('jam')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan jam ..." autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Poli</label>
+                                                        <input type="text" name="poli" value="<?= old('poli'); ?>" class="form-control <?= ($validation->hasError('poli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan poli ..." autocomplete="off">
+                                                    </div>
+                                                    <div>
+                                                        <button type="submit" class="btn btn-info">Tambah Jadwal</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Jam</label>
-                                            <input type="text" name="jam" value="<?= old('jam'); ?>" class="form-control <?= ($validation->hasError('jam')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan jam ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Poli</label>
-                                            <input type="text" name="poli" value="<?= old('poli'); ?>" class="form-control <?= ($validation->hasError('poli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan poli ...">
-                                        </div>
-                                        <div>
-                                            <button type="submit" class="btn btn-info">Tambah Jadwal</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!--/.col (right) -->
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>

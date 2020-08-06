@@ -90,6 +90,8 @@ $routes->get('/hapus_obat/(:num)', 'Dashboard\DokterController::hapus_obat/$1');
 $routes->get('/edit_obat/(:segment)', 'Dashboard\DokterController::edit_obat/$1');
 $routes->post('/edit_obat/(:segment)/(:num)', 'Dashboard\DokterController::update_obat/$2');
 $routes->get('/tambahPemeriksaan', 'Dashboard\DokterController::tambah_pemeriksaan');
+$routes->post('/save_pelayanan', 'Dashboard\DokterController::save_pelayanan');
+$routes->get('/tambah_resep/(:num)', 'Dashboard\DokterController::tambah_resep/$1');
 $routes->post('/save_resep', 'Dashboard\DokterController::save_resep');
 
 

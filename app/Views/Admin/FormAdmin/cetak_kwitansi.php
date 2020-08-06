@@ -61,7 +61,7 @@
                                             <tr>
                                                 <td>Biaya Obat</td>
                                                 <td>:</td>
-                                                <td><?= $pelayanan['TOTAL_BIAYA_OBAT'] ?></td>
+                                                <td><?= ($pelayanan['TOTAL_BIAYA_RESEP'] == null) ? ' 0 ' : $pelayanan['TOTAL_BIAYA_RESEP']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Biaya Dokter</td>
@@ -71,7 +71,7 @@
                                             <tr>
                                                 <td>Total Biaya</td>
                                                 <td>:</td>
-                                                <td><?= $pelayanan['TOTAL_BIAYA_OBAT'] + $pelayanan['BIAYA_DOKTER'] ?></td>
+                                                <td><?= $pelayanan['TOTAL_BIAYA_RESEP'] + $pelayanan['BIAYA_DOKTER'] ?></td>
                                             </tr>
                                         </table>
 

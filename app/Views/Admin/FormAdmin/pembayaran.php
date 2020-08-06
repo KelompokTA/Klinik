@@ -280,7 +280,7 @@
                                                             <td><?= $no++; ?></td>
                                                             <td><?= $row['ID_TRANSAKSI']; ?></td>
                                                             <td><?= $tgl ?></td>
-                                                            <td><?= $row['TOTAL_BIAYA_OBAT'] + $row['BIAYA_DOKTER']; ?></td>
+                                                            <td><?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_DOKTER']; ?></td>
                                                             <td>
                                                                 <a href="save_pembayaran/" class="btn btn-success">Bayar</a>
                                                                 <a href="cetak_kwitansi/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-primary">Cetak Kwitansi</a>

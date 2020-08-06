@@ -17,16 +17,11 @@ class ResepModel extends Model
             $builder = $db->table('resep');
             $builder->select('*');
             $builder->join('pelayanan', 'pelayanan.ID_PELAYANAN = resep.ID_PELAYANAN');
-            $query = $builder->get();
-            $results = $query->getResultArray();
-
-            $builder = $db->table('resep');
-            $builder->select('*');
             $builder->join('obat', 'obat.ID_OBAT = resep.ID_OBAT');
             $query = $builder->get();
             $results = $query->getResultArray();
             return $results;
         }
-        return $this->where(['ID_Resep' => $id])->first();
-    }
+        return $this->where(['ID_PELAYANAN' => $id])->first();
+    }    
 }

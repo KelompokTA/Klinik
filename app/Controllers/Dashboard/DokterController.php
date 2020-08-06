@@ -113,6 +113,7 @@ class DokterController extends BaseController
     {
         $data = [
             'validation' => \Config\Services::validation(),
+            'dokter' => $this->DokterModel->getDokter(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pelayanan' => $this->PelayananModel->getPelayanan(),
             'obat' => $this->ObatModel->getObat(),
@@ -120,28 +121,42 @@ class DokterController extends BaseController
         return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
     }
 
-    public function tambah_pemeriksaan_byID($id)
+    // public function tambah_pemeriksaan_byID($id)
+    // {
+    //     $data = [
+    //         'validation' => \Config\Services::validation(),
+    //         'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
+    //         'pelayanan' => $this->PelayananModel->getPelayanan(),
+    //         'obat' => $this->ObatModel->getObat(),
+    //         'resep' => $this->ResepModel->getResep($id)
+    //     ];
+    //     return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
+    // }
+
+    public function save_pelayanan()
     {
+        $this->PelayananModel->save([
+            'ID_DOKTER' => $this->request->getVar('dokter'),
+            'BIAYA_DOKTER' => $this->request->getVar('biaya'),
+        ]);
+        session()->setFlashdata('sukses', '');
+        return redirect()->to(base_url('tambahPemeriksaan'));
+    }
+
+    public function tambah_resep($id)
+    {
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM resep r INNER JOIN pelayanan p ON r.ID_PELAYANAN = p.ID_PELAYANAN INNER JOIN obat o ON r.ID_OBAT = o.ID_OBAT WHERE r.ID_PELAYANAN = '. $id);
+        $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
-            'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
-            'pelayanan' => $this->PelayananModel->getPelayanan(),
+            'resep' => $results,
             'obat' => $this->ObatModel->getObat(),
-            'resep' => $this->ResepModel->getResep($id)
+            'Pelayanan' => $this->PelayananModel->getPelayanan(),
+            'id' => $id
         ];
-        return view('Dokter/FormDokter/tambah_pemeriksaan', $data);
-    }
-
-    public function save_pemeriksaan()
-    {
-        dd($this->request->getVar());
-        $this->ResepModel->save([
-            'ID_OBAT' => $this->request->getVar('ID_OBAT'),
-            'ID_PELAYANAN' => $this->request->getVar('ID_PELAYANAN'),
-            'JUMLAH' => $this->request->getVar('JUMLAH')
-
-        ]);
-        return view('Dokter/FormDokter/tambah_pemeriksaan');
+        // dd($data);
+        return view('Dokter/FormDokter/tambah_resep', $data);
     }
 
     public function save_resep($id)
