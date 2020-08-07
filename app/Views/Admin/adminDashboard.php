@@ -433,8 +433,7 @@
                         <tr>
                           <td><?= $no++; ?></td>
                           <td><?= $row['ID_TRANSAKSI']; ?></td>
-                          <td><?= $row['NAMA_PASIEN']; ?></td>
-                          <td><?= $row['NAMA_ADMIN']; ?></td>
+
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
