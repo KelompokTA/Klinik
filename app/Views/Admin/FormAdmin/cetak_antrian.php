@@ -39,7 +39,7 @@
                                                                                 endforeach; ?></h1>
                                         </td>
                                         <td>
-                                            <h5><?= date('l d-F-Y | G:i:s', strtotime($pendaftaran['created_at'])); ?></h5>
+                                            <h5><?= date('l d-F-Y | g:i:sa', strtotime($pendaftaran['created_at'])); ?></h5>
                                         </td>
                                     </div>
 

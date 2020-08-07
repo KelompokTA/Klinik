@@ -28,6 +28,31 @@
     </style>
     <!--coba-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css') ?>" />
+    <?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    } ?>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -42,7 +67,7 @@
                 <div class="col-12">
                     <h4>
                         <img src="assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png"> KLINIK INDONESIA SEHAT
-                        <small class="float-right">Date: 2/10/2014</small>
+                        <small class="float-right"> <?php echo ' Date: ' . tgl_indo(date('Y-m-d')); ?></small>
                     </h4>
                 </div>
                 <!-- /.col -->
@@ -53,8 +78,8 @@
                     <br>
                     <br>
                     <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment Due:</b> 2/22/2014<br>
-                    <b>Account:</b> 968-34567
+                    <b><?php echo 'Pembayaran sampai : ' .  tgl_indo(date('Y-m-'));  ?><br>
+                        <b>Account:</b> 968-34567
                 </div>
                 <!-- /.col -->
             </div>
@@ -68,7 +93,7 @@
                             <tr>
                                 <th>No.</th>
                                 <th>ID Transaksi</th>
-                                <th>Serial #</th>
+                                <th>ID_Pelayanan</th>
                                 <th>Description</th>
                                 <th>Subtotal</th>
                             </tr>
@@ -113,10 +138,10 @@
                 <!-- accepted payments column -->
                 <div class="col-6">
                     <p class="lead">Payment Methods:</p>
-                    <img src="../../dist/img/credit/visa.png" alt="Visa">
-                    <img src="../../dist/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="../../dist/img/credit/american-express.png" alt="American Express">
-                    <img src="../../dist/img/credit/paypal2.png" alt="Paypal">
+                    <img src="dist/img/credit/visa.png" alt="Visa">
+                    <img src="dist/img/credit/mastercard.png" alt="Mastercard">
+                    <img src="dist/img/credit/american-express.png" alt="American Express">
+                    <img src="dist/img/credit/paypal2.png" alt="Paypal">
 
                     <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
@@ -126,7 +151,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-6">
-                    <p class="lead">Amount Due 2/22/2014</p>
+                    <p class="lead">Jumlah sampai : 2/22/2014</p>
 
                     <div class="table-responsive">
                         <table class="table">
@@ -157,7 +182,7 @@
             <center>
                 <div class="row no-print">
                     <div class="col-12">
-                        <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Kwitansi<i class="fa fa-print"></i></button>
+                        <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Laporan<i class="fa fa-print"></i></button>
                         <br>
                         <br>
                         <a href="<?= base_url('laporanAdmin'); ?>" id="btn" class="btn btn-dark">Kembali</a>
