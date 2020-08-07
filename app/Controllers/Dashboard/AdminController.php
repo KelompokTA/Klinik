@@ -9,8 +9,16 @@ class AdminController extends BaseController
 {
     public function index()
     {
-        $data = [];
-        return view('Admin/adminDashboard');
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM transaksi ');
+        $results = $query->getResultArray();
+        $data = [
+            'pasien' => $this->PasienModel->getPasien(),
+            'dokter' => $this->DokterModel->getDokter(),
+            'admin' => $this->AdminModel->getAdmin(),
+            'dashboard' => $results
+        ];
+        return view('Admin/adminDashboard', $data);
     }
 
     public function pasien()
@@ -57,6 +65,12 @@ class AdminController extends BaseController
             'dokter' => $this->DokterModel->getDokter()
         ];
         return view('Admin/FormAdmin/pendaftaran', $data);
+    }
+    public function hapus_antrian($id)
+    {
+        $this->PendaftaranModel->delete($id);
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('pendaftaran'));
     }
 
 

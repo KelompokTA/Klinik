@@ -334,9 +334,10 @@
                                             <td><?= $row['NAMA_DOKTER']; ?></td>
                                             <td><?= $row['POLI']; ?></td>
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
-                                            <td><?= date('d-F-Y | G:i:s', strtotime($row['created_at'])); ?></td>
+                                            <td><?= date('d-F-Y | g:i:sa', strtotime($row['created_at'])); ?></td>
                                             <td>
                                                 <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
+                                                <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -302,14 +302,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>01</td>
-                        <td>00001</td>
-                        <td>Puspa sing ayu dewe</td>
-                        <td>Perempuan</td>
-                        <td>19</td>
-                        <td>Jl. jalan ke surabaya</td>
-                      </tr>
+                      <?php $no = 1; ?>
+                      <?php foreach ($pasien as $row) : ?>
+                        <tr>
+                          <td><?= $no++ ?></td>
+                          <td><?= $row['NO_RM']; ?></td>
+                          <td><?= $row['NAMA_PASIEN']; ?></td>
+                          <td><?= $row['JENIS_KELAMIN']; ?></td>
+                          <td><?= $row['UMUR']; ?></td>
+                          <td><?= $row['ALAMAT_PASIEN']; ?>, <?= $row['KELURAHAN']; ?>, <?= $row['KECAMATAN']; ?>, <?= $row['KOTA']; ?>, <?= $row['PROVINSI']; ?></td>
+
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -340,11 +344,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>01</td>
-                        <td>Puspa sing ayu dewe</td>
-                        <td>Farmasi</td>
-                      </tr>
+                      <?php $no = 1; ?>
+                      <?php foreach ($admin as $row) : ?>
+                        <tr>
+                          <td><?= $no++; ?></td>
+
+                          <td><?= $row['NAMA_ADMIN']; ?></td>
+                          <td><?= $row['STATUS_ADMIN']; ?></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -378,11 +386,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>01</td>
-                        <td>Puspa sing ayu dewe</td>
-                        <td>Spesialis Jantung</td>
-                      </tr>
+                      <?php $no = 1; ?>
+                      <?php foreach ($dokter as $row) : ?>
+                        <tr>
+                          <td><?= $no++; ?></td>
+
+                          <td><?= $row['NAMA_DOKTER']; ?></td>
+                          <td><?= $row['STATUS_DOKTER'] ?></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -410,20 +422,21 @@
                         <th>No</th>
                         <th>ID Transaksi</th>
                         <th>Nama Pasien</th>
-                        <th>Nama User</th>
+                        <th>Nama Admin</th>
                         <th>Tanggal Transaksi</th>
                         <th>Total Biaya</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>01</td>
-                        <td>00001</td>
-                        <td>Puspa sing ayu dewe</td>
-                        <td>Puspa sing ayu dewe</td>
-                        <td>00-00-0000</td>
-                        <td>Rp.20.000.000</td>
-                      </tr>
+                      <?php $no = 1; ?>
+                      <?php foreach ($dashboard as $row) : ?>
+                        <tr>
+                          <td><?= $no++; ?></td>
+                          <td><?= $row['ID_TRANSAKSI']; ?></td>
+                          <td><?= $row['NAMA_PASIEN']; ?></td>
+                          <td><?= $row['NAMA_ADMIN']; ?></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
