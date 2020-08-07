@@ -131,13 +131,11 @@ class AdminController extends BaseController
         $db = \Config\Database::connect();
         $query = $db->query('SELECT POLI FROM pendaftaran a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN jadwal c ON b.ID_JADWAL = c.ID_JADWAL WHERE a.ID_PENDAFTARAN = ' . $id);
         $results = $query->getResultArray();
-        // dd($id);
         $data = [
             'validation' => \Config\Services::validation(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id),
             'poli' => $results
         ];
-        // dd($data);
         return view('Admin/FormAdmin/cetak_antrian', $data);
     }
 

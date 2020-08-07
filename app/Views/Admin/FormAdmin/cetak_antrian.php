@@ -35,9 +35,12 @@
                                             <h1><?= $pendaftaran['NOMER_ANTRIAN']; ?></h1>
                                         </td>
                                         <td>
-                                            <h1><?= $poli['POLI']; ?></h1>
+                                            <h1><?php foreach ($poli as $row) : ?><?= $row['POLI'];
+                                                                                endforeach; ?></h1>
                                         </td>
-
+                                        <td>
+                                            <h5><?= date('l d-F-Y | G:i:s', strtotime($pendaftaran['created_at'])); ?></h5>
+                                        </td>
                                     </div>
 
                                 </div>
