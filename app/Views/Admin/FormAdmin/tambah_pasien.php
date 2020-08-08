@@ -282,7 +282,7 @@
                                             <input type="text" name="telfon_pasien" value="<?= old('telfon_pasien'); ?>" class=" form-control <?= ($validation->hasError('telfon_pasien')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomer telepon ...">
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                         </div>
                                     </div>
                                 </div>

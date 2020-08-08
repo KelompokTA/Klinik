@@ -216,7 +216,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -240,13 +240,16 @@
                                             <td><?= $row['EMAIL_ADMIN']; ?></td>
                                             <td>********</td>
                                             <td>
-                                                <a href="edit_admin/<?= $row['ID_ADMIN']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_ADMIN']; ?>" class=" btn btn-danger">Hapus</a>
+                                                <a href="edit_admin/<?= $row['ID_ADMIN']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                <a href="hapus_admin/<?= $row['ID_ADMIN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <center>
+                                <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
+                            </center>
                         </div>
                         <!-- /.card-body -->
                     </div>

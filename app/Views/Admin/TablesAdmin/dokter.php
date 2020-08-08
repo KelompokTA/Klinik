@@ -212,11 +212,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Semua Dokter</h3>
+                            <h3 class="card-title">Data Dokter</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -241,13 +241,16 @@
                                             <td><?= $row['JAM'] ?></td>
                                             <td><?= $row['POLI'] ?></td>
                                             <td>
-                                                <a href="edit_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="/hapus_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-danger">Hapus</a>
+                                                <a href="edit_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                <a href="/hapus_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <center>
+                                <div> <a href="tambahDokter" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Dokter</a> </div>
+                            </center>
                         </div>
                         <!-- /.card-body -->
                     </div>

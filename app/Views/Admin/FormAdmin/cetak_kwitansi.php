@@ -92,9 +92,9 @@
                     </div>
                     <!-- /.card-body -->
                 </div>
-                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Kwitansi<i class="fa fa-print"></i></button>
+                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak Kwitansi</button>
                 <br><br>
-                <a href="<?= base_url('pembayaran'); ?>" id="btn" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pembayaran'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali</i></a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->

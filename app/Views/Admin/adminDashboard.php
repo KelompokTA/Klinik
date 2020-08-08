@@ -290,7 +290,7 @@
                   </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap">
+                  <table class="table table-hover text-nowrap" style="text-align:center">
                     <thead class="table-info">
                       <tr>
                         <th>No</th>
@@ -335,7 +335,7 @@
                   </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap">
+                  <table class="table table-hover text-nowrap" style="text-align:center">
                     <thead class="table-warning">
                       <tr>
                         <th>No</th>
@@ -377,7 +377,7 @@
                   </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap">
+                  <table class="table table-hover text-nowrap" style="text-align:center">
                     <thead class="table-success">
                       <tr>
                         <th>No</th>
@@ -416,7 +416,7 @@
                   </div>
                 </div>
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap">
+                  <table class="table table-hover text-nowrap" style="text-align:center">
                     <thead class="table-danger">
                       <tr>
                         <th>No</th>
