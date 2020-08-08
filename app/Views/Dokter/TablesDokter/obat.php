@@ -169,7 +169,10 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <div class="mb-md-3">
+                                <a href="<?= base_url('tambahObat') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Obat</a>
+                            </div>
+                            <table id="example1" class="table table-bordered table-striped text-center">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -195,13 +198,13 @@
                                             <td><?= $row['RUTE_PEMBERIAN']; ?></td>
                                             <td><?= $row['DOSIS']; ?></td>
                                             <td><?= $row['NO_BATCH']; ?></td>
-                                            <td><?= $row['EXPIRED']; ?></td>
+                                            <td><?= date('d-F-Y', strtotime($row['EXPIRED'])); ?></td>
                                             <td><?= $row['STOK']; ?></td>
-                                            <td><?= $row['HARGA_BELI']; ?></td>
-                                            <td><?= $row['HARGA_JUAL']; ?></td>
+                                            <td class="text-right">Rp. <?= $row['HARGA_BELI']; ?></td>
+                                            <td class="text-right">Rp. <?= $row['HARGA_JUAL']; ?></td>
                                             <td>
-                                                <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger">Hapus</a>
+                                                <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                                                <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -205,7 +205,7 @@
                                             </div>
                                             <!-- /.card-header -->
                                             <div class="card-body table-responsive p-0">
-                                                <table class="table table-hover text-nowrap">
+                                                <table class="table table-hover text-nowrap text-center">
                                                     <thead>
                                                         <tr>
                                                             <th>No</th>
@@ -215,6 +215,7 @@
                                                             <th>Status Dokter</th>
                                                             <th>Biaya Dokter</th>
                                                             <th>Total Biaya Resep</th>
+                                                            <th>Diagnosa</th>
                                                             <th>Tanggal Pelayanan</th>
                                                             <th>Aksi</th>
                                                         </tr>
@@ -228,12 +229,14 @@
                                                                 <td><?= $row['NAMA_PASIEN'] ?></td>
                                                                 <td><?= $row['NAMA_DOKTER'] ?></td>
                                                                 <td><?= $row['STATUS_DOKTER'] ?></td>
-                                                                <td>Rp. <?= $row['BIAYA_DOKTER'] ?></td>
-                                                                <td>Rp. <?= $row['TOTAL_BIAYA_RESEP'] ?>0</td>
-                                                                <td><?= $row['created_at'] ?></td>
+                                                                <td class="text-right">Rp. <?= $row['BIAYA_DOKTER'] ?></td>
+                                                                <td class="text-right">Rp. <?= $row['TOTAL_BIAYA_RESEP'] ?></td>
+                                                                <td><?= $row['DIAGNOSA_PRIMER'] ?></td>
+                                                                <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-warning">Tambah Resep</a>
-                                                                    <a href="" class="btn btn-danger">Hapus</a>
+                                                                    <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Tambah Riwayat</a>
+                                                                    <a href="hapus_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach; ?>

@@ -174,7 +174,7 @@
                             <div class="tab-content">
                                 <div class="active tab-pane" id="Pelayanan">
                                     <div class="post">
-                                        <form action="'save_resep/<?= $id ?>" method="POST">
+                                        <form action="save_resep/<?= $id ?>" method="POST">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     <div class="form-group">
@@ -183,7 +183,7 @@
                                                         <select name="id_obat" class=" form-control <?= ($validation->hasError('id_obat')) ? 'is-invalid' : ''; ?>">
                                                             <option selected disabled value="<?= old('id_obat'); ?>"></option>
                                                             <?php foreach ($obat as $row) : ?>
-                                                                <option value="<?= $row['ID_OBAT']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['SATUAN_OBAT']; ?></option>
+                                                                <option value="<?= $row['ID_OBAT'] . "-" . $row['HARGA_JUAL']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['SATUAN_OBAT'] . " - " . $row['HARGA_JUAL']; ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
@@ -202,14 +202,14 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <form action="save_pelayanan2/<?= $id ?>" method="POST">
+                                        <form action="update_pelayanan/<?= $id ?>" method="POST">
                                             <div class="card">
                                                 <div class="card-header">
                                                     <h3 class="card-title">Data Obat</h3>
                                                 </div>
                                                 <!-- /.card-header -->
                                                 <div class="card-body table-responsive p-0">
-                                                    <table class="table table-hover text-nowrap">
+                                                    <table class="table table-hover text-nowrap text-center">
                                                         <thead>
                                                             <tr>
                                                                 <th>No</th>
@@ -228,11 +228,11 @@
                                                                 <tr>
                                                                     <td><?= $no++; ?></td>
                                                                     <td><?= $row['NAMA_OBAT']; ?></td>
-                                                                    <td><?= $row['SATUAN_OBAT'] ?></td>
-                                                                    <td><?= $row['DOSIS'] ?></td>
-                                                                    <td><?= $row['HARGA_JUAL'] ?></td>
+                                                                    <td><?= $row['SATUAN_OBAT']; ?></td>
+                                                                    <td><?= $row['DOSIS']; ?></td>
+                                                                    <td class="text-right">Rp. <?= $row['HARGA_JUAL']; ?></td>
                                                                     <td><?= $row['JUMLAH'] ?></td>
-                                                                    <td><?= $row['JUMLAH'] * $row['HARGA_JUAL'] ?></td>
+                                                                    <td class="text-right">Rp. <?= $row['TOTAL_BIAYA_OBAT'];?></td>
                                                                     <td>
                                                                         <a href="hapus_resep/<?= $row['ID_OBAT']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
                                                                     </td>

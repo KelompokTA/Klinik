@@ -92,11 +92,13 @@ $routes->get('/hapus_obat/(:num)', 'Dashboard\DokterController::hapus_obat/$1');
 $routes->get('/edit_obat/(:segment)', 'Dashboard\DokterController::edit_obat/$1');
 $routes->post('/edit_obat/(:segment)/(:num)', 'Dashboard\DokterController::update_obat/$2');
 $routes->get('/tambahPelayanan', 'Dashboard\DokterController::tambah_pelayanan');
+$routes->get('/hapus_pelayanan/(:num)', 'Dashboard\DokterController::hapus_pelayanan/$1');
 $routes->post('/save_pelayanan', 'Dashboard\DokterController::save_pelayanan');
-$routes->post('/tambah_resep/(:segment)/(:num)', 'Dashboard\DokterController::update_pelayanan/$2');
-$routes->get('/tambah_resep/(:num)', 'Dashboard\DokterController::tambah_resep/$1');
+$routes->post('/tambah_resep/update_pelayanan/(:num)', 'Dashboard\DokterController::update_pelayanan/$1');
 $routes->post('/tambah_resep/(:segment)/(:num)', 'Dashboard\DokterController::save_resep/$2');
+$routes->get('/tambah_resep/(:num)', 'Dashboard\DokterController::tambah_resep/$1');
 $routes->get('/tambah_resep/(:segment)/(:num)/(:num)', 'Dashboard\DokterController::hapus_resep/$2/$3');
+
 
 
 /**

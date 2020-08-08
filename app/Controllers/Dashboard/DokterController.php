@@ -112,7 +112,7 @@ class DokterController extends BaseController
     public function tambah_pelayanan()
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN pendaftaran b ON a.ID_PENDAFTARAN = b.ID_PENDAFTARAN INNER JOIN pasien c ON b.ID_PASIEN = c.ID_PASIEN INNER JOIN dokter d ON b.ID_DOKTER = d.ID_DOKTER');
+        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN pendaftaran b ON a.ID_PENDAFTARAN = b.ID_PENDAFTARAN INNER JOIN pasien c ON b.ID_PASIEN = c.ID_PASIEN INNER JOIN dokter d ON b.ID_DOKTER = d.ID_DOKTER INNER JOIN riwayat e ON a.ID_RIWAYAT = e.ID_RIWAYAT ');
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
@@ -124,6 +124,7 @@ class DokterController extends BaseController
 
     public function save_pelayanan()
     {
+        
         $this->PelayananModel->save([
             'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
             'BIAYA_DOKTER' => $this->request->getVar('biaya_dokter'),
@@ -132,12 +133,25 @@ class DokterController extends BaseController
         return redirect()->to(base_url('tambahPelayanan'));
     }
 
+    public function hapus_pelayanan($id)
+    {
+        $this->PelayananModel->delete($id);
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('tambahPelayanan'));
+    }
+
     public function update_pelayanan($id)
     {
-        $data = [
-            'TOTAL_BIAYA_RESEP' => $this->request->getVar('total_biaya_resep'),
-        ];
-        $this->PelayananModel->update($id, $data);
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT SUM(TOTAL_BIAYA_OBAT) AS TOTAL_BIAYA_RESEP FROM resep WHERE ID_PELAYANAN ='. $id);
+        $results = $query->getResultArray();
+        foreach ($results as $row) {
+            $row['TOTAL_BIAYA_RESEP'];
+        }
+        $this->PelayananModel->save([
+            'ID_PELAYANAN' => $id,
+            'TOTAL_BIAYA_RESEP' => $row,
+        ]);
         session()->setFlashdata('Info', 'update Pelayanan Berhasil');
         return redirect()->to(base_url('tambahPelayanan'));
     }
@@ -160,16 +174,17 @@ class DokterController extends BaseController
     public function save_resep($id)
     {
         $jumlah = $this->request->getVar('jumlah');
-        $haga_obat = $this->request->getVar('jumlah'); 
-        $total_biaya_obat = $jumlah * $haga_obat;
+        $obat = $this->request->getVar('id_obat');
+        $dataObat = explode('-', $obat);
+        $harga_obat = $dataObat['1'];
         $this->ResepModel->save([
             'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
             'ID_OBAT' => $this->request->getVar('id_obat'),
             'JUMLAH' => $this->request->getVar('jumlah'),
-            'TOTAL_BIAYA_OBAT' => $total_biaya_obat
+            'TOTAL_BIAYA_OBAT' => $harga_obat * $jumlah
         ]);
         session()->setFlashdata('Info', 'Resep Berhasil Ditambah');
-        return redirect()->to(base_url('tambah_resep/' . $id))->withInput();
+        return redirect()->to(base_url('tambah_resep/'.$id))->withInput();
     }
 
     public function hapus_resep($id,$id2)

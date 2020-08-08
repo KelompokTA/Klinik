@@ -232,7 +232,7 @@
                                         <div class="form-group">
                                             <label>No RM</label>
                                             <select class="form-control select2" style="width: 100%;" name="id_pasien">
-                                                <option selected disabled value="<?= old('id_pasien'); ?>"><?= old('id_pasien'); ?></option>
+                                                <option selected disabled value="<?= old('id_pasien'); ?>"></option>
                                                 <?php foreach ($pasien as $row) { ?>
                                                     <option value="<?= $row['ID_PASIEN']; ?>"><?= old('id_pasien'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN']; ?></option>
                                                 <?php } ?>
@@ -241,7 +241,7 @@
                                         <div class="form-group">
                                             <label>Dokter</label>
                                             <select class="form-control select2" style="width: 100%;" name="id_dokter">
-                                                <option selected disabled value="<?= old('id_dokter'); ?>"><?= old('id_dokter'); ?></option>
+                                                <option selected disabled value="<?= old('id_dokter'); ?>"></option>
                                                 <?php foreach ($dokter as $row) { ?>
                                                     <option value="<?= $row['ID_DOKTER']; ?>"><?= old('id_dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER'] . " | " . $row['POLI']; ?></option>
                                                 <?php } ?>
@@ -250,7 +250,7 @@
                                         <div class="form-group">
                                             <label>Admin</label>
                                             <select class="form-control select2" style="width: 100%;" name="id_admin">
-                                                <option selected disabled value="<?= old('id_admin'); ?>"><?= old('id_admin'); ?></option>
+                                                <option selected disabled value="<?= old('id_admin'); ?>"></option>
                                                 <?php foreach ($admin as $row) { ?>
                                                     <option value="<?= $row['ID_ADMIN']; ?>"><?= old('id_admin'); ?><?= $row['NAMA_ADMIN'] . " - " . $row['STATUS_ADMIN']; ?></option>
                                                 <?php } ?>
@@ -259,7 +259,7 @@
                                         <div class="form-group">
                                             <label>Poli</label>
                                             <select class="form-control select2" style="width: 100%;" name="poli">
-                                                <option selected disabled value="<?= old('poli'); ?>"><?= old('poli'); ?></option>
+                                                <option selected disabled value="<?= old('poli'); ?>"></option>
                                                 <?php foreach ($dokter as $row) { ?>
                                                     <option value="<?= $row['ID_JADWAL']; ?>"><?= old('id_jadwal'); ?><?= $row['POLI'] ?></option>
                                                 <?php } ?>
@@ -278,7 +278,7 @@
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>
                                             <br>
-
+                                            <!-- date_default_timezone_set('Asia/Jakarta'); -->
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success">Submit</button>
@@ -334,9 +334,9 @@
                                             <td><?= $row['NAMA_DOKTER']; ?></td>
                                             <td><?= $row['POLI']; ?></td>
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
-                                            <td><?= date('d-F-Y | g:i:sa', strtotime($row['created_at'])); ?></td>
+                                            <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                             <td>
-                                                <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
+                                                <a href="cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
                                                 <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
