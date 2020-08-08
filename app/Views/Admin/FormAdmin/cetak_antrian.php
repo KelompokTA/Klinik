@@ -50,9 +50,9 @@
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
-                <button onclick="window.print()" id="btn" value="Print" class="btn shadow btn-outline-secondary center">Cetak No Antrian<i class="fa fa-print"></i></button>
+                <button onclick="window.print()" id="btn" value="Print" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak No Antrian</button>
                 <br><br>
-                <a href="<?= base_url('pendaftaran'); ?>" id="btn" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pendaftaran'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali</a>
             </div>
             <!--/.col (right) -->
         </div>

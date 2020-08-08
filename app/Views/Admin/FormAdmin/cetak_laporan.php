@@ -182,10 +182,10 @@
             <center>
                 <div class="row no-print">
                     <div class="col-12">
-                        <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Laporan<i class="fa fa-print"></i></button>
+                        <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak Laporan</button>
                         <br>
                         <br>
-                        <a href="<?= base_url('laporanAdmin'); ?>" id="btn" class="btn btn-dark">Kembali</a>
+                        <a href="<?= base_url('laporanAdmin'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali </a>
                     </div>
                 </div>
             </center>

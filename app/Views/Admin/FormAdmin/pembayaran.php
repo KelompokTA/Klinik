@@ -285,8 +285,8 @@
                                                         <td><?= $tgl ?></td>
                                                         <td><?= $ds['TOTAL_BIAYA_RESEP'] + $ds['BIAYA_DOKTER']; ?></td>
                                                         <td>
-                                                            <a href="save_pembayaran/" class="btn btn-success">Bayar</a>
-                                                            <a href="cetak_kwitansi/<?= $ds['ID_TRANSAKSI']; ?>" class="btn btn-primary">Cetak Kwitansi</a>
+                                                            <a href="save_pembayaran/" class="btn btn-success"><i class="fas fa-wallet"></i> Bayar</a>
+                                                            <a href="cetak_kwitansi/<?= $ds['ID_TRANSAKSI']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak Kwitansi</a>
                                                         </td>
                                                     </tr>
 

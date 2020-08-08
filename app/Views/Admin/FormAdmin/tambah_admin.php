@@ -249,7 +249,7 @@
                                             <input type="password" name="password_admin" value="<?= old('password_admin'); ?>" class="form-control <?= ($validation->hasError('password_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                         </div>
                                     </div>
                                 </div>

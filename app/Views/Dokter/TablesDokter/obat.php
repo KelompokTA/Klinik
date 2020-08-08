@@ -200,8 +200,8 @@
                                             <td><?= $row['HARGA_BELI']; ?></td>
                                             <td><?= $row['HARGA_JUAL']; ?></td>
                                             <td>
-                                                <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger">Hapus</a>
+                                                <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

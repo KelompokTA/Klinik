@@ -16,7 +16,7 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="image" align="center">
-                            <img src="..\..\assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png">
+                            <img src="..\assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png">
                         </div>
                         <h4 align=" center">RUMAH SAKIT INDONESIA SEHAT</h4>
 
@@ -72,7 +72,7 @@
                 </div>
                 <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Kartu<i class="fa fa-print"></i></button>
                 <br><br>
-                <a href="<?= base_url('pasienAdmin'); ?>" id="btn" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pasienAdmin'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali</a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->

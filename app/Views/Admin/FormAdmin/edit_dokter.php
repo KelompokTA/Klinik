@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
         <img src="../assets/img/klinik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Klinik</span>
+        <span class="brand-text font-weight-light">Klinik Indonesia Sehat</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../../assets/img/foto/admin.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="../assets/img/foto/admin.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
@@ -220,7 +220,7 @@
                                         <input type="hidden" name="id_dokter" value="<?= $dokter['ID_DOKTER'] ?>" class="form-control">
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <img src="../../assets/img/foto/<?= $dokter['FOTO_DOKTER'] ?>" value="<?= $dokter['FOTO_DOKTER'] ?>" alt="dokter.jpg" width="200px" height="220px">
+                                                <img src="../assets/img/foto/<?= $dokter['FOTO_DOKTER'] ?>" value="<?= $dokter['FOTO_DOKTER'] ?>" alt="dokter.jpg" width="200px" height="220px">
                                             </div>
                                             <div class="col-sm-9">
                                                 <br><br><br>
@@ -258,7 +258,7 @@
                                             <input type="password" name="password_dokter" value="<?= $dokter['PASSWORD_DOKTER']; ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                         </div>
                                     </div>
                                 </div>
