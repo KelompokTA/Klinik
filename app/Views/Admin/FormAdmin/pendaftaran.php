@@ -269,6 +269,7 @@
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>
                                             <br>
+                                            <!-- kalo value = 1 itu biasa, kalo null itu darurat -->
                                             <div class="form-group">
                                                 <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
                                                     <input type="checkbox" name="darurat" class="custom-control-input" id="customSwitch3" value="1" checked="checked">
