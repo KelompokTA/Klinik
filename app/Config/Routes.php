@@ -102,6 +102,14 @@ $routes->post('/tambah_resep/(:segment)/(:num)', 'Dashboard\DokterController::sa
 $routes->get('/tambah_resep/(:num)', 'Dashboard\DokterController::tambah_resep/$1');
 $routes->get('/tambah_resep/(:segment)/(:num)/(:num)', 'Dashboard\DokterController::hapus_resep/$2/$3');
 
+$routes->get('/tambah_asesmen/(:num)', 'Dashboard\DokterController::tambah_asesmen/$1');
+$routes->post('/save_asesmen/(:num)', 'Dashboard\DokterController::save_asesmen/$1');
+
+$routes->get('/tambah_diagnosa/(:num)', 'Dashboard\DokterController::tambah_diagnosa/$1');
+$routes->get('/tambah_rujukan/(:num)', 'Dashboard\DokterController::tambah_rujukan/$1');
+
+
+
 
 
 /**

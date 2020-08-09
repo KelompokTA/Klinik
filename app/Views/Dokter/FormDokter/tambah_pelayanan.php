@@ -167,7 +167,11 @@
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a class="nav-link active" href="#Pelayanan" data-toggle="tab">Pelayanan</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Resep" data-toggle="tab">Resep</a></li>
-                                <li class="nav-item"><a class="nav-link disabled" href="#Riwayat" data-toggle="tab">Riwayat</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">
@@ -235,7 +239,7 @@
                                                                 <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Tambah Resep</a>
-                                                                    <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-success">Tambah Tindakan</a>
+                                                                    <a href="tambah_asesmen/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-success">Tambah Tindakan</a>
                                                                     <a href="edit_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-warning">Edit</a>
                                                                     <a href="hapus_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
                                                                 </td>

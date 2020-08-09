@@ -84,14 +84,6 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css');?>">
     <link rel="stylesheet" href="<?= base_url('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css');?>">
-    <!-- jQuery -->
-    <script src="<?= base_url('assets/plugins/jquery/jquery.min.js'); ?>"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= base_url('assets/js/adminlte.min.js'); ?>"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?= base_url('assets/js/demo.js'); ?>"></script>
     <!-- coba -->
     <script src="<?= base_url('assets/js/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('assets/js/jquery-ui.min.js'); ?>"></script>

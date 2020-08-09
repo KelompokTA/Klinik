@@ -52,6 +52,7 @@ class BaseController extends Controller
 		$this->PelayananModel = new \App\Models\PelayananModel();
 		$this->DiagnosaModel = new \App\Models\DiagnosaModel();
 		$this->ResepModel = new \App\Models\ResepModel();
+		$this->AsesmenModel = new \App\Models\AsesmenModel();
 	}
 
 }

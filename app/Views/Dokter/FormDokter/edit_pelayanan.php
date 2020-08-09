@@ -168,6 +168,9 @@
                                 <li class="nav-item"><a class="nav-link active" href="#Pelayanan" data-toggle="tab">Pelayanan</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Resep" data-toggle="tab">Resep</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Riwayat" data-toggle="tab">Riwayat</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">
@@ -177,7 +180,7 @@
                                     <!-- PELAYANAN -->
                                     <div class="post">
 
-                                        <form action="<?= base_url('update_pelayanan');?>/<?= $pelayanan['ID_PELAYANAN'] ?>" method="POST">
+                                        <form action="<?= base_url('update_pelayanan'); ?>/<?= $pelayanan['ID_PELAYANAN'] ?>" method="POST">
                                             <?= csrf_field(); ?>
                                             <div class="row">
                                                 <div class="col-sm-3">
@@ -210,7 +213,7 @@
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">Rp.</span>
                                                             </div>
-                                                            <input type="number" name="total_biaya_resep" value="<?= $pelayanan['TOTAL_BIAYA_RESEP']; ?>" class=" form-control <?= ($validation->hasError('total_biaya_resep')) ? 'is-invalid' : ''; ?>" autocomplete="off" readonly><a class="btn btn-warning" href="<?= base_url('tambah_resep');?>/<?= $pelayanan['ID_PELAYANAN']; ?>">Edit Resep</a>
+                                                            <input type="number" name="total_biaya_resep" value="<?= $pelayanan['TOTAL_BIAYA_RESEP']; ?>" class=" form-control <?= ($validation->hasError('total_biaya_resep')) ? 'is-invalid' : ''; ?>" autocomplete="off" readonly><a class="btn btn-warning" href="<?= base_url('tambah_resep'); ?>/<?= $pelayanan['ID_PELAYANAN']; ?>">Edit Resep</a>
                                                         </div>
                                                     </div>
                                                 </div>

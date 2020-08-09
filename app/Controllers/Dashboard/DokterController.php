@@ -217,4 +217,52 @@ class DokterController extends BaseController
         session()->setFlashdata('Info', 'Resep Berhasil hapus');
         return redirect()->to(base_url('tambah_resep/' . $id2))->withInput();
     }
+
+    public function tambah_asesmen($id)
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'id' => $id
+        ];
+        return view('Dokter/FormDokter/tambah_asesmen',$data);
+    }
+
+    public function save_asesmen($id)
+    {
+        
+        $this->AsesmenModel->save([
+            'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
+            'KELUHAN_UTAMA' => $this->request->getVar('keluhan_utama'),
+            'KEADAAN_UMUM' => $this->request->getVar('keadaan_umum'),
+            'RPS' => $this->request->getVar('rps'),
+            'RPD' => $this->request->getVar('rpd'),
+            'ALERGI' => $this->request->getVar('alergi'),
+            'TD' => $this->request->getVar('tekanan_darah'),
+            'N' => $this->request->getVar('nadi'),
+            'RR' => $this->request->getVar('respirasi'),
+            'SUHU' => $this->request->getVar('suhu'),
+            'BB' => $this->request->getVar('berat_badan'),
+            'TB' => $this->request->getVar('tinggi_badan'),
+            'RENCANA_TINDAKAN' => $this->request->getVar('rencana_tindakan'),
+        ]);
+
+        if ($this->request->getVar('rencana_tindakan') == 'Diagnosa') {
+            session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
+            return redirect()->to(base_url('tambah_diagnosa/' . $id))->withInput();
+        }
+        session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
+        return redirect()->to(base_url('tambah_rujukan/' . $id))->withInput();
+    }
+
+    public function tambah_diagnosa($id)
+    {
+        echo "diagnosa";
+        dd($id);
+    }
+
+    public function tambah_rujukan($id)
+    {
+        echo "rujukan";
+        dd($id);
+    }
 }
