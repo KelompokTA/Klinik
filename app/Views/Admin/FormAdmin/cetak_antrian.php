@@ -32,11 +32,17 @@
                                         <input type="hidden" name="id_pendaftaran" value="<?= $pendaftaran['ID_PENDAFTARAN'] ?>" class="form-control">
                                         <h3 align=" center">NOMOR ANTRIAN</h3>
                                         <td>
-                                            <h1 class=" php"><?= $pendaftaran['NOMER_ANTRIAN']; ?></h1>
+                                            <h1><?= $pendaftaran['NOMER_ANTRIAN']; ?></h1>
                                         </td>
                                         <td>
-                                            <h1><?php foreach ($poli as $row) : ?><?= $row['POLI'];
-                                                                                endforeach; ?></h1>
+                                            <h1><?php foreach ($poli as $row) : ?>
+                                                <?= $a = $row['DARURAT'];
+                                                endforeach; ?></h1>
+                                        </td>
+                                        <td>
+                                            <h1><?php foreach ($poli as $row) : ?>
+                                                <?= $row['POLI'];
+                                                endforeach; ?></h1>
                                         </td>
                                         <td>
                                             <h5><?= date('l d-F-Y | g:i:sa', strtotime($pendaftaran['created_at'])); ?></h5>

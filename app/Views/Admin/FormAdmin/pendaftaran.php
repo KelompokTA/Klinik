@@ -256,15 +256,6 @@
                                                 <?php } ?>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Poli</label>
-                                            <select class="form-control select2" style="width: 100%;" name="poli">
-                                                <option selected disabled value="<?= old('poli'); ?>"></option>
-                                                <?php foreach ($dokter as $row) { ?>
-                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('id_jadwal'); ?><?= $row['POLI'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
                                         <div>
                                             <label>Nomer Antrian</label>
                                             <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
@@ -278,6 +269,12 @@
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>
                                             <br>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                    <input type="checkbox" name="darurat" class="custom-control-input" id="customSwitch3" value="1" checked="checked">
+                                                    <label class="custom-control-label" for="customSwitch3">Darurat</label>
+                                                </div>
+                                            </div>
                                             <!-- date_default_timezone_set('Asia/Jakarta'); -->
                                         </div>
                                         <div>

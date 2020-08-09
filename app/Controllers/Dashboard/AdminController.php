@@ -148,7 +148,7 @@ class AdminController extends BaseController
     public function cetak_antrian($id)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT POLI FROM pendaftaran a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN jadwal c ON b.ID_JADWAL = c.ID_JADWAL WHERE a.ID_PENDAFTARAN = ' . $id);
+        $query = $db->query('SELECT POLI,DARURAT FROM pendaftaran a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN jadwal c ON b.ID_JADWAL = c.ID_JADWAL WHERE a.ID_PENDAFTARAN = ' . $id);
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
@@ -224,7 +224,8 @@ class AdminController extends BaseController
             'ID_ADMIN' => $this->request->getVar('id_admin'),
             'ID_PASIEN' => $this->request->getVar('id_pasien'),
             'ID_DOKTER' => $this->request->getVar('id_dokter'),
-            'NOMER_ANTRIAN' => $this->request->getVar('no_antrian')
+            'NOMER_ANTRIAN' => $this->request->getVar('no_antrian'),
+            'DARURAT' => $this->request->getVar('darurat')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
