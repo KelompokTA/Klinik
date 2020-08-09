@@ -233,7 +233,7 @@
                                             <td><?= $row['ID_TRANSAKSI']; ?></td>
                                             <td><?= $row['ID_ADMIN']; ?></td>
                                             <td><?= $row['ID_PELAYANAN']; ?></td>
-                                            <td><?= $row['TANGGAL_TRANSAKSI']; ?></td>
+                                            <td><?= $row['created_at']; ?></td>
                                             <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                                             <td>
                                                 <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>

@@ -216,6 +216,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
                             <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
@@ -247,9 +248,6 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <center>
-                                <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
-                            </center>
                         </div>
                         <!-- /.card-body -->
                     </div>
