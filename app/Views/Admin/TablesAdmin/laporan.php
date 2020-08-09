@@ -236,8 +236,9 @@
                                             <td><?= $row['created_at']; ?></td>
                                             <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                                             <td>
+                                                <a href="cetak_kwitansi/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak Kwitansi</a>
                                                 <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                <a href="hapus_laporan/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

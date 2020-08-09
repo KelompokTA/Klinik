@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 /**
@@ -50,8 +51,7 @@ class BaseController extends Controller
 		$this->ObatModel = new \App\Models\ObatModel();
 		$this->PendaftaranModel = new \App\Models\PendaftaranModel();
 		$this->PelayananModel = new \App\Models\PelayananModel();
-		$this->RiwayatModel = new \App\Models\RiwayatModel();
+		$this->DiagnosaModel = new \App\Models\DiagnosaModel();
 		$this->ResepModel = new \App\Models\ResepModel();
 	}
-
 }

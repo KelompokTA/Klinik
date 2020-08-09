@@ -234,7 +234,7 @@
                                         <?php
                                         $konek = mysqli_connect("localhost", "root", "", "db_klinik");
                                         if (isset($_GET['NO_RM']) && $_GET['NO_RM'] != '') {
-                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien a INNER JOIN pendaftaran b ON a.ID_PASIEN = b.ID_PASIEN INNER JOIN pelayanan c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN INNER JOIN transaksi d ON c.ID_PELAYANAN = d.ID_PELAYANAN WHERE NO_RM='$_GET[NO_RM]'");
+                                            $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien a INNER JOIN pendaftaran b ON a.ID_PASIEN = b.ID_PASIEN INNER JOIN pelayanan c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN WHERE NO_RM='$_GET[NO_RM]'");
                                             $ds = mysqli_fetch_array($sqlPasien);
                                             // dd($ds);
                                             $NO_RM = $ds['NO_RM'];
@@ -264,7 +264,6 @@
                                                 <table border="1" class="table table-hover text-nowrap">
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>ID Transaksi</th>
                                                         <th>ID Pelayanan</th>
                                                         <th>Tanggal Transaksi</th>
                                                         <th>Jumlah Bayar</th>
@@ -281,12 +280,10 @@
                                                         <td><?= $no++; ?></td>
 
                                                         <td><?= $ds['ID_PELAYANAN']; ?></td>
-                                                        <td><?= $ds['ID_TRANSAKSI']; ?></td>
                                                         <td><?= $tgl ?></td>
                                                         <td><?= $ds['TOTAL_BIAYA_RESEP'] + $ds['BIAYA_DOKTER']; ?></td>
                                                         <td>
-                                                            <a href="save_pembayaran/" class="btn btn-success"><i class="fas fa-wallet"></i> Bayar</a>
-                                                            <a href="cetak_kwitansi/<?= $ds['ID_TRANSAKSI']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak Kwitansi</a>
+                                                            <a href="save_pembayaran/<?= $ds['ID_PELAYANAN']; ?>" class="btn btn-success"><i class="fas fa-wallet"></i> Bayar</a>
                                                         </td>
                                                     </tr>
 
