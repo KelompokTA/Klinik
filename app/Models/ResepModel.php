@@ -8,7 +8,7 @@ class ResepModel extends Model
 {
     protected $table = 'resep';
     protected $primaryKey = 'ID_RESEP';
-    protected $allowedFields = ['ID_PELAYANAN', 'ID_OBAT', 'JUMLAH', 'TOTAL_BIAYA_OBAT'];
+    protected $allowedFields = ['ID_PELAYANAN', 'ID_OBAT', 'DOSIS', 'JUMLAH', 'TOTAL_BIAYA_OBAT'];
 
     public function getResep($id = false)
     {

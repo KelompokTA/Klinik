@@ -8,7 +8,7 @@ class ObatModel extends Model
 {
     protected $table = 'obat';
     protected $primaryKey = 'ID_OBAT';
-    protected $allowedFields = ['NAMA_OBAT', 'SATUAN_OBAT', 'RUTE_PEMBERIAN', 'NO_BATCH','STOK', 'EXPIRED', 'HARGA_BELI', 'HARGA_JUAL', 'DOSIS'];
+    protected $allowedFields = ['NAMA_OBAT', 'KEKUATAN_SEDIAAN','BENTUK_SEDIAAN', 'RUTE_PEMBERIAN', 'NO_BATCH','STOK', 'EXPIRED', 'HARGA_BELI', 'HARGA_JUAL', 'DOSIS'];
 
     public function getObat($id = false)
     {
