@@ -31,7 +31,8 @@ class ObatModel extends Model
             'EXPIRED' => $request->getVar('expired'),
             'HARGA_BELI' => $request->getVar('harga_beli'),
             'HARGA_JUAL' => $request->getVar('harga_jual'),
-            'DOSIS' => $request->getVar('dosis'),
+            'KEKUATAN_SEDIAAN' => $request->getVar('kekuatan_sediaan'),
+            'BENTUK_SEDIAAN' => $request->getVar('bentuk_sediaan'),
             'STOK' => $request->getVar('stok')
         ];
         return $ObatModel->save($data);

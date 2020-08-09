@@ -175,9 +175,26 @@
                                             <label>Nama Obat <?= $validation->listErrors(); ?></label>
                                             <input type="text" name="nama_obat" value="<?= $obat['NAMA_OBAT'] ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autofocus>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Satuan Obat</label>
-                                            <input type="text" name="satuan_obat" value="<?= $obat['SATUAN_OBAT'] ?>" class="form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan satuan obat ...">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Kekuatan Sediaan <?= $validation->listErrors(); ?></label>
+                                                    <input type="text" name="kekuatan_sediaan" value="<?= $obat['KEKUATAN_SEDIAAN'] ?>" class="form-control <?= ($validation->hasError('kekuatan_sediaan')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan satuan obat ...">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Bentuk Sediaan</label>
+                                                    <select name="bentuk_sediaan" class=" form-control <?= ($validation->hasError('bentuk_sediaan')) ? 'is-invalid' : ''; ?>">
+                                                        <option selected value="<?= $obat['BENTUK_SEDIAAN'] ?>"><?= $obat['BENTUK_SEDIAAN'] ?></option>
+                                                        <option <?= ($obat['BENTUK_SEDIAAN'] == "Kapsul") ? 'selected="selected"' : 'Kapsul'; ?>>Kapsul</option>
+                                                        <option <?= ($obat['BENTUK_SEDIAAN'] == "Tablet") ? 'selected="selected"' : 'Tablet'; ?>>Tablet</option>
+                                                        <option <?= ($obat['BENTUK_SEDIAAN'] == "Ampul") ? 'selected="selected"' : 'Ampul'; ?>>Ampul</option>
+                                                        <option <?= ($obat['BENTUK_SEDIAAN'] == "Tube") ? 'selected="selected"' : 'Tube'; ?>>Tube</option>
+                                                        <option <?= ($obat['BENTUK_SEDIAAN'] == "Sirup") ? 'selected="selected"' : 'Sirup'; ?>>Sirup</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
@@ -191,16 +208,16 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Dosis</label>
-                                            <input type="text" name="dosis" value="<?= $obat['DOSIS'] ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ...">
-                                        </div>
-                                        <div class="form-group">
                                             <label>No Batch</label>
                                             <input type="text" name="no_batch" value="<?= $obat['NO_BATCH'] ?>" class=" form-control <?= ($validation->hasError('no_batch')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nomor batch ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Expired</label>
                                             <input type="date" name="expired" value="<?= date('Y-m-d', strtotime($obat["EXPIRED"])) ?>" class=" form-control <?= ($validation->hasError('expired')) ? 'is-invalid' : ''; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Stok</label>
+                                            <input type="number" name="stok" value="<?= $obat['STOK'] ?>" class=" form-control <?= ($validation->hasError('stok')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan stok ...">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Beli</label>

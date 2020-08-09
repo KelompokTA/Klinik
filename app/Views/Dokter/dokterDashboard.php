@@ -276,9 +276,8 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Obat</th>
-                                                    <th>Satuan</th>
-                                                    <th>Rute Pemberian</th>
-                                                    <th>Dosis</th>
+                                                    <th>Kekuatan Sediaan</th>
+                                                    <th>Bentuk Sediaan</th>
                                                     <th>Expired</th>
                                                 </tr>
                                             </thead>
@@ -288,9 +287,8 @@
                                                     <tr>
                                                         <td><?= $no++; ?></td>
                                                         <td><?= $row['NAMA_OBAT']; ?></td>
-                                                        <td><?= $row['SATUAN_OBAT']; ?></td>
-                                                        <td><?= $row['RUTE_PEMBERIAN']; ?></td>
-                                                        <td><?= $row['DOSIS']; ?></td>
+                                                        <td><?= $row['KEKUATAN_SEDIAAN']; ?></td>
+                                                        <td><?= $row['BENTUK_SEDIAAN']; ?></td>
                                                         <td><?= $row['EXPIRED']; ?></td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -341,37 +339,37 @@
                             </div>
                         </div>
                         <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Data Riwayat</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table id="example4" class="table table-bordered table-striped">
-                                        <thead class="table-danger">
-                                            <tr>
-                                                <th>no</th>
-                                                <th>Nama Pasien</th>
-                                                <th>Nama Dokter</th>
-                                                <th>Diagnosa Primer</th>
-                                                <th>Diagnosa Sekunder</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Puspa Sing Ayu Dewe</td>
-                                                <td>Berlian Duta Krisna S.Tr.Kes</td>
-                                                <td>Flu</td>
-                                                <td>Batuk</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Data Riwayat</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
+                                        <table id="example4" class="table table-bordered table-striped">
+                                            <thead class="table-danger">
+                                                <tr>
+                                                    <th>no</th>
+                                                    <th>Nama Pasien</th>
+                                                    <th>Nama Dokter</th>
+                                                    <th>Diagnosa Primer</th>
+                                                    <th>Diagnosa Sekunder</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Puspa Sing Ayu Dewe</td>
+                                                    <td>Berlian Duta Krisna S.Tr.Kes</td>
+                                                    <td>Flu</td>
+                                                    <td>Batuk</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </section>
             </div>
         </div><!-- /.container-fluid -->

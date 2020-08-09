@@ -100,9 +100,11 @@ class DokterController extends BaseController
             'RUTE_PEMBERIAN' => $this->request->getVar('rute_pemberian'),
             'NO_BATCH' => $this->request->getVar('no_batch'),
             'EXPIRED' => $this->request->getVar('expired'),
+            'STOK' => $this->request->getVar('stok'),
             'HARGA_BELI' => $this->request->getVar('harga_beli'),
             'HARGA_JUAL' => $this->request->getVar('harga_jual'),
-            'DOSIS' => $this->request->getVar('dosis')
+            'KEKUATAN_SEDIAAN' => $this->request->getVar('kekuatan_sediaan'),
+            'BENTUK_SEDIAAN' => $this->request->getVar('bentuk_sediaan')
         ]);
         session()->setFlashdata('Info', 'Data Berhasil Diubah');
         return redirect()->to(base_url('obatDokter'));
@@ -112,7 +114,7 @@ class DokterController extends BaseController
     public function tambah_pelayanan()
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN pendaftaran b ON a.ID_PENDAFTARAN = b.ID_PENDAFTARAN INNER JOIN pasien c ON b.ID_PASIEN = c.ID_PASIEN INNER JOIN dokter d ON b.ID_DOKTER = d.ID_DOKTER INNER JOIN riwayat e ON a.ID_RIWAYAT = e.ID_RIWAYAT ');
+        $query = $db->query('SELECT * FROM pelayanan a INNER JOIN pendaftaran b ON a.ID_PENDAFTARAN = b.ID_PENDAFTARAN INNER JOIN pasien c ON b.ID_PASIEN = c.ID_PASIEN INNER JOIN dokter d ON b.ID_DOKTER = d.ID_DOKTER');
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
@@ -127,7 +129,7 @@ class DokterController extends BaseController
         
         $this->PelayananModel->save([
             'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
-            'BIAYA_DOKTER' => $this->request->getVar('biaya_dokter'),
+            'BIAYA_PELAYANAN' => $this->request->getVar('biaya_pelayanan'),
         ]);
         session()->setFlashdata('Info', 'Pelayanan Berhasil Ditambah');
         return redirect()->to(base_url('tambahPelayanan'));
@@ -140,7 +142,29 @@ class DokterController extends BaseController
         return redirect()->to(base_url('tambahPelayanan'));
     }
 
+    public function edit_pelayanan($id)
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
+            'pelayanan' => $this->PelayananModel->getPelayanan($id)
+        ];
+        // dd($data);
+        return view('Dokter/FormDokter/edit_pelayanan', $data);
+    }
+
     public function update_pelayanan($id)
+    {
+        $this->PelayananModel->save([
+            'ID_PELAYANAN' => $id,
+            'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
+            'BIAYA_PELAYANAN' => $this->request->getVar('biaya_pelayanan'),
+        ]);
+        session()->setFlashdata('Info', 'update Pelayanan Berhasil');
+        return redirect()->to(base_url('tambahPelayanan'));
+    }
+
+    public function update_pelayanan_biaya($id)
     {
         $db = \Config\Database::connect();
         $query = $db->query('SELECT SUM(TOTAL_BIAYA_OBAT) AS TOTAL_BIAYA_RESEP FROM resep WHERE ID_PELAYANAN ='. $id);
