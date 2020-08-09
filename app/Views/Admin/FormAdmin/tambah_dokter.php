@@ -269,7 +269,7 @@
                                                         <input type="password" name="password_dokter" value="<?= old('password_dokter'); ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ..." autocomplete="off">
                                                     </div>
                                                     <div>
-                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -297,7 +297,7 @@
                                                         <input type="text" name="poli" value="<?= old('poli'); ?>" class="form-control <?= ($validation->hasError('poli')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan poli ..." autocomplete="off">
                                                     </div>
                                                     <div>
-                                                        <button type="submit" class="btn btn-info">Tambah Jadwal</button>
+                                                        <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Tambah Jadwal</button>
                                                     </div>
                                                 </form>
                                             </div>

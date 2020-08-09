@@ -38,41 +38,48 @@
                                                 <td>:</td>
                                                 <td><?= $laporan['ID_TRANSAKSI'] ?></td>
                                             </tr>
-                                            <tr>
-                                                <td>Nama Pasien</td>
-                                                <td>:</td>
-                                                <td><?= $pasien['NAMA_PASIEN'] ?></td>
-                                            </tr>
+                                            <?php foreach ($pasien as $row) : ?>
+                                                <tr>
+                                                    <td>Nama Pasien</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['NAMA_PASIEN'] ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                             <tr>
                                                 <td>Tanggal Transaksi</td>
                                                 <td>:</td>
                                                 <td><?= $laporan['TANGGAL_TRANSAKSI'] ?></td>
                                             </tr>
-                                            <tr>
-                                                <td>Jenis Kelamin</td>
-                                                <td>:</td>
-                                                <td><?= $pasien['JENIS_KELAMIN'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Alamat</td>
-                                                <td>:</td>
-                                                <td><?= $pasien['ALAMAT_PASIEN'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Biaya Obat</td>
-                                                <td>:</td>
-                                                <td><?= ($pelayanan['TOTAL_BIAYA_RESEP'] == null) ? ' 0 ' : $pelayanan['TOTAL_BIAYA_RESEP']; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Biaya Dokter</td>
-                                                <td>:</td>
-                                                <td><?= $pelayanan['BIAYA_DOKTER'] ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Total Biaya</td>
-                                                <td>:</td>
-                                                <td><?= $pelayanan['TOTAL_BIAYA_RESEP'] + $pelayanan['BIAYA_DOKTER'] ?></td>
-                                            </tr>
+                                            <?php foreach ($pasien as $row) : ?>
+                                                <tr>
+                                                    <td>Jenis Kelamin</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['JENIS_KELAMIN'] ?></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Alamat</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['ALAMAT_PASIEN'] ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                            <?php foreach ($pelayanan as $row) : ?>
+                                                <tr>
+                                                    <td>Biaya Obat</td>
+                                                    <td>:</td>
+                                                    <td><?= ($row['TOTAL_BIAYA_RESEP'] == null) ? ' 0 ' : $row['TOTAL_BIAYA_RESEP']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Biaya Dokter</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['BIAYA_DOKTER'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total Biaya</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_DOKTER'] ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </table>
 
                                     </div>
@@ -85,9 +92,9 @@
                     </div>
                     <!-- /.card-body -->
                 </div>
-                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center">Cetak Kwitansi<i class="fa fa-print"></i></button>
+                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak Kwitansi</button>
                 <br><br>
-                <a href="<?= base_url('pembayaran'); ?>" id="btn" class="btn btn-dark">Kembali</a>
+                <a href="<?= base_url('pembayaran'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali</i></a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->

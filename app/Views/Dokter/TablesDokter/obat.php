@@ -203,8 +203,13 @@
                                             <td class="text-right">Rp. <?= $row['HARGA_BELI']; ?></td>
                                             <td class="text-right">Rp. <?= $row['HARGA_JUAL']; ?></td>
                                             <td>
+<<<<<<< HEAD
                                                 <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
                                                 <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+=======
+                                                <a href="edit_obat/<?= $row['ID_OBAT']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                <a href="hapus_obat/<?= $row['ID_OBAT']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+>>>>>>> 01054ce50a31d75139d14d2b2c0542cfdb4ff661
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

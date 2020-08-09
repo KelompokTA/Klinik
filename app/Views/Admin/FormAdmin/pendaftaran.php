@@ -281,7 +281,7 @@
                                             <!-- date_default_timezone_set('Asia/Jakarta'); -->
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
 
                                         </div>
                                     </div>
@@ -336,8 +336,13 @@
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
                                             <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                             <td>
+<<<<<<< HEAD
                                                 <a href="cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
                                                 <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger">Hapus</a>
+=======
+                                                <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak antrian</a>
+                                                <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+>>>>>>> 01054ce50a31d75139d14d2b2c0542cfdb4ff661
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

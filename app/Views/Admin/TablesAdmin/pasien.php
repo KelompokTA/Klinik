@@ -204,30 +204,18 @@
       <?php endif; ?>
     </div><!-- /.container-fluid -->
   </section>
-
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
-      <!-- /.row -->
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data Pasien</h3>
-
-              <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -266,14 +254,17 @@
                       <td><?= $row['PROVINSI']; ?></th>
                       <td><?= $row['TELFON_PASIEN']; ?></td>
                       <td>
-                        <a href="cetak_kartu/<?= $row['ID_PASIEN']; ?>" class="btn btn-primary" value="<?= $row['ID_PASIEN']; ?>">Cetak Kartu</a>
-                        <a href="edit_pasien/<?= $row['ID_PASIEN']; ?>" class="btn btn-warning">Edit</a>
-                        <a href="hapus_pasien/<?= $row['ID_PASIEN']; ?>" class=" btn btn-danger">Hapus</a>
+                        <a href="cetak_kartu/<?= $row['ID_PASIEN']; ?>" class="btn btn-primary" value="<?= $row['ID_PASIEN']; ?>"> <i class="fas fa-share"></i> Cetak Kartu</a>
+                        <a href="edit_pasien/<?= $row['ID_PASIEN']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                        <a href="hapus_pasien/<?= $row['ID_PASIEN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
+              <center>
+                <div> <a href="tambahPasien" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Pasien</a> </div>
+              </center>
             </div>
             <!-- /.card-body -->
           </div>
@@ -284,6 +275,8 @@
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
+
+
 </div>
 
 <?= $this->endSection(); ?>

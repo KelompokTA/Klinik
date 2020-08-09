@@ -213,7 +213,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -236,15 +236,15 @@
                                             <td><?= $row['TANGGAL_TRANSAKSI']; ?></td>
                                             <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                                             <td>
-                                                <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning">Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger">Hapus</a>
+                                                <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                <a href="hapus_admin/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
                             <center>
-                                <div> <a href="cetak_laporan" class="btn btn-primary">Cetak Laporan</a> </div>
+                                <div> <a href="cetak_laporan" class="btn btn-primary"><i class="fas fa-share"></i> Cetak Laporan</a> </div>
                             </center>
 
                         </div>

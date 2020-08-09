@@ -10,8 +10,13 @@ class AdminController extends BaseController
     public function index()
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM transaksi ');
+        $query = $db->query('SELECT * FROM transaksi a 
+        INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN 
+        INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
+        INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
+        INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN');
         $results = $query->getResultArray();
+        // dd($results);
         $data = [
             'pasien' => $this->PasienModel->getPasien(),
             'dokter' => $this->DokterModel->getDokter(),
@@ -159,9 +164,10 @@ class AdminController extends BaseController
         $data = [
             'validation' => \Config\Services::validation(),
             'laporan' => $this->LaporanModel->getLaporan($id),
-            'pasien' => $this->PasienModel->getPasien($id),
-            'pelayanan' => $this->PelayananModel->getPelayanan($id)
+            'pasien' => $this->PasienModel->getPasien(),
+            'pelayanan' => $this->PelayananModel->getPelayanan()
         ];
+        // dd($data);
         return view('Admin/FormAdmin/cetak_kwitansi', $data);
     }
     public function cetak_laporan()
