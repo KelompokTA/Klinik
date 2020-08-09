@@ -35,8 +35,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -74,8 +74,8 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
                                 <i class="fas fa-user-md"></i>
                                 <p>
                                     Dokter
@@ -88,14 +88,6 @@
                                         <i class="fas fa-plus"></i> <i class="fas fa-user-md"></i>
                                         <p>
                                             Tambah Dokter
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item has-treeview">
-                                    <a href="#" class="nav-link active">
-                                        <i class="fas fa-edit"></i> <i class="fas fa-user-md"></i>
-                                        <p>
-                                            Edit Dokter
                                         </p>
                                     </a>
                                 </li>
@@ -139,15 +131,15 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview menu-open">
                         <li class="nav-item">
                             <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link">
                                 <i class="fas fa-bed"></i>
@@ -161,7 +153,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>
                             </a>
@@ -256,6 +248,12 @@
                                         <div class="form-group">
                                             <label>Password</label>
                                             <input type="password" name="password_dokter" value="<?= $dokter['PASSWORD_DOKTER']; ?>" class="form-control <?= ($validation->hasError('password_dokter')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-switch ">
+                                                <input type="checkbox" name="aktif" class="custom-control-input" id="customSwitch1" value="1" checked>
+                                                <label class="custom-control-label" for="customSwitch1">Aktif</label>
+                                            </div>
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>

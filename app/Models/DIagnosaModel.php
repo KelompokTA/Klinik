@@ -9,7 +9,7 @@ class DiagnosaModel extends Model
     protected $table = 'diagnosa';
     protected $primaryKey = 'ID_DIAGNOSA';
     protected $useTimestamps = true;
-    protected $allowedFields = ['ID_ASESMEN','DIAGNOSA_PRIMER','DIAGNOSA_SEKUNDER','DIAGNOSA_TERSIER'];
+    protected $allowedFields = ['ID_ASESMEN', 'DIAGNOSA_PRIMER', 'DIAGNOSA_SEKUNDER', 'DIAGNOSA_TERSIER'];
 
     public function getDiagnosa($id = false)
     {

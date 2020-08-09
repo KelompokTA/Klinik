@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 /**
@@ -54,5 +55,4 @@ class BaseController extends Controller
 		$this->ResepModel = new \App\Models\ResepModel();
 		$this->AsesmenModel = new \App\Models\AsesmenModel();
 	}
-
 }

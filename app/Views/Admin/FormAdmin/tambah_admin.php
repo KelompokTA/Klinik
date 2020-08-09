@@ -248,6 +248,12 @@
                                             <label>Password</label>
                                             <input type="password" name="password_admin" value="<?= old('password_admin'); ?>" class="form-control <?= ($validation->hasError('password_admin')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan password ...">
                                         </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-switch ">
+                                                <input type="checkbox" name="aktif" class="custom-control-input" id="customSwitch1" value="1" checked="checked">
+                                                <label class="custom-control-label" for="customSwitch1">Aktif</label>
+                                            </div>
+                                        </div>
                                         <div>
                                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                         </div>

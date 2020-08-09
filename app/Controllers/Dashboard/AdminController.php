@@ -148,24 +148,32 @@ class AdminController extends BaseController
     public function cetak_antrian($id)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT POLI FROM pendaftaran a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN jadwal c ON b.ID_JADWAL = c.ID_JADWAL WHERE a.ID_PENDAFTARAN = ' . $id);
+        $query = $db->query('SELECT POLI,DARURAT FROM pendaftaran a INNER JOIN dokter b ON a.ID_DOKTER = b.ID_DOKTER INNER JOIN jadwal c ON b.ID_JADWAL = c.ID_JADWAL WHERE a.ID_PENDAFTARAN = ' . $id);
         $results = $query->getResultArray();
+
         $data = [
             'validation' => \Config\Services::validation(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran($id),
             'poli' => $results
         ];
+        // dd($data);
         return view('Admin/FormAdmin/cetak_antrian', $data);
     }
 
     public function cetak_kwitansi($id)
     {
-        // dd($id);
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM transaksi a
+        INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN 
+        INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
+        INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
+        INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN WHERE ID_TRANSAKSI =' . $id);
+        $results = $query->getResultArray();
+        // dd($results);
         $data = [
             'validation' => \Config\Services::validation(),
-            'laporan' => $this->LaporanModel->getLaporan($id),
-            'pasien' => $this->PasienModel->getPasien(),
-            'pelayanan' => $this->PelayananModel->getPelayanan()
+            'laporan' => $results,
+
         ];
         // dd($data);
         return view('Admin/FormAdmin/cetak_kwitansi', $data);
@@ -218,7 +226,8 @@ class AdminController extends BaseController
             'ID_ADMIN' => $this->request->getVar('id_admin'),
             'ID_PASIEN' => $this->request->getVar('id_pasien'),
             'ID_DOKTER' => $this->request->getVar('id_dokter'),
-            'NOMER_ANTRIAN' => $this->request->getVar('no_antrian')
+            'NOMER_ANTRIAN' => $this->request->getVar('no_antrian'),
+            'DARURAT' => $this->request->getVar('darurat')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -274,7 +283,8 @@ class AdminController extends BaseController
             'STATUS_DOKTER' => $this->request->getVar('status_dokter'),
             'EMAIL_DOKTER' => $this->request->getVar('email_dokter'),
             'PASSWORD_DOKTER' => $this->request->getVar('password_dokter'),
-            'ID_JADWAL' => $this->request->getVar('jadwal')
+            'ID_JADWAL' => $this->request->getVar('jadwal'),
+            'AKTIF' => $this->request->getVar('aktif')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -348,7 +358,8 @@ class AdminController extends BaseController
             'STATUS_DOKTER' => $this->request->getVar('status_dokter'),
             'EMAIL_DOKTER' => $this->request->getVar('email_dokter'),
             'PASSWORD_DOKTER' => $this->request->getVar('password_dokter'),
-            'ID_JADWAL' => $this->request->getVar('jadwal')
+            'ID_JADWAL' => $this->request->getVar('jadwal'),
+            'AKTIF' => $this->request->getVar('aktif')
         ]);
         session()->setFlashdata('Info', 'Data Berhasil Diubah');
         return redirect()->to(base_url('dokterAdmin'));
@@ -392,7 +403,8 @@ class AdminController extends BaseController
             'NAMA_ADMIN' => $this->request->getVar('nama_admin'),
             'STATUS_ADMIN' => $this->request->getVar('status_admin'),
             'EMAIL_ADMIN' => $this->request->getVar('email_admin'),
-            'PASSWORD_ADMIN' => $this->request->getVar('password_admin')
+            'PASSWORD_ADMIN' => $this->request->getVar('password_admin'),
+            'AKTIF' => $this->request->getVar('aktif')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -460,6 +472,12 @@ class AdminController extends BaseController
             $namaAdmin = $fotoAdmin->getRandomName();
             // pindahkan file ke folder
             $fotoAdmin->move('assets/img/foto', $namaAdmin);
+            $aktif = $this->request->getVar('aktif');
+            if ($aktif == null) {
+                $aktif = 0;
+            } else {
+                $aktif = 1;
+            }
         }
 
         $this->AdminModel->save([
@@ -468,7 +486,8 @@ class AdminController extends BaseController
             'NAMA_ADMIN' => $this->request->getVar('nama_admin'),
             'STATUS_ADMIN' => $this->request->getVar('status_admin'),
             'EMAIL_ADMIN' => $this->request->getVar('email_admin'),
-            'PASSWORD_ADMIN' => $this->request->getVar('password_admin')
+            'PASSWORD_ADMIN' => $this->request->getVar('password_admin'),
+            'AKTIF' => $aktif
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -487,20 +506,35 @@ class AdminController extends BaseController
         return view('Admin/FormAdmin/pembayaran', $data);
     }
 
-    public function save_pembayaran()
+    public function save_pembayaran($id)
     {
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM 
+         pelayanan b  
+        INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
+        INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
+        INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN WHERE ID_PELAYANAN =' . $id);
+        $results = $query->getResultArray();
+        foreach ($results as $row) {
+            $id_pelayanan = $row['ID_PELAYANAN'];
+            $id_admin = $row['ID_ADMIN'];
+            $total_biaya = $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_DOKTER'];
+        }
         $this->LaporanModel->save([
-            'ID_ADMIN' => $this->request->getVar('hari'),
-            'ID_PASIEN' => $this->request->getVar('jam'),
-            'ID_PELAYANAN' => $this->request->getVar('poli'),
+            'ID_PELAYANAN' => $id_pelayanan,
+            'ID_ADMIN' => $id_admin,
+            'TOTAL_BIAYA_TRANSAKSI' => $total_biaya
         ]);
-
-        session()->setFlashdata('Info', 'Jadwal Berhasil Ditambahkan');
-        return redirect()->to('pembayaran')->withInput();
+        session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
+        return redirect()->to(base_url('laporanAdmin'));
     }
 
-
-
+    public function hapus_laporan($id)
+    {
+        $this->LaporanModel->delete($id);
+        session()->setFlashdata('Info', 'Data berhasil dihapus.');
+        return redirect()->to(base_url('laporanAdmin'));
+    }
 
 
     public function logout()

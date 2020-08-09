@@ -216,6 +216,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <div> <a href="tambahDokter" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Dokter</a> </div>
                             <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
@@ -226,6 +227,7 @@
                                         <th>Hari Praktek</th>
                                         <th>Jam Praktek</th>
                                         <th>POLI</th>
+                                        <td>Aktif</td>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -240,6 +242,7 @@
                                             <td><?= $row['HARI'] ?></td>
                                             <td><?= $row['JAM'] ?></td>
                                             <td><?= $row['POLI'] ?></td>
+                                            <td><?= ($row['AKTIF'] == null) ? ' <i class="fas fa-times-circle"></i> ' : '<i class="fas fa-check-circle"></i>' ?></td>
                                             <td>
                                                 <a href="edit_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
                                                 <a href="/hapus_dokter/<?= $row['ID_DOKTER']; ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
@@ -248,9 +251,6 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <center>
-                                <div> <a href="tambahDokter" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Dokter</a> </div>
-                            </center>
                         </div>
                         <!-- /.card-body -->
                     </div>

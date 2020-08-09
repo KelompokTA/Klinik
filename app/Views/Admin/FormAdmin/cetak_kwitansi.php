@@ -32,25 +32,27 @@
                                     <div>
 
                                         <table>
-                                            <input type="hidden" name="id_transaksi" value="<?= $laporan['ID_TRANSAKSI'] ?>" class="form-control">
-                                            <tr>
-                                                <td>No Transaksi</td>
-                                                <td>:</td>
-                                                <td><?= $laporan['ID_TRANSAKSI'] ?></td>
-                                            </tr>
-                                            <?php foreach ($pasien as $row) : ?>
+                                            <?php foreach ($laporan as $row) : ?>
+                                                <input type="hidden" name="id_transaksi" value="<?= $row['ID_TRANSAKSI'] ?>" class="form-control">
+
+                                                <tr>
+                                                    <td>No Transaksi</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['ID_TRANSAKSI'] ?></td>
+                                                </tr>
+
                                                 <tr>
                                                     <td>Nama Pasien</td>
                                                     <td>:</td>
                                                     <td><?= $row['NAMA_PASIEN'] ?></td>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                            <tr>
-                                                <td>Tanggal Transaksi</td>
-                                                <td>:</td>
-                                                <td><?= $laporan['TANGGAL_TRANSAKSI'] ?></td>
-                                            </tr>
-                                            <?php foreach ($pasien as $row) : ?>
+
+                                                <tr>
+                                                    <td>Tanggal Transaksi</td>
+                                                    <td>:</td>
+                                                    <td><?= $row['created_at'] ?></td>
+                                                </tr>
+
                                                 <tr>
                                                     <td>Jenis Kelamin</td>
                                                     <td>:</td>
@@ -62,8 +64,8 @@
                                                     <td>:</td>
                                                     <td><?= $row['ALAMAT_PASIEN'] ?></td>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                            <?php foreach ($pelayanan as $row) : ?>
+
+
                                                 <tr>
                                                     <td>Biaya Obat</td>
                                                     <td>:</td>
@@ -94,7 +96,7 @@
                 </div>
                 <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak Kwitansi</button>
                 <br><br>
-                <a href="<?= base_url('pembayaran'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali</i></a>
+                <a href="<?= base_url('laporanAdmin'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali</i></a>
                 <!-- /.card -->
             </div>
             <!--/.col (right) -->

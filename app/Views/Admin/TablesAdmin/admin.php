@@ -216,6 +216,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
                             <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
@@ -225,6 +226,7 @@
                                         <th>Status</th>
                                         <th>Email</th>
                                         <th>Password</th>
+                                        <th>Aktif</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -232,6 +234,7 @@
                                 <tbody>
                                     <?php $no = 1; ?>
                                     <?php foreach ($admin as $row) : ?>
+
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
@@ -239,6 +242,7 @@
                                             <td><?= $row['STATUS_ADMIN']; ?></td>
                                             <td><?= $row['EMAIL_ADMIN']; ?></td>
                                             <td>********</td>
+                                            <td><?= ($row['AKTIF'] == null) ? ' <i class="fas fa-times-circle"></i> ' : '<i class="fas fa-check-circle"></i>' ?></td>
                                             <td>
                                                 <a href="edit_admin/<?= $row['ID_ADMIN']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
                                                 <a href="hapus_admin/<?= $row['ID_ADMIN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
@@ -247,9 +251,6 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
-                            <center>
-                                <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
-                            </center>
                         </div>
                         <!-- /.card-body -->
                     </div>

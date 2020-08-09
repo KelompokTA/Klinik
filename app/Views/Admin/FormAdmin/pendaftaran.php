@@ -256,15 +256,6 @@
                                                 <?php } ?>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Poli</label>
-                                            <select class="form-control select2" style="width: 100%;" name="poli">
-                                                <option selected disabled value="<?= old('poli'); ?>"></option>
-                                                <?php foreach ($dokter as $row) { ?>
-                                                    <option value="<?= $row['ID_JADWAL']; ?>"><?= old('id_jadwal'); ?><?= $row['POLI'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
                                         <div>
                                             <label>Nomer Antrian</label>
                                             <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
@@ -278,6 +269,13 @@
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>
                                             <br>
+                                            <!-- kalo value = 1 itu biasa, kalo null itu darurat -->
+                                            <div class="form-group">
+                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                    <input type="checkbox" name="darurat" class="custom-control-input" id="customSwitch3" value="1" checked="checked">
+                                                    <label class="custom-control-label" for="customSwitch3">Darurat</label>
+                                                </div>
+                                            </div>
                                             <!-- date_default_timezone_set('Asia/Jakarta'); -->
                                         </div>
                                         <div>
@@ -336,13 +334,8 @@
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
                                             <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                             <td>
-<<<<<<< HEAD
-                                                <a href="cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary">Cetak nomer antrian</a>
-                                                <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger">Hapus</a>
-=======
                                                 <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak antrian</a>
                                                 <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
->>>>>>> 01054ce50a31d75139d14d2b2c0542cfdb4ff661
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

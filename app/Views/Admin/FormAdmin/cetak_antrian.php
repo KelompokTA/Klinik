@@ -31,16 +31,19 @@
                                     <div>
                                         <input type="hidden" name="id_pendaftaran" value="<?= $pendaftaran['ID_PENDAFTARAN'] ?>" class="form-control">
                                         <h3 align=" center">NOMOR ANTRIAN</h3>
-                                        <td>
-                                            <h1 class=" php"><?= $pendaftaran['NOMER_ANTRIAN']; ?></h1>
-                                        </td>
-                                        <td>
-                                            <h1><?php foreach ($poli as $row) : ?><?= $row['POLI'];
-                                                                                endforeach; ?></h1>
-                                        </td>
-                                        <td>
-                                            <h5><?= date('l d-F-Y | g:i:sa', strtotime($pendaftaran['created_at'])); ?></h5>
-                                        </td>
+                                        <!-- dapet value null bakal danger, kalo 1 ya biasa aja -->
+                                        <?php foreach ($poli as $row) : ?>
+                                            <h1 class=" <?= ($row['DARURAT'] == null) ? ' text-danger font-weight-bolder ' : '' ?>">
+                                                <?= ($row['DARURAT'] == null) ? $pendaftaran['NOMER_ANTRIAN'] : $pendaftaran['NOMER_ANTRIAN']; ?>
+                                            </h1>
+                                            <td>
+
+                                                <h1><?= $row['POLI'];
+                                                endforeach; ?></h1>
+                                            </td>
+                                            <td>
+                                                <h5><?= date('l d-F-Y | g:i:sa', strtotime($pendaftaran['created_at'])); ?></h5>
+                                            </td>
                                     </div>
 
                                 </div>
