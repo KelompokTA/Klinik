@@ -175,17 +175,27 @@
                                             <label>Nama Obat <?= $validation->listErrors(); ?></label>
                                             <input type="text" name="nama_obat" value="<?= old('nama_obat'); ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autocomplete="off">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Satuan Obat</label>
-                                            <select name="satuan_obat" class=" form-control <?= ($validation->hasError('satuan_obat')) ? 'is-invalid' : ''; ?>">
-                                                <option selected disabled value="<?= old('satuan_obat'); ?>"><?= old('satuan_obat'); ?></option>
-                                                <option value="Kapsul">Kapsul</option>
-                                                <option value="tablet">tablet</option>
-                                                <option value="ampul">ampul</option>
-                                                <option value="botol">botol</option>
-                                                <option value="tube">tube</option>
-                                                <option value="capsul">capsul</option>
-                                            </select>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Kekuatan Sediaan <?= $validation->listErrors(); ?></label>
+                                                    <input type="text" name="kekuatan_sediaan" value="<?= old('kekuatan_sediaan'); ?>" class=" form-control <?= ($validation->hasError('kekuatan_sediaan')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan kekuatan sediaan ..." autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Bentuk Sediaan</label>
+                                                    <select name="bentuk_sediaan" class=" form-control <?= ($validation->hasError('bentuk_sediaan')) ? 'is-invalid' : ''; ?>">
+                                                        <option selected disabled value="<?= old('bentuk_sediaan'); ?>"><?= old('bentuk_sediaan'); ?></option>
+                                                        <option value="Kapsul">Kapsul</option>
+                                                        <option value="Tablet">Tablet</option>
+                                                        <option value="Ampul">Ampul</option>
+                                                        <option value="Tube">Tube</option>
+                                                        <option value="Capsul">Capsul</option>
+                                                        <option value="Sirup">Sirup</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Rute Pemberian</label>
@@ -197,10 +207,6 @@
                                                 <option value="transdermal">transdermal</option>
                                                 <option value="okular">Okular</option>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Dosis</label>
-                                            <input type="text" name="dosis" value="<?= old('dosis'); ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan Dosis pakai ..." autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             <label>No Batch</label>
@@ -227,7 +233,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                         <!-- /.card-body -->

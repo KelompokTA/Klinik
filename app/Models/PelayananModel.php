@@ -9,7 +9,7 @@ class PelayananModel extends Model
     protected $table = 'pelayanan';
     protected $primaryKey = 'ID_PELAYANAN';
     protected $useTimestamps = true;
-    protected $allowedFields = ['ID_PENDAFTARAN', 'STATUS_PASIEN', 'BIAYA_DOKTER','TOTAL_BIAYA_RESEP'];
+    protected $allowedFields = ['ID_PENDAFTARAN', 'STATUS_PASIEN', 'BIAYA_PELAYANAN','TOTAL_BIAYA_RESEP'];
 
     public function getPelayanan($id = false)
     {

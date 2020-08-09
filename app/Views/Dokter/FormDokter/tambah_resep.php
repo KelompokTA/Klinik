@@ -183,7 +183,7 @@
                                                         <select name="id_obat" class=" form-control <?= ($validation->hasError('id_obat')) ? 'is-invalid' : ''; ?>">
                                                             <option selected disabled value="<?= old('id_obat'); ?>"></option>
                                                             <?php foreach ($obat as $row) : ?>
-                                                                <option value="<?= $row['ID_OBAT'] . "-" . $row['HARGA_JUAL']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['SATUAN_OBAT'] . " - " . $row['HARGA_JUAL']; ?></option>
+                                                                <option value="<?= $row['ID_OBAT'] . "-" . $row['HARGA_JUAL']; ?>"><?= old('obat'); ?><?= $row['NAMA_OBAT'] . " - " . $row['BENTUK_SEDIAAN']; ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
@@ -214,8 +214,8 @@
                                                             <tr>
                                                                 <th>No</th>
                                                                 <th>Nama Obat</th>
-                                                                <th>Satuan Obat</th>
-                                                                <th>Dosis</th>
+                                                                <th>Kekuatan Sediaan</th>
+                                                                <th>Bentuk Sediaan</th>
                                                                 <th>Harga Obat</th>
                                                                 <th>Jumlah</th>
                                                                 <th>Total</th>
@@ -228,11 +228,11 @@
                                                                 <tr>
                                                                     <td><?= $no++; ?></td>
                                                                     <td><?= $row['NAMA_OBAT']; ?></td>
-                                                                    <td><?= $row['SATUAN_OBAT']; ?></td>
-                                                                    <td><?= $row['DOSIS']; ?></td>
-                                                                    <td class="text-right">Rp. <?= $row['HARGA_JUAL']; ?></td>
+                                                                    <td><?= $row['KEKUATAN_SEDIAAN']; ?></td>
+                                                                    <td><?= $row['BENTUK_SEDIAAN']; ?></td>
+                                                                    <td>Rp. <?= $row['HARGA_JUAL']; ?></td>
                                                                     <td><?= $row['JUMLAH'] ?></td>
-                                                                    <td class="text-right">Rp. <?= $row['TOTAL_BIAYA_OBAT'];?></td>
+                                                                    <td>Rp. <?= $row['TOTAL_BIAYA_OBAT']; ?></td>
                                                                     <td>
                                                                         <a href="hapus_resep/<?= $row['ID_OBAT']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
                                                                     </td>
@@ -242,7 +242,7 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-secondary">kembali</button>
+                                            <button type="submit" class="btn btn-success">Simpan</button>
                                         </form>
                                     </div>
                                 </div>
@@ -269,13 +269,6 @@
     </section>
     <!-- /.content -->
 </div>
-
-<script>
-    $('.btn btn-success').on('click', 'a', function() {
-        $('.nav-link disabled').removeClass('disabled');
-        $(this).addClass('active');
-    });
-</script>
 
 <?= $this->endSection(); ?>
 
