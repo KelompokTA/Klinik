@@ -72,18 +72,23 @@
                                                     <td><?= ($row['TOTAL_BIAYA_RESEP'] == null) ? ' 0 ' : $row['TOTAL_BIAYA_RESEP']; ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Biaya Dokter</td>
+                                                    <td>Biaya Pelayanan</td>
                                                     <td>:</td>
-                                                    <td><?= $row['BIAYA_DOKTER'] ?></td>
+                                                    <td><?= $row['BIAYA_PELAYANAN'] ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total Biaya</td>
                                                     <td>:</td>
-                                                    <td><?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_DOKTER'] ?></td>
+                                                    <td><?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'] ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </table>
-
+                                        <div class="col-6">
+                                            <p class="lead">Metode Pembayaran:</p>
+                                            <img src="../assets/img/visa.png" alt="Visa">
+                                            <img src="../assets/img/mastercard.png" alt="Mastercard">
+                                            <img src="../assets/img/paypal2.png" alt="Paypal">
+                                        </div>
                                     </div>
 
                                 </div>

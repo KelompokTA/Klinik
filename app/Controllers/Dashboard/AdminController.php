@@ -181,12 +181,21 @@ class AdminController extends BaseController
     public function cetak_laporan()
     {
         // dd($id);
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT *,SUM(TOTAL_BIAYA_TRANSAKSI) AS TOTAL FROM transaksi a
+        INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN  
+        INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
+        INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
+        INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN');
+        $results = $query->getResultArray();
+        // dd($results);
+
         $data = [
             'validation' => \Config\Services::validation(),
-            'laporan' => $this->LaporanModel->getLaporan(),
-            'pasien' => $this->PasienModel->getPasien(),
-            'pelayanan' => $this->PelayananModel->getPelayanan()
+            'laporan' => $results,
+
         ];
+        // dd($data);
         return view('Admin/FormAdmin/cetak_laporan', $data);
     }
 
@@ -518,7 +527,7 @@ class AdminController extends BaseController
         foreach ($results as $row) {
             $id_pelayanan = $row['ID_PELAYANAN'];
             $id_admin = $row['ID_ADMIN'];
-            $total_biaya = $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_DOKTER'];
+            $total_biaya = $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'];
         }
         $this->LaporanModel->save([
             'ID_PELAYANAN' => $id_pelayanan,
