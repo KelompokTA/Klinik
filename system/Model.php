@@ -8,7 +8,7 @@
  * This content is released under the MIT License (MIT)
  *
  * Copyright (c) 2014-2019 British Columbia Institute of Technology
- * Copyright (c) 2019-2020 CodeIgniter Foundation
+ * Copyright (c) 2019 CodeIgniter Foundation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@
  *
  * @package    CodeIgniter
  * @author     CodeIgniter Dev Team
- * @copyright  2019-2020 CodeIgniter Foundation
+ * @copyright  2019 CodeIgniter Foundation
  * @license    https://opensource.org/licenses/MIT	MIT License
  * @link       https://codeigniter.com
  * @since      Version 4.0.0
@@ -40,16 +40,16 @@
 namespace CodeIgniter;
 
 use Closure;
+use CodeIgniter\Exceptions\ModelException;
+use Config\Database;
+use CodeIgniter\I18n\Time;
+use CodeIgniter\Pager\Pager;
 use CodeIgniter\Database\BaseBuilder;
 use CodeIgniter\Database\BaseConnection;
 use CodeIgniter\Database\ConnectionInterface;
-use CodeIgniter\Database\Exceptions\DatabaseException;
-use CodeIgniter\Database\Exceptions\DataException;
-use CodeIgniter\Exceptions\ModelException;
-use CodeIgniter\I18n\Time;
-use CodeIgniter\Pager\Pager;
 use CodeIgniter\Validation\ValidationInterface;
-use Config\Database;
+use CodeIgniter\Database\Exceptions\DataException;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 use ReflectionClass;
 use ReflectionProperty;
 use stdClass;
@@ -242,14 +242,6 @@ class Model
 	protected $skipValidation = false;
 
 	/**
-	 * Whether rules should be removed that do not exist
-	 * in the passed in data. Used between inserts/updates.
-	 *
-	 * @var boolean
-	 */
-	protected $cleanValidationRules = true;
-
-	/**
 	 * Our validator instance.
 	 *
 	 * @var \CodeIgniter\Validation\Validation
@@ -379,12 +371,12 @@ class Model
 			$row = $row->getResult($this->tempReturnType);
 		}
 
-		$eventData = $this->trigger('afterFind', ['id' => $id, 'data' => $row]);
+		$row = $this->trigger('afterFind', ['id' => $id, 'data' => $row]);
 
 		$this->tempReturnType     = $this->returnType;
 		$this->tempUseSoftDeletes = $this->useSoftDeletes;
 
-		return $eventData['data'];
+		return $row['data'];
 	}
 
 	//--------------------------------------------------------------------
@@ -419,7 +411,7 @@ class Model
 	 * @param integer $limit
 	 * @param integer $offset
 	 *
-	 * @return array
+	 * @return array|null
 	 */
 	public function findAll(int $limit = 0, int $offset = 0)
 	{
@@ -434,12 +426,12 @@ class Model
 
 		$row = $row->getResult($this->tempReturnType);
 
-		$eventData = $this->trigger('afterFind', ['data' => $row, 'limit' => $limit, 'offset' => $offset]);
+		$row = $this->trigger('afterFind', ['data' => $row, 'limit' => $limit, 'offset' => $offset]);
 
 		$this->tempReturnType     = $this->returnType;
 		$this->tempUseSoftDeletes = $this->useSoftDeletes;
 
-		return $eventData['data'];
+		return $row['data'];
 	}
 
 	//--------------------------------------------------------------------
@@ -456,15 +448,11 @@ class Model
 
 		if ($this->tempUseSoftDeletes === true) {
 			$builder->where($this->table . '.' . $this->deletedField, null);
-		} else {
-			if ($this->useSoftDeletes === true && empty($builder->QBGroupBy) && !empty($this->primaryKey)) {
-				$builder->groupBy($this->table . '.' . $this->primaryKey);
-			}
 		}
 
 		// Some databases, like PostgreSQL, need order
 		// information to consistently return correct results.
-		if (!empty($builder->QBGroupBy) && empty($builder->QBOrderBy) && !empty($this->primaryKey)) {
+		if (empty($builder->QBOrderBy) && !empty($this->primaryKey)) {
 			$builder->orderBy($this->table . '.' . $this->primaryKey, 'asc');
 		}
 
@@ -473,12 +461,11 @@ class Model
 
 		$row = $row->getFirstRow($this->tempReturnType);
 
-		$eventData = $this->trigger('afterFind', ['data' => $row]);
+		$row = $this->trigger('afterFind', ['data' => $row]);
 
-		$this->tempReturnType     = $this->returnType;
-		$this->tempUseSoftDeletes = $this->useSoftDeletes;
+		$this->tempReturnType = $this->returnType;
 
-		return $eventData['data'];
+		return $row['data'];
 	}
 
 	//--------------------------------------------------------------------
@@ -488,13 +475,13 @@ class Model
 	 * data here. This allows it to be used with any of the other
 	 * builder methods and still get validated data, like replace.
 	 *
-	 * @param mixed   $key    Field name, or an array of field/value pairs
-	 * @param string  $value  Field value, if $key is a single field
-	 * @param boolean $escape Whether to escape values and identifiers
+	 * @param mixed        $key
+	 * @param string       $value
+	 * @param boolean|null $escape
 	 *
 	 * @return $this
 	 */
-	public function set($key, ?string $value = '', bool $escape = null)
+	public function set($key, string $value = '', bool $escape = null)
 	{
 		$data = is_array($key)
 			? $key
@@ -584,7 +571,7 @@ class Model
 				if ($value instanceof Time) {
 					switch ($dateFormat) {
 						case 'datetime':
-							$converted = $value->format('Y-m-d G:i:s');
+							$converted = $value->format('Y-m-d H:i:s');
 							break;
 						case 'date':
 							$converted = $value->format('Y-m-d');
@@ -660,7 +647,7 @@ class Model
 
 		// Validate data before saving.
 		if ($this->skipValidation === false) {
-			if ($this->cleanRules()->validate($data) === false) {
+			if ($this->validate($data) === false) {
 				return false;
 			}
 		}
@@ -668,7 +655,7 @@ class Model
 		// Must be called first so we don't
 		// strip out created_at values.
 		$data = $this->doProtectFields($data);
-		$myTime = Time::now('America/Chicago', 'en_US');
+
 		// Set created_at and updated_at with same time
 		$date = $this->setDate();
 
@@ -680,11 +667,11 @@ class Model
 			$data[$this->updatedField] = $date;
 		}
 
-		$eventData = $this->trigger('beforeInsert', ['data' => $data]);
+		$data = $this->trigger('beforeInsert', ['data' => $data]);
 
 		// Must use the set() method to ensure objects get converted to arrays
 		$result = $this->builder()
-			->set($eventData['data'], '', $escape)
+			->set($data['data'], '', $escape)
 			->insert();
 
 		// If insertion succeeded then save the insert ID
@@ -693,7 +680,7 @@ class Model
 		}
 
 		// Trigger afterInsert events with the inserted data and new ID
-		$this->trigger('afterInsert', ['id' => $this->insertID, 'data' => $eventData['data'], 'result' => $result]);
+		$this->trigger('afterInsert', ['id' => $this->insertID, 'data' => $data, 'result' => $result]);
 
 		// If insertion failed, get out of here
 		if (!$result) {
@@ -721,7 +708,7 @@ class Model
 	{
 		if (is_array($set) && $this->skipValidation === false) {
 			foreach ($set as $row) {
-				if ($this->cleanRules()->validate($row) === false) {
+				if ($this->validate($row) === false) {
 					return false;
 				}
 			}
@@ -774,14 +761,9 @@ class Model
 			$data = (array) $data;
 		}
 
-		// If it's still empty here, means $data is no change or is empty object
-		if (empty($data)) {
-			throw DataException::forEmptyDataset('update');
-		}
-
 		// Validate data before saving.
 		if ($this->skipValidation === false) {
-			if ($this->cleanRules(true)->validate($data) === false) {
+			if ($this->validate($data) === false) {
 				return false;
 			}
 		}
@@ -794,7 +776,7 @@ class Model
 			$data[$this->updatedField] = $this->setDate();
 		}
 
-		$eventData = $this->trigger('beforeUpdate', ['id' => $id, 'data' => $data]);
+		$data = $this->trigger('beforeUpdate', ['id' => $id, 'data' => $data]);
 
 		$builder = $this->builder();
 
@@ -804,10 +786,10 @@ class Model
 
 		// Must use the set() method to ensure objects get converted to arrays
 		$result = $builder
-			->set($eventData['data'], '', $escape)
+			->set($data['data'], '', $escape)
 			->update();
 
-		$this->trigger('afterUpdate', ['id' => $id, 'data' => $eventData['data'], 'result' => $result]);
+		$this->trigger('afterUpdate', ['id' => $id, 'data' => $data, 'result' => $result]);
 
 		return $result;
 	}
@@ -831,7 +813,7 @@ class Model
 	{
 		if (is_array($set) && $this->skipValidation === false) {
 			foreach ($set as $row) {
-				if ($this->cleanRules(true)->validate($row) === false) {
+				if ($this->validate($row) === false) {
 					return false;
 				}
 			}
@@ -846,15 +828,15 @@ class Model
 	 * Deletes a single record from $this->table where $id matches
 	 * the table's primaryKey
 	 *
-	 * @param integer|string|array|null $id    The rows primary key(s)
-	 * @param boolean                   $purge Allows overriding the soft deletes setting.
+	 * @param integer|array|null $id    The rows primary key(s)
+	 * @param boolean            $purge Allows overriding the soft deletes setting.
 	 *
 	 * @return mixed
 	 * @throws \CodeIgniter\Database\Exceptions\DatabaseException
 	 */
 	public function delete($id = null, bool $purge = false)
 	{
-		if (!empty($id) && (is_numeric($id) || is_string($id))) {
+		if (!empty($id) && is_numeric($id)) {
 			$id = [$id];
 		}
 
@@ -870,9 +852,7 @@ class Model
 				if (CI_DEBUG) {
 					throw new DatabaseException('Deletes are not allowed unless they contain a "where" or "like" clause.');
 				}
-				// @codeCoverageIgnoreStart
 				return false;
-				// @codeCoverageIgnoreEnd
 			}
 			$set[$this->deletedField] = $this->setDate();
 
@@ -960,7 +940,7 @@ class Model
 	{
 		// Validate data before saving.
 		if (!empty($data) && $this->skipValidation === false) {
-			if ($this->cleanRules(true)->validate($data) === false) {
+			if ($this->validate($data) === false) {
 				return false;
 			}
 		}
@@ -1058,22 +1038,22 @@ class Model
 	 * @param string  $group   Will be used by the pagination library
 	 *                         to identify a unique pagination set.
 	 * @param integer $page    Optional page number (useful when the page number is provided in different way)
-	 * @param integer $segment Optional URI segment number (if page number is provided by URI segment)
 	 *
 	 * @return array|null
 	 */
-	public function paginate(int $perPage = null, string $group = 'default', int $page = 0, int $segment = 0)
+	public function paginate(int $perPage = 20, string $group = 'default', int $page = 0)
 	{
-		$pager = \Config\Services::pager(null, null, false);
-		$page  = $page >= 1 ? $page : $pager->getCurrentPage($group);
+		// Get the necessary parts.
+		$page = $page >= 1 ? $page : (ctype_digit($_GET['page'] ?? '') && $_GET['page'] > 1 ? $_GET['page'] : 1);
 
 		$total = $this->countAllResults(false);
 
 		// Store it in the Pager library so it can be
 		// paginated in the views.
-		$this->pager = $pager->store($group, $page, $perPage, $total, $segment);
-		$perPage     = $this->pager->getPerPage($group);
-		$offset      = ($page - 1) * $perPage;
+		$pager       = \Config\Services::pager();
+		$this->pager = $pager->store($group, $page, $perPage, $total);
+
+		$offset = ($page - 1) * $perPage;
 
 		return $this->findAll($perPage, $offset);
 	}
@@ -1190,10 +1170,13 @@ class Model
 		switch ($this->dateFormat) {
 			case 'int':
 				return $currentDate;
+				break;
 			case 'datetime':
-				return date('Y-m-d G:i:s', $currentDate);
+				return date('Y-m-d H:i:s', $currentDate);
+				break;
 			case 'date':
 				return date('Y-m-d', $currentDate);
+				break;
 			default:
 				throw ModelException::forNoDateFormat(get_class($this));
 		}
@@ -1295,23 +1278,6 @@ class Model
 	//--------------------------------------------------------------------
 
 	/**
-	 * Should validation rules be removed before saving?
-	 * Most handy when doing updates.
-	 *
-	 * @param boolean $choice
-	 *
-	 * @return $this
-	 */
-	public function cleanRules(bool $choice = false)
-	{
-		$this->cleanValidationRules = $choice;
-
-		return $this;
-	}
-
-	//--------------------------------------------------------------------
-
-	/**
 	 * Validate the data against the validation rules (or the validation group)
 	 * specified in the class property, $validationRules.
 	 *
@@ -1339,15 +1305,17 @@ class Model
 			$rules = $this->validation->loadRuleGroup($rules);
 		}
 
-		$rules = $this->cleanValidationRules
-			? $this->cleanValidationRules($rules, $data)
-			: $rules;
+		$rules = $this->cleanValidationRules($rules, $data);
 
 		// If no data existed that needs validation
 		// our job is done here.
 		if (empty($rules)) {
 			return true;
 		}
+
+		// Replace any placeholders (i.e. {id}) in the rules with
+		// the value found in $data, if exists.
+		$rules = $this->fillPlaceholders($rules, $data);
 
 		$this->validation->setRules($rules, $this->validationMessages);
 		$valid = $this->validation->run($data, null, $this->DBGroup);
@@ -1397,10 +1365,6 @@ class Model
 	 * The value of {id} would be replaced with the actual id in the form data:
 	 *
 	 *  'required|is_unique[users,email,id,13]'
-	 *
-	 * @codeCoverageIgnore
-	 *
-	 * @deprecated use fillPlaceholders($rules, $data) from Validation instead
 	 *
 	 * @param array $rules
 	 * @param array $data
@@ -1488,9 +1452,8 @@ class Model
 		if ($this->tempUseSoftDeletes === true) {
 			$this->builder()->where($this->table . '.' . $this->deletedField, null);
 		}
-		$this->tempUseSoftDeletes = $this->useSoftDeletes;
 
-		return $this->builder()->testMode($test)->countAllResults($reset);
+		return $this->builder()->countAllResults($reset, $test);
 	}
 
 	/**
@@ -1502,21 +1465,21 @@ class Model
 	 * It is the responsibility of the callback methods to return
 	 * the data itself.
 	 *
-	 * Each $eventData array MUST have a 'data' key with the relevant
+	 * Each $data array MUST have a 'data' key with the relevant
 	 * data for callback methods (like an array of key/value pairs to insert
 	 * or update, an array of results, etc)
 	 *
 	 * @param string $event
-	 * @param array  $eventData
+	 * @param array  $data
 	 *
 	 * @return mixed
 	 * @throws \CodeIgniter\Database\Exceptions\DataException
 	 */
-	protected function trigger(string $event, array $eventData)
+	protected function trigger(string $event, array $data)
 	{
 		// Ensure it's a valid event
 		if (!isset($this->{$event}) || empty($this->{$event})) {
-			return $eventData;
+			return $data;
 		}
 
 		foreach ($this->{$event} as $callback) {
@@ -1524,10 +1487,10 @@ class Model
 				throw DataException::forInvalidMethodTriggered($callback);
 			}
 
-			$eventData = $this->{$callback}($eventData);
+			$data = $this->{$callback}($data);
 		}
 
-		return $eventData;
+		return $data;
 	}
 
 	//--------------------------------------------------------------------
@@ -1601,10 +1564,6 @@ class Model
 		//, since that will interrupt the usability flow
 		// and break intermingling of model and builder methods.
 		if ($name !== 'builder' && empty($result)) {
-			if (!method_exists($this->builder(), $name)) {
-				$className = get_class($this);
-				throw new \BadMethodCallException("Call to undefined method $className::$name");
-			}
 			return $result;
 		}
 		if ($name !== 'builder' && !$result instanceof BaseBuilder) {

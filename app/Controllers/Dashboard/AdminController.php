@@ -231,14 +231,12 @@ class AdminController extends BaseController
     }
     public function save_pendaftaran()
     {
-        $tgl = date('d-F-Y | H:i:s');
         $this->PendaftaranModel->save([
             'ID_ADMIN' => $this->request->getVar('id_admin'),
             'ID_PASIEN' => $this->request->getVar('id_pasien'),
             'ID_DOKTER' => $this->request->getVar('id_dokter'),
             'NOMER_ANTRIAN' => $this->request->getVar('no_antrian'),
             'DARURAT' => $this->request->getVar('darurat'),
-            'created_at' => $tgl
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -521,7 +519,7 @@ class AdminController extends BaseController
     {
         $db = \Config\Database::connect();
         $query = $db->query('SELECT * FROM 
-         pelayanan b  
+        pelayanan b  
         INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
         INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
         INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN WHERE ID_PELAYANAN =' . $id);

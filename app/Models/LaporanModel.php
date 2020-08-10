@@ -9,7 +9,6 @@ class LaporanModel extends Model
 
     protected $table = 'transaksi';
     protected $primaryKey = 'ID_TRANSAKSI';
-    protected $useTimestamps = true;
     protected $allowedFields = ['ID_ADMIN','ID_PELAYANAN','TOTAL_BIAYA_TRANSAKSI'];
 
     public function getLaporan($id = false)
