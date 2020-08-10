@@ -194,15 +194,15 @@
                                                                     <div class="form-group">
                                                                         <label>Keadaan Umum</label>
                                                                         <div class="custom-control custom-radio">
-                                                                            <input class="custom-control-input" type="radio" id="customRadio1" name="keadaan_umum">
+                                                                            <input class="custom-control-input" type="radio" id="customRadio1" name="keadaan_umum" value="Baik">
                                                                             <label for="customRadio1" class="custom-control-label">Baik</label>
                                                                         </div>
                                                                         <div class="custom-control custom-radio">
-                                                                            <input class="custom-control-input" type="radio" id="customRadio2" name="keadaan_umum">
+                                                                            <input class="custom-control-input" type="radio" id="customRadio2" name="keadaan_umum" value="Sesak">
                                                                             <label for="customRadio2" class="custom-control-label">Sesak</label>
                                                                         </div>
                                                                         <div class="custom-control custom-radio">
-                                                                            <input class="custom-control-input" type="radio" id="customRadio3" name="keadaan_umum">
+                                                                            <input class="custom-control-input" type="radio" id="customRadio3" name="keadaan_umum" value="Pucat">
                                                                             <label for="customRadio3" class="custom-control-label">Pucat</label>
                                                                         </div>
                                                                     </div>
@@ -211,11 +211,11 @@
                                                                     <div class="form-group">
                                                                         <label class="font-weight-lighter" text-secondary">refresh pilihan Shift+F5</label>
                                                                         <div class="custom-control custom-radio">
-                                                                            <input class="custom-control-input" type="radio" id="customRadio4" name="keadaan_umum">
+                                                                            <input class="custom-control-input" type="radio" id="customRadio4" name="keadaan_umum" value="Lemah">
                                                                             <label for="customRadio4" class="custom-control-label">Lemah</label>
                                                                         </div>
                                                                         <div class="custom-control custom-radio">
-                                                                            <input class="custom-control-input" type="radio" id="customRadio5" name="keadaan_umum">
+                                                                            <input class="custom-control-input" type="radio" id="customRadio5" name="keadaan_umum" value="Kesadaran Menurun">
                                                                             <label for="customRadio5" class="custom-control-label">Kesadaran Menurun</label>
                                                                         </div>
                                                                         <div class="input-group">

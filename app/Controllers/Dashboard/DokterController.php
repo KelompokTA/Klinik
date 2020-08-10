@@ -243,9 +243,17 @@ class DokterController extends BaseController
             'SUHU' => $this->request->getVar('suhu'),
             'BB' => $this->request->getVar('berat_badan'),
             'TB' => $this->request->getVar('tinggi_badan'),
-            'RENCANA_TINDAKAN' => $this->request->getVar('rencana_tindakan'),
+            'RENCANA_TINDAKAN' => $this->request->getVar('rencana_tindakan')
         ]);
-
+        $data = [
+            'asesmen' => $this->AsesmenModel->getAsesmen()
+        ];
+        dd($data);
+        foreach ($data as $row) {
+            $id = $row['ID_ASESMEN'];
+            
+        }
+            
         if ($this->request->getVar('rencana_tindakan') == 'Diagnosa') {
             session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
             return redirect()->to(base_url('tambah_diagnosa/' . $id))->withInput();
@@ -256,13 +264,47 @@ class DokterController extends BaseController
 
     public function tambah_diagnosa($id)
     {
-        echo "diagnosa";
         dd($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'asesmen' => $this->AsesmenModel->getAsesmen($id)
+        ];
+        session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
+        return view('Dokter/FormDokter/tambah_diagnosa', $data);     
+    }
+
+    public function save_diagnosa($id)
+    {
+        
+        $this->DiagnosaModel->save([
+            'ID_ASESMEN' => $this->request->getVar('id_asesmen'),
+            'DIAGNOSA_PRIMER' => $this->request->getVar('diagnosa_primer'),
+            'DIAGNOSA_SEKUNDER' => $this->request->getVar('diagnosa_sekunder'),
+            'DIAGNOSA_TERSIER' => $this->request->getVar('diagnosa_tersier')
+        ]);
+
+        if ($this->request->getVar('aksi') == 'surat_rujukan') {
+            session()->setFlashdata('Info', 'Diagnosa Berhasil Ditambah');
+            return redirect()->to(base_url('tambah_rujukan/' . $id))->withInput();
+        }
+        session()->setFlashdata('Info', 'Diagnosa Berhasil Ditambah');
+        return redirect()->to(base_url('tambahPelayanan'))->withInput();
     }
 
     public function tambah_rujukan($id)
     {
-        echo "rujukan";
-        dd($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'Diagnosa' => $this->DiagnosaModel->getDiagnosa($id),
+            'id' => $id
+        ];
+        return view('Dokter/FormDokter/tambah_rujukan', $data);
+    }
+
+    public function save_rujukan($id)
+    {
+        
+        session()->setFlashdata('Info', 'Surat Rujukan Berhasil Dibuat');
+        return redirect()->to(base_url('tambahPelayanan'))->withInput();
     }
 }

@@ -108,7 +108,10 @@ $routes->get('/tambah_asesmen/(:num)', 'Dashboard\DokterController::tambah_asesm
 $routes->post('/save_asesmen/(:num)', 'Dashboard\DokterController::save_asesmen/$1');
 
 $routes->get('/tambah_diagnosa/(:num)', 'Dashboard\DokterController::tambah_diagnosa/$1');
+$routes->post('/save_diagnosa/(:num)', 'Dashboard\DokterController::save_diagnosa/$1');
+
 $routes->get('/tambah_rujukan/(:num)', 'Dashboard\DokterController::tambah_rujukan/$1');
+$routes->post('/save_rujukan/(:num)', 'Dashboard\DokterController::save_rujukan/$1');
 
 
 
