@@ -178,21 +178,24 @@
                                 <div class="active tab-pane" id="Pelayanan">
                                     <!-- PELAYANAN -->
                                     <div class="post">
-                                        <form role="form" action="<?= base_url('save_rujukan'); ?>/<?= $id; ?>" method="POST">
+                                        <form role="form" action="<?= base_url('save_rujukan'); ?>/<?= $id ?>" method="POST">
                                             <div class=" form-group">
-                                                <input name="id_asesmen" type="hidden" value="<?= $id ?>">
+                                                <input name="id_asesmen" type="hidden" value="<?php foreach ($asesmen as $row) : ?><?= $row['MAX(ID_ASESMEN)']; ?><?php endforeach; ?>">
+                                            </div>
+                                            <div class=" form-group">
+                                                <input name="id_diagnosa" type="hidden" value="<?php foreach ($diagnosa as $row) : ?><?= $row['DIAGNOSA_PRIMER']; ?><?php endforeach; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Diagnosa primer</label>
-                                                <textarea name="diagnosa_primer" class="form-control" rows="4" placeholder="Belum ada diagnosa ..." readonly></textarea>
+                                                <textarea name="diagnosa_primer" class="form-control" rows="4" placeholder="Belum ada diagnosa ..." readonly><?php foreach ($diagnosa as $row) : ?><?= $row['DIAGNOSA_PRIMER']; ?><?php endforeach; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Diagnosa Sekunder</label>
-                                                <textarea name="diagnosa_sekunder" class="form-control" rows="3" placeholder="Belum ada diagnosa ..." readonly></textarea>
+                                                <textarea name="diagnosa_sekunder" class="form-control" rows="3" placeholder="Belum ada diagnosa ..." readonly><?php foreach ($diagnosa as $row) : ?><?= $row['DIAGNOSA_SEKUNDER']; ?><?php endforeach; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Diagnosa Tersier</label>
-                                                <textarea name="diagnosa_tersier" class="form-control" rows="2" placeholder="Belum ada diagnosa ..." readonly></textarea>
+                                                <textarea name="diagnosa_tersier" class="form-control" rows="2" placeholder="Belum ada diagnosa ..." readonly><?php foreach ($diagnosa as $row) : ?><?= $row['DIAGNOSA_TERSIER']; ?><?php endforeach; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Alasan Rujuk</label>
@@ -235,5 +238,3 @@
 </div>
 
 <?= $this->endSection(); ?>
-
-//- select data paling akhir dari antrian (select * from user orderby id desc limit 1)

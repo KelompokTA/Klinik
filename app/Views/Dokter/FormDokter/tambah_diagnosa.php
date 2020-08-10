@@ -179,9 +179,9 @@
                                 <div class="active tab-pane" id="Pelayanan">
                                     <!-- PELAYANAN -->
                                     <div class="post">
-                                        <form role="form" action="<?= base_url('save_diagnosa'); ?>/<?= $id; ?>" method="POST">
+                                        <form role="form" action="<?= base_url('save_diagnosa'); ?>/<?= $id ?>" method="POST">
                                             <div class=" form-group">
-                                                <input name="id_asesmen" type="hidden" value="<?= $id ?>">
+                                                <input name="id_asesmen" type="hidden" value="<?php foreach ($asesmen as $row) : ?><?= $row['MAX(ID_ASESMEN)']; ?><?php endforeach; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Diagnosa primer</label>

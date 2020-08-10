@@ -350,5 +350,3 @@
 </div>
 
 <?= $this->endSection(); ?>
-
-//- select data paling akhir dari antrian (select * from user orderby id desc limit 1)

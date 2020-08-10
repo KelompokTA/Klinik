@@ -245,29 +245,24 @@ class DokterController extends BaseController
             'TB' => $this->request->getVar('tinggi_badan'),
             'RENCANA_TINDAKAN' => $this->request->getVar('rencana_tindakan')
         ]);
-        $data = [
-            'asesmen' => $this->AsesmenModel->getAsesmen()
-        ];
-        dd($data);
-        foreach ($data as $row) {
-            $id = $row['ID_ASESMEN'];
-            
-        }
-            
+        //  insert into from diagnosa (id asesmen) values ((select max(idassesmen+1) ..)) subquery
         if ($this->request->getVar('rencana_tindakan') == 'Diagnosa') {
             session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
-            return redirect()->to(base_url('tambah_diagnosa/' . $id))->withInput();
+            return redirect()->to(base_url('tambah_diagnosa/'.$id))->withInput();
         }
         session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
-        return redirect()->to(base_url('tambah_rujukan/' . $id))->withInput();
+        return redirect()->to(base_url('tambah_rujukan/'.$id))->withInput();
     }
 
     public function tambah_diagnosa($id)
     {
-        dd($id);
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT MAX(ID_ASESMEN) FROM asesmen');
+        $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
-            'asesmen' => $this->AsesmenModel->getAsesmen($id)
+            'asesmen' => $results,
+            'id' => $id
         ];
         session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
         return view('Dokter/FormDokter/tambah_diagnosa', $data);     
@@ -282,28 +277,49 @@ class DokterController extends BaseController
             'DIAGNOSA_SEKUNDER' => $this->request->getVar('diagnosa_sekunder'),
             'DIAGNOSA_TERSIER' => $this->request->getVar('diagnosa_tersier')
         ]);
-
         if ($this->request->getVar('aksi') == 'surat_rujukan') {
             session()->setFlashdata('Info', 'Diagnosa Berhasil Ditambah');
             return redirect()->to(base_url('tambah_rujukan/' . $id))->withInput();
         }
+        $this->PelayananModel->save([
+            'ID_PELAYANAN' => $id,
+            'STATUS_PASIEN' => 'Diagnosa Selesai'
+        ]);
         session()->setFlashdata('Info', 'Diagnosa Berhasil Ditambah');
         return redirect()->to(base_url('tambahPelayanan'))->withInput();
     }
 
     public function tambah_rujukan($id)
     {
+        $db = \Config\Database::connect();
+        $query_asesmen = $db->query('SELECT MAX(ID_ASESMEN) FROM asesmen');
+        $result_asesmen = $query_asesmen->getResultArray();
+        if (isset($_POST['save_asesmen/'.$id])) {
+            $result_diagnosa = null;
+        }
+            $query_diagnosa = $db->query('SELECT * FROM diagnosa ORDER BY ID_DIAGNOSA DESC LIMIT 1');
+            $result_diagnosa = $query_diagnosa->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
-            'Diagnosa' => $this->DiagnosaModel->getDiagnosa($id),
-            'id' => $id
+            'asesmen' => $result_asesmen,
+            'diagnosa' => $result_diagnosa,
+            'id' => $id            
         ];
         return view('Dokter/FormDokter/tambah_rujukan', $data);
     }
 
     public function save_rujukan($id)
     {
-        
+        $this->RujukModel->save([
+            'ID_ASESMEN' => $this->request->getVar('id_asesmen'),
+            'ID_DIAGNOSA' => $this->request->getVar('id_diagnosa'),
+            'ALASAN_RUJUK' => $this->request->getVar('alasan_rujuk'),
+            'TUJUAN_RUJUK' => $this->request->getVar('tujuan_rujuk')
+        ]);
+        $this->PelayananModel->save([
+            'ID_PELAYANAN' => $id,
+            'STATUS_PASIEN' => 'Rujukan'
+        ]);
         session()->setFlashdata('Info', 'Surat Rujukan Berhasil Dibuat');
         return redirect()->to(base_url('tambahPelayanan'))->withInput();
     }

@@ -235,7 +235,7 @@
                                                                 <td><?= $row['STATUS_DOKTER'] ?></td>
                                                                 <td>Rp. <?= $row['BIAYA_PELAYANAN'] ?></td>
                                                                 <td class="<?= ($row['TOTAL_BIAYA_RESEP'] == null) ? ' text-info font-weight-bolder ' : '' ?>"><?= ($row['TOTAL_BIAYA_RESEP'] == null) ? ' Tidak Ada Resep ' : 'Rp. ' . $row['TOTAL_BIAYA_RESEP']; ?></td>
-                                                                <td class=" <?= ($row['STATUS_PASIEN'] == "Belum Ada Tindakan") ? ' text-danger font-weight-bolder ' : 'text-success font-weight-bolder' ?>"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?></td>
+                                                                <td class=" <?php if( $row['STATUS_PASIEN'] == "Belum Ada Tindakan") { echo ' text-danger font-weight-bolder '; } else if($row['STATUS_PASIEN'] == "Rujukan") { echo ' text-warning font-weight-bolder ';};?> text-success font-weight-bolder"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?></td>
                                                                 <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Tambah Resep</a>
