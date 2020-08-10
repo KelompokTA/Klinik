@@ -233,11 +233,12 @@
                                             <td><?= $row['ID_TRANSAKSI']; ?></td>
                                             <td><?= $row['ID_ADMIN']; ?></td>
                                             <td><?= $row['ID_PELAYANAN']; ?></td>
-                                            <td><?= $row['created_at']; ?></td>
+                                            <td><?php setlocale(LC_ALL, 'id-ID');
+                                                echo strftime("%d %B %Y ", strtotime($row['created_at'])) . date('| G:i:s', strtotime($row['created_at'])); ?></td>
                                             <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                                             <td>
                                                 <a href="cetak_kwitansi/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak Kwitansi</a>
-                                                <a href="edit_admin/<?= $row['ID_TRANSAKSI']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+
                                                 <a href="hapus_laporan/<?= $row['ID_TRANSAKSI']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>

@@ -68,7 +68,9 @@
                 <div class="col-12">
                     <h4>
                         <img src="assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png"> KLINIK INDONESIA SEHAT
-                        <small class="float-right"> <?php echo ' Tanggal: ' . tgl_indo(date('Y-m-d')); ?></small>
+                        <small class="float-right"> <?php
+                                                    setlocale(LC_ALL, 'id-ID');
+                                                    echo strftime("%A, %d %B %Y");  ?></small>
                     </h4>
                 </div>
                 <!-- /.col -->
