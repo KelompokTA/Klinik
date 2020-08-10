@@ -42,7 +42,9 @@
                                                 endforeach; ?></h1>
                                             </td>
                                             <td>
-                                                <h5><?= date('l d-F-Y | g:i:sa', strtotime($pendaftaran['created_at'])); ?></h5>
+                                                <h5><?php
+                                                    setlocale(LC_ALL, 'id-ID');
+                                                    echo strftime("%A, %d %B %Y", strtotime($pendaftaran['created_at'])) . "\n"; ?></h5>
                                             </td>
                                     </div>
 

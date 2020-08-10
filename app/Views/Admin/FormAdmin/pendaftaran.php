@@ -332,7 +332,10 @@
                                             <td><?= $row['NAMA_DOKTER']; ?></td>
                                             <td><?= $row['POLI']; ?></td>
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
-                                            <td><?= date('d-F-Y | H:i:s', strtotime($row['created_at'])); ?></td>
+                                            <td><?php
+                                                setlocale(LC_ALL, 'id-ID');
+                                                echo strftime("%A, %d %B %Y", strtotime($row['created_at'])) . "\n"; ?></td>
+
                                             <td>
                                                 <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak antrian</a>
                                                 <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
