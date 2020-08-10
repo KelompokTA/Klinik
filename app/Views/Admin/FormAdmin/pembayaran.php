@@ -281,7 +281,7 @@
 
                                                         <td><?= $ds['ID_PELAYANAN']; ?></td>
                                                         <td><?= $tgl ?></td>
-                                                        <td><?= $ds['TOTAL_BIAYA_RESEP'] + $ds['BIAYA_DOKTER']; ?></td>
+                                                        <td><?= $ds['TOTAL_BIAYA_RESEP'] + $ds['BIAYA_PELAYANAN']; ?></td>
                                                         <td>
                                                             <a href="save_pembayaran/<?= $ds['ID_PELAYANAN']; ?>" class="btn btn-success"><i class="fas fa-wallet"></i> Bayar</a>
                                                         </td>

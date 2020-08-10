@@ -21,7 +21,9 @@
     <!-- untuk menampilkan apa saja yg ada akan diprint -->
     <style type="text/css">
         @media print {
-            #btn {
+
+            #btn,
+            header {
                 display: none;
             }
         }
@@ -59,7 +61,6 @@
     <div class="wrapper">
         <!-- Navbar -->
 
-
         <!-- Main content -->
         <div class="invoice p-3 mb-3">
             <!-- title row -->
@@ -67,7 +68,7 @@
                 <div class="col-12">
                     <h4>
                         <img src="assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png"> KLINIK INDONESIA SEHAT
-                        <small class="float-right"> <?php echo ' Date: ' . tgl_indo(date('Y-m-d')); ?></small>
+                        <small class="float-right"> <?php echo ' Tanggal: ' . tgl_indo(date('Y-m-d')); ?></small>
                     </h4>
                 </div>
                 <!-- /.col -->
@@ -77,9 +78,7 @@
                 <div class="col-sm-4 invoice-col">
                     <br>
                     <br>
-                    <b>Order ID:</b> 4F3S8J<br>
-                    <b><?php echo 'Pembayaran sampai : ' .  tgl_indo(date('Y-m-'));  ?><br>
-                        <b>Account:</b> 968-34567
+                    <b><?php echo 'Laporan bulan : ' .  tgl_indo(date('Y-m-'));  ?>
                 </div>
                 <!-- /.col -->
             </div>
@@ -92,41 +91,27 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>ID Transaksi</th>
-                                <th>ID_Pelayanan</th>
-                                <th>Description</th>
-                                <th>Subtotal</th>
+                                <th>Tanggal Transaksi</th>
+                                <th>Nama Admin</th>
+                                <th>Nomor RM</th>
+                                <th>Biaya Pelayanan</th>
+                                <th>Biaya Resep</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Call of Duty</td>
-                                <td>455-981-221</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
-                                <td>$64.50</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Need for Speed IV</td>
-                                <td>247-925-726</td>
-                                <td>Wes Anderson umami biodiesel</td>
-                                <td>$50.00</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Monsters DVD</td>
-                                <td>735-845-642</td>
-                                <td>Terry Richardson helvetica tousled street art master</td>
-                                <td>$10.70</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Grown Ups Blue Ray</td>
-                                <td>422-568-642</td>
-                                <td>Tousled lomo letterpress</td>
-                                <td>$25.99</td>
-                            </tr>
+                            <?php $no = 1; ?>
+                            <?php foreach ($laporan as $row) { ?>
+                                <tr>
+                                    <td><?= $no++; ?></td>
+                                    <td><?= $row['created_at']; ?></td>
+                                    <td><?= $row['NAMA_ADMIN']; ?></td>
+                                    <td><?= $row['NO_RM']; ?></td>
+                                    <td><?= $row['BIAYA_PELAYANAN']; ?></td>
+                                    <td><?= $row['TOTAL_BIAYA_RESEP']; ?></td>
+                                    <td><?= $row['BIAYA_PELAYANAN'] + $row['TOTAL_BIAYA_RESEP']; ?></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -136,42 +121,22 @@
 
             <div class="row">
                 <!-- accepted payments column -->
-                <div class="col-6">
-                    <p class="lead">Payment Methods:</p>
-                    <img src="dist/img/credit/visa.png" alt="Visa">
-                    <img src="dist/img/credit/mastercard.png" alt="Mastercard">
-                    <img src="dist/img/credit/american-express.png" alt="American Express">
-                    <img src="dist/img/credit/paypal2.png" alt="Paypal">
+                <div class="col-9">
 
-                    <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                        plugg
-                        dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                    </p>
                 </div>
                 <!-- /.col -->
-                <div class="col-6">
-                    <p class="lead">Jumlah sampai : 2/22/2014</p>
+                <div class="col-3">
+
 
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-                                <th style="width:50%">Subtotal:</th>
-                                <td>$250.30</td>
+                                <th style="width:50%">Subtotal: </th>
+                                <td><?= $row['TOTAL']; ?></td>
                             </tr>
-                            <tr>
-                                <th>Tax (9.3%)</th>
-                                <td>$10.34</td>
-                            </tr>
-                            <tr>
-                                <th>Shipping:</th>
-                                <td>$5.80</td>
-                            </tr>
-                            <tr>
-                                <th>Total:</th>
-                                <td>$265.24</td>
-                            </tr>
+
                         </table>
+
                     </div>
                 </div>
                 <!-- /.col -->
