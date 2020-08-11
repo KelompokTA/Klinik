@@ -6,7 +6,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <img src="assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="../../assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Klinik</span>
     </a>
 
@@ -15,7 +15,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="../../assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Dokter</a>
@@ -162,17 +162,295 @@
                         <div class="card-header">
                             <h3 class="card-title">Detail Riwayat Pasien</h3>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
-
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h3 class="card-title">Data Pasien</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>No RM</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['NO_RM']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Nama Pasien</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['NAMA_PASIEN']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Tempat Lahir</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['TEMPAT_LAHIR']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Tanggal Lahir</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?php setlocale(LC_ALL, 'id-ID');
+                                                                                                                                    echo strftime("%d %B %Y", strtotime($row['TANGGAL_LAHIR'])); ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Umur</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['UMUR']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Jenis Kelamin</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['JENIS_KELAMIN']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <!-- text input -->
+                                            <div class="form-group">
+                                                <label>Alamat</label>
+                                                <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['ALAMAT_PASIEN']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="card card-success">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Data Dokter</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Nama Dokter</label>
+                                                        <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['NAMA_DOKTER']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Status Dokter</label>
+                                                        <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['STATUS_DOKTER']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card card-warning">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Data Obat</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <?php foreach ($resep as $row) : ?>
+                                                    <div class="col-sm-3">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Nama obat</label>
+                                                            <input type="text" name="nama_pasien" value="<?= $row['NAMA_OBAT']; ?>" class=" form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Kekuatan Sediaan</label>
+                                                            <input type="text" name="nama_pasien" value="<?= $row['KEKUATAN_SEDIAAN']; ?>" class=" form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Bentuk Sediaan</label>
+                                                            <input type="text" name="nama_pasien" value="<?= $row['BENTUK_SEDIAAN']; ?>" class=" form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Dosis</label>
+                                                            <input type="text" name="nama_pasien" value="<?= $row['DOSIS']; ?>" class=" form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <!-- text input -->
+                                                        <div class="form-group">
+                                                            <label>Jumlah</label>
+                                                            <input type="text" name="nama_pasien" value="<?= $row['JUMLAH']; ?>" class=" form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card card-danger">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Riwayat Pemeriksaan</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Keluhan Utama</label>
+                                                        <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['KELUHAN_UTAMA']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Keadaan Umum</label>
+                                                        <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['KEADAAN_UMUM']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label>Alergi</label>
+                                                        <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['ALERGI']; ?><?php endforeach; ?>" class=" form-control" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label>Tekanan Darah</label>
+                                                        <div class="input-group">
+                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['TD']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">mmHg</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label>Nadi</label>
+                                                        <div class="input-group">
+                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['N']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">x/m</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label>Respirasi</label>
+                                                        <div class="input-group">
+                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['RR']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">x/m</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label>Suhu</label>
+                                                        <div class="input-group">
+                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['SUHU']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">&degC</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label>Berat Badan</label>
+                                                        <div class="input-group">
+                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['BB']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Kg</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label>Tinggi Badan</label>
+                                                        <div class="input-group">
+                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['TB']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">cm</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>Riwayat Penyakit Dahulu</label>
+                                                        <textarea name="rpd" class="form-control" rows="3" readonly><?php foreach ($detail as $row) : ?><?= $row['RPD']; ?><?php endforeach; ?></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>Riwayat Penyakit Sekarang</label>
+                                                        <textarea name="rpd" class="form-control" rows="3" readonly><?php foreach ($detail as $row) : ?><?= $row['RPS']; ?><?php endforeach; ?></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="card card-danger">
+                                                                <div class="card-header">
+                                                                    <h3 class="card-title">Riwayat Diagnosa</h3>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label>Diagnosa Primer</label>
+                                                                            <textarea name="rpd" class="form-control " rows="3" readonly><?php foreach ($detail as $row) : ?><?= $row['DIAGNOSA_PRIMER']; ?><?php endforeach; ?></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label>Diagnosa Sekunder</label>
+                                                                            <textarea name="rpd" class="form-control" rows="3" readonly><?php foreach ($detail as $row) : ?><?= $row['DIAGNOSA_SEKUNDER']; ?><?php endforeach; ?></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <div class="form-group">
+                                                                            <label>Diagnosa Tersier</label>
+                                                                            <textarea name="rpd" class="form-control" rows="3" readonly><?php foreach ($detail as $row) : ?><?= $row['DIAGNOSA_TERSIER']; ?><?php endforeach; ?></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a href="<?= base_url('riwayatDokter'); ?>" class="btn btn-secondary" style="text-align: center;">Kembali</a>
+                                            <!-- /.card-body -->
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </div><!-- /.container-fluid -->
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
     <!-- /.content -->
 </div>

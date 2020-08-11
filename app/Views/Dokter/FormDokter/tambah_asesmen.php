@@ -209,7 +209,7 @@
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group">
-                                                                        <label class="font-weight-lighter" text-secondary">refresh pilihan Shift+F5</label>
+                                                                        <label class="font-weight-lighter text-secondary">refresh pilihan Shift+F5</label>
                                                                         <div class="custom-control custom-radio">
                                                                             <input class="custom-control-input" type="radio" id="customRadio4" name="keadaan_umum" value="Lemah">
                                                                             <label for="customRadio4" class="custom-control-label">Lemah</label>
@@ -217,12 +217,6 @@
                                                                         <div class="custom-control custom-radio">
                                                                             <input class="custom-control-input" type="radio" id="customRadio5" name="keadaan_umum" value="Kesadaran Menurun">
                                                                             <label for="customRadio5" class="custom-control-label">Kesadaran Menurun</label>
-                                                                        </div>
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <span class="input-group-text"><input type="radio" id="customRadio6"></span>
-                                                                            </div>
-                                                                            <input name="keadaan_umum" value="<?= old('keadaan_umum'); ?>" for="customRadio6" type="text" class="form-control" placeholder="lainnya ..." autocomplete="off">
                                                                         </div>
                                                                     </div>
                                                                 </div>
