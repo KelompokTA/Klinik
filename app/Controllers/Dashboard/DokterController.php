@@ -250,6 +250,15 @@ class DokterController extends BaseController
             session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
             return redirect()->to(base_url('tambah_diagnosa/'.$id))->withInput();
         }
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT MAX(ID_ASESMEN) AS id FROM asesmen');
+        $results = $query->getResultArray();
+        foreach ($results as $row){
+            $row['id'];
+        }
+        $this->DiagnosaModel->save([
+            'ID_ASESMEN' => $row,
+        ]);
         session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
         return redirect()->to(base_url('tambah_rujukan/'.$id))->withInput();
     }
@@ -294,11 +303,8 @@ class DokterController extends BaseController
         $db = \Config\Database::connect();
         $query_asesmen = $db->query('SELECT MAX(ID_ASESMEN) FROM asesmen');
         $result_asesmen = $query_asesmen->getResultArray();
-        if (isset($_POST['save_asesmen/'.$id])) {
-            $result_diagnosa = null;
-        }
-            $query_diagnosa = $db->query('SELECT * FROM diagnosa ORDER BY ID_DIAGNOSA DESC LIMIT 1');
-            $result_diagnosa = $query_diagnosa->getResultArray();
+        $query_diagnosa = $db->query('SELECT * FROM diagnosa ORDER BY ID_DIAGNOSA DESC LIMIT 1');
+        $result_diagnosa = $query_diagnosa->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
             'asesmen' => $result_asesmen,

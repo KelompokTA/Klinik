@@ -183,7 +183,7 @@
                                                 <input name="id_asesmen" type="hidden" value="<?php foreach ($asesmen as $row) : ?><?= $row['MAX(ID_ASESMEN)']; ?><?php endforeach; ?>">
                                             </div>
                                             <div class=" form-group">
-                                                <input name="id_diagnosa" type="hidden" value="<?php foreach ($diagnosa as $row) : ?><?= $row['DIAGNOSA_PRIMER']; ?><?php endforeach; ?>">
+                                                <input name="id_diagnosa" type="hidden" value="<?php foreach ($diagnosa as $row) : ?><?= $row['ID_DIAGNOSA']; ?><?php endforeach; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Diagnosa primer</label>
