@@ -186,7 +186,8 @@
                                                 <select name="id_pendaftaran" class="form-control select2" style="width: 100%;" <?= ($validation->hasError('id_pendaftaran')) ? 'is-invalid' : ''; ?>">
                                                     <option selected disabled value="<?= old('id_pendaftaran'); ?>"><?= old('id_pendaftaran'); ?></option>
                                                     <?php foreach ($pendaftaran as $row) : ?>
-                                                        <option value="<?= $row['ID_PENDAFTARAN']; ?>"><?= old('id_pendaftaran'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN'] . " &nbsp | &nbsp " . $row['created_at']; ?></option>
+                                                        <?php setlocale(LC_ALL, 'id-ID'); ?>
+                                                        <option value="<?= $row['ID_PENDAFTARAN']; ?>"><?= old('id_pendaftaran'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN'] . " &nbsp | &nbsp " .   strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pendaftaran'])); ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -242,7 +243,7 @@
                                                                             }; ?> text-success font-weight-bolder"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?></td>
                                                                 <td><?php
                                                                     setlocale(LC_ALL, 'id-ID');
-                                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_at'])) . "\n"; ?></td>
+                                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pelayanan'])); ?></td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Tambah Resep</a>
                                                                     <a href="tambah_asesmen/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-success">Tambah Tindakan</a>
