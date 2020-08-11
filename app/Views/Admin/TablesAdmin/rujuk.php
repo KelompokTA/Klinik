@@ -1,4 +1,4 @@
-<?= $this->extend('Layout/Form'); ?>
+<?= $this->extend('Layout/Tables'); ?>
 
 <?= $this->section('content'); ?>
 
@@ -35,8 +35,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -44,8 +44,8 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
                                 <i class="fas fa-bed"></i>
                                 <p>
                                     Pasien
@@ -63,18 +63,6 @@
                                     <a href="<?= base_url('pendaftaran'); ?>" class="nav-link">
                                         <i class="fas fa-plus"></i> <i class="fas fa-procedures"></i>
                                         <p>Tambah Pemeriksaan</p>
-                                    </a>
-                                </li>
-                                <!-- <li class="nav-item">
-                                    <a href="<?= base_url('tambahPasien'); ?>" class="nav-link active">
-                                        <i class="fas fa-edit"></i> <i class=" fas fa-bed"></i>
-                                        <p>Edit Pasien</p>
-                                    </a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <a href="<?= base_url('suratRujukan'); ?>" class="nav-link active">
-                                        <i class="fas fa-paper-plane"></i>
-                                        <p>Surat Rujukan</p>
                                     </a>
                                 </li>
                             </ul>
@@ -145,8 +133,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
@@ -155,7 +143,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('pasienAdmin'); ?>" class="nav-link ">
                                 <i class="fas fa-bed"></i>
                                 <p>Pasien</p>
                             </a>
@@ -178,6 +166,12 @@
                                 <p>Laporan</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('suratRujukan'); ?>" class="nav-link active">
+                                <i class="fas fa-paper-plane"></i>
+                                <p>Rujukan</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -194,7 +188,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Surat Rujukan</h1>
+                    <h1>Rujukan</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -203,56 +197,68 @@
                     </ol>
                 </div>
             </div>
+            <?php if (session()->getFlashdata('Info')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('Info'); ?>
+                </div>
+            <?php endif; ?>
         </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <!-- general form elements disabled -->
-                    <div class="card card-warning">
+                <div class="col-12">
+                    <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Masukkan data surat rujukan</h3>
+                            <h3 class="card-title">Data Rujukan</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form role="form">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>No Rujukan</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nomer rujukan ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nama Pasien</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan nama pasien ...">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Rumah Sakit Rujukan</label>
-                                            <input type="text" class="form-control" placeholder="Masukkan rumah sakit rujukan ...">
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-success">Submit</button>
-                                            <button type="button" class="btn btn-info">Cetak Surat Rujukan</button>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </form>
+                            <table id="example1" class="table table-bordered table-striped" style="text-align:center">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>ID Rujuk</th>
+                                        <th>ID Asesmen</th>
+                                        <th>ID Diagnosa</th>
+                                        <th>Alasan Rujuk</th>
+                                        <th>Tujuan Rujuk</th>
+                                        <th>Tanggal Rujukan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($rujuk as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $row['ID_RUJUK']; ?></td>
+                                            <td><?= $row['ID_ASESMEN']; ?></td>
+                                            <td><?= $row['ID_DIAGNOSA']; ?></td>
+                                            <td><?= $row['ALASAN_RUJUK']; ?></td>
+                                            <td><?= $row['TUJUAN_RUJUK']; ?></td>
+                                            <td><?= $row['created_at']; ?></td>
+                                            <td>
+                                                <a href="cetak_rujukan/<?= $row['ID_RUJUK']; ?>" class="btn btn-primary" value="<?= $row['ID_RUJUK']; ?>"> <i class="fas fa-share"></i> Cetak Surat</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
                 </div>
-                <!--/.col (right) -->
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+
 </div>
 
 <?= $this->endSection(); ?>

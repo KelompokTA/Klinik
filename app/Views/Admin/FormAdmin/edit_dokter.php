@@ -65,12 +65,6 @@
                                         <p>Tambah Pemeriksaan</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
-                                        <i class="fas fa-paper-plane"></i>
-                                        <p>Surat Rujukan</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 
@@ -162,6 +156,12 @@
                             <a href="<?= base_url('laporanAdmin'); ?>" class="nav-link">
                                 <i class="fas fa-chart-line"></i>
                                 <p>Laporan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
+                                <i class="fas fa-paper-plane"></i>
+                                <p>Rujukan</p>
                             </a>
                         </li>
                     </ul>

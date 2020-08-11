@@ -35,6 +35,15 @@ class AdminController extends BaseController
         ];
         return view('Admin/TablesAdmin/pasien', $data);
     }
+    public function rujuk()
+    {
+        $rujuk = $this->RujukModel->findAll();
+
+        $data = [
+            'rujuk' => $rujuk,
+        ];
+        return view('Admin/TablesAdmin/rujuk', $data);
+    }
 
     public function dokter()
     {
@@ -197,6 +206,28 @@ class AdminController extends BaseController
         ];
         // dd($data);
         return view('Admin/FormAdmin/cetak_laporan', $data);
+    }
+    public function cetak_rujukan($id)
+    {
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM asesmen a
+        INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN 
+        INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
+        INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
+        INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN
+        INNER JOIN diagnosa f ON a.ID_ASESMEN = f.ID_ASESMEN
+        INNER JOIN rujuk g ON a.ID_ASESMEN = g.ID_ASESMEN 
+        INNER JOIN dokter h ON c.ID_DOKTER = h.ID_DOKTER
+        WHERE ID_RUJUK =' . $id);
+        $results = $query->getResultArray();
+        // dd($results);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'rujukan' => $results,
+
+        ];
+        // dd($data);
+        return view('Admin/FormAdmin/cetak_rujukan', $data);
     }
 
     public function update_pasien($id)
