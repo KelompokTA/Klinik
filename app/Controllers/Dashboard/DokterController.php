@@ -42,9 +42,12 @@ class DokterController extends BaseController
 
     public function riwayat()
     {
-        // session();
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM diagnosa a INNER JOIN asesmen b ON a.ID_ASESMEN = b.ID_ASESMEN INNER JOIN pelayanan c ON b.ID_PELAYANAN = c.ID_PELAYANAN INNER JOIN pendaftaran d ON c.ID_PENDAFTARAN = d.ID_PENDAFTARAN INNER JOIN pasien e ON d.ID_PASIEN = e.ID_PASIEN');
+        $results = $query->getResultArray();
         $data = [
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'riwayat' => $results
         ];
         return view('Dokter/TablesDokter/riwayat', $data);
     }

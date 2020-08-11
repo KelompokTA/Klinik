@@ -334,7 +334,7 @@
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
                                             <td><?php
                                                 setlocale(LC_ALL, 'id-ID');
-                                                echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_at'])) . "\n"; ?></td>
+                                                echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pendaftaran'])) . "\n"; ?></td>
                                             <td>
                                                 <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak antrian</a>
                                                 <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
