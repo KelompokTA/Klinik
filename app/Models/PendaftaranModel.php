@@ -9,7 +9,7 @@ class PendaftaranModel extends Model
 
     protected $table = 'pendaftaran';
     protected $primaryKey = 'ID_PENDAFTARAN';
-    protected $allowedFields = ['ID_ADMIN','ID_DOKTER', 'ID_PASIEN', 'NOMER_ANTRIAN','DARURAT'];
+    protected $allowedFields = ['ID_ADMIN', 'ID_DOKTER', 'ID_PASIEN', 'NOMER_ANTRIAN', 'DARURAT'];
 
     public function getPendaftaran($id = false)
     {
@@ -21,6 +21,7 @@ class PendaftaranModel extends Model
             $builder->join('admin', 'admin.ID_ADMIN = pendaftaran.ID_ADMIN');
             $builder->join('dokter', 'dokter.ID_DOKTER = pendaftaran.ID_DOKTER');
             $builder->join('jadwal', 'jadwal.ID_JADWAL = dokter.ID_JADWAL');
+            $builder->orderBy('NOMER_ANTRIAN', 'DESC');
             $query = $builder->get();
             $results = $query->getResultArray();
             return $results;
