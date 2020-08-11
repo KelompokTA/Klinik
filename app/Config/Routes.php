@@ -45,6 +45,7 @@ $routes->get('/pasienAdmin', 'Dashboard\AdminController::pasien');
 $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
+$routes->get('/suratRujukan', 'Dashboard\AdminController::rujuk');
 //FORM
 //Form Pasien
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
@@ -54,12 +55,12 @@ $routes->get('/cetak_antrian/(:num)', 'Dashboard\AdminController::cetak_antrian/
 $routes->get('/hapus_antrian/(:num)', 'Dashboard\AdminController::hapus_antrian/$1');
 $routes->get('/cetak_kwitansi/(:num)', 'Dashboard\AdminController::cetak_kwitansi/$1');
 $routes->get('/cetak_laporan', 'Dashboard\AdminController::cetak_laporan');
+$routes->get('/cetak_rujukan/(:num)', 'Dashboard\AdminController::cetak_rujukan/$1');
 $routes->get('/tambahPasien', 'Dashboard\AdminController::tambah_pasien');
 $routes->post('/save_pasien', 'Dashboard\AdminController::save_pasien');
 $routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
 $routes->get('/edit_pasien/(:segment)', 'Dashboard\AdminController::edit_pasien/$1');
 $routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::update_pasien/$2');
-$routes->get('/suratRujukan', 'Dashboard\AdminController::surat_rujukan');
 //Form Dokter
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_jadwal', 'Dashboard\AdminController::save_jadwal');

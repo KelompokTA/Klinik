@@ -65,12 +65,6 @@
                     <p>Tambah Pemeriksaan</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
-                    <i class="fas fa-paper-plane"></i>
-                    <p>Surat Rujukan</p>
-                  </a>
-                </li>
               </ul>
             </li>
 
@@ -170,6 +164,12 @@
               <a href="<?= base_url('laporanAdmin'); ?>" class="nav-link">
                 <i class="fas fa-chart-line"></i>
                 <p>Laporan</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('suratRujukan'); ?>" class="nav-link">
+                <i class="fas fa-paper-plane"></i>
+                <p>Rujukan</p>
               </a>
             </li>
           </ul>
@@ -274,138 +274,127 @@
 
       <!-- Main row -->
       <div class="row">
-        <section class="col-lg-6 connectedSortable">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Data Pasien</h3>
-
-                </div>
-                <div class="card-body table-responsive p-0">
-                  <table id="example1" class="table table-bordered table-striped" style="text-align:center">
-                    <thead class="table-info">
-                      <tr>
-                        <th>No</th>
-                        <th>No RM</th>
-                        <th>Nama Pasien</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Umur</th>
-                        <th>Alamat</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php $no = 1; ?>
-                      <?php foreach ($pasien as $row) : ?>
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Data Pasien</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead class="table-info">
                         <tr>
-                          <td><?= $no++ ?></td>
-                          <td><?= $row['NO_RM']; ?></td>
-                          <td><?= $row['NAMA_PASIEN']; ?></td>
-                          <td><?= $row['JENIS_KELAMIN']; ?></td>
-                          <td><?= $row['UMUR']; ?></td>
-                          <td><?= $row['ALAMAT_PASIEN']; ?>, <?= $row['KELURAHAN']; ?>, <?= $row['KECAMATAN']; ?>, <?= $row['KOTA']; ?>, <?= $row['PROVINSI']; ?></td>
-
+                          <th>No</th>
+                          <th>No.RM</th>
+                          <th>Nama Pasien</th>
+                          <th>Jenis Kelamin</th>
+                          <th>Umur</th>
+                          <th>Alamat Pasien</th>
                         </tr>
-                      <?php endforeach; ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Data Admin</h3>
-                </div>
-                <div class="card-body table-responsive p-0">
-                  <table id="example2" class="table table-bordered table-striped" style="text-align:center">
-                    <thead class="table-warning">
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Admin</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php $no = 1; ?>
-                      <?php foreach ($admin as $row) : ?>
-                        <tr>
-                          <td><?= $no++; ?></td>
-
-                          <td><?= $row['NAMA_ADMIN']; ?></td>
-                          <td><?= $row['STATUS_ADMIN']; ?></td>
-                        </tr>
-                      <?php endforeach; ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="col-lg-6 connectedSortable">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Data Dokter</h3>
-                </div>
-                <div class="card-body table-responsive p-0">
-                  <table id="example2" class="table table-bordered table-striped" style="text-align:center">
-                    <thead class="table-success">
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Dokter</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php $no = 1; ?>
-                      <?php foreach ($dokter as $row) : ?>
-                        <tr>
-                          <td><?= $no++; ?></td>
-
-                          <td><?= $row['NAMA_DOKTER']; ?></td>
-                          <td><?= $row['STATUS_DOKTER'] ?></td>
-                        </tr>
-                      <?php endforeach; ?>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Laporan</h3>
-                  <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                      <div class="input-group-append">
-                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                      </div>
-                    </div>
+                      </thead>
+                      <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($pasien as $row) : ?>
+                          <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $row['NO_RM']; ?></td>
+                            <td><?= $row['NAMA_PASIEN']; ?></td>
+                            <td><?= $row['JENIS_KELAMIN']; ?></td>
+                            <td><?= $row['UMUR']; ?></td>
+                            <td><?= $row['ALAMAT_PASIEN']; ?></td>
+                          </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-                <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap" style="text-align:center">
-                    <thead class="table-danger">
-                      <tr>
-                        <th>No</th>
-                        <th>ID Transaksi</th>
-                        <th>Nama Pasien</th>
-                        <th>Nama Admin</th>
-                        <th>Tanggal Transaksi</th>
-                        <th>Total Biaya</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php $no = 1; ?>
-                      <?php foreach ($dashboard as $row) : ?>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Data Admin</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example2" class="table table-bordered table-striped">
+                      <thead class="table-warning">
+                        <tr>
+                          <th>No</th>
+                          <th>Nama Admin</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($admin as $row) : ?>
+                          <tr>
+                            <td><?= $no++; ?></td>
+
+                            <td><?= $row['NAMA_ADMIN']; ?></td>
+                            <td><?= $row['STATUS_ADMIN']; ?></td>
+                          </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Data dokter</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example3" class="table table-bordered table-striped">
+                      <thead class="table-success">
+                        <tr>
+                          <th>No</th>
+                          <th>Nama Dokter</th>
+                          <th>Status Dokter</th>
+                          <th>Hari</th>
+                          <th>Jam</th>
+                          <th>Poli</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($dokter as $row) : ?>
+                          <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $row['NAMA_DOKTER']; ?></td>
+                            <td><?= $row['STATUS_DOKTER']; ?></td>
+                            <td><?= $row['HARI']; ?></td>
+                            <td><?= $row['JAM']; ?></td>
+                            <td><?= $row['POLI']; ?></td>
+                          </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Laporan</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example4" class="table table-bordered table-striped">
+                      <thead class="table-danger">
                         <tr>
                           <td><?= $no++; ?></td>
                           <td><?= $row['ID_TRANSAKSI']; ?></td>
@@ -414,13 +403,25 @@
                           <td><?= $row['created_transaksi']; ?></td>
                           <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                         </tr>
-                      <?php endforeach; ?>
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($dashboard as $row) : ?>
+                          <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $row['ID_TRANSAKSI']; ?></td>
+                            <td><?= $row['NAMA_PASIEN']; ?></td>
+                            <td><?= $row['NAMA_ADMIN']; ?></td>
+                            <td><?= $row['created_at']; ?></td>
+                            <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
+                          </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </section>
       </div>
     </div><!-- /.container-fluid -->
