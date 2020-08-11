@@ -168,32 +168,29 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>id Riwayat</th>
-                                        <th>id Pelayanan</th>
-                                        <th>id Dokter</th>
-                                        <th>id_Pendaftaran</th>
+                                        <th>No RM</th>
+                                        <th>Nama Pasien</th>
+                                        <th>Keluhan Utama</th>
                                         <th>Diagnosa Primer</th>
-                                        <th>Diagnosa Sekunder</th>
-                                        <th>Diagnosa Tersier</th>
+                                        <th>Tanggal Periksa</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>000001</td>
-                                        <td>000001</td>
-                                        <td>000001</td>
-                                        <td>000001</td>
-                                        <td>Flu</td>
-                                        <td>Batuk</td>
-                                        <td>Demam</td>
-                                        <td>
-                                            <button type="button" class="btn btn-info">Detail</button>
-                                            <button type="button" class="btn btn-warning">Edit</button>
-                                            <button type="button" class="btn btn-danger">Hapus</button>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1; ?>
+                                    <?php foreach ($riwayat as $row) : ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $row['NO_RM']; ?></td>
+                                            <td><?= $row['NAMA_PASIEN']; ?></td>
+                                            <td><?= $row['KELUHAN_UTAMA']; ?></td>
+                                            <td><?= $row['DIAGNOSA_PRIMER']; ?></td>
+                                            <td><?= $row['created_diagnosa']; ?></td>
+                                            <td>
+                                                <button id="swal" class="btn btn-info sweet-1" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Detail</button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -207,5 +204,8 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+    swal("Here's a message!")
+</script>
 
 <?= $this->endSection(); ?>

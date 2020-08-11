@@ -42,9 +42,12 @@ class DokterController extends BaseController
 
     public function riwayat()
     {
-        // session();
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM diagnosa a INNER JOIN asesmen b ON a.ID_ASESMEN = b.ID_ASESMEN INNER JOIN pelayanan c ON b.ID_PELAYANAN = c.ID_PELAYANAN INNER JOIN pendaftaran d ON c.ID_PENDAFTARAN = d.ID_PENDAFTARAN INNER JOIN pasien e ON d.ID_PASIEN = e.ID_PASIEN');
+        $results = $query->getResultArray();
         $data = [
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'riwayat' => $results
         ];
         return view('Dokter/TablesDokter/riwayat', $data);
     }
@@ -250,6 +253,15 @@ class DokterController extends BaseController
             session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
             return redirect()->to(base_url('tambah_diagnosa/'.$id))->withInput();
         }
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT MAX(ID_ASESMEN) AS id FROM asesmen');
+        $results = $query->getResultArray();
+        foreach ($results as $row){
+            $row['id'];
+        }
+        $this->DiagnosaModel->save([
+            'ID_ASESMEN' => $row,
+        ]);
         session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
         return redirect()->to(base_url('tambah_rujukan/'.$id))->withInput();
     }
@@ -294,11 +306,8 @@ class DokterController extends BaseController
         $db = \Config\Database::connect();
         $query_asesmen = $db->query('SELECT MAX(ID_ASESMEN) FROM asesmen');
         $result_asesmen = $query_asesmen->getResultArray();
-        if (isset($_POST['save_asesmen/'.$id])) {
-            $result_diagnosa = null;
-        }
-            $query_diagnosa = $db->query('SELECT * FROM diagnosa ORDER BY ID_DIAGNOSA DESC LIMIT 1');
-            $result_diagnosa = $query_diagnosa->getResultArray();
+        $query_diagnosa = $db->query('SELECT * FROM diagnosa ORDER BY ID_DIAGNOSA DESC LIMIT 1');
+        $result_diagnosa = $query_diagnosa->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
             'asesmen' => $result_asesmen,

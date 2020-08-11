@@ -50,7 +50,8 @@
                                                 <tr>
                                                     <td>Tanggal Transaksi</td>
                                                     <td>:</td>
-                                                    <td><?= $row['created_at'] ?></td>
+                                                    <td><?php setlocale(LC_ALL, 'id-ID');
+                                                        echo strftime("%d %B %Y - %H:%M ", strtotime($row['created_transaksi'])); ?></td>
                                                 </tr>
 
                                                 <tr>
