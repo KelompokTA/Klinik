@@ -537,7 +537,6 @@ class AdminController extends BaseController
 
     public function pembayaran()
     {
-
         $data = [
             'laporan' => $this->LaporanModel->getLaporan(),
             'pasien' => $this->PasienModel->getPasien(),
