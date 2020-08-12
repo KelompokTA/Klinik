@@ -24,18 +24,30 @@ class LoginController extends BaseController
         $password = $this->request->getPost('password');
 
         $cek = $this->LoginModel->cek_login($email, $password);
-        // dd($cek);
-        if ($cek == null) {
-            session()->setFlashdata('Info', 'Login Gagal');
-            return redirect()->to(base_url('login'));
-        } elseif (($cek['EMAIL_ADMIN'] == $email) && ($cek['PASSWORD_ADMIN'] == $password)) {
-            session()->set('NAMA_ADMIN', $cek['NAMA_ADMIN']);
-            session()->set('STATUS_ADMIN', $cek['STATUS_ADMIN']);
-            return redirect()->to(base_url('admin'));
-        } else {
-            session()->setFlashdata('Info', 'Login Gagal');
-            return redirect()->to(base_url('login'));
-        }
+
+        if($cek[0]){
+            
+            if (($cek[0]['EMAIL_ADMIN'] == $email) && ($cek[0]['PASSWORD_ADMIN'] == $password)) {
+                session()->set('NAMA_ADMIN', $cek[0]['NAMA_ADMIN']);
+                session()->set('STATUS_ADMIN', $cek[0]['STATUS_ADMIN']);
+                return redirect()->to(base_url('admin'));
+            }
+                session()->setFlashdata('Info', 'Login Gagal');
+                return redirect()->to(base_url('login'));
+
+        } elseif ($cek[1]) {
+        
+            if (($cek[1]['EMAIL_DOKTER'] == $email) && ($cek[1]['PASSWORD_DOKTER'] == $password)) {
+                session()->set('NAMA_DOKTER', $cek[1]['NAMA_DOKTER']);
+                session()->set('STATUS_DOKTER', $cek[1]['STATUS_DOKTER']);
+                return redirect()->to(base_url('dokter'));
+            }
+                session()->setFlashdata('Info', 'Login Gagal');
+                return redirect()->to(base_url('login'));
+            }
+
+        session()->setFlashdata('Info', 'Login Gagal');
+        return redirect()->to(base_url('login'));
     }
 
     //--------------------------------------------------------------------
