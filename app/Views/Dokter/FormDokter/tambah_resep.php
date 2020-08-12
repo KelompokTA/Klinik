@@ -179,7 +179,7 @@
                                     <div class="post">
                                         <form action="save_resep/<?= $id ?>" method="POST">
                                             <div class="row">
-                                                <div class="col-sm-8">
+                                                <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <input type="hidden" name="id_pelayanan" value="<?= $id; ?>">
                                                         <label>Obat</label>
@@ -195,6 +195,12 @@
                                                     <div class="form-group">
                                                         <label>Jumlah</label>
                                                         <input type="number" name="jumlah" value="<?= old('jumlah'); ?>" class=" form-control <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label>Dosis</label>
+                                                        <input type="text" name="dosis" value="<?= old('dosis'); ?>" class=" form-control <?= ($validation->hasError('dosis')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-2">
@@ -219,6 +225,7 @@
                                                                 <th>Nama Obat</th>
                                                                 <th>Kekuatan Sediaan</th>
                                                                 <th>Bentuk Sediaan</th>
+                                                                <th>Dosis</th>
                                                                 <th>Harga Obat</th>
                                                                 <th>Jumlah</th>
                                                                 <th>Total</th>
@@ -233,6 +240,7 @@
                                                                     <td><?= $row['NAMA_OBAT']; ?></td>
                                                                     <td><?= $row['KEKUATAN_SEDIAAN']; ?></td>
                                                                     <td><?= $row['BENTUK_SEDIAAN']; ?></td>
+                                                                    <td><?= $row['DOSIS'] ?></td>
                                                                     <td>Rp. <?= $row['HARGA_JUAL']; ?></td>
                                                                     <td><?= $row['JUMLAH'] ?></td>
                                                                     <td>Rp. <?= $row['TOTAL_BIAYA_OBAT']; ?></td>

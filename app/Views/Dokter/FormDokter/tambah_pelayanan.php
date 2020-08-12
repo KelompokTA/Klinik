@@ -241,9 +241,11 @@
                                                                             } else if ($row['STATUS_PASIEN'] == "Rujukan") {
                                                                                 echo ' text-warning font-weight-bolder ';
                                                                             }; ?> text-success font-weight-bolder"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?></td>
-                                                                <td><?php
+                                                                <td>
+                                                                    <?php
                                                                     setlocale(LC_ALL, 'id-ID');
-                                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pelayanan'])); ?></td>
+                                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pelayanan'])); ?>
+                                                                </td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Tambah Resep</a>
                                                                     <a href="tambah_asesmen/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-success">Tambah Tindakan</a>

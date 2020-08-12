@@ -402,7 +402,6 @@
                           <th>Nama Admin</th>
                           <th>Tanggal Transaksi</th>
                           <th>Total Biaya</th>
-
                         </tr>
                       </thead>
                       <tbody>

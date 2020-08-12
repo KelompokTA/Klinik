@@ -172,7 +172,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Nama Obat <?= $validation->listErrors(); ?></label>
+                                            <label>Nama Obat</label>
                                             <input type="text" name="nama_obat" value="<?= old('nama_obat'); ?>" class=" form-control <?= ($validation->hasError('nama_obat')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan nama obat ..." autocomplete="off">
                                         </div>
                                         <div class="row">

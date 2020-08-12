@@ -51,14 +51,17 @@ class DokterController extends BaseController
         ];
         return view('Dokter/TablesDokter/riwayat', $data);
     }
-    public function detail_riwayat($id)
+    public function detail_riwayat($id1,$id2)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM resep a INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN INNER JOIN obat c ON a.ID_OBAT = c.ID_OBAT WHERE a.ID_PELAYANAN = ' . $id);
-        $results = $query->getResultArray();
+        $query1 = $db->query('SELECT * FROM diagnosa a INNER JOIN asesmen b ON a.ID_ASESMEN = b.ID_ASESMEN INNER JOIN pelayanan c ON b.ID_PELAYANAN = c.ID_PELAYANAN INNER JOIN pendaftaran d ON c.ID_PENDAFTARAN = d.ID_PENDAFTARAN INNER JOIN pasien e ON d.ID_PASIEN = e.ID_PASIEN INNER JOIN dokter f ON d.ID_DOKTER = f.ID_DOKTER WHERE a.ID_DIAGNOSA = ' . $id1);
+        $results1 = $query1->getResultArray();
+        $query2 = $db->query('SELECT * FROM resep a INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN INNER JOIN obat c ON a.ID_OBAT = c.ID_OBAT WHERE a.ID_PELAYANAN = ' . $id2);
+        $results2 = $query2->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
-            'detail' => $results
+            'detail' => $results1,
+            'resep' => $results2,
         ];
         return view('Dokter/TablesDokter/detail_riwayat', $data);
     }
@@ -219,6 +222,7 @@ class DokterController extends BaseController
             'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
             'ID_OBAT' => $this->request->getVar('id_obat'),
             'JUMLAH' => $this->request->getVar('jumlah'),
+            'DOSIS' => $this->request->getVar('dosis'),
             'TOTAL_BIAYA_OBAT' => $harga_obat * $jumlah
         ]);
         session()->setFlashdata('Info', 'Resep Berhasil Ditambah');

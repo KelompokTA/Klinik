@@ -184,10 +184,19 @@
                                             <td><?= $row['NO_RM']; ?></td>
                                             <td><?= $row['NAMA_PASIEN']; ?></td>
                                             <td><?= $row['KELUHAN_UTAMA']; ?></td>
-                                            <td><?= $row['DIAGNOSA_PRIMER']; ?></td>
-                                            <td><?= $row['created_diagnosa']; ?></td>
+                                            <?php if ($row['DIAGNOSA_PRIMER'] !== null) : ?>
+                                                <td><?= $row['DIAGNOSA_PRIMER']; ?></td>
+                                            <?php endif; ?>
+                                            <?php if ($row['DIAGNOSA_PRIMER'] == null) : ?>
+                                                <td class="text-danger">Belum Ada Diagnosa</td>
+                                            <?php endif; ?>
                                             <td>
-                                                <a href="<?= base_url('detailRiwalat');?>/<?= $row['ID_DIAGNOSA']; ?>" class="btn btn-info">Detail</a>
+                                                <?php
+                                                setlocale(LC_ALL, 'id-ID');
+                                                echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_diagnosa'])); ?>
+                                            </td>
+                                            <td>
+                                                <a href="<?= base_url('detailRiwalat'); ?>/<?= $row['ID_DIAGNOSA']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

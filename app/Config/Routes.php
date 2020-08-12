@@ -36,6 +36,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'HomeController::index');
 //Login
 $routes->get('/login', 'LoginController::index');
+$routes->post('/loginProses', 'LoginController::login_proses');
 
 //ADMIN
 //Dashboard
@@ -88,7 +89,7 @@ $routes->get('/pasienDokter', 'Dashboard\DokterController::pasien');
 $routes->get('/dokterDokter', 'Dashboard\DokterController::dokter');
 $routes->get('/obatDokter', 'Dashboard\DokterController::obat');
 $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
-$routes->get('/detailRiwalat/(:num)', 'Dashboard\DokterController::detail_riwayat/$1');
+$routes->get('/detailRiwalat/(:num)/(:num)', 'Dashboard\DokterController::detail_riwayat/$1/$2');
 //forms
 $routes->get('/tambahObat', 'Dashboard\DokterController::tambah_obat');
 $routes->post('/save_obat', 'Dashboard\DokterController::save_obat');

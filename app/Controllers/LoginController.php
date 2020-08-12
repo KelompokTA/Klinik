@@ -15,25 +15,25 @@ class LoginController extends BaseController
 
     public function index()
     {
-
         return view('Login/index');
     }
 
-    public function cek_login()
+    public function login_proses()
     {
-        $email = $this->request->getPost('EMAIL');
-        $password = $this->request->getPost('PASSWORD');
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
 
         $cek = $this->LoginModel->cek_login($email, $password);
-
-
-        if (($cek['EMAIL'] == $email) && ($cek['PASSWORD'] == $password)) {
-            session()->set('EMAIL', $cek['EMAIL']);
-            session()->set('STATUS', $cek['STATUS']);
-
+        // dd($cek);
+        if ($cek == null) {
+            session()->setFlashdata('Info', 'Login Gagal');
+            return redirect()->to(base_url('login'));
+        } elseif (($cek['EMAIL_ADMIN'] == $email) && ($cek['PASSWORD_ADMIN'] == $password)) {
+            session()->set('NAMA_ADMIN', $cek['NAMA_ADMIN']);
+            session()->set('STATUS_ADMIN', $cek['STATUS_ADMIN']);
             return redirect()->to(base_url('admin'));
         } else {
-            session()->setFlashdata('gagal', 'Email atau Password Salah !!!');
+            session()->setFlashdata('Info', 'Login Gagal');
             return redirect()->to(base_url('login'));
         }
     }
