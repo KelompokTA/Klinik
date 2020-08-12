@@ -39,7 +39,7 @@ class LoginController extends BaseController
         } elseif ($cek[1]) {
         
             if (($cek[1]['EMAIL_DOKTER'] == $email) && ($cek[1]['PASSWORD_DOKTER'] == $password)) {
-                session()->set('ID_DOKTER', $cek[0]['ID_DOKTER']);
+                session()->set('ID_DOKTER', $cek[1]['ID_DOKTER']);
                 session()->set('NAMA_DOKTER', $cek[1]['NAMA_DOKTER']);
                 session()->set('STATUS_DOKTER', $cek[1]['STATUS_DOKTER']);
                 return redirect()->to(base_url('dokter'));
