@@ -19,4 +19,9 @@ class AdminModel extends Model
 
         return $this->where(['ID_ADMIN' => $id])->first();
     }
+
+    public function cekLogin($email,$password)
+    {
+              
+    }
 }
