@@ -18,7 +18,7 @@
                         <div class="image" align="center">
                             <img src="..\assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png">
                         </div>
-                        <h4 align=" center">RUMAH SAKIT INDONESIA SEHAT</h4>
+                        <h4 align=" center">PAPSI KLINIK</h4>
 
                     </div>
                     <!-- /.card-header -->

@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
         <img src="assets/img/klinik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Klinik</span>
+        <span class="brand-text font-weight-light">PAPSI Klinik</span>
     </a>
 
     <!-- Sidebar -->
@@ -239,7 +239,9 @@
                                             <td><?= $row['ID_DIAGNOSA']; ?></td>
                                             <td><?= $row['ALASAN_RUJUK']; ?></td>
                                             <td><?= $row['TUJUAN_RUJUK']; ?></td>
-                                            <td><?= $row['created_at']; ?></td>
+                                            <td><?php
+                                                setlocale(LC_ALL, 'id-ID');
+                                                echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_rujuk'])) . "\n"; ?></td>
                                             <td>
                                                 <a href="cetak_rujukan/<?= $row['ID_RUJUK']; ?>" class="btn btn-primary" value="<?= $row['ID_RUJUK']; ?>"> <i class="fas fa-share"></i> Cetak Surat</a>
                                             </td>

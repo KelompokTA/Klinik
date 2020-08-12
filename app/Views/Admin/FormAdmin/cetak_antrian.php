@@ -18,7 +18,7 @@
                         <div class="image" align="center">
                             <img src="../assets\img\klinik.png" width="50px" height="50px" alt="klinik.png">
                         </div>
-                        <h3 align=" center">KLINIK INDONESIA SEHAT</h3>
+                        <h3 align=" center">PAPSI KLINIK</h3>
 
                     </div>
                     <!-- /.card-header -->
