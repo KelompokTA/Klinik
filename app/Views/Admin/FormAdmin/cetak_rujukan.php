@@ -121,7 +121,7 @@
         <br>
         <p class="right">Surabaya,<?php
                                     setlocale(LC_ALL, 'id-ID');
-                                    echo strftime(" %d %B %Y", strtotime($row['created_at'])) . "\n"; ?> </p>
+                                    echo strftime(" %d %B %Y", strtotime($row['created_rujuk'])) . "\n"; ?> </p>
         <br>
         <br>
         <br>

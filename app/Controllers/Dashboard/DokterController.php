@@ -51,6 +51,17 @@ class DokterController extends BaseController
         ];
         return view('Dokter/TablesDokter/riwayat', $data);
     }
+    public function detail_riwayat($id)
+    {
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM resep a INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN INNER JOIN obat c ON a.ID_OBAT = c.ID_OBAT WHERE a.ID_PELAYANAN = ' . $id);
+        $results = $query->getResultArray();
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'detail' => $results
+        ];
+        return view('Dokter/TablesDokter/detail_riwayat', $data);
+    }
 
     public function save_obat()
     {

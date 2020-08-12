@@ -7,7 +7,7 @@
   <!-- Brand Logo -->
   <a href="../../index3.html" class="brand-link">
     <img src="assets/img/klinik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Klinik</span>
+    <span class="brand-text font-weight-light">PAPSI Klinik</span>
   </a>
 
   <!-- Sidebar -->
@@ -396,21 +396,13 @@
                     <table id="example4" class="table table-bordered table-striped">
                       <thead class="table-danger">
                         <tr>
-<<<<<<< HEAD
                           <th>No</th>
                           <th>ID Transaksi</th>
                           <th>Nama Pasien</th>
                           <th>Nama Admin</th>
                           <th>Tanggal Transaksi</th>
                           <th>Total Biaya</th>
-=======
-                          <td><?= $no++; ?></td>
-                          <td><?= $row['ID_TRANSAKSI']; ?></td>
-                          <td><?= $row['NAMA_PASIEN']; ?></td>
-                          <td><?= $row['NAMA_ADMIN']; ?></td>
-                          <td><?= $row['created_transaksi']; ?></td>
-                          <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
->>>>>>> 7a327833e067a758a367726383821fdba999393b
+
                         </tr>
                       </thead>
                       <tbody>
@@ -421,7 +413,7 @@
                             <td><?= $row['ID_TRANSAKSI']; ?></td>
                             <td><?= $row['NAMA_PASIEN']; ?></td>
                             <td><?= $row['NAMA_ADMIN']; ?></td>
-                            <td><?= $row['created_at']; ?></td>
+                            <td><?= $row['created_transaksi']; ?></td>
                             <td><?= $row['TOTAL_BIAYA_TRANSAKSI']; ?></td>
                           </tr>
                         <?php endforeach; ?>

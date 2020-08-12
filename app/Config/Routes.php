@@ -88,6 +88,7 @@ $routes->get('/pasienDokter', 'Dashboard\DokterController::pasien');
 $routes->get('/dokterDokter', 'Dashboard\DokterController::dokter');
 $routes->get('/obatDokter', 'Dashboard\DokterController::obat');
 $routes->get('/riwayatDokter', 'Dashboard\DokterController::riwayat');
+$routes->get('/detailRiwalat/(:num)', 'Dashboard\DokterController::detail_riwayat/$1');
 //forms
 $routes->get('/tambahObat', 'Dashboard\DokterController::tambah_obat');
 $routes->post('/save_obat', 'Dashboard\DokterController::save_obat');
@@ -113,6 +114,7 @@ $routes->post('/save_diagnosa/(:num)', 'Dashboard\DokterController::save_diagnos
 
 $routes->get('/tambah_rujukan/(:num)', 'Dashboard\DokterController::tambah_rujukan/$1');
 $routes->post('/save_rujukan/(:num)', 'Dashboard\DokterController::save_rujukan/$1');
+
 
 
 

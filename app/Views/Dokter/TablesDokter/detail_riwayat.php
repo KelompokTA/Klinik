@@ -160,39 +160,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Semua Riwayat</h3>
+                            <h3 class="card-title">Detail Riwayat Pasien</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>No RM</th>
-                                        <th>Nama Pasien</th>
-                                        <th>Keluhan Utama</th>
-                                        <th>Diagnosa Primer</th>
-                                        <th>Tanggal Periksa</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1; ?>
-                                    <?php foreach ($riwayat as $row) : ?>
-                                        <tr>
-                                            <td><?= $no++ ?></td>
-                                            <td><?= $row['NO_RM']; ?></td>
-                                            <td><?= $row['NAMA_PASIEN']; ?></td>
-                                            <td><?= $row['KELUHAN_UTAMA']; ?></td>
-                                            <td><?= $row['DIAGNOSA_PRIMER']; ?></td>
-                                            <td><?= $row['created_diagnosa']; ?></td>
-                                            <td>
-                                                <a href="<?= base_url('detailRiwalat');?>/<?= $row['ID_DIAGNOSA']; ?>" class="btn btn-info">Detail</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+
                         </div>
                         <!-- /.card-body -->
                     </div>
