@@ -42,35 +42,18 @@
 
             <div class="row justify-content-center">
                 <div class="col-xl-9 d-flex align-items-center justify-content-between">
-                    <h1 class="logo"><a href="index.html">Klinik</a></h1>
+                    <h1 class="logo"><a href="index.html">PAPSI KLINIK</a></h1>
                     <!-- Uncomment below if you prefer to use an image logo -->
                     <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
                     <nav class="nav-menu d-none d-lg-block">
                         <ul>
                             <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                            <li class="drop-down"><a href="">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down 1</a></li>
-                                    <li class="drop-down"><a href="#">Deep Drop Down</a>
-                                        <ul>
-                                            <li><a href="#">Deep Drop Down 1</a></li>
-                                            <li><a href="#">Deep Drop Down 2</a></li>
-                                            <li><a href="#">Deep Drop Down 3</a></li>
-                                            <li><a href="#">Deep Drop Down 4</a></li>
-                                            <li><a href="#">Deep Drop Down 5</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Drop Down 2</a></li>
-                                    <li><a href="#">Drop Down 3</a></li>
-                                    <li><a href="#">Drop Down 4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#about">Profil</a></li>
+                            <li><a href="#services">Pelayanan</a></li>
+                            <li><a href="#portfolio">Tenaga Medis</a></li>
+                            <li><a href="#pricing">Testimoni</a></li>
+                            <li><a href="#contact">Hubungi Kami</a></li>
 
                         </ul>
                     </nav><!-- .nav-menu -->
@@ -87,8 +70,8 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>KnightOne</h3>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+            <h3>PAPSI KLINIK</h3>
+            <p>Pendidikan Ahli Perawat Spesialis Indonesia</p>
             <div class="social-links">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -97,14 +80,14 @@
                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
             <div class="copyright">
-                &copy; Copyright <strong><span>KnightOne</span></strong>. All Rights Reserved
+                <strong><span>Papsi Klinik</span></strong>. Sehatkan Indonesia
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="#">Kelompok TA : Berlian,Arif,Iza</a>
             </div>
         </div>
     </footer><!-- End Footer -->

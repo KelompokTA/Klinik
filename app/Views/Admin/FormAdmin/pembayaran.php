@@ -234,7 +234,7 @@
                                                 <?php foreach ($pasien as $row) { ?>
                                                     <option value="<?= $row['NO_RM']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN'] ?></option>
                                                 <?php } ?>
-                                                <input type="submit" class="form-control" name="cari" value="Cari Pasien" />
+                                                <input type="submit" class="form-control"/>
                                         </div>
                                         <?php
                                         $konek = mysqli_connect("localhost", "root", "", "db_klinik");
