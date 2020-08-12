@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="../index3.html" class="brand-link">
         <img src="../assets/img/klinik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">PAPSI Klinik</span>
+        <span class="brand-text font-weight-light">PAPSI KLINIK</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,10 +15,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../assets/img/foto/admin.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
             </div>
         </div>
 
