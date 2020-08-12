@@ -106,7 +106,7 @@
                             <?php foreach ($laporan as $row) { ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $row['created_at']; ?></td>
+                                    <td><?= $row['created_transaksi']; ?></td>
                                     <td><?= $row['NAMA_ADMIN']; ?></td>
                                     <td><?= $row['NO_RM']; ?></td>
                                     <td><?= $row['BIAYA_PELAYANAN']; ?></td>
