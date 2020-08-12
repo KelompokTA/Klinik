@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
@@ -237,7 +237,7 @@
 
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>.jpg" alt="admin.jpg" width="50px" height="70px"></td>
+                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
                                             <td><?= $row['NAMA_ADMIN']; ?></td>
                                             <td><?= $row['STATUS_ADMIN']; ?></td>
                                             <td><?= $row['EMAIL_ADMIN']; ?></td>

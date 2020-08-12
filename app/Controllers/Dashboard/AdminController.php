@@ -537,10 +537,10 @@ class AdminController extends BaseController
 
     public function pembayaran()
     {
+
         $data = [
             'laporan' => $this->LaporanModel->getLaporan(),
             'pasien' => $this->PasienModel->getPasien(),
-            'admin' => $this->AdminModel->getAdmin(),
             'pelayanan' => $this->PelayananModel->getPelayanan(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran()
         ];
@@ -556,6 +556,7 @@ class AdminController extends BaseController
         INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
         INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN WHERE ID_PELAYANAN =' . $id);
         $results = $query->getResultArray();
+        // dd($results);
         foreach ($results as $row) {
             $id_pelayanan = $row['ID_PELAYANAN'];
             $id_admin = $row['ID_ADMIN'];

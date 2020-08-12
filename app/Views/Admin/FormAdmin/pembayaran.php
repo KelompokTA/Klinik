@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
@@ -222,6 +222,11 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!-- text input -->
+                                        <?php if (session()->getFlashdata('Info')) : ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                <?= session()->getFlashdata('Info'); ?>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="form-group">
                                             <label>Nomer Rekam Medik</label>
                                             <select class="form-control select2" style="width: 100%;" name="NO_RM">
@@ -237,7 +242,12 @@
                                             $sqlPasien = mysqli_query($konek, "SELECT * FROM pasien a INNER JOIN pendaftaran b ON a.ID_PASIEN = b.ID_PASIEN INNER JOIN pelayanan c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN WHERE NO_RM='$_GET[NO_RM]'");
                                             $ds = mysqli_fetch_array($sqlPasien);
                                             // dd($ds);
+                                            if ($ds == null) {
+                                                session()->setFlashdata('Info', 'Belum ada data pembayaran');
+                                                return redirect()->to(base_url('pembayaran'));
+                                            }
                                             $NO_RM = $ds['NO_RM'];
+
                                         ?>
 
                                             <h3>Biodata Pasien</h3>

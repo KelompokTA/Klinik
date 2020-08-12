@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
@@ -228,6 +228,8 @@
 
                                 <div class="row">
                                     <div class="col-sm-6">
+                                        <?php $id_admin = session()->get('ID_ADMIN'); ?>
+                                        <input type="hidden" name="id_admin" value="<?= $id_admin ?>" class="form-control">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>No RM</label>
@@ -244,15 +246,6 @@
                                                 <option selected disabled value="<?= old('id_dokter'); ?>"></option>
                                                 <?php foreach ($dokter as $row) { ?>
                                                     <option value="<?= $row['ID_DOKTER']; ?>"><?= old('id_dokter'); ?><?= $row['NAMA_DOKTER'] . " - " . $row['STATUS_DOKTER'] . " | " . $row['POLI']; ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Admin</label>
-                                            <select class="form-control select2" style="width: 100%;" name="id_admin">
-                                                <option selected disabled value="<?= old('id_admin'); ?>"></option>
-                                                <?php foreach ($admin as $row) { ?>
-                                                    <option value="<?= $row['ID_ADMIN']; ?>"><?= old('id_admin'); ?><?= $row['NAMA_ADMIN'] . " - " . $row['STATUS_ADMIN']; ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
