@@ -9,8 +9,13 @@ class LoginModel extends Model
 
     function cek_login($email,$password)
     {
-        return $this->db->table('admin')
+        $cekLoginAdmin = $this->db->table('admin')
         ->where(['EMAIL_ADMIN' => $email, 'PASSWORD_ADMIN' => $password])
         ->get()->getRowArray();
+        $cekLoginDokter = $this->db->table('dokter')
+        ->where(['EMAIL_DOKTER' => $email, 'PASSWORD_DOKTER' => $password])
+        ->get()->getRowArray();
+        $cekLoginAll = [$cekLoginAdmin , $cekLoginDokter];
+        return $cekLoginAll;
     }
 }
