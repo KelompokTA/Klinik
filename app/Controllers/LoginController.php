@@ -31,6 +31,9 @@ class LoginController extends BaseController
         } elseif (($cek['EMAIL_ADMIN'] == $email) && ($cek['PASSWORD_ADMIN'] == $password)) {
             session()->set('NAMA_ADMIN', $cek['NAMA_ADMIN']);
             session()->set('STATUS_ADMIN', $cek['STATUS_ADMIN']);
+            session()->set('FOTO_ADMIN', $cek['FOTO_ADMIN']);
+            session()->set('ID_ADMIN', $cek['ID_ADMIN']);
+            // dd($cek);
             return redirect()->to(base_url('admin'));
         } else {
             session()->setFlashdata('Info', 'Login Gagal');

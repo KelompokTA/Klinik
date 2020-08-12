@@ -23,7 +23,7 @@ class AdminController extends BaseController
             'admin' => $this->AdminModel->getAdmin(),
             'dashboard' => $results
         ];
-        
+
         return view('Admin/adminDashboard', $data);
     }
 
