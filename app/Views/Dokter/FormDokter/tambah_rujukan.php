@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
         <img src="../assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Klinik</span>
+        <span class="brand-text font-weight-light">PAPSI KLINIK</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,10 +15,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="../assets/img/foto/<?= session()->get('FOTO_DOKTER') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Dokter</a>
+                <a href="#" class="d-block"><?= session()->get('NAMA_DOKTER') ?></a>
             </div>
         </div>
 
@@ -170,7 +170,7 @@
                                 <li class="nav-item"><a class="nav-link disabled" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></>
                                 <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
-                                <li class="nav-item"><a class="nav-link active" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#Rujukan" data-toggle="tab"><i class="fas fa-paper-plane"></i> Rujukan</a></li>
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">
@@ -208,7 +208,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                             </div>
                                         </form>
                                     </div>

@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
         <img src="../../assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Klinik</span>
+        <span class="brand-text font-weight-light">PAPSI KLINIK</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,10 +15,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../../assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="../../assets/img/foto/<?= session()->get('FOTO_DOKTER') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Dokter</a>
+                <a href="#" class="d-block"><?= session()->get('NAMA_DOKTER') ?></a>
             </div>
         </div>
 
@@ -229,7 +229,7 @@
                                             <input type="number" name="harga_jual" value="<?= old('harga_jual'); ?>" class=" form-control <?= ($validation->hasError('harga_jual')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga jual obat ...">
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-success" id="simpan">Submit</button>
+                                            <button type="submit" class="btn btn-success" id="simpan"><i class="fas fa-save"></i> Submit</button>
                                         </div>
                                     </div>
                                 </div>

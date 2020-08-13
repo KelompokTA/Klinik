@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
         <img src="assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Klinik</span>
+        <span class="brand-text font-weight-light">PAPSI KLINIK</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,10 +15,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="assets/img/foto/<?= session()->get('FOTO_DOKTER') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Dokter</a>
+                <a href="#" class="d-block"><?= session()->get('NAMA_DOKTER') ?></a>
             </div>
         </div>
 
@@ -165,7 +165,7 @@
                     <div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link active" href="#Pelayanan" data-toggle="tab">Pelayanan</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#Pelayanan" data-toggle="tab"><i class="fas fa-hand-holding-medical"></i> Pelayanan</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Resep" data-toggle="tab">Resep</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
@@ -201,7 +201,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                             </div>
                                         </form>
                                         <div class="card">
@@ -247,10 +247,10 @@
                                                                     echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pelayanan'])); ?>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Tambah Resep</a>
-                                                                    <a href="tambah_asesmen/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-success">Tambah Tindakan</a>
-                                                                    <a href="edit_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-warning">Edit</a>
-                                                                    <a href="hapus_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger">Hapus</a>
+                                                                    <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info"><i class="fas fa-plus"></i> Tambah Resep</a>
+                                                                    <a href="tambah_asesmen/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Tindakan</a>
+                                                                    <a href="edit_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                                    <a href="hapus_pelayanan/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach; ?>

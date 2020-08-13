@@ -42,7 +42,7 @@ class LoginController extends BaseController
                 session()->set('ID_DOKTER', $cek[1]['ID_DOKTER']);
                 session()->set('NAMA_DOKTER', $cek[1]['NAMA_DOKTER']);
                 session()->set('STATUS_DOKTER', $cek[1]['STATUS_DOKTER']);
-                session()->set('FOTO_ADMIN', $cek[1]['FOTO_DOKTER']);
+                session()->set('FOTO_DOKTER', $cek[1]['FOTO_DOKTER']);
                 return redirect()->to(base_url('dokter'));
             }
             session()->setFlashdata('Info', 'Login Gagal');

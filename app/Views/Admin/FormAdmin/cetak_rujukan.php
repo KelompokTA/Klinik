@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css') ?>" />
     <table width="100%">
         <tr>
-            <td width="25" align="center"><img src="..\assets\img\klinik.png" width="100%" class="img-circle elevation-2"></td>
+            <td width="25" align="center"><img src="..\assets\img\klinik.png" width="100%"></td>
             <td width="50" align="center">
                 <h2> PAPSI KLINIK</h2>
                 <h5>Kampus ITS Gedung U 4th Floor, JL. Teknik Mesin, Sukolilo, 60111</h5>

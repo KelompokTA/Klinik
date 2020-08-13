@@ -7,7 +7,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
         <img src="../assets/img/klinik.png" alt="Klinik Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Klinik</span>
+        <span class="brand-text font-weight-light">PAPSI KLINIK</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,10 +15,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../assets/img/foto/dokter.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="../assets/img/foto/<?= session()->get('FOTO_DOKTER') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Dokter</a>
+                <a href="#" class="d-block"><?= session()->get('NAMA_DOKTER') ?></a>
             </div>
         </div>
 
@@ -167,7 +167,7 @@
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a class="nav-link disabled" href="#Pelayanan" data-toggle="tab">Pelayanan</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Resep" data-toggle="tab">Resep</a></li>
-                                <li class="nav-item"><a class="nav-link active" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#Asesmen" data-toggle="tab"><i class="fas fa-diagnoses"> </i> Asesmen</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
@@ -306,11 +306,12 @@
                                                             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                                                 <div class="btn-group" role="group">
                                                                     <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="fas fa-notes-medical"></i>
                                                                         Rencana Tindakan
                                                                     </button>
                                                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                                        <button name="rencana_tindakan" value="Diagnosa" type="submit" class="dropdown-item" href="#">Diagnosa</button>
-                                                                        <button name="rencana_tindakan" value="Rujuk" type="submit" class="dropdown-item" href="#">Rujuk</button>
+                                                                        <button name="rencana_tindakan" value="Diagnosa" type="submit" class="dropdown-item" href="#"><i class="fas fa-microscope"></i> Diagnosa</button>
+                                                                        <button name="rencana_tindakan" value="Rujuk" type="submit" class="dropdown-item" href="#"><i class="fas fa-paper-plane"></i> Rujuk</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
