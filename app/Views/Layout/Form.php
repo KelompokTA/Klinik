@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>">
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2/sweetalert2.css'); ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?= base_url('assets/css/ionicons.min.css'); ?>">
     <!-- Theme style -->
@@ -103,6 +105,8 @@
     <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.j'); ?>s"></script>
     <!-- Select2 -->
     <script src="<?= base_url('assets/plugins/select2/js/select2.full.min.js'); ?>"></script>
+    <!-- Sweetalert App -->
+    <script src="<?= base_url('assets/plugins/sweetalert2/sweetalert2.all.js'); ?>"></script>
     <!-- Bootstrap4 Duallistbox -->
     <script src="<?= base_url('assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js'); ?>"></script>
     <!-- InputMask -->

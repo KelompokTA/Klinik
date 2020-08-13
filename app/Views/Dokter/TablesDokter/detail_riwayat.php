@@ -146,7 +146,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href=" <?= base_url('dokter'); ?>">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="<?= base_url('login'); ?>">logout</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url('logout'); ?>">logout</a></li>
                     </ol>
                 </div>
             </div>
@@ -312,7 +312,7 @@
                                                         <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['KELUHAN_UTAMA']; ?><?php endforeach; ?>" class=" form-control" readonly>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-2">
+                                                <div class="col-sm-1">
                                                     <!-- text input -->
                                                     <div class="form-group">
                                                         <label>Keadaan Umum</label>
@@ -326,11 +326,11 @@
                                                         <input type="text" name="nama_pasien" value="<?php foreach ($detail as $row) : ?><?= $row['ALERGI']; ?><?php endforeach; ?>" class=" form-control" readonly>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-1">
+                                                <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label>Tekanan Darah</label>
                                                         <div class="input-group">
-                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['TD']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <input type="text" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['TD']; ?><?php endforeach; ?>" class=" form-control " readonly>
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">mmHg</span>
                                                             </div>
@@ -363,7 +363,7 @@
                                                     <div class="form-group">
                                                         <label>Suhu</label>
                                                         <div class="input-group">
-                                                            <input type="number" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['SUHU']; ?><?php endforeach; ?>" class=" form-control " readonly>
+                                                            <input type="text" name="tekanan_darah" value="<?php foreach ($detail as $row) : ?><?= $row['SUHU']; ?><?php endforeach; ?>" class=" form-control " readonly>
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">&degC</span>
                                                             </div>
@@ -438,7 +438,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="<?= base_url('riwayatDokter'); ?>" class="btn btn-secondary" style="text-align: center;">Kembali</a>
+                                            <a href="<?= base_url('riwayatDokter'); ?>" class="btn btn-dark" style="text-align: center;"><i class="fas fa-reply"></i> Kembali</a>
                                             <!-- /.card-body -->
                                         </div>
                                         <!-- /.card -->

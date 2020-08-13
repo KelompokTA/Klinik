@@ -8,6 +8,10 @@ class DokterController extends BaseController
 {
     public function index()
     {
+        if (session()->get('ID_DOKTER') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'pasien' => $this->PasienModel->findAll(),
             'dokter' => $this->DokterModel->getDokter(),
@@ -18,6 +22,10 @@ class DokterController extends BaseController
 
     public function pasien()
     {
+        if (session()->get('ID_DOKTER') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'pasien' => $this->PasienModel->findAll()
         ];
@@ -26,6 +34,10 @@ class DokterController extends BaseController
 
     public function dokter()
     {
+        if (session()->get('ID_DOKTER') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'dokter' => $this->DokterModel->getDokter()
         ];
@@ -34,6 +46,10 @@ class DokterController extends BaseController
 
     public function obat()
     {
+        if (session()->get('ID_DOKTER') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'obat' => $this->ObatModel->getObat()
         ];
@@ -42,6 +58,10 @@ class DokterController extends BaseController
 
     public function riwayat()
     {
+        if (session()->get('ID_DOKTER') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $db = \Config\Database::connect();
         $query = $db->query('SELECT * FROM diagnosa a INNER JOIN asesmen b ON a.ID_ASESMEN = b.ID_ASESMEN INNER JOIN pelayanan c ON b.ID_PELAYANAN = c.ID_PELAYANAN INNER JOIN pendaftaran d ON c.ID_PENDAFTARAN = d.ID_PENDAFTARAN INNER JOIN pasien e ON d.ID_PASIEN = e.ID_PASIEN');
         $results = $query->getResultArray();
@@ -247,7 +267,7 @@ class DokterController extends BaseController
 
     public function save_asesmen($id)
     {
-
+        // dd($this->request->getVar());
         $this->AsesmenModel->save([
             'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
             'KELUHAN_UTAMA' => $this->request->getVar('keluhan_utama'),
@@ -297,7 +317,7 @@ class DokterController extends BaseController
 
     public function save_diagnosa($id)
     {
-
+        // dd($this->request->getVar());
         $this->DiagnosaModel->save([
             'ID_ASESMEN' => $this->request->getVar('id_asesmen'),
             'DIAGNOSA_PRIMER' => $this->request->getVar('diagnosa_primer'),
@@ -334,6 +354,8 @@ class DokterController extends BaseController
 
     public function save_rujukan($id)
     {
+
+        // dd($this->request->getVar());
         $this->RujukModel->save([
             'ID_ASESMEN' => $this->request->getVar('id_asesmen'),
             'ID_DIAGNOSA' => $this->request->getVar('id_diagnosa'),

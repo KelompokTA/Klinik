@@ -167,7 +167,7 @@
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a class="nav-link disabled" href="#Pelayanan" data-toggle="tab">Pelayanan</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Resep" data-toggle="tab">Resep</a></li>
-                                <li class="nav-item"><a class="nav-link active" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#Asesmen" data-toggle="tab"><i class="fas fa-diagnoses"> </i> Asesmen</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
@@ -226,7 +226,7 @@
                                                                     <div class="form-group">
                                                                         <label>Tekanan Darah</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" name="tekanan_darah" value="<?= old('tekanan_darah'); ?>" class=" form-control <?= ($validation->hasError('tekanan_darah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                                            <input type="text" name="tekanan_darah" value="<?= old('tekanan_darah'); ?>" class=" form-control <?= ($validation->hasError('tekanan_darah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">mmHg</span>
                                                                             </div>
@@ -259,7 +259,7 @@
                                                                     <div class="form-group">
                                                                         <label>Suhu</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" name="suhu" value="<?= old('suhu'); ?>" class=" form-control <?= ($validation->hasError('suhu')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                                            <input type="text" name="suhu" value="<?= old('suhu'); ?>" class=" form-control <?= ($validation->hasError('suhu')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">&degC</span>
                                                                             </div>
@@ -306,11 +306,12 @@
                                                             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                                                                 <div class="btn-group" role="group">
                                                                     <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="fas fa-notes-medical"></i>
                                                                         Rencana Tindakan
                                                                     </button>
                                                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                                                        <button name="rencana_tindakan" value="Diagnosa" type="submit" class="dropdown-item" href="#">Diagnosa</button>
-                                                                        <button name="rencana_tindakan" value="Rujuk" type="submit" class="dropdown-item" href="#">Rujuk</button>
+                                                                        <button name="rencana_tindakan" value="Diagnosa" type="submit" class="dropdown-item" href="#"><i class="fas fa-microscope"></i> Diagnosa</button>
+                                                                        <button name="rencana_tindakan" value="Rujuk" type="submit" class="dropdown-item" href="#"><i class="fas fa-paper-plane"></i> Rujuk</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

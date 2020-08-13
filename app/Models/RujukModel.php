@@ -8,7 +8,6 @@ class RujukModel extends Model
 {
     protected $table = 'rujuk';
     protected $primaryKey = 'ID_RUJUK';
-    protected $useTimestamps = true;
     protected $allowedFields = ['ID_ASESMEN', 'ID_DIAGNOSA', 'ALASAN_RUJUK', 'TUJUAN_RUJUK'];
 
     public function getRujuk($id = false)

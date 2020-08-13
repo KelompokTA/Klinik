@@ -196,7 +196,7 @@
                                                 echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_diagnosa'])); ?>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url('detailRiwalat'); ?>/<?= $row['ID_DIAGNOSA']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info">Detail</a>
+                                                <a href="<?= base_url('detailRiwalat'); ?>/<?= $row['ID_DIAGNOSA']; ?>/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info"> <i class="fas fa-info-circle"></i> Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

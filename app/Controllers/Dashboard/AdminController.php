@@ -9,6 +9,10 @@ class AdminController extends BaseController
 {
     public function index()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $db = \Config\Database::connect();
         $query = $db->query('SELECT * FROM transaksi a 
         INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN 
@@ -29,6 +33,10 @@ class AdminController extends BaseController
 
     public function pasien()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $pasien = $this->PasienModel->findAll();
 
         $data = [
@@ -38,6 +46,10 @@ class AdminController extends BaseController
     }
     public function rujuk()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $rujuk = $this->RujukModel->findAll();
 
         $data = [
@@ -48,6 +60,10 @@ class AdminController extends BaseController
 
     public function dokter()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'dokter' => $this->DokterModel->getDokter()
         ];
@@ -56,6 +72,10 @@ class AdminController extends BaseController
 
     public function admin()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         // $admin = $this->AdminModel->findAll();
         $data = [
             'admin' => $this->AdminModel->getAdmin()
@@ -65,6 +85,10 @@ class AdminController extends BaseController
 
     public function laporan()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'laporan' => $this->LaporanModel->getLaporan()
         ];
@@ -73,6 +97,10 @@ class AdminController extends BaseController
 
     public function pendaftaran()
     {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
         $data = [
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pasien' => $this->PasienModel->getPasien(),

@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>">
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2/sweetalert2.css'); ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?= base_url('assets/css/ionicons.min.css'); ?>">
     <!-- DataTables -->
@@ -108,6 +110,8 @@
     <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
     <script src="<?= base_url('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js'); ?>"></script>
     <script src="<?= base_url('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'); ?>"></script>
+    <!-- Sweetalert App -->
+    <script src="<?= base_url('assets/plugins/sweetalert2/sweetalert2.all.js'); ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url('assets/js/adminlte.js'); ?>"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

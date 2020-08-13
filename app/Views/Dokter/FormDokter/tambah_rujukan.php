@@ -170,7 +170,7 @@
                                 <li class="nav-item"><a class="nav-link disabled" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></>
                                 <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
-                                <li class="nav-item"><a class="nav-link active" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#Rujukan" data-toggle="tab"><i class="fas fa-paper-plane"></i> Rujukan</a></li>
                             </ul>
                         </div><!-- /.card-header -->
                         <div class="card-body">
@@ -208,7 +208,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-success">Simpan</button>
+                                                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
                                             </div>
                                         </form>
                                     </div>

@@ -26,6 +26,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/daterangepicker/daterangepicker.css'); ?>">
     <!--===============================================================================================-->
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2/sweetalert2.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/util.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/login.css'); ?>">
 
