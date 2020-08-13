@@ -25,7 +25,22 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-30">
-                    <button type="submit" class="login100-form-btn">
+                    <button type="submit" class="login100-form-btn" onclick="const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 0,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
+
+    Toast.fire({
+    icon: 'success',
+    title: 'Login Berhasil'
+})">
                         Login
                     </button>
                 </div>

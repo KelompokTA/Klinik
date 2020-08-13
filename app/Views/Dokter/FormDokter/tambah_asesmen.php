@@ -226,7 +226,7 @@
                                                                     <div class="form-group">
                                                                         <label>Tekanan Darah</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" name="tekanan_darah" value="<?= old('tekanan_darah'); ?>" class=" form-control <?= ($validation->hasError('tekanan_darah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                                            <input type="text" name="tekanan_darah" value="<?= old('tekanan_darah'); ?>" class=" form-control <?= ($validation->hasError('tekanan_darah')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">mmHg</span>
                                                                             </div>
@@ -259,7 +259,7 @@
                                                                     <div class="form-group">
                                                                         <label>Suhu</label>
                                                                         <div class="input-group">
-                                                                            <input type="number" name="suhu" value="<?= old('suhu'); ?>" class=" form-control <?= ($validation->hasError('suhu')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                                            <input type="text" name="suhu" value="<?= old('suhu'); ?>" class=" form-control <?= ($validation->hasError('suhu')) ? 'is-invalid' : ''; ?>" autocomplete="off">
                                                                             <div class="input-group-prepend">
                                                                                 <span class="input-group-text">&degC</span>
                                                                             </div>

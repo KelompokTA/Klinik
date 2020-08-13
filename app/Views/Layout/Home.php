@@ -14,7 +14,8 @@
 
     <!-- Google Fonts -->
     <link href="<?= base_url('assets/fonts/fontgoogle.css'); ?>" rel="stylesheet">
-
+    <!-- Sweetalert -->
+    <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2/sweetalert2.css'); ?>">
     <!-- Vendor CSS Files -->
     <link href="<?= base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/vendor/icofont/icofont.min.css'); ?>" rel="stylesheet">
@@ -105,7 +106,8 @@
     <script src="<?= base_url('assets/vendor/isotope-layout/isotope.pkgd.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/venobox/venobox.min.js'); ?>"></script>
     <script src="<?= base_url('assets/vendor/owl.carousel/owl.carousel.min.js'); ?>"></script>
-
+    <!-- Sweetalert App -->
+    <script src="<?= base_url('assets/plugins/sweetalert2/sweetalert2.all.js'); ?>"></script>
     <!-- Template Main JS File -->
     <script src="<?= base_url('assets/js/main.js'); ?>"></script>
 

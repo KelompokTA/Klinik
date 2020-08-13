@@ -229,7 +229,7 @@
                                             <input type="number" name="harga_jual" value="<?= old('harga_jual'); ?>" class=" form-control <?= ($validation->hasError('harga_jual')) ? 'is-invalid' : ''; ?>" placeholder="Masukkan harga jual obat ...">
                                         </div>
                                         <div>
-                                            <button type="submit" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success" id="simpan">Submit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -246,5 +246,18 @@
     </section>
     <!-- /.content -->
 </div>
+
+<script>
+    const simpan = document.querySelector('#simpan');
+    simpan.addEventListener('click', function() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
+</script>
 
 <?= $this->endSection(); ?>

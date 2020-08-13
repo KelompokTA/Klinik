@@ -284,6 +284,19 @@
     <!-- /.content -->
 </div>
 
+<script>
+    const simpan = document.querySelector('#simpan');
+    simpan.addEventListener('click', function() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
+</script>
+
 <?= $this->endSection(); ?>
 
 //- select data paling akhir dari antrian (select * from user orderby id desc limit 1)
