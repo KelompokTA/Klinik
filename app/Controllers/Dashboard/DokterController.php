@@ -51,7 +51,7 @@ class DokterController extends BaseController
         ];
         return view('Dokter/TablesDokter/riwayat', $data);
     }
-    public function detail_riwayat($id1,$id2)
+    public function detail_riwayat($id1, $id2)
     {
         $db = \Config\Database::connect();
         $query1 = $db->query('SELECT * FROM diagnosa a INNER JOIN asesmen b ON a.ID_ASESMEN = b.ID_ASESMEN INNER JOIN pelayanan c ON b.ID_PELAYANAN = c.ID_PELAYANAN INNER JOIN pendaftaran d ON c.ID_PENDAFTARAN = d.ID_PENDAFTARAN INNER JOIN pasien e ON d.ID_PASIEN = e.ID_PASIEN INNER JOIN dokter f ON d.ID_DOKTER = f.ID_DOKTER WHERE a.ID_DIAGNOSA = ' . $id1);
@@ -143,7 +143,7 @@ class DokterController extends BaseController
 
     public function save_pelayanan()
     {
-        
+
         $this->PelayananModel->save([
             'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
             'BIAYA_PELAYANAN' => $this->request->getVar('biaya_pelayanan'),
@@ -184,7 +184,7 @@ class DokterController extends BaseController
     public function update_pelayanan_biaya($id)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT SUM(TOTAL_BIAYA_OBAT) AS TOTAL_BIAYA_RESEP FROM resep WHERE ID_PELAYANAN ='. $id);
+        $query = $db->query('SELECT SUM(TOTAL_BIAYA_OBAT) AS TOTAL_BIAYA_RESEP FROM resep WHERE ID_PELAYANAN =' . $id);
         $results = $query->getResultArray();
         foreach ($results as $row) {
             $row['TOTAL_BIAYA_RESEP'];
@@ -200,7 +200,7 @@ class DokterController extends BaseController
     public function tambah_resep($id)
     {
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM resep a INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN INNER JOIN obat c ON a.ID_OBAT = c.ID_OBAT WHERE a.ID_PELAYANAN = '. $id);
+        $query = $db->query('SELECT * FROM resep a INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN INNER JOIN obat c ON a.ID_OBAT = c.ID_OBAT WHERE a.ID_PELAYANAN = ' . $id);
         $results = $query->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
@@ -226,10 +226,10 @@ class DokterController extends BaseController
             'TOTAL_BIAYA_OBAT' => $harga_obat * $jumlah
         ]);
         session()->setFlashdata('Info', 'Resep Berhasil Ditambah');
-        return redirect()->to(base_url('tambah_resep/'.$id))->withInput();
+        return redirect()->to(base_url('tambah_resep/' . $id))->withInput();
     }
 
-    public function hapus_resep($id,$id2)
+    public function hapus_resep($id, $id2)
     {
         $this->ResepModel->where('ID_OBAT', $id)->delete();
         session()->setFlashdata('Info', 'Resep Berhasil hapus');
@@ -242,12 +242,12 @@ class DokterController extends BaseController
             'validation' => \Config\Services::validation(),
             'id' => $id
         ];
-        return view('Dokter/FormDokter/tambah_asesmen',$data);
+        return view('Dokter/FormDokter/tambah_asesmen', $data);
     }
 
     public function save_asesmen($id)
     {
-        
+
         $this->AsesmenModel->save([
             'ID_PELAYANAN' => $this->request->getVar('id_pelayanan'),
             'KELUHAN_UTAMA' => $this->request->getVar('keluhan_utama'),
@@ -266,19 +266,19 @@ class DokterController extends BaseController
         //  insert into from diagnosa (id asesmen) values ((select max(idassesmen+1) ..)) subquery
         if ($this->request->getVar('rencana_tindakan') == 'Diagnosa') {
             session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
-            return redirect()->to(base_url('tambah_diagnosa/'.$id))->withInput();
+            return redirect()->to(base_url('tambah_diagnosa/' . $id))->withInput();
         }
         $db = \Config\Database::connect();
         $query = $db->query('SELECT MAX(ID_ASESMEN) AS id FROM asesmen');
         $results = $query->getResultArray();
-        foreach ($results as $row){
+        foreach ($results as $row) {
             $row['id'];
         }
         $this->DiagnosaModel->save([
             'ID_ASESMEN' => $row,
         ]);
         session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
-        return redirect()->to(base_url('tambah_rujukan/'.$id))->withInput();
+        return redirect()->to(base_url('tambah_rujukan/' . $id))->withInput();
     }
 
     public function tambah_diagnosa($id)
@@ -292,12 +292,12 @@ class DokterController extends BaseController
             'id' => $id
         ];
         session()->setFlashdata('Info', 'Asesmen Berhasil Ditambah');
-        return view('Dokter/FormDokter/tambah_diagnosa', $data);     
+        return view('Dokter/FormDokter/tambah_diagnosa', $data);
     }
 
     public function save_diagnosa($id)
     {
-        
+
         $this->DiagnosaModel->save([
             'ID_ASESMEN' => $this->request->getVar('id_asesmen'),
             'DIAGNOSA_PRIMER' => $this->request->getVar('diagnosa_primer'),
@@ -327,7 +327,7 @@ class DokterController extends BaseController
             'validation' => \Config\Services::validation(),
             'asesmen' => $result_asesmen,
             'diagnosa' => $result_diagnosa,
-            'id' => $id            
+            'id' => $id
         ];
         return view('Dokter/FormDokter/tambah_rujukan', $data);
     }
