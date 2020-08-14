@@ -226,10 +226,10 @@
                                             <label>Nomer Rekam Medik</label>
                                             <select class="form-control select2" style="width: 100%;" name="NO_RM">
                                                 <option selected disabled value=""></option>
-                                                <?php foreach ($pasien as $row) { ?>
+                                                <?php foreach ($pendaftaran as $row) { ?>
                                                     <option value="<?= $row['NO_RM']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN'] ?></option>
                                                 <?php } ?>
-                                                <input type="submit" class="form-control"/>
+                                                <input type="submit" class="form-control" />
                                         </div>
                                         <?php
                                         $konek = mysqli_connect("localhost", "root", "", "db_klinik");
