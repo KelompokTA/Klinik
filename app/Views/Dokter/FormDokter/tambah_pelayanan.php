@@ -169,7 +169,6 @@
                                 <li class="nav-item"><a class="nav-link disabled" href="#Resep" data-toggle="tab">Resep</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Asesmen" data-toggle="tab">Asesmen</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
-                                <li class="nav-item"><a class="nav-link disabled" href="#Diagnosa" data-toggle="tab">Diagnosa</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#/" data-toggle="tab">/</a></li>
                                 <li class="nav-item"><a class="nav-link disabled" href="#Rujukan" data-toggle="tab">Rujukan</a></li>
                             </ul>
@@ -244,7 +243,7 @@
                                                                 <td>
                                                                     <?php
                                                                     setlocale(LC_ALL, 'id-ID');
-                                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pelayanan'])); ?>
+                                                                    echo strftime("%A, %d %B %Y ", strtotime($row['created_pelayanan'])); ?>
                                                                 </td>
                                                                 <td>
                                                                     <a href="tambah_resep/<?= $row['ID_PELAYANAN']; ?>" class="btn btn-info"><i class="fas fa-plus"></i> Tambah Resep</a>

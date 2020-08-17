@@ -12,10 +12,19 @@ class DokterController extends BaseController
             session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
             return redirect()->to(base_url('login'));
         }
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM diagnosa a 
+        INNER JOIN asesmen b ON a.ID_ASESMEN = b.ID_ASESMEN 
+        INNER JOIN pelayanan c ON b.ID_PELAYANAN = c.ID_PELAYANAN 
+        INNER JOIN pendaftaran d ON c.ID_PENDAFTARAN = d.ID_PENDAFTARAN 
+        INNER JOIN pasien e ON d.ID_PASIEN = e.ID_PASIEN
+        INNER JOIN dokter f ON d.ID_DOKTER = f.ID_DOKTER');
+        $results = $query->getResultArray();
         $data = [
             'pasien' => $this->PasienModel->findAll(),
             'dokter' => $this->DokterModel->getDokter(),
-            'obat' => $this->ObatModel->getObat()
+            'obat' => $this->ObatModel->getObat(),
+            'riwayat' => $results
         ];
         return view('Dokter/dokterDashboard', $data);
     }
@@ -197,7 +206,7 @@ class DokterController extends BaseController
             'ID_PENDAFTARAN' => $this->request->getVar('id_pendaftaran'),
             'BIAYA_PELAYANAN' => $this->request->getVar('biaya_pelayanan'),
         ]);
-        session()->setFlashdata('Info', 'update Pelayanan Berhasil');
+        session()->setFlashdata('Info', 'Update Pelayanan Berhasil');
         return redirect()->to(base_url('tambahPelayanan'));
     }
 
@@ -213,7 +222,7 @@ class DokterController extends BaseController
             'ID_PELAYANAN' => $id,
             'TOTAL_BIAYA_RESEP' => $row,
         ]);
-        session()->setFlashdata('Info', 'update Pelayanan Berhasil');
+        session()->setFlashdata('Info', 'Update Pelayanan Berhasil');
         return redirect()->to(base_url('tambahPelayanan'));
     }
 

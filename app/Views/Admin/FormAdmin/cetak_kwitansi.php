@@ -16,7 +16,7 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="image" align="center">
-                            <img src="..\assets\img\klinik.png" width="80dp" class="img-circle elevation-2" alt="klinik.png">
+                            <img src="..\assets\img\klinik.png" width="80dp" alt="klinik.png">
                         </div>
                         <h4 align=" center">PAPSI KLINIK</h4>
 
@@ -70,17 +70,17 @@
                                                 <tr>
                                                     <td>Biaya Obat</td>
                                                     <td>:</td>
-                                                    <td><?= ($row['TOTAL_BIAYA_RESEP'] == null) ? ' 0 ' : $row['TOTAL_BIAYA_RESEP']; ?></td>
+                                                    <td>Rp <?= ($row['TOTAL_BIAYA_RESEP'] == null) ? ' 0 ' : $row['TOTAL_BIAYA_RESEP']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Biaya Pelayanan</td>
                                                     <td>:</td>
-                                                    <td><?= $row['BIAYA_PELAYANAN'] ?></td>
+                                                    <td>Rp <?= $row['BIAYA_PELAYANAN'] ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total Biaya</td>
                                                     <td>:</td>
-                                                    <td><?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'] ?></td>
+                                                    <td> Rp <?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'] ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </table>

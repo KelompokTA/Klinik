@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use DateTime;
 
 class PendaftaranModel extends Model
 {
@@ -14,8 +15,8 @@ class PendaftaranModel extends Model
     public function getPendaftaran($id = false)
     {
         if ($id === false) {
+            setlocale(LC_ALL, 'id_ID.utf8');
             $tgl = date('Y-m-d');
-            // dd($tgl);
             $db      = \Config\Database::connect();
             $builder = $db->table('pendaftaran');
             $builder->select('*');
