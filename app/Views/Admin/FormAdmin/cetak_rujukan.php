@@ -134,7 +134,7 @@
     <center>
         <div class="row no-print">
             <div class="col-12">
-                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak Laporan</button>
+                <button onclick="window.print()" id="btn" class="btn shadow btn-outline-secondary center"><i class="fa fa-print"></i> Cetak Rujukan</button>
                 <br>
                 <br>
                 <a href="<?= base_url('suratRujukan'); ?>" id="btn" class="btn btn-dark"><i class="fas fa-reply"></i> Kembali </a>

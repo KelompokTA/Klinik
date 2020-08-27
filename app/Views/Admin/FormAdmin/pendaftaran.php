@@ -251,30 +251,39 @@
                                         </div>
                                         <div>
                                             <label>Nomer Antrian</label>
-                                            <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
-                                            //Next Antrian
-                                            $query = mysqli_query($koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
-                                            //$koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran WHERE Tanggal
-                                            $data = mysqli_fetch_array($query);
-                                            $nomerAntrian = $data['nextAntrian'];
-                                            $nomerAntrian++;
+                                            <?php {
+                                                $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
+                                                //Next Antrian
+                                                // $tgl = date('Y-m-d');
+                                                $query = mysqli_query($koneksi, "SELECT created_pendaftaran,max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
+                                                //$koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran WHERE Tanggal
+                                                $data = mysqli_fetch_array($query);
+                                                // dd($data);
+                                                $tgl = date('Y-m-d');
+                                                if ($data['created_pendaftaran'] == $tgl) {
+                                                    $nomerAntrian = $data['nextAntrian'];
+                                                    $nomerAntrian++;
+                                                }
+                                                $nomerAntrian = $data['nextAntrian'];
+                                                $nomerAntrian++;
                                             ?>
-                                            <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
-                                            </input>
-                                            <br>
-                                            <!-- kalo value = 1 itu biasa, kalo null itu darurat -->
-                                            <div class="form-group">
-                                                <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                                                    <input type="checkbox" name="darurat" class="custom-control-input" id="customSwitch3" value="1" checked="checked">
-                                                    <label class="custom-control-label" for="customSwitch3">Darurat</label>
+                                                <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
+                                                </input>
+                                                <br>
+                                                <!-- kalo value = 1 itu biasa, kalo null itu darurat -->
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                                        <input type="checkbox" name="darurat" class="custom-control-input" id="customSwitch3" value="1" checked="checked">
+                                                        <label class="custom-control-label" for="customSwitch3">Darurat</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- date_default_timezone_set('Asia/Jakarta'); -->
+                                                <!-- date_default_timezone_set('Asia/Jakarta'); -->
                                         </div>
                                         <div>
                                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
 
                                         </div>
+                                    <?php } ?>
                                     </div>
                                 </div>
 
@@ -327,7 +336,8 @@
                                             <td><?= $row['NOMER_ANTRIAN']; ?></td>
                                             <td><?php
                                                 setlocale(LC_ALL, 'id-ID');
-                                                echo strftime("%A, %d %B %Y - %H:%M", strtotime($row['created_pendaftaran'])) . "\n"; ?></td>
+                                                echo strftime("%A, %d %B %Y", strtotime($row['created_pendaftaran'])) . "\n"; ?></td>
+                                            <!-- - %H:%M -->
                                             <td>
                                                 <a href=" cetak_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class="btn btn-primary"><i class="fas fa-share"></i> Cetak antrian</a>
                                                 <a href="hapus_antrian/<?= $row['ID_PENDAFTARAN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>

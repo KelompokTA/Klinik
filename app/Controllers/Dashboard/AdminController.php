@@ -568,9 +568,9 @@ class AdminController extends BaseController
         $data = [
             'laporan' => $this->LaporanModel->getLaporan(),
             'pasien' => $this->PasienModel->getPasien(),
-            'pelayanan' => $this->PelayananModel->getPelayanan(),
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran()
         ];
+        // dd($data);
         return view('Admin/FormAdmin/pembayaran', $data);
     }
 

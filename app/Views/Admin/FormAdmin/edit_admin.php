@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
+                <img src="../assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
@@ -35,8 +35,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
+                <li class="nav-item has-treeview ">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -95,8 +95,8 @@
                 </li> -->
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link ">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>
                                     Admin
@@ -109,14 +109,6 @@
                                         <i class="fas fa-plus"></i> <i class="fas fa-hospital-user"></i>
                                         <p>
                                             Tambah Admin
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item has-treeview">
-                                    <a href="#" class="nav-link active">
-                                        <i class="fas fa-edit"></i> <i class="fas fa-hospital-user"></i>
-                                        <p>
-                                            Edit Admin
                                         </p>
                                     </a>
                                 </li>
@@ -133,8 +125,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Tables
@@ -155,7 +147,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>
                             </a>

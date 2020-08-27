@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
+                <img src="../assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
@@ -141,13 +141,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('dokterAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('dokterAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-user-md"></i>
                                 <p>Dokter</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link active">
+                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link ">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>
                             </a>
