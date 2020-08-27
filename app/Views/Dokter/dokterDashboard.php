@@ -312,7 +312,7 @@
                                         <table id="example3" class="table table-bordered table-striped">
                                             <thead class="table-success">
                                                 <tr>
-                                                    <th>no</th>
+                                                    <th>No</th>
                                                     <th>Nama Dokter</th>
                                                     <th>Status Dokter</th>
                                                     <th>Hari</th>
@@ -349,7 +349,7 @@
                                         <table id="example4" class="table table-bordered table-striped">
                                             <thead class="table-danger">
                                                 <tr>
-                                                    <th>no</th>
+                                                    <th>No</th>
                                                     <th>Nama Pasien</th>
                                                     <th>Nama Dokter</th>
                                                     <th>Diagnosa Primer</th>
@@ -357,13 +357,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Puspa Sing Ayu Dewe</td>
-                                                    <td>Berlian Duta Krisna S.Tr.Kes</td>
-                                                    <td>Flu</td>
-                                                    <td>Batuk</td>
-                                                </tr>
+                                                <?php $no = 1; ?>
+                                                <?php foreach ($riwayat as $row) : ?>
+                                                    <tr>
+                                                        <td><?= $no++; ?></td>
+                                                        <td><?= $row['NAMA_PASIEN']; ?></td>
+                                                        <td><?= $row['NAMA_DOKTER']; ?></td>
+                                                        <td><?= $row['DIAGNOSA_PRIMER']; ?></td>
+                                                        <td><?= $row['DIAGNOSA_SEKUNDER']; ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -44,7 +44,11 @@
                                             <td>
                                                 <h5><?php
                                                     setlocale(LC_ALL, 'id-ID');
+<<<<<<< HEAD
                                                     echo strftime("%A, %d %B %Y - %H:%M", strtotime($pendaftaran['created_pendaftaran'])) . "\n"; ?></h5>
+=======
+                                                    echo strftime("%A, %d %B %Y", strtotime($pendaftaran['created_pendaftaran'])) . "\n"; ?></h5>
+>>>>>>> b7a23dc686b7d9ddb3dad01cef816ed1dce5b54c
                                             </td>
                                     </div>
 
