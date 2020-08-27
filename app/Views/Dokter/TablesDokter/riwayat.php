@@ -172,6 +172,7 @@
                                         <th>Nama Pasien</th>
                                         <th>Keluhan Utama</th>
                                         <th>Diagnosa Primer</th>
+                                        <th>Status Pasien</th>
                                         <th>Tanggal Periksa</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -190,6 +191,12 @@
                                             <?php if ($row['DIAGNOSA_PRIMER'] == null) : ?>
                                                 <td class="text-danger">Belum Ada Diagnosa</td>
                                             <?php endif; ?>
+                                            <td class=" <?php if ($row['STATUS_PASIEN'] == "Belum Ada Tindakan") {
+                                                            echo ' text-danger ';
+                                                        } else if ($row['STATUS_PASIEN'] == "Rujukan") {
+                                                            echo ' text-warning ';
+                                                        }; ?> text-success"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?>
+                                            </td>
                                             <td>
                                                 <?php
                                                 setlocale(LC_ALL, 'id-ID');

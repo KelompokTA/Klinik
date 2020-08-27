@@ -16,7 +16,7 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <div class="image" align="center">
-                            <img src="../assets\img\klinik.png" width="50px" height="50px" alt="klinik.png">
+                            <img src="../assets\img\klinik.png" width="80px" height="50px" alt="klinik.png">
                         </div>
                         <h3 align=" center">PAPSI KLINIK</h3>
 
@@ -44,7 +44,7 @@
                                             <td>
                                                 <h5><?php
                                                     setlocale(LC_ALL, 'id-ID');
-                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($pendaftaran['created_at'])) . "\n"; ?></h5>
+                                                    echo strftime("%A, %d %B %Y - %H:%M", strtotime($pendaftaran['created_pendaftaran'])) . "\n"; ?></h5>
                                             </td>
                                     </div>
 

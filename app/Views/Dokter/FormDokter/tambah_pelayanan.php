@@ -240,7 +240,8 @@
                                                                                 echo ' text-danger font-weight-bolder ';
                                                                             } else if ($row['STATUS_PASIEN'] == "Rujukan") {
                                                                                 echo ' text-warning font-weight-bolder ';
-                                                                            }; ?> text-success font-weight-bolder"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?></td>
+                                                                            }; ?> text-success font-weight-bolder"><?= ($row['STATUS_PASIEN'] == null) ? ' Belum Ada Tindakan ' : $row['STATUS_PASIEN']; ?>
+                                                                </td>
                                                                 <td>
                                                                     <?php
                                                                     setlocale(LC_ALL, 'id-ID');

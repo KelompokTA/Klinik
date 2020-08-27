@@ -101,12 +101,17 @@ class AdminController extends BaseController
             session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
             return redirect()->to(base_url('login'));
         }
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT max(NOMER_ANTRIAN) as nextAntrian, max(created_pendaftaran) as lastDay FROM pendaftaran');
+        $results = $query->getRowArray();
         $data = [
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
             'pasien' => $this->PasienModel->getPasien(),
             'admin' => $this->AdminModel->getAdmin(),
-            'dokter' => $this->DokterModel->getDokter()
+            'dokter' => $this->DokterModel->getDokter(),
+            'antrian' => $results
         ];
+        dd($data);
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
     public function hapus_antrian($id)

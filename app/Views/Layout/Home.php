@@ -49,7 +49,7 @@
 
                     <nav class="nav-menu d-none d-lg-block">
                         <ul>
-                            <li class="active"><a href="index.html">Home</a></li>
+                            <li class="active"><a href="#hero">Home</a></li>
                             <li><a href="#about">Profil</a></li>
                             <li><a href="#services">Pelayanan</a></li>
                             <li><a href="#portfolio">Tenaga Medis</a></li>

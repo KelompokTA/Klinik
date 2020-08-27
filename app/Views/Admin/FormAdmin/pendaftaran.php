@@ -251,13 +251,21 @@
                                         </div>
                                         <div>
                                             <label>Nomer Antrian</label>
-                                            <?php $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
-                                            //Next Antrian
-                                            $query = mysqli_query($koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
-                                            //$koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran WHERE Tanggal
-                                            $data = mysqli_fetch_array($query);
-                                            $nomerAntrian = $data['nextAntrian'];
-                                            $nomerAntrian++;
+                                            <?php
+                                            foreach ($pendaftaran as $row ) {
+                                                $timestamp= $row['created_pendaftaran'];
+                                                $current = strtotime(date("Y-m-d"));
+                                                $date    = strtotime($row['created_pendaftaran']);
+
+                                                $datediff = $date - $current;
+                                                $difference = floor($datediff / (60 * 60 * 24));
+
+                                                dd($difference);
+                                                if ($difference == 0) {
+                                                    $nomerAntrian = $antrian['nextAntrian'];
+                                                    $nomerAntrian++;
+                                                }
+                                            }
                                             ?>
                                             <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                             </input>

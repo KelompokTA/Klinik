@@ -190,7 +190,7 @@
                                                         <select name="id_pendaftaran" class="form-control select2" style="width: 100%;" <?= ($validation->hasError('id_pendaftaran')) ? 'is-invalid' : ''; ?>">
                                                             <option selected value="<?= $pelayanan['ID_PENDAFTARAN']; ?>"><?= $pelayanan['ID_PENDAFTARAN']; ?></option>
                                                             <?php foreach ($pendaftaran as $row) : ?>
-                                                                <option value="<?= $row['ID_PENDAFTARAN']; ?>"><?= old('id_pendaftaran'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN'] . " &nbsp | &nbsp " . $row['created_at']; ?></option>
+                                                                <option value="<?= $row['ID_PENDAFTARAN']; ?>"><?= old('id_pendaftaran'); ?><?= $row['NO_RM'] . " - " . $row['NAMA_PASIEN'] . " &nbsp | &nbsp " . $row['created_pendaftaran']; ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
                                                     </div>
