@@ -102,7 +102,9 @@ class AdminController extends BaseController
             return redirect()->to(base_url('login'));
         }
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT max(NOMER_ANTRIAN) as nextAntrian, max(created_pendaftaran) as lastDay FROM pendaftaran');
+        $tgl = date('Y-m-d');
+        // dd($tgl);
+        $query = $db->query("SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran where created_pendaftaran = '$tgl' GROUP BY created_pendaftaran");
         $results = $query->getRowArray();
         $data = [
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
