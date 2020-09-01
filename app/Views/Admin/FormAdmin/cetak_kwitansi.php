@@ -65,8 +65,11 @@
                                                     <td>:</td>
                                                     <td><?= $row['ALAMAT_PASIEN'] ?></td>
                                                 </tr>
-
-
+                                                <tr>
+                                                    <td>Biaya Administrasi</td>
+                                                    <td>:</td>
+                                                    <td>Rp <?= ($row['BIAYA_ADMINISTRASI'] == null) ? ' 0 ' : $row['BIAYA_ADMINISTRASI']; ?></td>
+                                                </tr>
                                                 <tr>
                                                     <td>Biaya Obat</td>
                                                     <td>:</td>
@@ -80,7 +83,7 @@
                                                 <tr>
                                                     <td>Total Biaya</td>
                                                     <td>:</td>
-                                                    <td> Rp <?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'] ?></td>
+                                                    <td> Rp <?= $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'] + $row['BIAYA_ADMINISTRASI'] ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </table>
