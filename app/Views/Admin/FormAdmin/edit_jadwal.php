@@ -1,12 +1,12 @@
-<?= $this->extend('Layout/Tables'); ?>
-<?= $i = 1; ?>
+<?= $this->extend('Layout/Form'); ?>
+
 <?= $this->section('content'); ?>
 
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
-        <img src="assets/img/klinik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="../assets/img/klinik.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">PAPSI KLINIK</span>
     </a>
 
@@ -15,7 +15,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
+                <img src="../assets/img/foto/<?= session()->get('FOTO_ADMIN') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= session()->get('NAMA_ADMIN') ?></a>
@@ -35,8 +35,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Forms
@@ -65,6 +65,12 @@
                                         <p>Tambah Pemeriksaan</p>
                                     </a>
                                 </li>
+                                <!-- <li class="nav-item">
+                                    <a href="<?= base_url('tambahPasien'); ?>" class="nav-link active">
+                                        <i class="fas fa-edit"></i> <i class=" fas fa-bed"></i>
+                                        <p>Edit Pasien</p>
+                                    </a>
+                                </li> -->
                             </ul>
                         </li>
 
@@ -155,13 +161,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('jadwalAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('jadwalAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-calendar"></i>
                                 <p>Jadwal Dokter</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link active">
+                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>
                             </a>
@@ -194,7 +200,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Admin</h1>
+                    <h1>Edit Jadwal</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -215,56 +221,55 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
+                    <!-- general form elements disabled -->
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Data Admin</h3>
-                        </div>
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">&nbsp</li>
+                            </ul>
+                        </div><!-- /.card-header -->
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
-                            <table id="example1" class="table table-bordered table-striped" style="text-align:center">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Foto</th>
-                                        <th>Nama Admin</th>
-                                        <th>Status</th>
-                                        <th>Email</th>
-                                        <th>Password</th>
-                                        <th>Aktif</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="Jadwal">
+                                    <!-- JADWAL -->
+                                    <div class="post">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form action="<?= base_url('updateJadwal'); ?>/<?= $jadwal['ID_JADWAL'] ?>" method="POST" role="form">
+                                                    <?= csrf_field(); ?>
+                                                    <?= $validation->listErrors(); ?>
+                                                    <input type="hidden" name="id_jadwal" value="<?= $jadwal['ID_JADWAL'] ?>" class="form-control">
+                                                    <div class="form-group">
+                                                        <label>Hari</label>
+                                                        <input type="text" name="hari" value="<?= $jadwal['HARI']; ?>" class="form-control <?= ($validation->hasError('hari')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Jam</label>
+                                                        <input type="text" name="jam" value="<?= $jadwal['JAM']; ?>" class="form-control <?= ($validation->hasError('jam')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Poli</label>
+                                                        <input type="text" name="poli" value="<?= $jadwal['POLI']; ?>" class="form-control <?= ($validation->hasError('poli')) ? 'is-invalid' : ''; ?>" autocomplete="off">
+                                                    </div>
+                                                    <div>
+                                                        <button type="submit" class="btn btn-info"><i class="fas fa-save"></i> Update Jadwal</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" tab-pane" id="Jadwal">
 
-                                <tbody>
-                                    <?php $no = 1; ?>
-                                    <?php foreach ($admin as $row) : ?>
-
-                                        <tr>
-                                            <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
-                                            <td><?= $row['NAMA_ADMIN']; ?></td>
-                                            <td><?= $row['STATUS_ADMIN']; ?></td>
-                                            <td><?= $row['EMAIL_ADMIN']; ?></td>
-                                            <td>********</td>
-                                            <td><?= ($row['AKTIF'] == null) ? ' <i class="fas fa-times-circle"></i> ' : '<i class="fas fa-check-circle"></i>' ?></td>
-                                            <td>
-                                                <a href="edit_admin/<?= $row['ID_ADMIN']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_ADMIN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
     <!-- /.content -->
 </div>

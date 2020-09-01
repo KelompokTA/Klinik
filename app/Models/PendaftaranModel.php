@@ -16,7 +16,7 @@ class PendaftaranModel extends Model
     {
         if ($id === false) {
             setlocale(LC_ALL, 'id_ID.utf8');
-            $tgl = date('Y-m-d');
+            $tgl = "2020-08-27";
             $db      = \Config\Database::connect();
             $builder = $db->table('pendaftaran');
             $builder->select('*');
@@ -28,7 +28,6 @@ class PendaftaranModel extends Model
             $builder->where('created_pendaftaran', $tgl);
             $query = $builder->get();
             $results = $query->getResultArray();
-            // dd($results);
             return $results;
         }
 

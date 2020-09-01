@@ -161,6 +161,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('jadwalAdmin'); ?>" class="nav-link">
+                                <i class="fas fa-calendar"></i>
+                                <p>Jadwal Dokter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>
@@ -251,23 +257,6 @@
                                         </div>
                                         <div>
                                             <label>Nomer Antrian</label>
-<<<<<<< HEAD
-                                            <?php
-                                            foreach ($pendaftaran as $row ) {
-                                                $timestamp= $row['created_pendaftaran'];
-                                                $current = strtotime(date("Y-m-d"));
-                                                $date    = strtotime($row['created_pendaftaran']);
-
-                                                $datediff = $date - $current;
-                                                $difference = floor($datediff / (60 * 60 * 24));
-
-                                                dd($difference);
-                                                if ($difference == 0) {
-                                                    $nomerAntrian = $antrian['nextAntrian'];
-                                                    $nomerAntrian++;
-                                                }
-                                            }
-=======
                                             <?php {
                                                 $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
                                                 //Next Antrian
@@ -283,7 +272,6 @@
                                                 }
                                                 $nomerAntrian = $data['nextAntrian'];
                                                 $nomerAntrian++;
->>>>>>> b7a23dc686b7d9ddb3dad01cef816ed1dce5b54c
                                             ?>
                                                 <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                                 </input>

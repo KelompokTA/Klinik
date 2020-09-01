@@ -134,7 +134,9 @@
                         <table class="table">
                             <tr>
                                 <th style="width:50%">Subtotal: </th>
-                                <td><?= $row['TOTAL']; ?></td>
+                                <?php foreach ($subtotal as $row) { ?>
+                                    <td><?= $row['TOTAL']; ?></td>
+                                <?php } ?>
                             </tr>
 
                         </table>

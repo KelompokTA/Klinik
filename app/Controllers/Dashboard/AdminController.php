@@ -70,6 +70,56 @@ class AdminController extends BaseController
         return view('Admin/TablesAdmin/dokter', $data);
     }
 
+    public function jadwal()
+    {
+        if (session()->get('ID_ADMIN') == '') {
+            session()->setFlashdata('Info', 'Anda harus login terlebihdahulu');
+            return redirect()->to(base_url('login'));
+        }
+        $data = [
+            'jadwal' => $this->JadwalModel->getJadwal()
+        ];
+        return view('Admin/TablesAdmin/jadwal', $data);
+    }
+
+    Public function tambah_jadwal()
+    {
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'jadwal' => $this->JadwalModel->getJadwal()
+        ];
+        return view('Admin/FormAdmin/tambah_jadwal', $data);
+    }
+
+    public function hapus_jadwal($id)
+    {
+    $this->JadwalModel->delete($id);
+    session()->setFlashdata('Info', 'Data berhasil dihapus.');
+    return redirect()->to(base_url('jadwalAdmin'));
+    }
+
+    public function edit_jadwal($id)
+    {
+        // $user = $this->AdminModel->getUser($id);
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'jadwal' => $this->JadwalModel->getJadwal($id)
+        ];
+        return view('Admin/FormAdmin/edit_jadwal', $data);
+    }
+
+    public function update_jadwal($id)
+    {
+        $this->JadwalModel->save([
+            'ID_JADWAL' => $id,
+            'HARI' => $this->request->getVar('hari'),
+            'JAM' => $this->request->getVar('jam'),
+            'POLI' => $this->request->getVar('poli'),
+        ]);
+        session()->setFlashdata('Info', 'Data Berhasil Diubah');
+        return redirect()->to(base_url('jadwalAdmin'));
+    }
+
     public function admin()
     {
         if (session()->get('ID_ADMIN') == '') {
@@ -92,6 +142,7 @@ class AdminController extends BaseController
         $data = [
             'laporan' => $this->LaporanModel->getLaporan()
         ];
+        
         return view('Admin/TablesAdmin/laporan', $data);
     }
 
@@ -111,7 +162,6 @@ class AdminController extends BaseController
             'dokter' => $this->DokterModel->getDokter(),
             'antrian' => $results
         ];
-        dd($data);
         return view('Admin/FormAdmin/pendaftaran', $data);
     }
     public function hapus_antrian($id)
@@ -180,6 +230,7 @@ class AdminController extends BaseController
         ];
         return view('Admin/FormAdmin/edit_pasien', $data);
     }
+
     public function cetak_kartu($id)
     {
         $data = [
@@ -225,20 +276,19 @@ class AdminController extends BaseController
     {
         // dd($id);
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT *,SUM(TOTAL_BIAYA_TRANSAKSI) AS TOTAL FROM transaksi a
+        $query = $db->query('SELECT * FROM transaksi a
         INNER JOIN pelayanan b ON a.ID_PELAYANAN = b.ID_PELAYANAN  
         INNER JOIN pendaftaran c ON b.ID_PENDAFTARAN = c.ID_PENDAFTARAN 
         INNER JOIN admin d ON c.ID_ADMIN = d.ID_ADMIN 
         INNER JOIN pasien e ON c.ID_PASIEN = e.ID_PASIEN');
         $results = $query->getResultArray();
-        // dd($results);
-
+        $query2 = $db->query('SELECT SUM(TOTAL_BIAYA_TRANSAKSI) AS TOTAL FROM transaksi ');
+        $results2 = $query2->getResultArray();
         $data = [
             'validation' => \Config\Services::validation(),
             'laporan' => $results,
-
-        ];
-        // dd($data);
+            'subtotal' => $results2,
+        ];        
         return view('Admin/FormAdmin/cetak_laporan', $data);
     }
     public function cetak_rujukan($id)
@@ -316,7 +366,7 @@ class AdminController extends BaseController
         ]);
 
         session()->setFlashdata('Info', 'Jadwal Berhasil Ditambahkan');
-        return redirect()->to('tambahDokter')->withInput();
+        return redirect()->to('tambahJadwal')->withInput();
     }
 
     public function save_dokter()

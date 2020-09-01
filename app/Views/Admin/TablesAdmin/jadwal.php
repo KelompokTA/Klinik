@@ -1,5 +1,5 @@
 <?= $this->extend('Layout/Tables'); ?>
-<?= $i = 1; ?>
+
 <?= $this->section('content'); ?>
 
 <!-- Main Sidebar Container -->
@@ -155,13 +155,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('jadwalAdmin'); ?>" class="nav-link">
+                            <a href="<?= base_url('jadwalAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-calendar"></i>
                                 <p>Jadwal Dokter</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link active">
+                            <a href="<?= base_url('adminAdmin'); ?>" class="nav-link">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>
                             </a>
@@ -185,7 +185,7 @@
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-</aside>
+</aside>>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -194,7 +194,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Admin</h1>
+                    <h1>Dokter</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -218,40 +218,31 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Admin</h3>
+                            <h3 class="card-title">Jadwal Dokter</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div> <a href="tambahAdmin" class="btn btn-success"><i class="fas fa-plus"></i> Tambah Admin</a> </div>
+                            <div> <a href="tambahDokter" class="btn btn-success"><i class="fas fa-plus"></i>Tambah Jadwal</a> </div>
                             <table id="example1" class="table table-bordered table-striped" style="text-align:center">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Foto</th>
-                                        <th>Nama Admin</th>
-                                        <th>Status</th>
-                                        <th>Email</th>
-                                        <th>Password</th>
-                                        <th>Aktif</th>
-                                        <th>Aksi</th>
+                                        <th>Hari</th>
+                                        <th>Jam</th>
+                                        <th>Poli</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                     <?php $no = 1; ?>
-                                    <?php foreach ($admin as $row) : ?>
-
+                                    <?php foreach ($jadwal as $row) : ?>
                                         <tr>
                                             <td><?= $no++; ?></td>
-                                            <td><img src="assets/img/foto/<?= $row['FOTO_ADMIN'] ?>" alt="admin.jpg" width="50px" height="70px"></td>
-                                            <td><?= $row['NAMA_ADMIN']; ?></td>
-                                            <td><?= $row['STATUS_ADMIN']; ?></td>
-                                            <td><?= $row['EMAIL_ADMIN']; ?></td>
-                                            <td>********</td>
-                                            <td><?= ($row['AKTIF'] == null) ? ' <i class="fas fa-times-circle"></i> ' : '<i class="fas fa-check-circle"></i>' ?></td>
+                                            <td><?= $row['HARI']; ?></td>
+                                            <td><?= $row['JAM'] ?></td>
+                                            <td><?= $row['POLI'] ?></td>
                                             <td>
-                                                <a href="edit_admin/<?= $row['ID_ADMIN']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
-                                                <a href="hapus_admin/<?= $row['ID_ADMIN']; ?>" class=" btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                <a href="<?= base_url('editJadwal'); ?>/<?= $row['ID_JADWAL']; ?>" class="btn btn-warning"><i class="fas fa-pen"></i> Edit</a>
+                                                <a href="<?= base_url('hapusJadwal'); ?>/<?= $row['ID_JADWAL']; ?>" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

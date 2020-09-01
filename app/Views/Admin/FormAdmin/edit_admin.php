@@ -147,6 +147,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('jadwalAdmin'); ?>" class="nav-link">
+                                <i class="fas fa-calendar"></i>
+                                <p>Jadwal Dokter</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('adminAdmin'); ?>" class="nav-link active">
                                 <i class="fas fa-hospital-user"></i>
                                 <p>Admin</p>

@@ -48,6 +48,7 @@ $routes->get('/dokterAdmin', 'Dashboard\AdminController::dokter');
 $routes->get('/adminAdmin', 'Dashboard\AdminController::admin');
 $routes->get('/laporanAdmin', 'Dashboard\AdminController::laporan');
 $routes->get('/suratRujukan', 'Dashboard\AdminController::rujuk');
+$routes->get('/jadwalAdmin', 'Dashboard\AdminController::jadwal');
 //FORM
 //Form Pasien
 $routes->get('/pendaftaran', 'Dashboard\AdminController::pendaftaran');
@@ -63,6 +64,11 @@ $routes->post('/save_pasien', 'Dashboard\AdminController::save_pasien');
 $routes->get('/hapus_pasien/(:num)', 'Dashboard\AdminController::hapus_pasien/$1');
 $routes->get('/edit_pasien/(:segment)', 'Dashboard\AdminController::edit_pasien/$1');
 $routes->post('/edit_pasien/(:segment)/(:num)', 'Dashboard\AdminController::update_pasien/$2');
+$routes->get('/tambahJadwal', 'Dashboard\AdminController::tambah_jadwal');
+$routes->post('/save_jadwal', 'Dashboard\AdminController::save_jadwal/$1');
+$routes->get('/hapusJadwal/(:num)', 'Dashboard\AdminController::hapus_jadwal/$1');
+$routes->get('/editJadwal/(:num)', 'Dashboard\AdminController::edit_jadwal/$1');
+$routes->post('/updateJadwal/(:num)', 'Dashboard\AdminController::update_jadwal/$1');
 //Form Dokter
 $routes->get('/tambahDokter', 'Dashboard\AdminController::tambah_dokter');
 $routes->post('/save_jadwal', 'Dashboard\AdminController::save_jadwal');
