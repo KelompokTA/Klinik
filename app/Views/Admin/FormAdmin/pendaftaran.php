@@ -258,20 +258,25 @@
                                         <div>
                                             <label>Nomer Antrian</label>
                                             <?php {
-                                                $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
-                                                //Next Antrian
+                                                // $koneksi = mysqli_connect('localhost', 'root', '', 'db_klinik');
+                                                // //Next Antrian
+                                                // // $tgl = date('Y-m-d');
+                                                // $query = mysqli_query($koneksi, "SELECT created_pendaftaran,max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
+                                                // //$koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran WHERE Tanggal
+                                                // $data = mysqli_fetch_array($query);
+                                                // // dd($data);
                                                 // $tgl = date('Y-m-d');
-                                                $query = mysqli_query($koneksi, "SELECT created_pendaftaran,max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran");
-                                                //$koneksi, "SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran WHERE Tanggal
-                                                $data = mysqli_fetch_array($query);
-                                                // dd($data);
-                                                $tgl = date('Y-m-d');
-                                                if ($data['created_pendaftaran'] == $tgl) {
-                                                    $nomerAntrian = $data['nextAntrian'];
-                                                    $nomerAntrian++;
+                                                // if ($data['created_pendaftaran'] == $tgl) {
+                                                //     $nomerAntrian = $data['nextAntrian'];
+                                                //     $nomerAntrian++;
+                                                // }
+                                                // $nomerAntrian = $data['nextAntrian'];
+                                                // $nomerAntrian++;
+                                                if (empty($antrian['nextAntrian'])) {
+                                                    $nomerAntrian = 1;
+                                                } else {
+                                                    $nomerAntrian = $antrian['nextAntrian'] + 1;
                                                 }
-                                                $nomerAntrian = $data['nextAntrian'];
-                                                $nomerAntrian++;
                                             ?>
                                                 <input name="no_antrian" required="required" type="text" class="form-control" value="<?= $nomerAntrian; ?>" readonly>
                                                 </input>
@@ -285,6 +290,11 @@
                                                 </div>
                                                 <!-- date_default_timezone_set('Asia/Jakarta'); -->
                                         </div>
+                                        <div class="form-group">
+                                            <label>Biaya Administrasi</label>
+                                            <input name="biaya_admin" required="required" type="text" class="form-control" value="15000">
+                                        </div>
+
                                         <div>
                                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
 

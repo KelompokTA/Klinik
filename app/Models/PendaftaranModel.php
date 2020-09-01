@@ -10,13 +10,13 @@ class PendaftaranModel extends Model
 
     protected $table = 'pendaftaran';
     protected $primaryKey = 'ID_PENDAFTARAN';
-    protected $allowedFields = ['ID_ADMIN', 'ID_DOKTER', 'ID_PASIEN', 'NOMER_ANTRIAN', 'DARURAT'];
+    protected $allowedFields = ['ID_ADMIN', 'ID_DOKTER', 'ID_PASIEN', 'NOMER_ANTRIAN', 'DARURAT', 'BIAYA_ADMINISTRASI'];
+
 
     public function getPendaftaran($id = false)
     {
         if ($id === false) {
-            setlocale(LC_ALL, 'id_ID.utf8');
-            $tgl = "2020-08-27";
+            $tgl = date('Y-m-d');
             $db      = \Config\Database::connect();
             $builder = $db->table('pendaftaran');
             $builder->select('*');

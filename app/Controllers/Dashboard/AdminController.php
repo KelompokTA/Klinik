@@ -153,7 +153,8 @@ class AdminController extends BaseController
             return redirect()->to(base_url('login'));
         }
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT max(NOMER_ANTRIAN) as nextAntrian, max(created_pendaftaran) as lastDay FROM pendaftaran');
+        $tgl = date('Y-m-d');
+        $query = $db->query("SELECT max(NOMER_ANTRIAN) as nextAntrian FROM pendaftaran where created_pendaftaran = '$tgl' GROUP BY created_pendaftaran");
         $results = $query->getRowArray();
         $data = [
             'pendaftaran' => $this->PendaftaranModel->getPendaftaran(),
@@ -186,6 +187,7 @@ class AdminController extends BaseController
             $validation = \Config\Services::validation();
             return redirect()->to('tambahPasien')->withInput()->with('validation', $validation);
         }
+        // dd($this->request->getVar());
         $this->PasienModel->save([
             'NO_RM' => $this->request->getVar('no_rm'),
             'NO_KTP' => $this->request->getVar('no_ktp'),
@@ -344,14 +346,17 @@ class AdminController extends BaseController
         $data = [];
         return view('Admin/FormAdmin/surat_rujukan');
     }
+
     public function save_pendaftaran()
     {
+        // dd($this->request->getVar());
         $this->PendaftaranModel->save([
             'ID_ADMIN' => $this->request->getVar('id_admin'),
             'ID_PASIEN' => $this->request->getVar('id_pasien'),
             'ID_DOKTER' => $this->request->getVar('id_dokter'),
             'NOMER_ANTRIAN' => $this->request->getVar('no_antrian'),
             'DARURAT' => $this->request->getVar('darurat'),
+            'BIAYA_ADMINISTRASI' => $this->request->getVar('biaya_admin')
         ]);
 
         session()->setFlashdata('Info', 'Data Berhasil Ditambahkan');
@@ -642,7 +647,7 @@ class AdminController extends BaseController
         foreach ($results as $row) {
             $id_pelayanan = $row['ID_PELAYANAN'];
             $id_admin = $row['ID_ADMIN'];
-            $total_biaya = $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'];
+            $total_biaya = $row['TOTAL_BIAYA_RESEP'] + $row['BIAYA_PELAYANAN'] + $row['BIAYA_ADMINISTRASI'];
         }
         $this->LaporanModel->save([
             'ID_PELAYANAN' => $id_pelayanan,

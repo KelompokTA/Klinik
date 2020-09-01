@@ -230,13 +230,14 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nomer Rekam Medik</label>
-                                            <select class="form-control select2" style="width: 100%;" name="NO_RM">
+                                            <select class="form-control select2" style="width: 80%;" name="NO_RM">
                                                 <option selected disabled value=""></option>
                                                 <?php foreach ($pendaftaran as $row) { ?>
                                                     <option value="<?= $row['NO_RM']; ?>"><?= old('pasien'); ?><?= $row['NO_RM'] . " &nbsp &nbsp" . $row['NAMA_PASIEN'] ?></option>
                                                 <?php } ?>
-                                                <input type="submit" class="form-control" />
+                                            </select>
                                         </div>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Cari</button>
                                         <?php
                                         $konek = mysqli_connect("localhost", "root", "", "db_klinik");
                                         if (isset($_GET['NO_RM']) && $_GET['NO_RM'] != '') {
@@ -287,7 +288,7 @@
 
                                                         <td><?= $ds['ID_PELAYANAN']; ?></td>
                                                         <td><?= $tgl ?></td>
-                                                        <td><?= $ds['TOTAL_BIAYA_RESEP'] + $ds['BIAYA_PELAYANAN']; ?></td>
+                                                        <td><?= $ds['TOTAL_BIAYA_RESEP'] + $ds['BIAYA_PELAYANAN'] + $ds['BIAYA_ADMINISTRASI']; ?></td>
                                                         <td>
                                                             <a href="save_pembayaran/<?= $ds['ID_PELAYANAN']; ?>" class="btn btn-success"><i class="fas fa-wallet"></i> Bayar</a>
                                                         </td>
